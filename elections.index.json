@@ -20,9 +20,9 @@
         "contra-costa",
         "2026"
       ],
-      "description": "Election with a single pre-election snapshot that is also labeled latest.",
       "title": "2026 Primary",
       "subtitle": "Contra Costa County 2026 Primary Election Results",
+      "description": "This interactive map displays precinct-level voting results for the Contra Costa County 2026 Primary Election.",
       "snapshots": [
         {
           "id": "2026-06-02-primary-latest",
@@ -59,6 +59,7 @@
       ],
       "title": "Prop 50 Special",
       "subtitle": "Contra Costa County 2025 Prop 50 Election Results",
+      "description": "This interactive map displays precinct-level voting results for Contra Costa County's 2025 Special Election on Proposition 50.",
       "snapshots": [
         {
           "id": "2025-11-04-special-prop50",
@@ -104,6 +105,7 @@
       ],
       "title": "2024 General",
       "subtitle": "Contra Costa County 2024 General Election Results",
+      "description": "This interactive map displays precinct-level voting results for the Contra Costa County 2024 General Election.",
       "snapshots": [
         {
           "id": "2024-11-05-general",
@@ -249,6 +251,7 @@
       ],
       "title": "2024 Primary",
       "subtitle": "Contra Costa County 2024 Primary Election Results",
+      "description": "This interactive map displays precinct-level voting results for the Contra Costa County 2024 Primary Election.",
       "snapshots": [
         {
           "id": "2024-03-05-primary",
@@ -374,6 +377,7 @@
       ],
       "title": "2022 Marin General",
       "subtitle": "Marin County 2022 General Election Results",
+      "description": "This interactive map displays precinct-level voting results for the Marin County 2022 General Election.",
       "snapshots": [
         {
           "id": "2022-11-08-general-marin",

@@ -1,12 +1,4 @@
 {
   "schemaVersion": 1,
-  "generated": "2026-05-31",
-  "files": {
-    "election": "election.json",
-    "precincts": "precincts.gis.json"
-  },
-  "fields": {
-    "precinctIdField": "PrecinctID",
-    "precinctLabelField": "PrecinctNM"
-  }
+  "generated": "2026-05-31"
 }
