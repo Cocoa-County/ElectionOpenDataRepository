@@ -1,8 +1,28 @@
 {
   "version": 1,
   "updated": "2026-06-01",
-  "defaultElectionId": "2024-11-05-general",
+  "defaultElectionId": "2026-06-02-primary",
   "elections": [
+    {
+      "id": "2026-06-02-primary",
+      "electionGroupId": "2026-06-02-primary",
+      "type": "primary",
+      "label": "Contra Costa County 2026 Primary Election Results",
+      "date": "2026-06-02",
+      "county": "Contra Costa",
+      "state": "CA",
+      "dataUrl": "elections/2026-06-02-primary/election.json",
+      "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
+      "precinctIdField": "sPrecinctID",
+      "precinctLabelField": "szPrecinctName",
+      "grouped": false,
+      "tags": [
+        "pre-election",
+        "contra-costa",
+        "2026"
+      ],
+      "description": "Pre-election baseline snapshot before votes are counted."
+    },
     {
       "id": "2025-11-04-special-prop50-2025-11-06T00-29-07Z-467abc3",
       "electionGroupId": "2025-11-04-special-prop50",
