@@ -1,13 +1,6 @@
 {
   "schemaVersion": 1,
   "generated": "2026-05-31",
-  "source": {
-    "name": "CocoaCountyMap",
-    "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-    "commit": "d12a7790bba71c951d21f84216997c47a7944a65",
-    "commitSubject": "Marin County 2022 General Election",
-    "commitDateTime": "2023-03-20T16:37:09-07:00"
-  },
   "files": {
     "election": "election.json",
     "precincts": "precincts.gis.json"

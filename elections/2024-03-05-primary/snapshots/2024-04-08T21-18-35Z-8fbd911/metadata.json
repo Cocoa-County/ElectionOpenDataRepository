@@ -1,13 +1,6 @@
 {
   "schemaVersion": 1,
   "generated": "2026-05-31",
-  "source": {
-    "name": "CocoaCountyMap",
-    "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-    "commit": "8fbd911dc9d4cbdb5384af1110ea22bf873df431",
-    "commitSubject": "Added support for Vote For X contests",
-    "commitDateTime": "2024-04-08T14:18:35-07:00"
-  },
   "files": {
     "election": "election.json",
     "precincts": "../../precincts.gis.json"

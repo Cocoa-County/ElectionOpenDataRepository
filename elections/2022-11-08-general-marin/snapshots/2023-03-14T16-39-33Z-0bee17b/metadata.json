@@ -1,13 +1,6 @@
 {
   "schemaVersion": 1,
   "generated": "2026-05-31",
-  "source": {
-    "name": "CocoaCountyMap",
-    "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-    "commit": "0bee17bd523e782a842469ae5ef0e38bd5f73ec9",
-    "commitSubject": "Refactor, add turnout statistics",
-    "commitDateTime": "2023-03-14T09:39:33-07:00"
-  },
   "files": {
     "election": "election.json",
     "precincts": "../../precincts.gis.json"

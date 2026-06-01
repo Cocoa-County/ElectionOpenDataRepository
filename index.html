@@ -747,7 +747,7 @@
           const titleText = toText(version.title);
           const typeText = Array.isArray(version.snapshotTypes)
             ? version.snapshotTypes.filter(Boolean).map(toText).join(", ")
-            : toText(version.snapshotType);
+            : "";
           const baseLabel = titleText || toText(version.id) || ("snapshot-" + (index + 1));
           const label = typeText ? (baseLabel + " [" + typeText + "]") : baseLabel;
           const value = version._versionKey;
