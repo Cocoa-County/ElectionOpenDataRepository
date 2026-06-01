@@ -21,6 +21,8 @@ This repository is structured for static hosting on GitHub Pages and consumption
 1. In repository settings, enable GitHub Pages from the `main` branch root.
 2. Your index URL will be:
    `https://<org>.github.io/<repo>/elections.index.json`
+3. Explore data at:
+   `https://cocoa-county.github.io/ElectionOpenDataRepository/`
 
 ## Data Contract Notes
 
