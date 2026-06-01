@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "generated": "2026-06-01",
+  "source": {
+    "name": "s52024map",
+    "url": "https://github.com/Spinnernicholas/s52024map",
+    "commit": "f9843e52479c8eea7ba8982940385148cc816136",
+    "commitSubject": "fixed contest title",
+    "commitDateTime": "2024-11-09T13:35:31-08:00"
+  },
+  "files": {
+    "election": "election.json",
+    "precincts": "../../precincts.gis.json"
+  },
+  "fields": {
+    "precinctIdField": "PrecinctID",
+    "precinctLabelField": "PrecinctNM"
+  }
+}

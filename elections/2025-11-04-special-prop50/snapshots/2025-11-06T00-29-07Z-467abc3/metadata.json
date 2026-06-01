@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "generated": "2026-05-31",
+  "source": {
+    "name": "electionmap_2025_nov_prop50",
+    "url": "https://github.com/Spinnernicholas/electionmap_2025_nov_prop50",
+    "commit": "467abc3fcf674b99472b11162d8ad3a023cf4e8c",
+    "commitSubject": "Election Data: Tuesday, November 4, 2025, 11:04:34 PM",
+    "commitDateTime": "2025-11-05T16:29:07-08:00"
+  },
+  "files": {
+    "election": "election.json",
+    "precincts": "precincts.gis.json"
+  },
+  "fields": {
+    "precinctIdField": "PrecinctID",
+    "precinctLabelField": "PrecinctNM"
+  }
+}

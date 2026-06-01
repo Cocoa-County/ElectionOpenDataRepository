@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "generated": "2026-05-31",
+  "source": {
+    "name": "CocoaCountyMap",
+    "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+    "commit": "65cf73ac7dec5495f7bf930ee4ac38f03a700732",
+    "commitSubject": "Tuesday, March 5, 2024, 10:31:53 PM",
+    "commitDateTime": "2024-03-05T23:16:40-08:00"
+  },
+  "files": {
+    "election": "election.json",
+    "precincts": "../../precincts.gis.json"
+  },
+  "fields": {
+    "precinctIdField": "PrecinctID",
+    "precinctLabelField": "PrecinctNM"
+  }
+}

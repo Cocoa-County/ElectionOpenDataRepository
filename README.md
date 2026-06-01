@@ -29,3 +29,13 @@ This repository is structured for static hosting on GitHub Pages and consumption
 - `defaultElectionId` should match an election `id` in the `elections` array.
 - Every `election.id` should be unique.
 - GeoJSON properties should include `precinctIdField` values that match keys in `election.json`.
+
+## Snapshot Versioning
+
+This repository now supports multiple timestamped versions of the same election to track results over time.
+
+- Use a stable election group field: `electionGroupId`.
+- Use a per-snapshot timestamp field: `resultsTimestamp` (ISO datetime).
+- Add multiple election entries in `elections.index.json` that share the same `electionGroupId` but have different `id`, `dataUrl`, and `resultsTimestamp` values.
+- If multiple snapshots use the same precinct GeoJSON, store one shared `precincts.gis.json` at the election root and point snapshot metadata or index entries at that shared file.
+- In the static explorer, select an election, then switch versions from the `Version` dropdown to compare counts over time.

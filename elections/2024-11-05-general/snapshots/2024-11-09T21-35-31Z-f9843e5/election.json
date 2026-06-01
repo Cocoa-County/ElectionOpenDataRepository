@@ -1,0 +1,7432 @@
+{
+  "contests": [
+    {
+      "index": 0,
+      "id": "10008",
+      "label": "Election Night Final Total",
+      "voteFor": 1,
+      "choices": [
+        {
+          "index": 0,
+          "id": 0,
+          "label": "SHANELLE SCALES-PRESTON",
+          "votes": 25116
+        },
+        {
+          "index": 1,
+          "id": 1,
+          "label": "MIKE BARBANICA",
+          "votes": 25049
+        }
+      ],
+      "precincts": {
+        "ALHA101": {
+          "label": "ALHA101",
+          "total": 24,
+          "winner": 0,
+          "results": [
+            14,
+            10
+          ],
+          "percentage": [
+            0.5833,
+            0.4167
+          ],
+          "registeredVoters": 67,
+          "totalVoters": 27
+        },
+        "ALHA102": {
+          "label": "ALHA102",
+          "total": 6,
+          "registeredVoters": 19,
+          "totalVoters": 8
+        },
+        "ALHA103": {
+          "label": "ALHA103",
+          "total": 3,
+          "registeredVoters": 9,
+          "totalVoters": 3
+        },
+        "ALHA104": {
+          "label": "ALHA104",
+          "total": 32,
+          "winner": 0,
+          "results": [
+            23,
+            9
+          ],
+          "percentage": [
+            0.7188,
+            0.2813
+          ],
+          "registeredVoters": 70,
+          "totalVoters": 38
+        },
+        "ALHA105": {
+          "label": "ALHA105",
+          "total": 77,
+          "winner": 1,
+          "results": [
+            33,
+            44
+          ],
+          "percentage": [
+            0.4286,
+            0.5714
+          ],
+          "registeredVoters": 155,
+          "totalVoters": 83
+        },
+        "ALHA106": {
+          "label": "ALHA106",
+          "total": 154,
+          "winner": 1,
+          "results": [
+            55,
+            99
+          ],
+          "percentage": [
+            0.3571,
+            0.6429
+          ],
+          "registeredVoters": 287,
+          "totalVoters": 169
+        },
+        "ALHA108": {
+          "label": "ALHA108",
+          "total": 28,
+          "winner": 1,
+          "results": [
+            7,
+            21
+          ],
+          "percentage": [
+            0.25,
+            0.75
+          ],
+          "registeredVoters": 60,
+          "totalVoters": 31
+        },
+        "ALHA109": {
+          "label": "ALHA109",
+          "total": 19,
+          "winner": 1,
+          "results": [
+            8,
+            11
+          ],
+          "percentage": [
+            0.4211,
+            0.5789
+          ],
+          "registeredVoters": 48,
+          "totalVoters": 25
+        },
+        "ALHA110": {
+          "label": "ALHA110",
+          "total": 13,
+          "winner": 1,
+          "results": [
+            5,
+            8
+          ],
+          "percentage": [
+            0.3846,
+            0.6154
+          ],
+          "registeredVoters": 38,
+          "totalVoters": 13
+        },
+        "ALHA111": {
+          "label": "ALHA111",
+          "total": 112,
+          "winner": 1,
+          "results": [
+            41,
+            71
+          ],
+          "percentage": [
+            0.3661,
+            0.6339
+          ],
+          "registeredVoters": 232,
+          "totalVoters": 129
+        },
+        "ALHA112": {
+          "label": "ALHA112",
+          "total": 12,
+          "winner": 1,
+          "results": [
+            4,
+            8
+          ],
+          "percentage": [
+            0.3333,
+            0.6667
+          ],
+          "registeredVoters": 25,
+          "totalVoters": 14
+        },
+        "ALHA801": {
+          "label": "ALHA801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "ALHA802": {
+          "label": "ALHA802",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "ALHA803": {
+          "label": "ALHA803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "ALHA805": {
+          "label": "ALHA805",
+          "total": 5,
+          "registeredVoters": 8,
+          "totalVoters": 5
+        },
+        "ALHA806": {
+          "label": "ALHA806",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "ALHA810": {
+          "label": "ALHA810",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 7,
+          "totalVoters": 2
+        },
+        "ALHA811": {
+          "label": "ALHA811",
+          "total": 3,
+          "registeredVoters": 4,
+          "totalVoters": 3
+        },
+        "ALHA812": {
+          "label": "ALHA812",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "ALHA813": {
+          "label": "ALHA813",
+          "total": 9,
+          "registeredVoters": 10,
+          "totalVoters": 9
+        },
+        "ANTI118": {
+          "label": "ANTI118",
+          "total": 729,
+          "winner": 1,
+          "results": [
+            309,
+            420
+          ],
+          "percentage": [
+            0.4239,
+            0.5761
+          ],
+          "registeredVoters": 2102,
+          "totalVoters": 783
+        },
+        "ANTI119": {
+          "label": "ANTI119",
+          "total": 554,
+          "winner": 1,
+          "results": [
+            218,
+            336
+          ],
+          "percentage": [
+            0.3935,
+            0.6065
+          ],
+          "registeredVoters": 1575,
+          "totalVoters": 593
+        },
+        "ANTI131": {
+          "label": "ANTI131",
+          "total": 837,
+          "winner": 1,
+          "results": [
+            310,
+            527
+          ],
+          "percentage": [
+            0.3704,
+            0.6296
+          ],
+          "registeredVoters": 2686,
+          "totalVoters": 917
+        },
+        "ANTI135": {
+          "label": "ANTI135",
+          "total": 245,
+          "winner": 1,
+          "results": [
+            105,
+            140
+          ],
+          "percentage": [
+            0.4286,
+            0.5714
+          ],
+          "registeredVoters": 669,
+          "totalVoters": 259
+        },
+        "ANTI137": {
+          "label": "ANTI137",
+          "total": 857,
+          "winner": 1,
+          "results": [
+            328,
+            529
+          ],
+          "percentage": [
+            0.3827,
+            0.6173
+          ],
+          "registeredVoters": 2010,
+          "totalVoters": 914
+        },
+        "ANTI149": {
+          "label": "ANTI149",
+          "total": 817,
+          "winner": 1,
+          "results": [
+            276,
+            541
+          ],
+          "percentage": [
+            0.3378,
+            0.6622
+          ],
+          "registeredVoters": 2233,
+          "totalVoters": 889
+        },
+        "ANTI150": {
+          "label": "ANTI150",
+          "total": 78,
+          "winner": 1,
+          "results": [
+            33,
+            45
+          ],
+          "percentage": [
+            0.4231,
+            0.5769
+          ],
+          "registeredVoters": 246,
+          "totalVoters": 80
+        },
+        "ANTI153": {
+          "label": "ANTI153",
+          "total": 172,
+          "winner": 1,
+          "results": [
+            69,
+            103
+          ],
+          "percentage": [
+            0.4012,
+            0.5988
+          ],
+          "registeredVoters": 550,
+          "totalVoters": 187
+        },
+        "ANTI805": {
+          "label": "ANTI805",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "BAPO101": {
+          "label": "BAPO101",
+          "total": 139,
+          "winner": 0,
+          "results": [
+            71,
+            68
+          ],
+          "percentage": [
+            0.5108,
+            0.4892
+          ],
+          "registeredVoters": 574,
+          "totalVoters": 158
+        },
+        "BAPO102": {
+          "label": "BAPO102",
+          "total": 467,
+          "winner": 0,
+          "results": [
+            239,
+            228
+          ],
+          "percentage": [
+            0.5118,
+            0.4882
+          ],
+          "registeredVoters": 1184,
+          "totalVoters": 515
+        },
+        "BAPO103": {
+          "label": "BAPO103",
+          "total": 802,
+          "winner": 0,
+          "results": [
+            408,
+            394
+          ],
+          "percentage": [
+            0.5087,
+            0.4913
+          ],
+          "registeredVoters": 2616,
+          "totalVoters": 864
+        },
+        "BAPO104": {
+          "label": "BAPO104",
+          "total": 800,
+          "winner": 1,
+          "results": [
+            392,
+            408
+          ],
+          "percentage": [
+            0.49,
+            0.51
+          ],
+          "registeredVoters": 2947,
+          "totalVoters": 896
+        },
+        "BAPO105": {
+          "label": "BAPO105",
+          "total": 713,
+          "winner": 0,
+          "results": [
+            366,
+            347
+          ],
+          "percentage": [
+            0.5133,
+            0.4867
+          ],
+          "registeredVoters": 2382,
+          "totalVoters": 793
+        },
+        "BAPO106": {
+          "label": "BAPO106",
+          "total": 185,
+          "winner": 0,
+          "results": [
+            94,
+            91
+          ],
+          "percentage": [
+            0.5081,
+            0.4919
+          ],
+          "registeredVoters": 503,
+          "totalVoters": 209
+        },
+        "BAPO801": {
+          "label": "BAPO801",
+          "total": 1,
+          "registeredVoters": 1,
+          "totalVoters": 1
+        },
+        "BAPO802": {
+          "label": "BAPO802",
+          "total": 1,
+          "registeredVoters": 7,
+          "totalVoters": 2
+        },
+        "BAPO803": {
+          "label": "BAPO803",
+          "total": 2,
+          "registeredVoters": 2,
+          "totalVoters": 2
+        },
+        "BRHL101": {
+          "label": "BRHL101",
+          "total": 49,
+          "winner": 1,
+          "results": [
+            22,
+            27
+          ],
+          "percentage": [
+            0.449,
+            0.551
+          ],
+          "registeredVoters": 102,
+          "totalVoters": 56
+        },
+        "BRHL104": {
+          "label": "BRHL104",
+          "total": 6,
+          "registeredVoters": 10,
+          "totalVoters": 7
+        },
+        "BRHL106": {
+          "label": "BRHL106",
+          "total": 32,
+          "winner": 0,
+          "results": [
+            16,
+            16
+          ],
+          "percentage": [
+            0.5,
+            0.5
+          ],
+          "registeredVoters": 45,
+          "totalVoters": 36
+        },
+        "BRHL109": {
+          "label": "BRHL109",
+          "total": 250,
+          "winner": 0,
+          "results": [
+            131,
+            119
+          ],
+          "percentage": [
+            0.524,
+            0.476
+          ],
+          "registeredVoters": 492,
+          "totalVoters": 288
+        },
+        "BRHL801": {
+          "label": "BRHL801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "BRHL803": {
+          "label": "BRHL803",
+          "total": 1,
+          "registeredVoters": 0,
+          "totalVoters": 1
+        },
+        "BRHL804": {
+          "label": "BRHL804",
+          "total": 2,
+          "registeredVoters": 2,
+          "totalVoters": 2
+        },
+        "CLYD101": {
+          "label": "CLYD101",
+          "total": 255,
+          "winner": 1,
+          "results": [
+            121,
+            134
+          ],
+          "percentage": [
+            0.4745,
+            0.5255
+          ],
+          "registeredVoters": 527,
+          "totalVoters": 288
+        },
+        "CLYD801": {
+          "label": "CLYD801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "CONC119": {
+          "label": "CONC119",
+          "total": 8,
+          "registeredVoters": 31,
+          "totalVoters": 11
+        },
+        "CONC126": {
+          "label": "CONC126",
+          "total": 1141,
+          "winner": 0,
+          "results": [
+            587,
+            554
+          ],
+          "percentage": [
+            0.5145,
+            0.4855
+          ],
+          "registeredVoters": 2986,
+          "totalVoters": 1286
+        },
+        "CONC128": {
+          "label": "CONC128",
+          "total": 64,
+          "winner": 0,
+          "results": [
+            34,
+            30
+          ],
+          "percentage": [
+            0.5313,
+            0.4688
+          ],
+          "registeredVoters": 190,
+          "totalVoters": 67
+        },
+        "CONC805": {
+          "label": "CONC805",
+          "total": 2,
+          "registeredVoters": 2,
+          "totalVoters": 2
+        },
+        "CROC101": {
+          "label": "CROC101",
+          "total": 1076,
+          "winner": 0,
+          "results": [
+            606,
+            470
+          ],
+          "percentage": [
+            0.5632,
+            0.4368
+          ],
+          "registeredVoters": 2358,
+          "totalVoters": 1196
+        },
+        "CROC801": {
+          "label": "CROC801",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "CROC802": {
+          "label": "CROC802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "FAIR801": {
+          "label": "FAIR801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "HERC101": {
+          "label": "HERC101",
+          "total": 476,
+          "winner": 0,
+          "results": [
+            268,
+            208
+          ],
+          "percentage": [
+            0.563,
+            0.437
+          ],
+          "registeredVoters": 1202,
+          "totalVoters": 534
+        },
+        "HERC102": {
+          "label": "HERC102",
+          "total": 1347,
+          "winner": 0,
+          "results": [
+            752,
+            595
+          ],
+          "percentage": [
+            0.5583,
+            0.4417
+          ],
+          "registeredVoters": 3356,
+          "totalVoters": 1499
+        },
+        "HERC103": {
+          "label": "HERC103",
+          "total": 174,
+          "winner": 0,
+          "results": [
+            95,
+            79
+          ],
+          "percentage": [
+            0.546,
+            0.454
+          ],
+          "registeredVoters": 383,
+          "totalVoters": 200
+        },
+        "HERC104": {
+          "label": "HERC104",
+          "total": 949,
+          "winner": 0,
+          "results": [
+            485,
+            464
+          ],
+          "percentage": [
+            0.5111,
+            0.4889
+          ],
+          "registeredVoters": 2320,
+          "totalVoters": 1081
+        },
+        "HERC105": {
+          "label": "HERC105",
+          "total": 36,
+          "winner": 0,
+          "results": [
+            18,
+            18
+          ],
+          "percentage": [
+            0.5,
+            0.5
+          ],
+          "registeredVoters": 100,
+          "totalVoters": 44
+        },
+        "HERC106": {
+          "label": "HERC106",
+          "total": 628,
+          "winner": 0,
+          "results": [
+            373,
+            255
+          ],
+          "percentage": [
+            0.5939,
+            0.4061
+          ],
+          "registeredVoters": 1424,
+          "totalVoters": 701
+        },
+        "HERC107": {
+          "label": "HERC107",
+          "total": 983,
+          "winner": 0,
+          "results": [
+            539,
+            444
+          ],
+          "percentage": [
+            0.5483,
+            0.4517
+          ],
+          "registeredVoters": 2602,
+          "totalVoters": 1101
+        },
+        "HERC108": {
+          "label": "HERC108",
+          "total": 815,
+          "winner": 1,
+          "results": [
+            386,
+            429
+          ],
+          "percentage": [
+            0.4736,
+            0.5264
+          ],
+          "registeredVoters": 2095,
+          "totalVoters": 926
+        },
+        "HERC109": {
+          "label": "HERC109",
+          "total": 937,
+          "winner": 0,
+          "results": [
+            471,
+            466
+          ],
+          "percentage": [
+            0.5027,
+            0.4973
+          ],
+          "registeredVoters": 2339,
+          "totalVoters": 1054
+        },
+        "HERC110": {
+          "label": "HERC110",
+          "total": 689,
+          "winner": 1,
+          "results": [
+            306,
+            383
+          ],
+          "percentage": [
+            0.4441,
+            0.5559
+          ],
+          "registeredVoters": 1689,
+          "totalVoters": 779
+        },
+        "MART101": {
+          "label": "MART101",
+          "total": 10,
+          "registeredVoters": 23,
+          "totalVoters": 15
+        },
+        "MART102": {
+          "label": "MART102",
+          "total": 32,
+          "winner": 1,
+          "results": [
+            14,
+            18
+          ],
+          "percentage": [
+            0.4375,
+            0.5625
+          ],
+          "registeredVoters": 70,
+          "totalVoters": 37
+        },
+        "MART103": {
+          "label": "MART103",
+          "total": 238,
+          "winner": 0,
+          "results": [
+            128,
+            110
+          ],
+          "percentage": [
+            0.5378,
+            0.4622
+          ],
+          "registeredVoters": 570,
+          "totalVoters": 261
+        },
+        "MART104": {
+          "label": "MART104",
+          "total": 62,
+          "winner": 1,
+          "results": [
+            29,
+            33
+          ],
+          "percentage": [
+            0.4677,
+            0.5323
+          ],
+          "registeredVoters": 200,
+          "totalVoters": 69
+        },
+        "MART105": {
+          "label": "MART105",
+          "total": 1022,
+          "winner": 1,
+          "results": [
+            487,
+            535
+          ],
+          "percentage": [
+            0.4765,
+            0.5235
+          ],
+          "registeredVoters": 2025,
+          "totalVoters": 1102
+        },
+        "MART106": {
+          "label": "MART106",
+          "total": 157,
+          "winner": 1,
+          "results": [
+            67,
+            90
+          ],
+          "percentage": [
+            0.4268,
+            0.5732
+          ],
+          "registeredVoters": 313,
+          "totalVoters": 168
+        },
+        "MART107": {
+          "label": "MART107",
+          "total": 71,
+          "winner": 0,
+          "results": [
+            37,
+            34
+          ],
+          "percentage": [
+            0.5211,
+            0.4789
+          ],
+          "registeredVoters": 144,
+          "totalVoters": 78
+        },
+        "MART108": {
+          "label": "MART108",
+          "total": 822,
+          "winner": 0,
+          "results": [
+            413,
+            409
+          ],
+          "percentage": [
+            0.5024,
+            0.4976
+          ],
+          "registeredVoters": 1533,
+          "totalVoters": 901
+        },
+        "MART109": {
+          "label": "MART109",
+          "total": 850,
+          "winner": 0,
+          "results": [
+            448,
+            402
+          ],
+          "percentage": [
+            0.5271,
+            0.4729
+          ],
+          "registeredVoters": 1680,
+          "totalVoters": 926
+        },
+        "MART110": {
+          "label": "MART110",
+          "total": 3,
+          "registeredVoters": 12,
+          "totalVoters": 4
+        },
+        "MART111": {
+          "label": "MART111",
+          "total": 13,
+          "winner": 1,
+          "results": [
+            3,
+            10
+          ],
+          "percentage": [
+            0.2308,
+            0.7692
+          ],
+          "registeredVoters": 29,
+          "totalVoters": 12
+        },
+        "MART112": {
+          "label": "MART112",
+          "total": 544,
+          "winner": 1,
+          "results": [
+            241,
+            303
+          ],
+          "percentage": [
+            0.443,
+            0.557
+          ],
+          "registeredVoters": 1016,
+          "totalVoters": 600
+        },
+        "MART113": {
+          "label": "MART113",
+          "total": 117,
+          "winner": 1,
+          "results": [
+            38,
+            79
+          ],
+          "percentage": [
+            0.3248,
+            0.6752
+          ],
+          "registeredVoters": 175,
+          "totalVoters": 131
+        },
+        "MART114": {
+          "label": "MART114",
+          "total": 979,
+          "winner": 0,
+          "results": [
+            500,
+            479
+          ],
+          "percentage": [
+            0.5107,
+            0.4893
+          ],
+          "registeredVoters": 2022,
+          "totalVoters": 1091
+        },
+        "MART115": {
+          "label": "MART115",
+          "total": 30,
+          "winner": 1,
+          "results": [
+            9,
+            21
+          ],
+          "percentage": [
+            0.3,
+            0.7
+          ],
+          "registeredVoters": 54,
+          "totalVoters": 37
+        },
+        "MART116": {
+          "label": "MART116",
+          "total": 313,
+          "winner": 1,
+          "results": [
+            145,
+            168
+          ],
+          "percentage": [
+            0.4633,
+            0.5367
+          ],
+          "registeredVoters": 562,
+          "totalVoters": 345
+        },
+        "MART117": {
+          "label": "MART117",
+          "total": 203,
+          "winner": 0,
+          "results": [
+            110,
+            93
+          ],
+          "percentage": [
+            0.5419,
+            0.4581
+          ],
+          "registeredVoters": 373,
+          "totalVoters": 215
+        },
+        "MART118": {
+          "label": "MART118",
+          "total": 616,
+          "winner": 1,
+          "results": [
+            266,
+            350
+          ],
+          "percentage": [
+            0.4318,
+            0.5682
+          ],
+          "registeredVoters": 1217,
+          "totalVoters": 673
+        },
+        "MART119": {
+          "label": "MART119",
+          "total": 204,
+          "winner": 1,
+          "results": [
+            86,
+            118
+          ],
+          "percentage": [
+            0.4216,
+            0.5784
+          ],
+          "registeredVoters": 387,
+          "totalVoters": 223
+        },
+        "MART120": {
+          "label": "MART120",
+          "total": 312,
+          "winner": 1,
+          "results": [
+            139,
+            173
+          ],
+          "percentage": [
+            0.4455,
+            0.5545
+          ],
+          "registeredVoters": 654,
+          "totalVoters": 345
+        },
+        "MART121": {
+          "label": "MART121",
+          "total": 90,
+          "winner": 1,
+          "results": [
+            35,
+            55
+          ],
+          "percentage": [
+            0.3889,
+            0.6111
+          ],
+          "registeredVoters": 186,
+          "totalVoters": 95
+        },
+        "MART122": {
+          "label": "MART122",
+          "total": 229,
+          "winner": 1,
+          "results": [
+            84,
+            145
+          ],
+          "percentage": [
+            0.3668,
+            0.6332
+          ],
+          "registeredVoters": 506,
+          "totalVoters": 256
+        },
+        "MART123": {
+          "label": "MART123",
+          "total": 13,
+          "winner": 0,
+          "results": [
+            9,
+            4
+          ],
+          "percentage": [
+            0.6923,
+            0.3077
+          ],
+          "registeredVoters": 25,
+          "totalVoters": 16
+        },
+        "MART124": {
+          "label": "MART124",
+          "total": 149,
+          "winner": 0,
+          "results": [
+            86,
+            63
+          ],
+          "percentage": [
+            0.5772,
+            0.4228
+          ],
+          "registeredVoters": 326,
+          "totalVoters": 161
+        },
+        "MART125": {
+          "label": "MART125",
+          "total": 185,
+          "winner": 1,
+          "results": [
+            88,
+            97
+          ],
+          "percentage": [
+            0.4757,
+            0.5243
+          ],
+          "registeredVoters": 466,
+          "totalVoters": 200
+        },
+        "MART126": {
+          "label": "MART126",
+          "total": 81,
+          "winner": 1,
+          "results": [
+            32,
+            49
+          ],
+          "percentage": [
+            0.3951,
+            0.6049
+          ],
+          "registeredVoters": 176,
+          "totalVoters": 86
+        },
+        "MART127": {
+          "label": "MART127",
+          "total": 2,
+          "registeredVoters": 9,
+          "totalVoters": 2
+        },
+        "MART128": {
+          "label": "MART128",
+          "total": 251,
+          "winner": 0,
+          "results": [
+            130,
+            121
+          ],
+          "percentage": [
+            0.5179,
+            0.4821
+          ],
+          "registeredVoters": 523,
+          "totalVoters": 267
+        },
+        "MART129": {
+          "label": "MART129",
+          "total": 588,
+          "winner": 0,
+          "results": [
+            294,
+            294
+          ],
+          "percentage": [
+            0.5,
+            0.5
+          ],
+          "registeredVoters": 1244,
+          "totalVoters": 637
+        },
+        "MART130": {
+          "label": "MART130",
+          "total": 658,
+          "winner": 0,
+          "results": [
+            391,
+            267
+          ],
+          "percentage": [
+            0.5942,
+            0.4058
+          ],
+          "registeredVoters": 1509,
+          "totalVoters": 717
+        },
+        "MART131": {
+          "label": "MART131",
+          "total": 318,
+          "winner": 0,
+          "results": [
+            174,
+            144
+          ],
+          "percentage": [
+            0.5472,
+            0.4528
+          ],
+          "registeredVoters": 748,
+          "totalVoters": 359
+        },
+        "MART132": {
+          "label": "MART132",
+          "total": 576,
+          "winner": 0,
+          "results": [
+            328,
+            248
+          ],
+          "percentage": [
+            0.5694,
+            0.4306
+          ],
+          "registeredVoters": 1273,
+          "totalVoters": 640
+        },
+        "MART133": {
+          "label": "MART133",
+          "total": 243,
+          "winner": 0,
+          "results": [
+            132,
+            111
+          ],
+          "percentage": [
+            0.5432,
+            0.4568
+          ],
+          "registeredVoters": 528,
+          "totalVoters": 262
+        },
+        "MART134": {
+          "label": "MART134",
+          "total": 28,
+          "winner": 1,
+          "results": [
+            11,
+            17
+          ],
+          "percentage": [
+            0.3929,
+            0.6071
+          ],
+          "registeredVoters": 56,
+          "totalVoters": 32
+        },
+        "MART135": {
+          "label": "MART135",
+          "total": 743,
+          "winner": 1,
+          "results": [
+            353,
+            390
+          ],
+          "percentage": [
+            0.4751,
+            0.5249
+          ],
+          "registeredVoters": 1621,
+          "totalVoters": 817
+        },
+        "MART136": {
+          "label": "MART136",
+          "total": 412,
+          "winner": 1,
+          "results": [
+            198,
+            214
+          ],
+          "percentage": [
+            0.4806,
+            0.5194
+          ],
+          "registeredVoters": 877,
+          "totalVoters": 458
+        },
+        "MART137": {
+          "label": "MART137",
+          "total": 210,
+          "winner": 1,
+          "results": [
+            81,
+            129
+          ],
+          "percentage": [
+            0.3857,
+            0.6143
+          ],
+          "registeredVoters": 451,
+          "totalVoters": 237
+        },
+        "MART138": {
+          "label": "MART138",
+          "total": 372,
+          "winner": 1,
+          "results": [
+            164,
+            208
+          ],
+          "percentage": [
+            0.4409,
+            0.5591
+          ],
+          "registeredVoters": 596,
+          "totalVoters": 412
+        },
+        "MART139": {
+          "label": "MART139",
+          "total": 117,
+          "winner": 1,
+          "results": [
+            57,
+            60
+          ],
+          "percentage": [
+            0.4872,
+            0.5128
+          ],
+          "registeredVoters": 291,
+          "totalVoters": 132
+        },
+        "MART140": {
+          "label": "MART140",
+          "total": 216,
+          "winner": 0,
+          "results": [
+            114,
+            102
+          ],
+          "percentage": [
+            0.5278,
+            0.4722
+          ],
+          "registeredVoters": 397,
+          "totalVoters": 237
+        },
+        "MART141": {
+          "label": "MART141",
+          "total": 139,
+          "winner": 1,
+          "results": [
+            51,
+            88
+          ],
+          "percentage": [
+            0.3669,
+            0.6331
+          ],
+          "registeredVoters": 301,
+          "totalVoters": 155
+        },
+        "MART142": {
+          "label": "MART142",
+          "total": 13,
+          "winner": 1,
+          "results": [
+            4,
+            9
+          ],
+          "percentage": [
+            0.3077,
+            0.6923
+          ],
+          "registeredVoters": 23,
+          "totalVoters": 14
+        },
+        "MART143": {
+          "label": "MART143",
+          "total": 132,
+          "winner": 0,
+          "results": [
+            69,
+            63
+          ],
+          "percentage": [
+            0.5227,
+            0.4773
+          ],
+          "registeredVoters": 351,
+          "totalVoters": 146
+        },
+        "MART144": {
+          "label": "MART144",
+          "total": 213,
+          "winner": 1,
+          "results": [
+            105,
+            108
+          ],
+          "percentage": [
+            0.493,
+            0.507
+          ],
+          "registeredVoters": 427,
+          "totalVoters": 234
+        },
+        "MART145": {
+          "label": "MART145",
+          "total": 90,
+          "winner": 0,
+          "results": [
+            50,
+            40
+          ],
+          "percentage": [
+            0.5556,
+            0.4444
+          ],
+          "registeredVoters": 189,
+          "totalVoters": 102
+        },
+        "MART146": {
+          "label": "MART146",
+          "total": 24,
+          "winner": 0,
+          "results": [
+            12,
+            12
+          ],
+          "percentage": [
+            0.5,
+            0.5
+          ],
+          "registeredVoters": 48,
+          "totalVoters": 28
+        },
+        "MART801": {
+          "label": "MART801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "MART802": {
+          "label": "MART802",
+          "total": 4,
+          "registeredVoters": 9,
+          "totalVoters": 4
+        },
+        "MART803": {
+          "label": "MART803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 2,
+          "totalVoters": 0
+        },
+        "MART804": {
+          "label": "MART804",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "MART805": {
+          "label": "MART805",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 2,
+          "totalVoters": 0
+        },
+        "MART806": {
+          "label": "MART806",
+          "total": 2,
+          "registeredVoters": 1,
+          "totalVoters": 2
+        },
+        "MART808": {
+          "label": "MART808",
+          "total": 7,
+          "registeredVoters": 9,
+          "totalVoters": 7
+        },
+        "MART809": {
+          "label": "MART809",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "MART810": {
+          "label": "MART810",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 1
+        },
+        "MART811": {
+          "label": "MART811",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "MVIE101": {
+          "label": "MVIE101",
+          "total": 654,
+          "winner": 0,
+          "results": [
+            336,
+            318
+          ],
+          "percentage": [
+            0.5138,
+            0.4862
+          ],
+          "registeredVoters": 1586,
+          "totalVoters": 731
+        },
+        "MVIE102": {
+          "label": "MVIE102",
+          "total": 6,
+          "registeredVoters": 20,
+          "totalVoters": 6
+        },
+        "MVIE103": {
+          "label": "MVIE103",
+          "total": 17,
+          "winner": 0,
+          "results": [
+            12,
+            5
+          ],
+          "percentage": [
+            0.7059,
+            0.2941
+          ],
+          "registeredVoters": 46,
+          "totalVoters": 20
+        },
+        "MVIE801": {
+          "label": "MVIE801",
+          "total": 1,
+          "registeredVoters": 1,
+          "totalVoters": 1
+        },
+        "NICH801": {
+          "label": "NICH801",
+          "total": 1,
+          "registeredVoters": 8,
+          "totalVoters": 2
+        },
+        "NICH802": {
+          "label": "NICH802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "NRTV101": {
+          "label": "NRTV101",
+          "total": 3,
+          "registeredVoters": 15,
+          "totalVoters": 3
+        },
+        "NRTV801": {
+          "label": "NRTV801",
+          "total": 3,
+          "registeredVoters": 3,
+          "totalVoters": 3
+        },
+        "NRTV802": {
+          "label": "NRTV802",
+          "total": 2,
+          "registeredVoters": 8,
+          "totalVoters": 2
+        },
+        "NRTV803": {
+          "label": "NRTV803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "OLEU101": {
+          "label": "OLEU101",
+          "total": 16,
+          "winner": 1,
+          "results": [
+            4,
+            12
+          ],
+          "percentage": [
+            0.25,
+            0.75
+          ],
+          "registeredVoters": 34,
+          "totalVoters": 22
+        },
+        "OLEU801": {
+          "label": "OLEU801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "OLEU802": {
+          "label": "OLEU802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 1
+        },
+        "PACH102": {
+          "label": "PACH102",
+          "total": 583,
+          "winner": 1,
+          "results": [
+            284,
+            299
+          ],
+          "percentage": [
+            0.4871,
+            0.5129
+          ],
+          "registeredVoters": 1382,
+          "totalVoters": 652
+        },
+        "PACH103": {
+          "label": "PACH103",
+          "total": 116,
+          "winner": 1,
+          "results": [
+            54,
+            62
+          ],
+          "percentage": [
+            0.4655,
+            0.5345
+          ],
+          "registeredVoters": 283,
+          "totalVoters": 141
+        },
+        "PACH104": {
+          "label": "PACH104",
+          "total": 373,
+          "winner": 1,
+          "results": [
+            172,
+            201
+          ],
+          "percentage": [
+            0.4611,
+            0.5389
+          ],
+          "registeredVoters": 951,
+          "totalVoters": 426
+        },
+        "PRCO101": {
+          "label": "PRCO101",
+          "total": 90,
+          "winner": 0,
+          "results": [
+            59,
+            31
+          ],
+          "percentage": [
+            0.6556,
+            0.3444
+          ],
+          "registeredVoters": 161,
+          "totalVoters": 98
+        },
+        "PTTS101": {
+          "label": "PTTS101",
+          "total": 18,
+          "winner": 0,
+          "results": [
+            10,
+            8
+          ],
+          "percentage": [
+            0.5556,
+            0.4444
+          ],
+          "registeredVoters": 51,
+          "totalVoters": 19
+        },
+        "PTTS102": {
+          "label": "PTTS102",
+          "total": 752,
+          "winner": 0,
+          "results": [
+            379,
+            373
+          ],
+          "percentage": [
+            0.504,
+            0.496
+          ],
+          "registeredVoters": 2021,
+          "totalVoters": 811
+        },
+        "PTTS103": {
+          "label": "PTTS103",
+          "total": 120,
+          "winner": 1,
+          "results": [
+            50,
+            70
+          ],
+          "percentage": [
+            0.4167,
+            0.5833
+          ],
+          "registeredVoters": 280,
+          "totalVoters": 124
+        },
+        "PTTS104": {
+          "label": "PTTS104",
+          "total": 617,
+          "winner": 0,
+          "results": [
+            343,
+            274
+          ],
+          "percentage": [
+            0.5559,
+            0.4441
+          ],
+          "registeredVoters": 1828,
+          "totalVoters": 668
+        },
+        "PTTS105": {
+          "label": "PTTS105",
+          "total": 1096,
+          "winner": 0,
+          "results": [
+            560,
+            536
+          ],
+          "percentage": [
+            0.5109,
+            0.4891
+          ],
+          "registeredVoters": 2865,
+          "totalVoters": 1199
+        },
+        "PTTS106": {
+          "label": "PTTS106",
+          "total": 13,
+          "winner": 1,
+          "results": [
+            3,
+            10
+          ],
+          "percentage": [
+            0.2308,
+            0.7692
+          ],
+          "registeredVoters": 15,
+          "totalVoters": 13
+        },
+        "PTTS107": {
+          "label": "PTTS107",
+          "total": 811,
+          "winner": 0,
+          "results": [
+            445,
+            366
+          ],
+          "percentage": [
+            0.5487,
+            0.4513
+          ],
+          "registeredVoters": 2225,
+          "totalVoters": 910
+        },
+        "PTTS108": {
+          "label": "PTTS108",
+          "total": 865,
+          "winner": 1,
+          "results": [
+            399,
+            466
+          ],
+          "percentage": [
+            0.4613,
+            0.5387
+          ],
+          "registeredVoters": 2412,
+          "totalVoters": 962
+        },
+        "PTTS109": {
+          "label": "PTTS109",
+          "total": 728,
+          "winner": 0,
+          "results": [
+            472,
+            256
+          ],
+          "percentage": [
+            0.6484,
+            0.3516
+          ],
+          "registeredVoters": 2292,
+          "totalVoters": 777
+        },
+        "PTTS110": {
+          "label": "PTTS110",
+          "total": 380,
+          "winner": 0,
+          "results": [
+            209,
+            171
+          ],
+          "percentage": [
+            0.55,
+            0.45
+          ],
+          "registeredVoters": 1293,
+          "totalVoters": 412
+        },
+        "PTTS111": {
+          "label": "PTTS111",
+          "total": 727,
+          "winner": 0,
+          "results": [
+            449,
+            278
+          ],
+          "percentage": [
+            0.6176,
+            0.3824
+          ],
+          "registeredVoters": 2263,
+          "totalVoters": 782
+        },
+        "PTTS112": {
+          "label": "PTTS112",
+          "total": 626,
+          "winner": 0,
+          "results": [
+            381,
+            245
+          ],
+          "percentage": [
+            0.6086,
+            0.3914
+          ],
+          "registeredVoters": 1747,
+          "totalVoters": 676
+        },
+        "PTTS113": {
+          "label": "PTTS113",
+          "total": 609,
+          "winner": 0,
+          "results": [
+            354,
+            255
+          ],
+          "percentage": [
+            0.5813,
+            0.4187
+          ],
+          "registeredVoters": 2097,
+          "totalVoters": 655
+        },
+        "PTTS114": {
+          "label": "PTTS114",
+          "total": 678,
+          "winner": 0,
+          "results": [
+            354,
+            324
+          ],
+          "percentage": [
+            0.5221,
+            0.4779
+          ],
+          "registeredVoters": 1978,
+          "totalVoters": 727
+        },
+        "PTTS115": {
+          "label": "PTTS115",
+          "total": 954,
+          "winner": 0,
+          "results": [
+            613,
+            341
+          ],
+          "percentage": [
+            0.6426,
+            0.3574
+          ],
+          "registeredVoters": 2753,
+          "totalVoters": 1007
+        },
+        "PTTS116": {
+          "label": "PTTS116",
+          "total": 735,
+          "winner": 1,
+          "results": [
+            321,
+            414
+          ],
+          "percentage": [
+            0.4367,
+            0.5633
+          ],
+          "registeredVoters": 1970,
+          "totalVoters": 788
+        },
+        "PTTS117": {
+          "label": "PTTS117",
+          "total": 1189,
+          "winner": 1,
+          "results": [
+            575,
+            614
+          ],
+          "percentage": [
+            0.4836,
+            0.5164
+          ],
+          "registeredVoters": 2943,
+          "totalVoters": 1281
+        },
+        "PTTS118": {
+          "label": "PTTS118",
+          "total": 1113,
+          "winner": 1,
+          "results": [
+            539,
+            574
+          ],
+          "percentage": [
+            0.4843,
+            0.5157
+          ],
+          "registeredVoters": 3049,
+          "totalVoters": 1200
+        },
+        "PTTS119": {
+          "label": "PTTS119",
+          "total": 748,
+          "winner": 0,
+          "results": [
+            394,
+            354
+          ],
+          "percentage": [
+            0.5267,
+            0.4733
+          ],
+          "registeredVoters": 1915,
+          "totalVoters": 808
+        },
+        "PTTS120": {
+          "label": "PTTS120",
+          "total": 612,
+          "winner": 1,
+          "results": [
+            305,
+            307
+          ],
+          "percentage": [
+            0.4984,
+            0.5016
+          ],
+          "registeredVoters": 1694,
+          "totalVoters": 655
+        },
+        "PTTS121": {
+          "label": "PTTS121",
+          "total": 270,
+          "winner": 0,
+          "results": [
+            150,
+            120
+          ],
+          "percentage": [
+            0.5556,
+            0.4444
+          ],
+          "registeredVoters": 754,
+          "totalVoters": 297
+        },
+        "PTTS122": {
+          "label": "PTTS122",
+          "total": 39,
+          "winner": 0,
+          "results": [
+            20,
+            19
+          ],
+          "percentage": [
+            0.5128,
+            0.4872
+          ],
+          "registeredVoters": 115,
+          "totalVoters": 39
+        },
+        "PTTS123": {
+          "label": "PTTS123",
+          "total": 912,
+          "winner": 0,
+          "results": [
+            490,
+            422
+          ],
+          "percentage": [
+            0.5373,
+            0.4627
+          ],
+          "registeredVoters": 2624,
+          "totalVoters": 1010
+        },
+        "PTTS801": {
+          "label": "PTTS801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "PTTS802": {
+          "label": "PTTS802",
+          "total": 2,
+          "registeredVoters": 5,
+          "totalVoters": 2
+        },
+        "RODO101": {
+          "label": "RODO101",
+          "total": 74,
+          "winner": 0,
+          "results": [
+            58,
+            16
+          ],
+          "percentage": [
+            0.7838,
+            0.2162
+          ],
+          "registeredVoters": 319,
+          "totalVoters": 80
+        },
+        "RODO102": {
+          "label": "RODO102",
+          "total": 1066,
+          "winner": 0,
+          "results": [
+            563,
+            503
+          ],
+          "percentage": [
+            0.5281,
+            0.4719
+          ],
+          "registeredVoters": 2836,
+          "totalVoters": 1149
+        },
+        "RODO103": {
+          "label": "RODO103",
+          "total": 973,
+          "winner": 1,
+          "results": [
+            422,
+            551
+          ],
+          "percentage": [
+            0.4337,
+            0.5663
+          ],
+          "registeredVoters": 2487,
+          "totalVoters": 1102
+        },
+        "RODO801": {
+          "label": "RODO801",
+          "total": 6,
+          "registeredVoters": 8,
+          "totalVoters": 7
+        },
+        "RODO802": {
+          "label": "RODO802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "TESO801": {
+          "label": "TESO801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "TESO802": {
+          "label": "TESO802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "TESO803": {
+          "label": "TESO803",
+          "total": 1,
+          "registeredVoters": 0,
+          "totalVoters": 1
+        },
+        "TESO804": {
+          "label": "TESO804",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "VIER101": {
+          "label": "VIER101",
+          "total": 6,
+          "registeredVoters": 14,
+          "totalVoters": 7
+        },
+        "VIER801": {
+          "label": "VIER801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "VINE101": {
+          "label": "VINE101",
+          "total": 63,
+          "winner": 1,
+          "results": [
+            25,
+            38
+          ],
+          "percentage": [
+            0.3968,
+            0.6032
+          ],
+          "registeredVoters": 169,
+          "totalVoters": 66
+        },
+        "VINE102": {
+          "label": "VINE102",
+          "total": 293,
+          "winner": 1,
+          "results": [
+            122,
+            171
+          ],
+          "percentage": [
+            0.4164,
+            0.5836
+          ],
+          "registeredVoters": 802,
+          "totalVoters": 331
+        },
+        "VINE103": {
+          "label": "VINE103",
+          "total": 6,
+          "registeredVoters": 27,
+          "totalVoters": 6
+        },
+        "VINE104": {
+          "label": "VINE104",
+          "total": 82,
+          "winner": 1,
+          "results": [
+            32,
+            50
+          ],
+          "percentage": [
+            0.3902,
+            0.6098
+          ],
+          "registeredVoters": 199,
+          "totalVoters": 96
+        },
+        "VINE105": {
+          "label": "VINE105",
+          "total": 49,
+          "winner": 0,
+          "results": [
+            32,
+            17
+          ],
+          "percentage": [
+            0.6531,
+            0.3469
+          ],
+          "registeredVoters": 130,
+          "totalVoters": 57
+        },
+        "VINE106": {
+          "label": "VINE106",
+          "total": 221,
+          "winner": 1,
+          "results": [
+            109,
+            112
+          ],
+          "percentage": [
+            0.4932,
+            0.5068
+          ],
+          "registeredVoters": 499,
+          "totalVoters": 246
+        },
+        "VINE107": {
+          "label": "VINE107",
+          "total": 24,
+          "winner": 1,
+          "results": [
+            8,
+            16
+          ],
+          "percentage": [
+            0.3333,
+            0.6667
+          ],
+          "registeredVoters": 44,
+          "totalVoters": 28
+        },
+        "VINE108": {
+          "label": "VINE108",
+          "total": 299,
+          "winner": 1,
+          "results": [
+            131,
+            168
+          ],
+          "percentage": [
+            0.4381,
+            0.5619
+          ],
+          "registeredVoters": 686,
+          "totalVoters": 330
+        },
+        "VINE801": {
+          "label": "VINE801",
+          "total": 1,
+          "registeredVoters": 3,
+          "totalVoters": 1
+        },
+        "VINE802": {
+          "label": "VINE802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "VINE803": {
+          "label": "VINE803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        }
+      }
+    },
+    {
+      "index": 1,
+      "id": "10008",
+      "label": "11/08/2024 Total",
+      "voteFor": 1,
+      "choices": [
+        {
+          "index": 0,
+          "id": 0,
+          "label": "SHANELLE SCALES-PRESTON",
+          "votes": 33610
+        },
+        {
+          "index": 1,
+          "id": 1,
+          "label": "MIKE BARBANICA",
+          "votes": 31767
+        }
+      ],
+      "precincts": {
+        "ALHA101": {
+          "label": "ALHA101",
+          "total": 41,
+          "winner": 0,
+          "results": [
+            21,
+            20
+          ],
+          "percentage": [
+            0.5122,
+            0.4878
+          ],
+          "registeredVoters": 67,
+          "totalVoters": 49
+        },
+        "ALHA102": {
+          "label": "ALHA102",
+          "total": 7,
+          "registeredVoters": 19,
+          "totalVoters": 9
+        },
+        "ALHA103": {
+          "label": "ALHA103",
+          "total": 5,
+          "registeredVoters": 9,
+          "totalVoters": 5
+        },
+        "ALHA104": {
+          "label": "ALHA104",
+          "total": 45,
+          "winner": 0,
+          "results": [
+            30,
+            15
+          ],
+          "percentage": [
+            0.6667,
+            0.3333
+          ],
+          "registeredVoters": 70,
+          "totalVoters": 56
+        },
+        "ALHA105": {
+          "label": "ALHA105",
+          "total": 91,
+          "winner": 1,
+          "results": [
+            41,
+            50
+          ],
+          "percentage": [
+            0.4505,
+            0.5495
+          ],
+          "registeredVoters": 155,
+          "totalVoters": 102
+        },
+        "ALHA106": {
+          "label": "ALHA106",
+          "total": 194,
+          "winner": 1,
+          "results": [
+            70,
+            124
+          ],
+          "percentage": [
+            0.3608,
+            0.6392
+          ],
+          "registeredVoters": 287,
+          "totalVoters": 212
+        },
+        "ALHA108": {
+          "label": "ALHA108",
+          "total": 33,
+          "winner": 1,
+          "results": [
+            8,
+            25
+          ],
+          "percentage": [
+            0.2424,
+            0.7576
+          ],
+          "registeredVoters": 60,
+          "totalVoters": 36
+        },
+        "ALHA109": {
+          "label": "ALHA109",
+          "total": 23,
+          "winner": 1,
+          "results": [
+            10,
+            13
+          ],
+          "percentage": [
+            0.4348,
+            0.5652
+          ],
+          "registeredVoters": 48,
+          "totalVoters": 29
+        },
+        "ALHA110": {
+          "label": "ALHA110",
+          "total": 18,
+          "winner": 1,
+          "results": [
+            5,
+            13
+          ],
+          "percentage": [
+            0.2778,
+            0.7222
+          ],
+          "registeredVoters": 38,
+          "totalVoters": 19
+        },
+        "ALHA111": {
+          "label": "ALHA111",
+          "total": 148,
+          "winner": 1,
+          "results": [
+            53,
+            95
+          ],
+          "percentage": [
+            0.3581,
+            0.6419
+          ],
+          "registeredVoters": 232,
+          "totalVoters": 173
+        },
+        "ALHA112": {
+          "label": "ALHA112",
+          "total": 14,
+          "winner": 1,
+          "results": [
+            4,
+            10
+          ],
+          "percentage": [
+            0.2857,
+            0.7143
+          ],
+          "registeredVoters": 25,
+          "totalVoters": 17
+        },
+        "ALHA801": {
+          "label": "ALHA801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "ALHA802": {
+          "label": "ALHA802",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "ALHA803": {
+          "label": "ALHA803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "ALHA805": {
+          "label": "ALHA805",
+          "total": 6,
+          "registeredVoters": 8,
+          "totalVoters": 6
+        },
+        "ALHA806": {
+          "label": "ALHA806",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "ALHA810": {
+          "label": "ALHA810",
+          "total": 1,
+          "registeredVoters": 7,
+          "totalVoters": 3
+        },
+        "ALHA811": {
+          "label": "ALHA811",
+          "total": 3,
+          "registeredVoters": 4,
+          "totalVoters": 3
+        },
+        "ALHA812": {
+          "label": "ALHA812",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "ALHA813": {
+          "label": "ALHA813",
+          "total": 10,
+          "registeredVoters": 10,
+          "totalVoters": 10
+        },
+        "ANTI118": {
+          "label": "ANTI118",
+          "total": 1001,
+          "winner": 1,
+          "results": [
+            442,
+            559
+          ],
+          "percentage": [
+            0.4416,
+            0.5584
+          ],
+          "registeredVoters": 2102,
+          "totalVoters": 1071
+        },
+        "ANTI119": {
+          "label": "ANTI119",
+          "total": 706,
+          "winner": 1,
+          "results": [
+            280,
+            426
+          ],
+          "percentage": [
+            0.3966,
+            0.6034
+          ],
+          "registeredVoters": 1575,
+          "totalVoters": 755
+        },
+        "ANTI131": {
+          "label": "ANTI131",
+          "total": 1177,
+          "winner": 1,
+          "results": [
+            476,
+            701
+          ],
+          "percentage": [
+            0.4044,
+            0.5956
+          ],
+          "registeredVoters": 2686,
+          "totalVoters": 1281
+        },
+        "ANTI135": {
+          "label": "ANTI135",
+          "total": 332,
+          "winner": 1,
+          "results": [
+            139,
+            193
+          ],
+          "percentage": [
+            0.4187,
+            0.5813
+          ],
+          "registeredVoters": 669,
+          "totalVoters": 350
+        },
+        "ANTI137": {
+          "label": "ANTI137",
+          "total": 1065,
+          "winner": 1,
+          "results": [
+            432,
+            633
+          ],
+          "percentage": [
+            0.4056,
+            0.5944
+          ],
+          "registeredVoters": 2010,
+          "totalVoters": 1132
+        },
+        "ANTI149": {
+          "label": "ANTI149",
+          "total": 1084,
+          "winner": 1,
+          "results": [
+            400,
+            684
+          ],
+          "percentage": [
+            0.369,
+            0.631
+          ],
+          "registeredVoters": 2233,
+          "totalVoters": 1179
+        },
+        "ANTI150": {
+          "label": "ANTI150",
+          "total": 104,
+          "winner": 1,
+          "results": [
+            47,
+            57
+          ],
+          "percentage": [
+            0.4519,
+            0.5481
+          ],
+          "registeredVoters": 246,
+          "totalVoters": 107
+        },
+        "ANTI153": {
+          "label": "ANTI153",
+          "total": 231,
+          "winner": 1,
+          "results": [
+            99,
+            132
+          ],
+          "percentage": [
+            0.4286,
+            0.5714
+          ],
+          "registeredVoters": 550,
+          "totalVoters": 252
+        },
+        "ANTI805": {
+          "label": "ANTI805",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "BAPO101": {
+          "label": "BAPO101",
+          "total": 194,
+          "winner": 0,
+          "results": [
+            104,
+            90
+          ],
+          "percentage": [
+            0.5361,
+            0.4639
+          ],
+          "registeredVoters": 574,
+          "totalVoters": 217
+        },
+        "BAPO102": {
+          "label": "BAPO102",
+          "total": 655,
+          "winner": 0,
+          "results": [
+            348,
+            307
+          ],
+          "percentage": [
+            0.5313,
+            0.4687
+          ],
+          "registeredVoters": 1184,
+          "totalVoters": 715
+        },
+        "BAPO103": {
+          "label": "BAPO103",
+          "total": 1054,
+          "winner": 0,
+          "results": [
+            544,
+            510
+          ],
+          "percentage": [
+            0.5161,
+            0.4839
+          ],
+          "registeredVoters": 2616,
+          "totalVoters": 1129
+        },
+        "BAPO104": {
+          "label": "BAPO104",
+          "total": 1155,
+          "winner": 0,
+          "results": [
+            579,
+            576
+          ],
+          "percentage": [
+            0.5013,
+            0.4987
+          ],
+          "registeredVoters": 2947,
+          "totalVoters": 1280
+        },
+        "BAPO105": {
+          "label": "BAPO105",
+          "total": 940,
+          "winner": 0,
+          "results": [
+            499,
+            441
+          ],
+          "percentage": [
+            0.5309,
+            0.4691
+          ],
+          "registeredVoters": 2382,
+          "totalVoters": 1047
+        },
+        "BAPO106": {
+          "label": "BAPO106",
+          "total": 260,
+          "winner": 0,
+          "results": [
+            133,
+            127
+          ],
+          "percentage": [
+            0.5115,
+            0.4885
+          ],
+          "registeredVoters": 503,
+          "totalVoters": 292
+        },
+        "BAPO801": {
+          "label": "BAPO801",
+          "total": 1,
+          "registeredVoters": 1,
+          "totalVoters": 1
+        },
+        "BAPO802": {
+          "label": "BAPO802",
+          "total": 1,
+          "registeredVoters": 7,
+          "totalVoters": 2
+        },
+        "BAPO803": {
+          "label": "BAPO803",
+          "total": 2,
+          "registeredVoters": 2,
+          "totalVoters": 2
+        },
+        "BRHL101": {
+          "label": "BRHL101",
+          "total": 66,
+          "winner": 0,
+          "results": [
+            33,
+            33
+          ],
+          "percentage": [
+            0.5,
+            0.5
+          ],
+          "registeredVoters": 102,
+          "totalVoters": 75
+        },
+        "BRHL104": {
+          "label": "BRHL104",
+          "total": 6,
+          "registeredVoters": 10,
+          "totalVoters": 7
+        },
+        "BRHL106": {
+          "label": "BRHL106",
+          "total": 35,
+          "winner": 1,
+          "results": [
+            16,
+            19
+          ],
+          "percentage": [
+            0.4571,
+            0.5429
+          ],
+          "registeredVoters": 45,
+          "totalVoters": 40
+        },
+        "BRHL109": {
+          "label": "BRHL109",
+          "total": 318,
+          "winner": 0,
+          "results": [
+            170,
+            148
+          ],
+          "percentage": [
+            0.5346,
+            0.4654
+          ],
+          "registeredVoters": 492,
+          "totalVoters": 369
+        },
+        "BRHL801": {
+          "label": "BRHL801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "BRHL803": {
+          "label": "BRHL803",
+          "total": 1,
+          "registeredVoters": 0,
+          "totalVoters": 1
+        },
+        "BRHL804": {
+          "label": "BRHL804",
+          "total": 2,
+          "registeredVoters": 2,
+          "totalVoters": 2
+        },
+        "CLYD101": {
+          "label": "CLYD101",
+          "total": 297,
+          "winner": 1,
+          "results": [
+            147,
+            150
+          ],
+          "percentage": [
+            0.4949,
+            0.5051
+          ],
+          "registeredVoters": 527,
+          "totalVoters": 341
+        },
+        "CLYD801": {
+          "label": "CLYD801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "CONC119": {
+          "label": "CONC119",
+          "total": 9,
+          "registeredVoters": 31,
+          "totalVoters": 12
+        },
+        "CONC126": {
+          "label": "CONC126",
+          "total": 1518,
+          "winner": 0,
+          "results": [
+            811,
+            707
+          ],
+          "percentage": [
+            0.5343,
+            0.4657
+          ],
+          "registeredVoters": 2986,
+          "totalVoters": 1710
+        },
+        "CONC128": {
+          "label": "CONC128",
+          "total": 91,
+          "winner": 0,
+          "results": [
+            52,
+            39
+          ],
+          "percentage": [
+            0.5714,
+            0.4286
+          ],
+          "registeredVoters": 190,
+          "totalVoters": 99
+        },
+        "CONC805": {
+          "label": "CONC805",
+          "total": 2,
+          "registeredVoters": 2,
+          "totalVoters": 2
+        },
+        "CROC101": {
+          "label": "CROC101",
+          "total": 1237,
+          "winner": 0,
+          "results": [
+            706,
+            531
+          ],
+          "percentage": [
+            0.5707,
+            0.4293
+          ],
+          "registeredVoters": 2358,
+          "totalVoters": 1381
+        },
+        "CROC801": {
+          "label": "CROC801",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "CROC802": {
+          "label": "CROC802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "FAIR801": {
+          "label": "FAIR801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "HERC101": {
+          "label": "HERC101",
+          "total": 588,
+          "winner": 0,
+          "results": [
+            333,
+            255
+          ],
+          "percentage": [
+            0.5663,
+            0.4337
+          ],
+          "registeredVoters": 1202,
+          "totalVoters": 658
+        },
+        "HERC102": {
+          "label": "HERC102",
+          "total": 1708,
+          "winner": 0,
+          "results": [
+            969,
+            739
+          ],
+          "percentage": [
+            0.5673,
+            0.4327
+          ],
+          "registeredVoters": 3356,
+          "totalVoters": 1921
+        },
+        "HERC103": {
+          "label": "HERC103",
+          "total": 212,
+          "winner": 0,
+          "results": [
+            117,
+            95
+          ],
+          "percentage": [
+            0.5519,
+            0.4481
+          ],
+          "registeredVoters": 383,
+          "totalVoters": 242
+        },
+        "HERC104": {
+          "label": "HERC104",
+          "total": 1189,
+          "winner": 0,
+          "results": [
+            608,
+            581
+          ],
+          "percentage": [
+            0.5114,
+            0.4886
+          ],
+          "registeredVoters": 2320,
+          "totalVoters": 1355
+        },
+        "HERC105": {
+          "label": "HERC105",
+          "total": 43,
+          "winner": 0,
+          "results": [
+            23,
+            20
+          ],
+          "percentage": [
+            0.5349,
+            0.4651
+          ],
+          "registeredVoters": 100,
+          "totalVoters": 52
+        },
+        "HERC106": {
+          "label": "HERC106",
+          "total": 779,
+          "winner": 0,
+          "results": [
+            466,
+            313
+          ],
+          "percentage": [
+            0.5982,
+            0.4018
+          ],
+          "registeredVoters": 1424,
+          "totalVoters": 878
+        },
+        "HERC107": {
+          "label": "HERC107",
+          "total": 1276,
+          "winner": 0,
+          "results": [
+            699,
+            577
+          ],
+          "percentage": [
+            0.5478,
+            0.4522
+          ],
+          "registeredVoters": 2602,
+          "totalVoters": 1431
+        },
+        "HERC108": {
+          "label": "HERC108",
+          "total": 1063,
+          "winner": 1,
+          "results": [
+            523,
+            540
+          ],
+          "percentage": [
+            0.492,
+            0.508
+          ],
+          "registeredVoters": 2095,
+          "totalVoters": 1220
+        },
+        "HERC109": {
+          "label": "HERC109",
+          "total": 1229,
+          "winner": 0,
+          "results": [
+            630,
+            599
+          ],
+          "percentage": [
+            0.5126,
+            0.4874
+          ],
+          "registeredVoters": 2339,
+          "totalVoters": 1373
+        },
+        "HERC110": {
+          "label": "HERC110",
+          "total": 900,
+          "winner": 1,
+          "results": [
+            426,
+            474
+          ],
+          "percentage": [
+            0.4733,
+            0.5267
+          ],
+          "registeredVoters": 1689,
+          "totalVoters": 1019
+        },
+        "MART101": {
+          "label": "MART101",
+          "total": 12,
+          "winner": 1,
+          "results": [
+            4,
+            8
+          ],
+          "percentage": [
+            0.3333,
+            0.6667
+          ],
+          "registeredVoters": 23,
+          "totalVoters": 18
+        },
+        "MART102": {
+          "label": "MART102",
+          "total": 40,
+          "winner": 1,
+          "results": [
+            18,
+            22
+          ],
+          "percentage": [
+            0.45,
+            0.55
+          ],
+          "registeredVoters": 70,
+          "totalVoters": 46
+        },
+        "MART103": {
+          "label": "MART103",
+          "total": 318,
+          "winner": 0,
+          "results": [
+            177,
+            141
+          ],
+          "percentage": [
+            0.5566,
+            0.4434
+          ],
+          "registeredVoters": 570,
+          "totalVoters": 348
+        },
+        "MART104": {
+          "label": "MART104",
+          "total": 101,
+          "winner": 1,
+          "results": [
+            49,
+            52
+          ],
+          "percentage": [
+            0.4851,
+            0.5149
+          ],
+          "registeredVoters": 200,
+          "totalVoters": 111
+        },
+        "MART105": {
+          "label": "MART105",
+          "total": 1296,
+          "winner": 1,
+          "results": [
+            613,
+            683
+          ],
+          "percentage": [
+            0.473,
+            0.527
+          ],
+          "registeredVoters": 2025,
+          "totalVoters": 1405
+        },
+        "MART106": {
+          "label": "MART106",
+          "total": 195,
+          "winner": 1,
+          "results": [
+            90,
+            105
+          ],
+          "percentage": [
+            0.4615,
+            0.5385
+          ],
+          "registeredVoters": 313,
+          "totalVoters": 212
+        },
+        "MART107": {
+          "label": "MART107",
+          "total": 85,
+          "winner": 0,
+          "results": [
+            45,
+            40
+          ],
+          "percentage": [
+            0.5294,
+            0.4706
+          ],
+          "registeredVoters": 144,
+          "totalVoters": 96
+        },
+        "MART108": {
+          "label": "MART108",
+          "total": 1012,
+          "winner": 0,
+          "results": [
+            521,
+            491
+          ],
+          "percentage": [
+            0.5148,
+            0.4852
+          ],
+          "registeredVoters": 1533,
+          "totalVoters": 1117
+        },
+        "MART109": {
+          "label": "MART109",
+          "total": 1065,
+          "winner": 0,
+          "results": [
+            585,
+            480
+          ],
+          "percentage": [
+            0.5493,
+            0.4507
+          ],
+          "registeredVoters": 1680,
+          "totalVoters": 1163
+        },
+        "MART110": {
+          "label": "MART110",
+          "total": 3,
+          "registeredVoters": 12,
+          "totalVoters": 6
+        },
+        "MART111": {
+          "label": "MART111",
+          "total": 15,
+          "winner": 1,
+          "results": [
+            3,
+            12
+          ],
+          "percentage": [
+            0.2,
+            0.8
+          ],
+          "registeredVoters": 29,
+          "totalVoters": 16
+        },
+        "MART112": {
+          "label": "MART112",
+          "total": 665,
+          "winner": 1,
+          "results": [
+            295,
+            370
+          ],
+          "percentage": [
+            0.4436,
+            0.5564
+          ],
+          "registeredVoters": 1016,
+          "totalVoters": 726
+        },
+        "MART113": {
+          "label": "MART113",
+          "total": 130,
+          "winner": 1,
+          "results": [
+            44,
+            86
+          ],
+          "percentage": [
+            0.3385,
+            0.6615
+          ],
+          "registeredVoters": 175,
+          "totalVoters": 144
+        },
+        "MART114": {
+          "label": "MART114",
+          "total": 1208,
+          "winner": 0,
+          "results": [
+            630,
+            578
+          ],
+          "percentage": [
+            0.5215,
+            0.4785
+          ],
+          "registeredVoters": 2022,
+          "totalVoters": 1345
+        },
+        "MART115": {
+          "label": "MART115",
+          "total": 37,
+          "winner": 1,
+          "results": [
+            11,
+            26
+          ],
+          "percentage": [
+            0.2973,
+            0.7027
+          ],
+          "registeredVoters": 54,
+          "totalVoters": 45
+        },
+        "MART116": {
+          "label": "MART116",
+          "total": 400,
+          "winner": 1,
+          "results": [
+            187,
+            213
+          ],
+          "percentage": [
+            0.4675,
+            0.5325
+          ],
+          "registeredVoters": 562,
+          "totalVoters": 438
+        },
+        "MART117": {
+          "label": "MART117",
+          "total": 275,
+          "winner": 0,
+          "results": [
+            161,
+            114
+          ],
+          "percentage": [
+            0.5855,
+            0.4145
+          ],
+          "registeredVoters": 373,
+          "totalVoters": 292
+        },
+        "MART118": {
+          "label": "MART118",
+          "total": 780,
+          "winner": 1,
+          "results": [
+            353,
+            427
+          ],
+          "percentage": [
+            0.4526,
+            0.5474
+          ],
+          "registeredVoters": 1217,
+          "totalVoters": 858
+        },
+        "MART119": {
+          "label": "MART119",
+          "total": 240,
+          "winner": 1,
+          "results": [
+            108,
+            132
+          ],
+          "percentage": [
+            0.45,
+            0.55
+          ],
+          "registeredVoters": 387,
+          "totalVoters": 261
+        },
+        "MART120": {
+          "label": "MART120",
+          "total": 387,
+          "winner": 1,
+          "results": [
+            180,
+            207
+          ],
+          "percentage": [
+            0.4651,
+            0.5349
+          ],
+          "registeredVoters": 654,
+          "totalVoters": 425
+        },
+        "MART121": {
+          "label": "MART121",
+          "total": 115,
+          "winner": 1,
+          "results": [
+            47,
+            68
+          ],
+          "percentage": [
+            0.4087,
+            0.5913
+          ],
+          "registeredVoters": 186,
+          "totalVoters": 120
+        },
+        "MART122": {
+          "label": "MART122",
+          "total": 299,
+          "winner": 1,
+          "results": [
+            109,
+            190
+          ],
+          "percentage": [
+            0.3645,
+            0.6355
+          ],
+          "registeredVoters": 506,
+          "totalVoters": 330
+        },
+        "MART123": {
+          "label": "MART123",
+          "total": 15,
+          "winner": 0,
+          "results": [
+            11,
+            4
+          ],
+          "percentage": [
+            0.7333,
+            0.2667
+          ],
+          "registeredVoters": 25,
+          "totalVoters": 18
+        },
+        "MART124": {
+          "label": "MART124",
+          "total": 192,
+          "winner": 0,
+          "results": [
+            106,
+            86
+          ],
+          "percentage": [
+            0.5521,
+            0.4479
+          ],
+          "registeredVoters": 326,
+          "totalVoters": 209
+        },
+        "MART125": {
+          "label": "MART125",
+          "total": 255,
+          "winner": 0,
+          "results": [
+            134,
+            121
+          ],
+          "percentage": [
+            0.5255,
+            0.4745
+          ],
+          "registeredVoters": 466,
+          "totalVoters": 273
+        },
+        "MART126": {
+          "label": "MART126",
+          "total": 112,
+          "winner": 1,
+          "results": [
+            47,
+            65
+          ],
+          "percentage": [
+            0.4196,
+            0.5804
+          ],
+          "registeredVoters": 176,
+          "totalVoters": 122
+        },
+        "MART127": {
+          "label": "MART127",
+          "total": 3,
+          "registeredVoters": 9,
+          "totalVoters": 3
+        },
+        "MART128": {
+          "label": "MART128",
+          "total": 328,
+          "winner": 0,
+          "results": [
+            171,
+            157
+          ],
+          "percentage": [
+            0.5213,
+            0.4787
+          ],
+          "registeredVoters": 523,
+          "totalVoters": 351
+        },
+        "MART129": {
+          "label": "MART129",
+          "total": 769,
+          "winner": 0,
+          "results": [
+            396,
+            373
+          ],
+          "percentage": [
+            0.515,
+            0.485
+          ],
+          "registeredVoters": 1244,
+          "totalVoters": 830
+        },
+        "MART130": {
+          "label": "MART130",
+          "total": 862,
+          "winner": 0,
+          "results": [
+            532,
+            330
+          ],
+          "percentage": [
+            0.6172,
+            0.3828
+          ],
+          "registeredVoters": 1509,
+          "totalVoters": 941
+        },
+        "MART131": {
+          "label": "MART131",
+          "total": 408,
+          "winner": 0,
+          "results": [
+            228,
+            180
+          ],
+          "percentage": [
+            0.5588,
+            0.4412
+          ],
+          "registeredVoters": 748,
+          "totalVoters": 464
+        },
+        "MART132": {
+          "label": "MART132",
+          "total": 744,
+          "winner": 0,
+          "results": [
+            418,
+            326
+          ],
+          "percentage": [
+            0.5618,
+            0.4382
+          ],
+          "registeredVoters": 1273,
+          "totalVoters": 821
+        },
+        "MART133": {
+          "label": "MART133",
+          "total": 319,
+          "winner": 0,
+          "results": [
+            182,
+            137
+          ],
+          "percentage": [
+            0.5705,
+            0.4295
+          ],
+          "registeredVoters": 528,
+          "totalVoters": 343
+        },
+        "MART134": {
+          "label": "MART134",
+          "total": 35,
+          "winner": 1,
+          "results": [
+            14,
+            21
+          ],
+          "percentage": [
+            0.4,
+            0.6
+          ],
+          "registeredVoters": 56,
+          "totalVoters": 40
+        },
+        "MART135": {
+          "label": "MART135",
+          "total": 918,
+          "winner": 1,
+          "results": [
+            446,
+            472
+          ],
+          "percentage": [
+            0.4858,
+            0.5142
+          ],
+          "registeredVoters": 1621,
+          "totalVoters": 1011
+        },
+        "MART136": {
+          "label": "MART136",
+          "total": 510,
+          "winner": 1,
+          "results": [
+            250,
+            260
+          ],
+          "percentage": [
+            0.4902,
+            0.5098
+          ],
+          "registeredVoters": 877,
+          "totalVoters": 569
+        },
+        "MART137": {
+          "label": "MART137",
+          "total": 276,
+          "winner": 1,
+          "results": [
+            112,
+            164
+          ],
+          "percentage": [
+            0.4058,
+            0.5942
+          ],
+          "registeredVoters": 451,
+          "totalVoters": 310
+        },
+        "MART138": {
+          "label": "MART138",
+          "total": 429,
+          "winner": 1,
+          "results": [
+            197,
+            232
+          ],
+          "percentage": [
+            0.4592,
+            0.5408
+          ],
+          "registeredVoters": 596,
+          "totalVoters": 476
+        },
+        "MART139": {
+          "label": "MART139",
+          "total": 169,
+          "winner": 1,
+          "results": [
+            84,
+            85
+          ],
+          "percentage": [
+            0.497,
+            0.503
+          ],
+          "registeredVoters": 291,
+          "totalVoters": 190
+        },
+        "MART140": {
+          "label": "MART140",
+          "total": 265,
+          "winner": 0,
+          "results": [
+            142,
+            123
+          ],
+          "percentage": [
+            0.5358,
+            0.4642
+          ],
+          "registeredVoters": 397,
+          "totalVoters": 288
+        },
+        "MART141": {
+          "label": "MART141",
+          "total": 192,
+          "winner": 1,
+          "results": [
+            86,
+            106
+          ],
+          "percentage": [
+            0.4479,
+            0.5521
+          ],
+          "registeredVoters": 301,
+          "totalVoters": 211
+        },
+        "MART142": {
+          "label": "MART142",
+          "total": 15,
+          "winner": 1,
+          "results": [
+            5,
+            10
+          ],
+          "percentage": [
+            0.3333,
+            0.6667
+          ],
+          "registeredVoters": 23,
+          "totalVoters": 16
+        },
+        "MART143": {
+          "label": "MART143",
+          "total": 168,
+          "winner": 0,
+          "results": [
+            90,
+            78
+          ],
+          "percentage": [
+            0.5357,
+            0.4643
+          ],
+          "registeredVoters": 351,
+          "totalVoters": 186
+        },
+        "MART144": {
+          "label": "MART144",
+          "total": 277,
+          "winner": 1,
+          "results": [
+            138,
+            139
+          ],
+          "percentage": [
+            0.4982,
+            0.5018
+          ],
+          "registeredVoters": 427,
+          "totalVoters": 299
+        },
+        "MART145": {
+          "label": "MART145",
+          "total": 112,
+          "winner": 0,
+          "results": [
+            67,
+            45
+          ],
+          "percentage": [
+            0.5982,
+            0.4018
+          ],
+          "registeredVoters": 189,
+          "totalVoters": 126
+        },
+        "MART146": {
+          "label": "MART146",
+          "total": 26,
+          "winner": 0,
+          "results": [
+            14,
+            12
+          ],
+          "percentage": [
+            0.5385,
+            0.4615
+          ],
+          "registeredVoters": 48,
+          "totalVoters": 30
+        },
+        "MART801": {
+          "label": "MART801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "MART802": {
+          "label": "MART802",
+          "total": 5,
+          "registeredVoters": 9,
+          "totalVoters": 5
+        },
+        "MART803": {
+          "label": "MART803",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "MART804": {
+          "label": "MART804",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "MART805": {
+          "label": "MART805",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "MART806": {
+          "label": "MART806",
+          "total": 2,
+          "registeredVoters": 1,
+          "totalVoters": 2
+        },
+        "MART808": {
+          "label": "MART808",
+          "total": 7,
+          "registeredVoters": 9,
+          "totalVoters": 7
+        },
+        "MART809": {
+          "label": "MART809",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "MART810": {
+          "label": "MART810",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 1
+        },
+        "MART811": {
+          "label": "MART811",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "MVIE101": {
+          "label": "MVIE101",
+          "total": 824,
+          "winner": 0,
+          "results": [
+            442,
+            382
+          ],
+          "percentage": [
+            0.5364,
+            0.4636
+          ],
+          "registeredVoters": 1586,
+          "totalVoters": 922
+        },
+        "MVIE102": {
+          "label": "MVIE102",
+          "total": 7,
+          "registeredVoters": 20,
+          "totalVoters": 8
+        },
+        "MVIE103": {
+          "label": "MVIE103",
+          "total": 21,
+          "winner": 0,
+          "results": [
+            13,
+            8
+          ],
+          "percentage": [
+            0.619,
+            0.381
+          ],
+          "registeredVoters": 46,
+          "totalVoters": 24
+        },
+        "MVIE801": {
+          "label": "MVIE801",
+          "total": 1,
+          "registeredVoters": 1,
+          "totalVoters": 1
+        },
+        "NICH801": {
+          "label": "NICH801",
+          "total": 2,
+          "registeredVoters": 8,
+          "totalVoters": 3
+        },
+        "NICH802": {
+          "label": "NICH802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "NRTV101": {
+          "label": "NRTV101",
+          "total": 6,
+          "registeredVoters": 15,
+          "totalVoters": 7
+        },
+        "NRTV801": {
+          "label": "NRTV801",
+          "total": 3,
+          "registeredVoters": 3,
+          "totalVoters": 3
+        },
+        "NRTV802": {
+          "label": "NRTV802",
+          "total": 4,
+          "registeredVoters": 8,
+          "totalVoters": 4
+        },
+        "NRTV803": {
+          "label": "NRTV803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "OLEU101": {
+          "label": "OLEU101",
+          "total": 20,
+          "winner": 1,
+          "results": [
+            4,
+            16
+          ],
+          "percentage": [
+            0.2,
+            0.8
+          ],
+          "registeredVoters": 34,
+          "totalVoters": 26
+        },
+        "OLEU801": {
+          "label": "OLEU801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "OLEU802": {
+          "label": "OLEU802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 1
+        },
+        "PACH102": {
+          "label": "PACH102",
+          "total": 688,
+          "winner": 1,
+          "results": [
+            336,
+            352
+          ],
+          "percentage": [
+            0.4884,
+            0.5116
+          ],
+          "registeredVoters": 1382,
+          "totalVoters": 769
+        },
+        "PACH103": {
+          "label": "PACH103",
+          "total": 141,
+          "winner": 1,
+          "results": [
+            65,
+            76
+          ],
+          "percentage": [
+            0.461,
+            0.539
+          ],
+          "registeredVoters": 283,
+          "totalVoters": 170
+        },
+        "PACH104": {
+          "label": "PACH104",
+          "total": 443,
+          "winner": 1,
+          "results": [
+            200,
+            243
+          ],
+          "percentage": [
+            0.4515,
+            0.5485
+          ],
+          "registeredVoters": 951,
+          "totalVoters": 514
+        },
+        "PRCO101": {
+          "label": "PRCO101",
+          "total": 111,
+          "winner": 0,
+          "results": [
+            73,
+            38
+          ],
+          "percentage": [
+            0.6577,
+            0.3423
+          ],
+          "registeredVoters": 161,
+          "totalVoters": 120
+        },
+        "PTTS101": {
+          "label": "PTTS101",
+          "total": 25,
+          "winner": 1,
+          "results": [
+            12,
+            13
+          ],
+          "percentage": [
+            0.48,
+            0.52
+          ],
+          "registeredVoters": 51,
+          "totalVoters": 27
+        },
+        "PTTS102": {
+          "label": "PTTS102",
+          "total": 1021,
+          "winner": 0,
+          "results": [
+            529,
+            492
+          ],
+          "percentage": [
+            0.5181,
+            0.4819
+          ],
+          "registeredVoters": 2021,
+          "totalVoters": 1102
+        },
+        "PTTS103": {
+          "label": "PTTS103",
+          "total": 148,
+          "winner": 1,
+          "results": [
+            63,
+            85
+          ],
+          "percentage": [
+            0.4257,
+            0.5743
+          ],
+          "registeredVoters": 280,
+          "totalVoters": 152
+        },
+        "PTTS104": {
+          "label": "PTTS104",
+          "total": 868,
+          "winner": 0,
+          "results": [
+            490,
+            378
+          ],
+          "percentage": [
+            0.5645,
+            0.4355
+          ],
+          "registeredVoters": 1828,
+          "totalVoters": 933
+        },
+        "PTTS105": {
+          "label": "PTTS105",
+          "total": 1398,
+          "winner": 0,
+          "results": [
+            743,
+            655
+          ],
+          "percentage": [
+            0.5315,
+            0.4685
+          ],
+          "registeredVoters": 2865,
+          "totalVoters": 1541
+        },
+        "PTTS106": {
+          "label": "PTTS106",
+          "total": 14,
+          "winner": 1,
+          "results": [
+            4,
+            10
+          ],
+          "percentage": [
+            0.2857,
+            0.7143
+          ],
+          "registeredVoters": 15,
+          "totalVoters": 14
+        },
+        "PTTS107": {
+          "label": "PTTS107",
+          "total": 1077,
+          "winner": 0,
+          "results": [
+            611,
+            466
+          ],
+          "percentage": [
+            0.5673,
+            0.4327
+          ],
+          "registeredVoters": 2225,
+          "totalVoters": 1210
+        },
+        "PTTS108": {
+          "label": "PTTS108",
+          "total": 1267,
+          "winner": 1,
+          "results": [
+            588,
+            679
+          ],
+          "percentage": [
+            0.4641,
+            0.5359
+          ],
+          "registeredVoters": 2412,
+          "totalVoters": 1399
+        },
+        "PTTS109": {
+          "label": "PTTS109",
+          "total": 974,
+          "winner": 0,
+          "results": [
+            657,
+            317
+          ],
+          "percentage": [
+            0.6745,
+            0.3255
+          ],
+          "registeredVoters": 2292,
+          "totalVoters": 1036
+        },
+        "PTTS110": {
+          "label": "PTTS110",
+          "total": 546,
+          "winner": 0,
+          "results": [
+            325,
+            221
+          ],
+          "percentage": [
+            0.5952,
+            0.4048
+          ],
+          "registeredVoters": 1293,
+          "totalVoters": 586
+        },
+        "PTTS111": {
+          "label": "PTTS111",
+          "total": 949,
+          "winner": 0,
+          "results": [
+            604,
+            345
+          ],
+          "percentage": [
+            0.6365,
+            0.3635
+          ],
+          "registeredVoters": 2263,
+          "totalVoters": 1027
+        },
+        "PTTS112": {
+          "label": "PTTS112",
+          "total": 844,
+          "winner": 0,
+          "results": [
+            512,
+            332
+          ],
+          "percentage": [
+            0.6066,
+            0.3934
+          ],
+          "registeredVoters": 1747,
+          "totalVoters": 915
+        },
+        "PTTS113": {
+          "label": "PTTS113",
+          "total": 923,
+          "winner": 0,
+          "results": [
+            549,
+            374
+          ],
+          "percentage": [
+            0.5948,
+            0.4052
+          ],
+          "registeredVoters": 2097,
+          "totalVoters": 989
+        },
+        "PTTS114": {
+          "label": "PTTS114",
+          "total": 942,
+          "winner": 0,
+          "results": [
+            506,
+            436
+          ],
+          "percentage": [
+            0.5372,
+            0.4628
+          ],
+          "registeredVoters": 1978,
+          "totalVoters": 1009
+        },
+        "PTTS115": {
+          "label": "PTTS115",
+          "total": 1350,
+          "winner": 0,
+          "results": [
+            867,
+            483
+          ],
+          "percentage": [
+            0.6422,
+            0.3578
+          ],
+          "registeredVoters": 2753,
+          "totalVoters": 1421
+        },
+        "PTTS116": {
+          "label": "PTTS116",
+          "total": 985,
+          "winner": 1,
+          "results": [
+            452,
+            533
+          ],
+          "percentage": [
+            0.4589,
+            0.5411
+          ],
+          "registeredVoters": 1970,
+          "totalVoters": 1057
+        },
+        "PTTS117": {
+          "label": "PTTS117",
+          "total": 1497,
+          "winner": 1,
+          "results": [
+            745,
+            752
+          ],
+          "percentage": [
+            0.4977,
+            0.5023
+          ],
+          "registeredVoters": 2943,
+          "totalVoters": 1615
+        },
+        "PTTS118": {
+          "label": "PTTS118",
+          "total": 1521,
+          "winner": 0,
+          "results": [
+            776,
+            745
+          ],
+          "percentage": [
+            0.5102,
+            0.4898
+          ],
+          "registeredVoters": 3049,
+          "totalVoters": 1638
+        },
+        "PTTS119": {
+          "label": "PTTS119",
+          "total": 978,
+          "winner": 0,
+          "results": [
+            520,
+            458
+          ],
+          "percentage": [
+            0.5317,
+            0.4683
+          ],
+          "registeredVoters": 1915,
+          "totalVoters": 1051
+        },
+        "PTTS120": {
+          "label": "PTTS120",
+          "total": 840,
+          "winner": 0,
+          "results": [
+            424,
+            416
+          ],
+          "percentage": [
+            0.5048,
+            0.4952
+          ],
+          "registeredVoters": 1694,
+          "totalVoters": 907
+        },
+        "PTTS121": {
+          "label": "PTTS121",
+          "total": 371,
+          "winner": 0,
+          "results": [
+            206,
+            165
+          ],
+          "percentage": [
+            0.5553,
+            0.4447
+          ],
+          "registeredVoters": 754,
+          "totalVoters": 403
+        },
+        "PTTS122": {
+          "label": "PTTS122",
+          "total": 46,
+          "winner": 0,
+          "results": [
+            26,
+            20
+          ],
+          "percentage": [
+            0.5652,
+            0.4348
+          ],
+          "registeredVoters": 115,
+          "totalVoters": 46
+        },
+        "PTTS123": {
+          "label": "PTTS123",
+          "total": 1295,
+          "winner": 0,
+          "results": [
+            712,
+            583
+          ],
+          "percentage": [
+            0.5498,
+            0.4502
+          ],
+          "registeredVoters": 2624,
+          "totalVoters": 1430
+        },
+        "PTTS801": {
+          "label": "PTTS801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "PTTS802": {
+          "label": "PTTS802",
+          "total": 2,
+          "registeredVoters": 5,
+          "totalVoters": 2
+        },
+        "RODO101": {
+          "label": "RODO101",
+          "total": 79,
+          "winner": 0,
+          "results": [
+            63,
+            16
+          ],
+          "percentage": [
+            0.7975,
+            0.2025
+          ],
+          "registeredVoters": 319,
+          "totalVoters": 86
+        },
+        "RODO102": {
+          "label": "RODO102",
+          "total": 1293,
+          "winner": 0,
+          "results": [
+            668,
+            625
+          ],
+          "percentage": [
+            0.5166,
+            0.4834
+          ],
+          "registeredVoters": 2836,
+          "totalVoters": 1393
+        },
+        "RODO103": {
+          "label": "RODO103",
+          "total": 1249,
+          "winner": 1,
+          "results": [
+            577,
+            672
+          ],
+          "percentage": [
+            0.462,
+            0.538
+          ],
+          "registeredVoters": 2487,
+          "totalVoters": 1420
+        },
+        "RODO801": {
+          "label": "RODO801",
+          "total": 6,
+          "registeredVoters": 8,
+          "totalVoters": 7
+        },
+        "RODO802": {
+          "label": "RODO802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "TESO801": {
+          "label": "TESO801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "TESO802": {
+          "label": "TESO802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "TESO803": {
+          "label": "TESO803",
+          "total": 1,
+          "registeredVoters": 0,
+          "totalVoters": 1
+        },
+        "TESO804": {
+          "label": "TESO804",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "VIER101": {
+          "label": "VIER101",
+          "total": 10,
+          "registeredVoters": 14,
+          "totalVoters": 10
+        },
+        "VIER801": {
+          "label": "VIER801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "VINE101": {
+          "label": "VINE101",
+          "total": 91,
+          "winner": 1,
+          "results": [
+            41,
+            50
+          ],
+          "percentage": [
+            0.4505,
+            0.5495
+          ],
+          "registeredVoters": 169,
+          "totalVoters": 97
+        },
+        "VINE102": {
+          "label": "VINE102",
+          "total": 362,
+          "winner": 1,
+          "results": [
+            148,
+            214
+          ],
+          "percentage": [
+            0.4088,
+            0.5912
+          ],
+          "registeredVoters": 802,
+          "totalVoters": 408
+        },
+        "VINE103": {
+          "label": "VINE103",
+          "total": 8,
+          "registeredVoters": 27,
+          "totalVoters": 8
+        },
+        "VINE104": {
+          "label": "VINE104",
+          "total": 114,
+          "winner": 1,
+          "results": [
+            44,
+            70
+          ],
+          "percentage": [
+            0.386,
+            0.614
+          ],
+          "registeredVoters": 199,
+          "totalVoters": 131
+        },
+        "VINE105": {
+          "label": "VINE105",
+          "total": 64,
+          "winner": 0,
+          "results": [
+            40,
+            24
+          ],
+          "percentage": [
+            0.625,
+            0.375
+          ],
+          "registeredVoters": 130,
+          "totalVoters": 74
+        },
+        "VINE106": {
+          "label": "VINE106",
+          "total": 284,
+          "winner": 0,
+          "results": [
+            144,
+            140
+          ],
+          "percentage": [
+            0.507,
+            0.493
+          ],
+          "registeredVoters": 499,
+          "totalVoters": 320
+        },
+        "VINE107": {
+          "label": "VINE107",
+          "total": 25,
+          "winner": 1,
+          "results": [
+            8,
+            17
+          ],
+          "percentage": [
+            0.32,
+            0.68
+          ],
+          "registeredVoters": 44,
+          "totalVoters": 29
+        },
+        "VINE108": {
+          "label": "VINE108",
+          "total": 372,
+          "winner": 1,
+          "results": [
+            177,
+            195
+          ],
+          "percentage": [
+            0.4758,
+            0.5242
+          ],
+          "registeredVoters": 686,
+          "totalVoters": 408
+        },
+        "VINE801": {
+          "label": "VINE801",
+          "total": 1,
+          "registeredVoters": 3,
+          "totalVoters": 1
+        },
+        "VINE802": {
+          "label": "VINE802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "VINE803": {
+          "label": "VINE803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        }
+      }
+    },
+    {
+      "index": 2,
+      "id": "10008",
+      "label": "11/08/2024 New Votes",
+      "voteFor": 1,
+      "choices": [
+        {
+          "index": 0,
+          "id": 0,
+          "label": "SHANELLE SCALES-PRESTON",
+          "votes": 33610
+        },
+        {
+          "index": 1,
+          "id": 1,
+          "label": "MIKE BARBANICA",
+          "votes": 31767
+        }
+      ],
+      "precincts": {
+        "ALHA101": {
+          "label": "ALHA101",
+          "total": 17,
+          "winner": 1,
+          "results": [
+            7,
+            10
+          ],
+          "percentage": [
+            0.4117647058823529,
+            0.5882352941176471
+          ],
+          "registeredVoters": 67,
+          "totalVoters": 22
+        },
+        "ALHA102": {
+          "label": "ALHA102",
+          "total": 1,
+          "registeredVoters": 19,
+          "totalVoters": 1
+        },
+        "ALHA103": {
+          "label": "ALHA103",
+          "total": 2,
+          "registeredVoters": 9,
+          "totalVoters": 2
+        },
+        "ALHA104": {
+          "label": "ALHA104",
+          "total": 13,
+          "winner": 0,
+          "results": [
+            7,
+            6
+          ],
+          "percentage": [
+            0.5384615384615384,
+            0.46153846153846156
+          ],
+          "registeredVoters": 70,
+          "totalVoters": 18
+        },
+        "ALHA105": {
+          "label": "ALHA105",
+          "total": 14,
+          "winner": 0,
+          "results": [
+            8,
+            6
+          ],
+          "percentage": [
+            0.5714285714285714,
+            0.42857142857142855
+          ],
+          "registeredVoters": 155,
+          "totalVoters": 19
+        },
+        "ALHA106": {
+          "label": "ALHA106",
+          "total": 40,
+          "winner": 1,
+          "results": [
+            15,
+            25
+          ],
+          "percentage": [
+            0.375,
+            0.625
+          ],
+          "registeredVoters": 287,
+          "totalVoters": 43
+        },
+        "ALHA108": {
+          "label": "ALHA108",
+          "total": 5,
+          "winner": 1,
+          "results": [
+            1,
+            4
+          ],
+          "percentage": [
+            0.2,
+            0.8
+          ],
+          "registeredVoters": 60,
+          "totalVoters": 5
+        },
+        "ALHA109": {
+          "label": "ALHA109",
+          "total": 4,
+          "winner": 0,
+          "results": [
+            2,
+            2
+          ],
+          "percentage": [
+            0.5,
+            0.5
+          ],
+          "registeredVoters": 48,
+          "totalVoters": 4
+        },
+        "ALHA110": {
+          "label": "ALHA110",
+          "total": 5,
+          "winner": 1,
+          "results": [
+            0,
+            5
+          ],
+          "percentage": [
+            0,
+            1
+          ],
+          "registeredVoters": 38,
+          "totalVoters": 6
+        },
+        "ALHA111": {
+          "label": "ALHA111",
+          "total": 36,
+          "winner": 1,
+          "results": [
+            12,
+            24
+          ],
+          "percentage": [
+            0.3333333333333333,
+            0.6666666666666666
+          ],
+          "registeredVoters": 232,
+          "totalVoters": 44
+        },
+        "ALHA112": {
+          "label": "ALHA112",
+          "total": 2,
+          "winner": 1,
+          "results": [
+            0,
+            2
+          ],
+          "percentage": [
+            0,
+            1
+          ],
+          "registeredVoters": 25,
+          "totalVoters": 3
+        },
+        "ALHA801": {
+          "label": "ALHA801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "ALHA802": {
+          "label": "ALHA802",
+          "total": 0,
+          "registeredVoters": 2,
+          "totalVoters": 0
+        },
+        "ALHA803": {
+          "label": "ALHA803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 2,
+          "totalVoters": 0
+        },
+        "ALHA805": {
+          "label": "ALHA805",
+          "total": 1,
+          "registeredVoters": 8,
+          "totalVoters": 1
+        },
+        "ALHA806": {
+          "label": "ALHA806",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "ALHA810": {
+          "label": "ALHA810",
+          "total": 1,
+          "registeredVoters": 7,
+          "totalVoters": 1
+        },
+        "ALHA811": {
+          "label": "ALHA811",
+          "total": 0,
+          "registeredVoters": 4,
+          "totalVoters": 0
+        },
+        "ALHA812": {
+          "label": "ALHA812",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "ALHA813": {
+          "label": "ALHA813",
+          "total": 1,
+          "registeredVoters": 10,
+          "totalVoters": 1
+        },
+        "ANTI118": {
+          "label": "ANTI118",
+          "total": 272,
+          "winner": 1,
+          "results": [
+            133,
+            139
+          ],
+          "percentage": [
+            0.4889705882352941,
+            0.5110294117647058
+          ],
+          "registeredVoters": 2102,
+          "totalVoters": 288
+        },
+        "ANTI119": {
+          "label": "ANTI119",
+          "total": 152,
+          "winner": 1,
+          "results": [
+            62,
+            90
+          ],
+          "percentage": [
+            0.40789473684210525,
+            0.5921052631578947
+          ],
+          "registeredVoters": 1575,
+          "totalVoters": 162
+        },
+        "ANTI131": {
+          "label": "ANTI131",
+          "total": 340,
+          "winner": 1,
+          "results": [
+            166,
+            174
+          ],
+          "percentage": [
+            0.48823529411764705,
+            0.5117647058823529
+          ],
+          "registeredVoters": 2686,
+          "totalVoters": 364
+        },
+        "ANTI135": {
+          "label": "ANTI135",
+          "total": 87,
+          "winner": 1,
+          "results": [
+            34,
+            53
+          ],
+          "percentage": [
+            0.39080459770114945,
+            0.6091954022988506
+          ],
+          "registeredVoters": 669,
+          "totalVoters": 91
+        },
+        "ANTI137": {
+          "label": "ANTI137",
+          "total": 208,
+          "winner": 0,
+          "results": [
+            104,
+            104
+          ],
+          "percentage": [
+            0.5,
+            0.5
+          ],
+          "registeredVoters": 2010,
+          "totalVoters": 218
+        },
+        "ANTI149": {
+          "label": "ANTI149",
+          "total": 267,
+          "winner": 1,
+          "results": [
+            124,
+            143
+          ],
+          "percentage": [
+            0.46441947565543074,
+            0.5355805243445693
+          ],
+          "registeredVoters": 2233,
+          "totalVoters": 290
+        },
+        "ANTI150": {
+          "label": "ANTI150",
+          "total": 26,
+          "winner": 0,
+          "results": [
+            14,
+            12
+          ],
+          "percentage": [
+            0.5384615384615384,
+            0.46153846153846156
+          ],
+          "registeredVoters": 246,
+          "totalVoters": 27
+        },
+        "ANTI153": {
+          "label": "ANTI153",
+          "total": 59,
+          "winner": 0,
+          "results": [
+            30,
+            29
+          ],
+          "percentage": [
+            0.5084745762711864,
+            0.4915254237288136
+          ],
+          "registeredVoters": 550,
+          "totalVoters": 65
+        },
+        "ANTI805": {
+          "label": "ANTI805",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "BAPO101": {
+          "label": "BAPO101",
+          "total": 55,
+          "winner": 0,
+          "results": [
+            33,
+            22
+          ],
+          "percentage": [
+            0.6,
+            0.4
+          ],
+          "registeredVoters": 574,
+          "totalVoters": 59
+        },
+        "BAPO102": {
+          "label": "BAPO102",
+          "total": 188,
+          "winner": 0,
+          "results": [
+            109,
+            79
+          ],
+          "percentage": [
+            0.5797872340425532,
+            0.42021276595744683
+          ],
+          "registeredVoters": 1184,
+          "totalVoters": 200
+        },
+        "BAPO103": {
+          "label": "BAPO103",
+          "total": 252,
+          "winner": 0,
+          "results": [
+            136,
+            116
+          ],
+          "percentage": [
+            0.5396825396825397,
+            0.4603174603174603
+          ],
+          "registeredVoters": 2616,
+          "totalVoters": 265
+        },
+        "BAPO104": {
+          "label": "BAPO104",
+          "total": 355,
+          "winner": 0,
+          "results": [
+            187,
+            168
+          ],
+          "percentage": [
+            0.5267605633802817,
+            0.4732394366197183
+          ],
+          "registeredVoters": 2947,
+          "totalVoters": 384
+        },
+        "BAPO105": {
+          "label": "BAPO105",
+          "total": 227,
+          "winner": 0,
+          "results": [
+            133,
+            94
+          ],
+          "percentage": [
+            0.5859030837004405,
+            0.41409691629955947
+          ],
+          "registeredVoters": 2382,
+          "totalVoters": 254
+        },
+        "BAPO106": {
+          "label": "BAPO106",
+          "total": 75,
+          "winner": 0,
+          "results": [
+            39,
+            36
+          ],
+          "percentage": [
+            0.52,
+            0.48
+          ],
+          "registeredVoters": 503,
+          "totalVoters": 83
+        },
+        "BAPO801": {
+          "label": "BAPO801",
+          "total": 0,
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "BAPO802": {
+          "label": "BAPO802",
+          "total": 0,
+          "registeredVoters": 7,
+          "totalVoters": 0
+        },
+        "BAPO803": {
+          "label": "BAPO803",
+          "total": 0,
+          "registeredVoters": 2,
+          "totalVoters": 0
+        },
+        "BRHL101": {
+          "label": "BRHL101",
+          "total": 17,
+          "winner": 0,
+          "results": [
+            11,
+            6
+          ],
+          "percentage": [
+            0.6470588235294118,
+            0.35294117647058826
+          ],
+          "registeredVoters": 102,
+          "totalVoters": 19
+        },
+        "BRHL104": {
+          "label": "BRHL104",
+          "total": 0,
+          "registeredVoters": 10,
+          "totalVoters": 0
+        },
+        "BRHL106": {
+          "label": "BRHL106",
+          "total": 3,
+          "winner": 1,
+          "results": [
+            0,
+            3
+          ],
+          "percentage": [
+            0,
+            1
+          ],
+          "registeredVoters": 45,
+          "totalVoters": 4
+        },
+        "BRHL109": {
+          "label": "BRHL109",
+          "total": 68,
+          "winner": 0,
+          "results": [
+            39,
+            29
+          ],
+          "percentage": [
+            0.5735294117647058,
+            0.4264705882352941
+          ],
+          "registeredVoters": 492,
+          "totalVoters": 81
+        },
+        "BRHL801": {
+          "label": "BRHL801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "BRHL803": {
+          "label": "BRHL803",
+          "total": 0,
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "BRHL804": {
+          "label": "BRHL804",
+          "total": 0,
+          "registeredVoters": 2,
+          "totalVoters": 0
+        },
+        "CLYD101": {
+          "label": "CLYD101",
+          "total": 42,
+          "winner": 0,
+          "results": [
+            26,
+            16
+          ],
+          "percentage": [
+            0.6190476190476191,
+            0.38095238095238093
+          ],
+          "registeredVoters": 527,
+          "totalVoters": 53
+        },
+        "CLYD801": {
+          "label": "CLYD801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "CONC119": {
+          "label": "CONC119",
+          "total": 1,
+          "registeredVoters": 31,
+          "totalVoters": 1
+        },
+        "CONC126": {
+          "label": "CONC126",
+          "total": 377,
+          "winner": 0,
+          "results": [
+            224,
+            153
+          ],
+          "percentage": [
+            0.5941644562334217,
+            0.40583554376657827
+          ],
+          "registeredVoters": 2986,
+          "totalVoters": 424
+        },
+        "CONC128": {
+          "label": "CONC128",
+          "total": 27,
+          "winner": 0,
+          "results": [
+            18,
+            9
+          ],
+          "percentage": [
+            0.6666666666666666,
+            0.3333333333333333
+          ],
+          "registeredVoters": 190,
+          "totalVoters": 32
+        },
+        "CONC805": {
+          "label": "CONC805",
+          "total": 0,
+          "registeredVoters": 2,
+          "totalVoters": 0
+        },
+        "CROC101": {
+          "label": "CROC101",
+          "total": 161,
+          "winner": 0,
+          "results": [
+            100,
+            61
+          ],
+          "percentage": [
+            0.6211180124223602,
+            0.37888198757763975
+          ],
+          "registeredVoters": 2358,
+          "totalVoters": 185
+        },
+        "CROC801": {
+          "label": "CROC801",
+          "total": 0,
+          "registeredVoters": 2,
+          "totalVoters": 0
+        },
+        "CROC802": {
+          "label": "CROC802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "FAIR801": {
+          "label": "FAIR801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "HERC101": {
+          "label": "HERC101",
+          "total": 112,
+          "winner": 0,
+          "results": [
+            65,
+            47
+          ],
+          "percentage": [
+            0.5803571428571429,
+            0.41964285714285715
+          ],
+          "registeredVoters": 1202,
+          "totalVoters": 124
+        },
+        "HERC102": {
+          "label": "HERC102",
+          "total": 361,
+          "winner": 0,
+          "results": [
+            217,
+            144
+          ],
+          "percentage": [
+            0.6011080332409973,
+            0.3988919667590028
+          ],
+          "registeredVoters": 3356,
+          "totalVoters": 422
+        },
+        "HERC103": {
+          "label": "HERC103",
+          "total": 38,
+          "winner": 0,
+          "results": [
+            22,
+            16
+          ],
+          "percentage": [
+            0.5789473684210527,
+            0.42105263157894735
+          ],
+          "registeredVoters": 383,
+          "totalVoters": 42
+        },
+        "HERC104": {
+          "label": "HERC104",
+          "total": 240,
+          "winner": 0,
+          "results": [
+            123,
+            117
+          ],
+          "percentage": [
+            0.5125,
+            0.4875
+          ],
+          "registeredVoters": 2320,
+          "totalVoters": 274
+        },
+        "HERC105": {
+          "label": "HERC105",
+          "total": 7,
+          "winner": 0,
+          "results": [
+            5,
+            2
+          ],
+          "percentage": [
+            0.7142857142857143,
+            0.2857142857142857
+          ],
+          "registeredVoters": 100,
+          "totalVoters": 8
+        },
+        "HERC106": {
+          "label": "HERC106",
+          "total": 151,
+          "winner": 0,
+          "results": [
+            93,
+            58
+          ],
+          "percentage": [
+            0.6158940397350994,
+            0.3841059602649007
+          ],
+          "registeredVoters": 1424,
+          "totalVoters": 177
+        },
+        "HERC107": {
+          "label": "HERC107",
+          "total": 293,
+          "winner": 0,
+          "results": [
+            160,
+            133
+          ],
+          "percentage": [
+            0.5460750853242321,
+            0.4539249146757679
+          ],
+          "registeredVoters": 2602,
+          "totalVoters": 330
+        },
+        "HERC108": {
+          "label": "HERC108",
+          "total": 248,
+          "winner": 0,
+          "results": [
+            137,
+            111
+          ],
+          "percentage": [
+            0.5524193548387096,
+            0.4475806451612903
+          ],
+          "registeredVoters": 2095,
+          "totalVoters": 294
+        },
+        "HERC109": {
+          "label": "HERC109",
+          "total": 292,
+          "winner": 0,
+          "results": [
+            159,
+            133
+          ],
+          "percentage": [
+            0.5445205479452054,
+            0.4554794520547945
+          ],
+          "registeredVoters": 2339,
+          "totalVoters": 319
+        },
+        "HERC110": {
+          "label": "HERC110",
+          "total": 211,
+          "winner": 0,
+          "results": [
+            120,
+            91
+          ],
+          "percentage": [
+            0.5687203791469194,
+            0.4312796208530806
+          ],
+          "registeredVoters": 1689,
+          "totalVoters": 240
+        },
+        "MART101": {
+          "label": "MART101",
+          "total": 2,
+          "registeredVoters": 23,
+          "totalVoters": 3
+        },
+        "MART102": {
+          "label": "MART102",
+          "total": 8,
+          "winner": 0,
+          "results": [
+            4,
+            4
+          ],
+          "percentage": [
+            0.5,
+            0.5
+          ],
+          "registeredVoters": 70,
+          "totalVoters": 9
+        },
+        "MART103": {
+          "label": "MART103",
+          "total": 80,
+          "winner": 0,
+          "results": [
+            49,
+            31
+          ],
+          "percentage": [
+            0.6125,
+            0.3875
+          ],
+          "registeredVoters": 570,
+          "totalVoters": 87
+        },
+        "MART104": {
+          "label": "MART104",
+          "total": 39,
+          "winner": 0,
+          "results": [
+            20,
+            19
+          ],
+          "percentage": [
+            0.5128205128205128,
+            0.48717948717948717
+          ],
+          "registeredVoters": 200,
+          "totalVoters": 42
+        },
+        "MART105": {
+          "label": "MART105",
+          "total": 274,
+          "winner": 1,
+          "results": [
+            126,
+            148
+          ],
+          "percentage": [
+            0.45985401459854014,
+            0.5401459854014599
+          ],
+          "registeredVoters": 2025,
+          "totalVoters": 303
+        },
+        "MART106": {
+          "label": "MART106",
+          "total": 38,
+          "winner": 0,
+          "results": [
+            23,
+            15
+          ],
+          "percentage": [
+            0.6052631578947368,
+            0.39473684210526316
+          ],
+          "registeredVoters": 313,
+          "totalVoters": 44
+        },
+        "MART107": {
+          "label": "MART107",
+          "total": 14,
+          "winner": 0,
+          "results": [
+            8,
+            6
+          ],
+          "percentage": [
+            0.5714285714285714,
+            0.42857142857142855
+          ],
+          "registeredVoters": 144,
+          "totalVoters": 18
+        },
+        "MART108": {
+          "label": "MART108",
+          "total": 190,
+          "winner": 0,
+          "results": [
+            108,
+            82
+          ],
+          "percentage": [
+            0.5684210526315789,
+            0.43157894736842106
+          ],
+          "registeredVoters": 1533,
+          "totalVoters": 216
+        },
+        "MART109": {
+          "label": "MART109",
+          "total": 215,
+          "winner": 0,
+          "results": [
+            137,
+            78
+          ],
+          "percentage": [
+            0.6372093023255814,
+            0.3627906976744186
+          ],
+          "registeredVoters": 1680,
+          "totalVoters": 237
+        },
+        "MART110": {
+          "label": "MART110",
+          "total": 0,
+          "registeredVoters": 12,
+          "totalVoters": 2
+        },
+        "MART111": {
+          "label": "MART111",
+          "total": 2,
+          "winner": 1,
+          "results": [
+            0,
+            2
+          ],
+          "percentage": [
+            0,
+            1
+          ],
+          "registeredVoters": 29,
+          "totalVoters": 4
+        },
+        "MART112": {
+          "label": "MART112",
+          "total": 121,
+          "winner": 1,
+          "results": [
+            54,
+            67
+          ],
+          "percentage": [
+            0.4462809917355372,
+            0.5537190082644629
+          ],
+          "registeredVoters": 1016,
+          "totalVoters": 126
+        },
+        "MART113": {
+          "label": "MART113",
+          "total": 13,
+          "winner": 1,
+          "results": [
+            6,
+            7
+          ],
+          "percentage": [
+            0.46153846153846156,
+            0.5384615384615384
+          ],
+          "registeredVoters": 175,
+          "totalVoters": 13
+        },
+        "MART114": {
+          "label": "MART114",
+          "total": 229,
+          "winner": 0,
+          "results": [
+            130,
+            99
+          ],
+          "percentage": [
+            0.5676855895196506,
+            0.43231441048034935
+          ],
+          "registeredVoters": 2022,
+          "totalVoters": 254
+        },
+        "MART115": {
+          "label": "MART115",
+          "total": 7,
+          "winner": 1,
+          "results": [
+            2,
+            5
+          ],
+          "percentage": [
+            0.2857142857142857,
+            0.7142857142857143
+          ],
+          "registeredVoters": 54,
+          "totalVoters": 8
+        },
+        "MART116": {
+          "label": "MART116",
+          "total": 87,
+          "winner": 1,
+          "results": [
+            42,
+            45
+          ],
+          "percentage": [
+            0.4827586206896552,
+            0.5172413793103449
+          ],
+          "registeredVoters": 562,
+          "totalVoters": 93
+        },
+        "MART117": {
+          "label": "MART117",
+          "total": 72,
+          "winner": 0,
+          "results": [
+            51,
+            21
+          ],
+          "percentage": [
+            0.7083333333333334,
+            0.2916666666666667
+          ],
+          "registeredVoters": 373,
+          "totalVoters": 77
+        },
+        "MART118": {
+          "label": "MART118",
+          "total": 164,
+          "winner": 0,
+          "results": [
+            87,
+            77
+          ],
+          "percentage": [
+            0.5304878048780488,
+            0.4695121951219512
+          ],
+          "registeredVoters": 1217,
+          "totalVoters": 185
+        },
+        "MART119": {
+          "label": "MART119",
+          "total": 36,
+          "winner": 0,
+          "results": [
+            22,
+            14
+          ],
+          "percentage": [
+            0.6111111111111112,
+            0.3888888888888889
+          ],
+          "registeredVoters": 387,
+          "totalVoters": 38
+        },
+        "MART120": {
+          "label": "MART120",
+          "total": 75,
+          "winner": 0,
+          "results": [
+            41,
+            34
+          ],
+          "percentage": [
+            0.5466666666666666,
+            0.4533333333333333
+          ],
+          "registeredVoters": 654,
+          "totalVoters": 80
+        },
+        "MART121": {
+          "label": "MART121",
+          "total": 25,
+          "winner": 1,
+          "results": [
+            12,
+            13
+          ],
+          "percentage": [
+            0.48,
+            0.52
+          ],
+          "registeredVoters": 186,
+          "totalVoters": 25
+        },
+        "MART122": {
+          "label": "MART122",
+          "total": 70,
+          "winner": 1,
+          "results": [
+            25,
+            45
+          ],
+          "percentage": [
+            0.35714285714285715,
+            0.6428571428571429
+          ],
+          "registeredVoters": 506,
+          "totalVoters": 74
+        },
+        "MART123": {
+          "label": "MART123",
+          "total": 2,
+          "winner": 0,
+          "results": [
+            2,
+            0
+          ],
+          "percentage": [
+            1,
+            0
+          ],
+          "registeredVoters": 25,
+          "totalVoters": 2
+        },
+        "MART124": {
+          "label": "MART124",
+          "total": 43,
+          "winner": 1,
+          "results": [
+            20,
+            23
+          ],
+          "percentage": [
+            0.46511627906976744,
+            0.5348837209302325
+          ],
+          "registeredVoters": 326,
+          "totalVoters": 48
+        },
+        "MART125": {
+          "label": "MART125",
+          "total": 70,
+          "winner": 0,
+          "results": [
+            46,
+            24
+          ],
+          "percentage": [
+            0.6571428571428571,
+            0.34285714285714286
+          ],
+          "registeredVoters": 466,
+          "totalVoters": 73
+        },
+        "MART126": {
+          "label": "MART126",
+          "total": 31,
+          "winner": 1,
+          "results": [
+            15,
+            16
+          ],
+          "percentage": [
+            0.4838709677419355,
+            0.5161290322580645
+          ],
+          "registeredVoters": 176,
+          "totalVoters": 36
+        },
+        "MART127": {
+          "label": "MART127",
+          "total": 1,
+          "registeredVoters": 9,
+          "totalVoters": 1
+        },
+        "MART128": {
+          "label": "MART128",
+          "total": 77,
+          "winner": 0,
+          "results": [
+            41,
+            36
+          ],
+          "percentage": [
+            0.5324675324675324,
+            0.4675324675324675
+          ],
+          "registeredVoters": 523,
+          "totalVoters": 84
+        },
+        "MART129": {
+          "label": "MART129",
+          "total": 181,
+          "winner": 0,
+          "results": [
+            102,
+            79
+          ],
+          "percentage": [
+            0.56353591160221,
+            0.43646408839779005
+          ],
+          "registeredVoters": 1244,
+          "totalVoters": 193
+        },
+        "MART130": {
+          "label": "MART130",
+          "total": 204,
+          "winner": 0,
+          "results": [
+            141,
+            63
+          ],
+          "percentage": [
+            0.6911764705882353,
+            0.3088235294117647
+          ],
+          "registeredVoters": 1509,
+          "totalVoters": 224
+        },
+        "MART131": {
+          "label": "MART131",
+          "total": 90,
+          "winner": 0,
+          "results": [
+            54,
+            36
+          ],
+          "percentage": [
+            0.6,
+            0.4
+          ],
+          "registeredVoters": 748,
+          "totalVoters": 105
+        },
+        "MART132": {
+          "label": "MART132",
+          "total": 168,
+          "winner": 0,
+          "results": [
+            90,
+            78
+          ],
+          "percentage": [
+            0.5357142857142857,
+            0.4642857142857143
+          ],
+          "registeredVoters": 1273,
+          "totalVoters": 181
+        },
+        "MART133": {
+          "label": "MART133",
+          "total": 76,
+          "winner": 0,
+          "results": [
+            50,
+            26
+          ],
+          "percentage": [
+            0.6578947368421053,
+            0.34210526315789475
+          ],
+          "registeredVoters": 528,
+          "totalVoters": 81
+        },
+        "MART134": {
+          "label": "MART134",
+          "total": 7,
+          "winner": 1,
+          "results": [
+            3,
+            4
+          ],
+          "percentage": [
+            0.42857142857142855,
+            0.5714285714285714
+          ],
+          "registeredVoters": 56,
+          "totalVoters": 8
+        },
+        "MART135": {
+          "label": "MART135",
+          "total": 175,
+          "winner": 0,
+          "results": [
+            93,
+            82
+          ],
+          "percentage": [
+            0.5314285714285715,
+            0.4685714285714286
+          ],
+          "registeredVoters": 1621,
+          "totalVoters": 194
+        },
+        "MART136": {
+          "label": "MART136",
+          "total": 98,
+          "winner": 0,
+          "results": [
+            52,
+            46
+          ],
+          "percentage": [
+            0.5306122448979592,
+            0.46938775510204084
+          ],
+          "registeredVoters": 877,
+          "totalVoters": 111
+        },
+        "MART137": {
+          "label": "MART137",
+          "total": 66,
+          "winner": 1,
+          "results": [
+            31,
+            35
+          ],
+          "percentage": [
+            0.4696969696969697,
+            0.5303030303030303
+          ],
+          "registeredVoters": 451,
+          "totalVoters": 73
+        },
+        "MART138": {
+          "label": "MART138",
+          "total": 57,
+          "winner": 0,
+          "results": [
+            33,
+            24
+          ],
+          "percentage": [
+            0.5789473684210527,
+            0.42105263157894735
+          ],
+          "registeredVoters": 596,
+          "totalVoters": 64
+        },
+        "MART139": {
+          "label": "MART139",
+          "total": 52,
+          "winner": 0,
+          "results": [
+            27,
+            25
+          ],
+          "percentage": [
+            0.5192307692307693,
+            0.4807692307692308
+          ],
+          "registeredVoters": 291,
+          "totalVoters": 58
+        },
+        "MART140": {
+          "label": "MART140",
+          "total": 49,
+          "winner": 0,
+          "results": [
+            28,
+            21
+          ],
+          "percentage": [
+            0.5714285714285714,
+            0.42857142857142855
+          ],
+          "registeredVoters": 397,
+          "totalVoters": 51
+        },
+        "MART141": {
+          "label": "MART141",
+          "total": 53,
+          "winner": 0,
+          "results": [
+            35,
+            18
+          ],
+          "percentage": [
+            0.660377358490566,
+            0.33962264150943394
+          ],
+          "registeredVoters": 301,
+          "totalVoters": 56
+        },
+        "MART142": {
+          "label": "MART142",
+          "total": 2,
+          "winner": 0,
+          "results": [
+            1,
+            1
+          ],
+          "percentage": [
+            0.5,
+            0.5
+          ],
+          "registeredVoters": 23,
+          "totalVoters": 2
+        },
+        "MART143": {
+          "label": "MART143",
+          "total": 36,
+          "winner": 0,
+          "results": [
+            21,
+            15
+          ],
+          "percentage": [
+            0.5833333333333334,
+            0.4166666666666667
+          ],
+          "registeredVoters": 351,
+          "totalVoters": 40
+        },
+        "MART144": {
+          "label": "MART144",
+          "total": 64,
+          "winner": 0,
+          "results": [
+            33,
+            31
+          ],
+          "percentage": [
+            0.515625,
+            0.484375
+          ],
+          "registeredVoters": 427,
+          "totalVoters": 65
+        },
+        "MART145": {
+          "label": "MART145",
+          "total": 22,
+          "winner": 0,
+          "results": [
+            17,
+            5
+          ],
+          "percentage": [
+            0.7727272727272727,
+            0.22727272727272727
+          ],
+          "registeredVoters": 189,
+          "totalVoters": 24
+        },
+        "MART146": {
+          "label": "MART146",
+          "total": 2,
+          "winner": 0,
+          "results": [
+            2,
+            0
+          ],
+          "percentage": [
+            1,
+            0
+          ],
+          "registeredVoters": 48,
+          "totalVoters": 2
+        },
+        "MART801": {
+          "label": "MART801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "MART802": {
+          "label": "MART802",
+          "total": 1,
+          "registeredVoters": 9,
+          "totalVoters": 1
+        },
+        "MART803": {
+          "label": "MART803",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "MART804": {
+          "label": "MART804",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "MART805": {
+          "label": "MART805",
+          "total": 1,
+          "registeredVoters": 2,
+          "totalVoters": 1
+        },
+        "MART806": {
+          "label": "MART806",
+          "total": 0,
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "MART808": {
+          "label": "MART808",
+          "total": 0,
+          "registeredVoters": 9,
+          "totalVoters": 0
+        },
+        "MART809": {
+          "label": "MART809",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "MART810": {
+          "label": "MART810",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "MART811": {
+          "label": "MART811",
+          "total": 0,
+          "registeredVoters": 2,
+          "totalVoters": 0
+        },
+        "MVIE101": {
+          "label": "MVIE101",
+          "total": 170,
+          "winner": 0,
+          "results": [
+            106,
+            64
+          ],
+          "percentage": [
+            0.6235294117647059,
+            0.3764705882352941
+          ],
+          "registeredVoters": 1586,
+          "totalVoters": 191
+        },
+        "MVIE102": {
+          "label": "MVIE102",
+          "total": 1,
+          "registeredVoters": 20,
+          "totalVoters": 2
+        },
+        "MVIE103": {
+          "label": "MVIE103",
+          "total": 4,
+          "winner": 1,
+          "results": [
+            1,
+            3
+          ],
+          "percentage": [
+            0.25,
+            0.75
+          ],
+          "registeredVoters": 46,
+          "totalVoters": 4
+        },
+        "MVIE801": {
+          "label": "MVIE801",
+          "total": 0,
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "NICH801": {
+          "label": "NICH801",
+          "total": 1,
+          "registeredVoters": 8,
+          "totalVoters": 1
+        },
+        "NICH802": {
+          "label": "NICH802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "NRTV101": {
+          "label": "NRTV101",
+          "total": 3,
+          "registeredVoters": 15,
+          "totalVoters": 4
+        },
+        "NRTV801": {
+          "label": "NRTV801",
+          "total": 0,
+          "registeredVoters": 3,
+          "totalVoters": 0
+        },
+        "NRTV802": {
+          "label": "NRTV802",
+          "total": 2,
+          "registeredVoters": 8,
+          "totalVoters": 2
+        },
+        "NRTV803": {
+          "label": "NRTV803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "OLEU101": {
+          "label": "OLEU101",
+          "total": 4,
+          "winner": 1,
+          "results": [
+            0,
+            4
+          ],
+          "percentage": [
+            0,
+            1
+          ],
+          "registeredVoters": 34,
+          "totalVoters": 4
+        },
+        "OLEU801": {
+          "label": "OLEU801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "OLEU802": {
+          "label": "OLEU802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "PACH102": {
+          "label": "PACH102",
+          "total": 105,
+          "winner": 1,
+          "results": [
+            52,
+            53
+          ],
+          "percentage": [
+            0.49523809523809526,
+            0.5047619047619047
+          ],
+          "registeredVoters": 1382,
+          "totalVoters": 117
+        },
+        "PACH103": {
+          "label": "PACH103",
+          "total": 25,
+          "winner": 1,
+          "results": [
+            11,
+            14
+          ],
+          "percentage": [
+            0.44,
+            0.56
+          ],
+          "registeredVoters": 283,
+          "totalVoters": 29
+        },
+        "PACH104": {
+          "label": "PACH104",
+          "total": 70,
+          "winner": 1,
+          "results": [
+            28,
+            42
+          ],
+          "percentage": [
+            0.4,
+            0.6
+          ],
+          "registeredVoters": 951,
+          "totalVoters": 88
+        },
+        "PRCO101": {
+          "label": "PRCO101",
+          "total": 21,
+          "winner": 0,
+          "results": [
+            14,
+            7
+          ],
+          "percentage": [
+            0.6666666666666666,
+            0.3333333333333333
+          ],
+          "registeredVoters": 161,
+          "totalVoters": 22
+        },
+        "PTTS101": {
+          "label": "PTTS101",
+          "total": 7,
+          "winner": 1,
+          "results": [
+            2,
+            5
+          ],
+          "percentage": [
+            0.2857142857142857,
+            0.7142857142857143
+          ],
+          "registeredVoters": 51,
+          "totalVoters": 8
+        },
+        "PTTS102": {
+          "label": "PTTS102",
+          "total": 269,
+          "winner": 0,
+          "results": [
+            150,
+            119
+          ],
+          "percentage": [
+            0.5576208178438662,
+            0.4423791821561338
+          ],
+          "registeredVoters": 2021,
+          "totalVoters": 291
+        },
+        "PTTS103": {
+          "label": "PTTS103",
+          "total": 28,
+          "winner": 1,
+          "results": [
+            13,
+            15
+          ],
+          "percentage": [
+            0.4642857142857143,
+            0.5357142857142857
+          ],
+          "registeredVoters": 280,
+          "totalVoters": 28
+        },
+        "PTTS104": {
+          "label": "PTTS104",
+          "total": 251,
+          "winner": 0,
+          "results": [
+            147,
+            104
+          ],
+          "percentage": [
+            0.5856573705179283,
+            0.41434262948207173
+          ],
+          "registeredVoters": 1828,
+          "totalVoters": 265
+        },
+        "PTTS105": {
+          "label": "PTTS105",
+          "total": 302,
+          "winner": 0,
+          "results": [
+            183,
+            119
+          ],
+          "percentage": [
+            0.6059602649006622,
+            0.39403973509933776
+          ],
+          "registeredVoters": 2865,
+          "totalVoters": 342
+        },
+        "PTTS106": {
+          "label": "PTTS106",
+          "total": 1,
+          "winner": 0,
+          "results": [
+            1,
+            0
+          ],
+          "percentage": [
+            1,
+            0
+          ],
+          "registeredVoters": 15,
+          "totalVoters": 1
+        },
+        "PTTS107": {
+          "label": "PTTS107",
+          "total": 266,
+          "winner": 0,
+          "results": [
+            166,
+            100
+          ],
+          "percentage": [
+            0.6240601503759399,
+            0.37593984962406013
+          ],
+          "registeredVoters": 2225,
+          "totalVoters": 300
+        },
+        "PTTS108": {
+          "label": "PTTS108",
+          "total": 402,
+          "winner": 1,
+          "results": [
+            189,
+            213
+          ],
+          "percentage": [
+            0.4701492537313433,
+            0.5298507462686567
+          ],
+          "registeredVoters": 2412,
+          "totalVoters": 437
+        },
+        "PTTS109": {
+          "label": "PTTS109",
+          "total": 246,
+          "winner": 0,
+          "results": [
+            185,
+            61
+          ],
+          "percentage": [
+            0.7520325203252033,
+            0.24796747967479674
+          ],
+          "registeredVoters": 2292,
+          "totalVoters": 259
+        },
+        "PTTS110": {
+          "label": "PTTS110",
+          "total": 166,
+          "winner": 0,
+          "results": [
+            116,
+            50
+          ],
+          "percentage": [
+            0.6987951807228916,
+            0.30120481927710846
+          ],
+          "registeredVoters": 1293,
+          "totalVoters": 174
+        },
+        "PTTS111": {
+          "label": "PTTS111",
+          "total": 222,
+          "winner": 0,
+          "results": [
+            155,
+            67
+          ],
+          "percentage": [
+            0.6981981981981982,
+            0.30180180180180183
+          ],
+          "registeredVoters": 2263,
+          "totalVoters": 245
+        },
+        "PTTS112": {
+          "label": "PTTS112",
+          "total": 218,
+          "winner": 0,
+          "results": [
+            131,
+            87
+          ],
+          "percentage": [
+            0.6009174311926605,
+            0.39908256880733944
+          ],
+          "registeredVoters": 1747,
+          "totalVoters": 239
+        },
+        "PTTS113": {
+          "label": "PTTS113",
+          "total": 314,
+          "winner": 0,
+          "results": [
+            195,
+            119
+          ],
+          "percentage": [
+            0.6210191082802548,
+            0.37898089171974525
+          ],
+          "registeredVoters": 2097,
+          "totalVoters": 334
+        },
+        "PTTS114": {
+          "label": "PTTS114",
+          "total": 264,
+          "winner": 0,
+          "results": [
+            152,
+            112
+          ],
+          "percentage": [
+            0.5757575757575758,
+            0.42424242424242425
+          ],
+          "registeredVoters": 1978,
+          "totalVoters": 282
+        },
+        "PTTS115": {
+          "label": "PTTS115",
+          "total": 396,
+          "winner": 0,
+          "results": [
+            254,
+            142
+          ],
+          "percentage": [
+            0.6414141414141414,
+            0.35858585858585856
+          ],
+          "registeredVoters": 2753,
+          "totalVoters": 414
+        },
+        "PTTS116": {
+          "label": "PTTS116",
+          "total": 250,
+          "winner": 0,
+          "results": [
+            131,
+            119
+          ],
+          "percentage": [
+            0.524,
+            0.476
+          ],
+          "registeredVoters": 1970,
+          "totalVoters": 269
+        },
+        "PTTS117": {
+          "label": "PTTS117",
+          "total": 308,
+          "winner": 0,
+          "results": [
+            170,
+            138
+          ],
+          "percentage": [
+            0.551948051948052,
+            0.44805194805194803
+          ],
+          "registeredVoters": 2943,
+          "totalVoters": 334
+        },
+        "PTTS118": {
+          "label": "PTTS118",
+          "total": 408,
+          "winner": 0,
+          "results": [
+            237,
+            171
+          ],
+          "percentage": [
+            0.5808823529411765,
+            0.41911764705882354
+          ],
+          "registeredVoters": 3049,
+          "totalVoters": 438
+        },
+        "PTTS119": {
+          "label": "PTTS119",
+          "total": 230,
+          "winner": 0,
+          "results": [
+            126,
+            104
+          ],
+          "percentage": [
+            0.5478260869565217,
+            0.45217391304347826
+          ],
+          "registeredVoters": 1915,
+          "totalVoters": 243
+        },
+        "PTTS120": {
+          "label": "PTTS120",
+          "total": 228,
+          "winner": 0,
+          "results": [
+            119,
+            109
+          ],
+          "percentage": [
+            0.5219298245614035,
+            0.4780701754385965
+          ],
+          "registeredVoters": 1694,
+          "totalVoters": 252
+        },
+        "PTTS121": {
+          "label": "PTTS121",
+          "total": 101,
+          "winner": 0,
+          "results": [
+            56,
+            45
+          ],
+          "percentage": [
+            0.5544554455445545,
+            0.44554455445544555
+          ],
+          "registeredVoters": 754,
+          "totalVoters": 106
+        },
+        "PTTS122": {
+          "label": "PTTS122",
+          "total": 7,
+          "winner": 0,
+          "results": [
+            6,
+            1
+          ],
+          "percentage": [
+            0.8571428571428571,
+            0.14285714285714285
+          ],
+          "registeredVoters": 115,
+          "totalVoters": 7
+        },
+        "PTTS123": {
+          "label": "PTTS123",
+          "total": 383,
+          "winner": 0,
+          "results": [
+            222,
+            161
+          ],
+          "percentage": [
+            0.5796344647519582,
+            0.42036553524804177
+          ],
+          "registeredVoters": 2624,
+          "totalVoters": 420
+        },
+        "PTTS801": {
+          "label": "PTTS801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "PTTS802": {
+          "label": "PTTS802",
+          "total": 0,
+          "registeredVoters": 5,
+          "totalVoters": 0
+        },
+        "RODO101": {
+          "label": "RODO101",
+          "total": 5,
+          "winner": 0,
+          "results": [
+            5,
+            0
+          ],
+          "percentage": [
+            1,
+            0
+          ],
+          "registeredVoters": 319,
+          "totalVoters": 6
+        },
+        "RODO102": {
+          "label": "RODO102",
+          "total": 227,
+          "winner": 1,
+          "results": [
+            105,
+            122
+          ],
+          "percentage": [
+            0.46255506607929514,
+            0.5374449339207048
+          ],
+          "registeredVoters": 2836,
+          "totalVoters": 244
+        },
+        "RODO103": {
+          "label": "RODO103",
+          "total": 276,
+          "winner": 0,
+          "results": [
+            155,
+            121
+          ],
+          "percentage": [
+            0.5615942028985508,
+            0.4384057971014493
+          ],
+          "registeredVoters": 2487,
+          "totalVoters": 318
+        },
+        "RODO801": {
+          "label": "RODO801",
+          "total": 0,
+          "registeredVoters": 8,
+          "totalVoters": 0
+        },
+        "RODO802": {
+          "label": "RODO802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "TESO801": {
+          "label": "TESO801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 1,
+          "totalVoters": 0
+        },
+        "TESO802": {
+          "label": "TESO802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "TESO803": {
+          "label": "TESO803",
+          "total": 0,
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "TESO804": {
+          "label": "TESO804",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "VIER101": {
+          "label": "VIER101",
+          "total": 4,
+          "registeredVoters": 14,
+          "totalVoters": 3
+        },
+        "VIER801": {
+          "label": "VIER801",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "VINE101": {
+          "label": "VINE101",
+          "total": 28,
+          "winner": 0,
+          "results": [
+            16,
+            12
+          ],
+          "percentage": [
+            0.5714285714285714,
+            0.42857142857142855
+          ],
+          "registeredVoters": 169,
+          "totalVoters": 31
+        },
+        "VINE102": {
+          "label": "VINE102",
+          "total": 69,
+          "winner": 1,
+          "results": [
+            26,
+            43
+          ],
+          "percentage": [
+            0.37681159420289856,
+            0.6231884057971014
+          ],
+          "registeredVoters": 802,
+          "totalVoters": 77
+        },
+        "VINE103": {
+          "label": "VINE103",
+          "total": 2,
+          "registeredVoters": 27,
+          "totalVoters": 2
+        },
+        "VINE104": {
+          "label": "VINE104",
+          "total": 32,
+          "winner": 1,
+          "results": [
+            12,
+            20
+          ],
+          "percentage": [
+            0.375,
+            0.625
+          ],
+          "registeredVoters": 199,
+          "totalVoters": 35
+        },
+        "VINE105": {
+          "label": "VINE105",
+          "total": 15,
+          "winner": 0,
+          "results": [
+            8,
+            7
+          ],
+          "percentage": [
+            0.5333333333333333,
+            0.4666666666666667
+          ],
+          "registeredVoters": 130,
+          "totalVoters": 17
+        },
+        "VINE106": {
+          "label": "VINE106",
+          "total": 63,
+          "winner": 0,
+          "results": [
+            35,
+            28
+          ],
+          "percentage": [
+            0.5555555555555556,
+            0.4444444444444444
+          ],
+          "registeredVoters": 499,
+          "totalVoters": 74
+        },
+        "VINE107": {
+          "label": "VINE107",
+          "total": 1,
+          "winner": 1,
+          "results": [
+            0,
+            1
+          ],
+          "percentage": [
+            0,
+            1
+          ],
+          "registeredVoters": 44,
+          "totalVoters": 1
+        },
+        "VINE108": {
+          "label": "VINE108",
+          "total": 73,
+          "winner": 0,
+          "results": [
+            46,
+            27
+          ],
+          "percentage": [
+            0.6301369863013698,
+            0.3698630136986301
+          ],
+          "registeredVoters": 686,
+          "totalVoters": 78
+        },
+        "VINE801": {
+          "label": "VINE801",
+          "total": 0,
+          "registeredVoters": 3,
+          "totalVoters": 0
+        },
+        "VINE802": {
+          "label": "VINE802",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        },
+        "VINE803": {
+          "label": "VINE803",
+          "total": 0,
+          "winner": 0,
+          "results": [
+            0,
+            0
+          ],
+          "percentage": [
+            null,
+            null
+          ],
+          "registeredVoters": 0,
+          "totalVoters": 0
+        }
+      }
+    }
+  ]
+}
