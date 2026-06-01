@@ -977,13 +977,33 @@
         resultCount.textContent = "Unable to load datasets.";
       }
 
+      function expandIndexEntries(elections) {
+        const expanded = [];
+        (Array.isArray(elections) ? elections : []).forEach(function (entry) {
+          const snapshots = Array.isArray(entry && entry.snapshots) ? entry.snapshots : [];
+          if (!snapshots.length) {
+            expanded.push(entry);
+            return;
+          }
+
+          snapshots.forEach(function (snapshot) {
+            const merged = Object.assign({}, entry, snapshot);
+            merged.id = toText(snapshot && snapshot.id) || toText(entry && entry.id);
+            merged.electionGroupId = toText(entry && (entry.electionGroupId || entry.id));
+            delete merged.snapshots;
+            expanded.push(merged);
+          });
+        });
+        return expanded;
+      }
+
       async function loadIndex() {
         try {
           const response = await fetch(indexUrl, { cache: "no-store" });
           if (!response.ok) throw new Error("Failed to fetch elections.index.json (HTTP " + response.status + ")");
 
           const index = await response.json();
-          allEntries = Array.isArray(index.elections) ? index.elections : [];
+          allEntries = expandIndexEntries(index.elections);
           allElectionGroups = buildElectionGroups(allEntries);
           defaultElectionId = toText(index.defaultElectionId);
 

@@ -17,16 +17,40 @@
       "precinctLabelField": "szPrecinctName",
       "grouped": false,
       "tags": [
-        "pre-election",
         "contra-costa",
         "2026"
       ],
-      "description": "Pre-election baseline snapshot before votes are counted."
+      "snapshots": [
+        {
+          "id": "2026-06-02-primary-final",
+          "snapshotType": "final",
+          "resultsTimestamp": null,
+          "dataUrl": "elections/2026-06-02-primary/election.json",
+          "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
+          "source": null,
+          "tags": [
+            "contra-costa",
+            "2026"
+          ]
+        },
+        {
+          "id": "2026-06-02-primary-pre-election",
+          "snapshotType": "pre-election",
+          "resultsTimestamp": null,
+          "dataUrl": "elections/2026-06-02-primary/snapshots/pre-election/election.json",
+          "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
+          "source": null,
+          "tags": [
+            "contra-costa",
+            "2026"
+          ]
+        }
+      ],
+      "description": "Election with nested special snapshots for pre-election baseline and final results."
     },
     {
-      "id": "2025-11-04-special-prop50-2025-11-06T00-29-07Z-467abc3",
+      "id": "2025-11-04-special-prop50",
       "electionGroupId": "2025-11-04-special-prop50",
-      "resultsTimestamp": "2025-11-06T00:29:07Z",
       "type": "special",
       "label": "Contra Costa County 2025 Prop 50 Election Results",
       "date": "2025-11-04",
@@ -37,12 +61,6 @@
       "precinctIdField": "PrecinctID",
       "precinctLabelField": "PrecinctNM",
       "grouped": false,
-      "source": {
-        "name": "electionmap_2025_nov_prop50",
-        "url": "https://github.com/Spinnernicholas/electionmap_2025_nov_prop50",
-        "commit": "467abc3fcf674b99472b11162d8ad3a023cf4e8c",
-        "commitSubject": "Election Data: Tuesday, November 4, 2025, 11:04:34 PM"
-      },
       "tags": [
         "imported",
         "snapshot",
@@ -50,12 +68,61 @@
         "contra-costa",
         "2025",
         "prop50"
-      ]
+      ],
+      "snapshots": [
+        {
+          "id": "2025-11-04-special-prop50",
+          "snapshotType": "final",
+          "resultsTimestamp": null,
+          "dataUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
+          "precinctsUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
+          "source": {
+            "name": "electionmap_2025_nov_prop50",
+            "url": "https://github.com/Spinnernicholas/electionmap_2025_nov_prop50",
+            "commit": "467abc3fcf674b99472b11162d8ad3a023cf4e8c",
+            "commitSubject": "Election Data: Tuesday, November 4, 2025, 11:04:34 PM"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2025",
+            "prop50"
+          ]
+        },
+        {
+          "id": "2025-11-04-special-prop50-2025-11-06T00-29-07Z-467abc3",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2025-11-06T00:29:07Z",
+          "dataUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
+          "precinctsUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
+          "source": {
+            "name": "electionmap_2025_nov_prop50",
+            "url": "https://github.com/Spinnernicholas/electionmap_2025_nov_prop50",
+            "commit": "467abc3fcf674b99472b11162d8ad3a023cf4e8c",
+            "commitSubject": "Election Data: Tuesday, November 4, 2025, 11:04:34 PM"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2025",
+            "prop50"
+          ]
+        }
+      ],
+      "source": {
+        "name": "electionmap_2025_nov_prop50",
+        "url": "https://github.com/Spinnernicholas/electionmap_2025_nov_prop50",
+        "commit": "467abc3fcf674b99472b11162d8ad3a023cf4e8c",
+        "commitSubject": "Election Data: Tuesday, November 4, 2025, 11:04:34 PM"
+      }
     },
     {
-      "id": "2024-11-05-general-2024-12-04T01-31-21Z-591b6b7",
+      "id": "2024-11-05-general",
       "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-12-04T01:31:21Z",
       "type": "general",
       "label": "Contra Costa County 2024 General Election Results",
       "date": "2024-11-05",
@@ -66,304 +133,265 @@
       "precinctIdField": "PrecinctID",
       "precinctLabelField": "PrecinctNM",
       "grouped": false,
+      "tags": [
+        "imported",
+        "snapshot",
+        "history",
+        "contra-costa",
+        "2024"
+      ],
+      "snapshots": [
+        {
+          "id": "2024-11-05-general",
+          "snapshotType": "final",
+          "resultsTimestamp": null,
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "591b6b706249bde93f43d526cc8aa49f24a05475",
+            "commitSubject": "General 2024 Final Results"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-12-04T01-31-21Z-591b6b7",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-12-04T01:31:21Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "591b6b706249bde93f43d526cc8aa49f24a05475",
+            "commitSubject": "General 2024 Final Results"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-27T19-00-12Z-e8bcfdb",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-27T19:00:12Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-27T19-00-12Z-e8bcfdb/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "e8bcfdb9870c9573645deffe81b067f129195966",
+            "commitSubject": "Update 4"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-20T19-55-44Z-802a768",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-20T19:55:44Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-20T19-55-44Z-802a768/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "802a768b0e8ee927722cad8020f7cac5ea0eca33",
+            "commitSubject": "Update 3"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-14T16-38-08Z-6dd2a03",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-14T16:38:08Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-14T16-38-08Z-6dd2a03/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "6dd2a031a7db8f13dfd31d7d60c06f9543afc83a",
+            "commitSubject": "11/13/2024 Update 2"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-09T21-54-52Z-a930117",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-09T21:54:52Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-09T21-54-52Z-a930117/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "a930117e44ad0682d390a9ac638a4c146017f421",
+            "commitSubject": "11/8/2024 update"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-09T21-35-31Z-f9843e5",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-09T21:35:31Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-09T21-35-31Z-f9843e5/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "s52024map",
+            "url": "https://github.com/Spinnernicholas/s52024map",
+            "commit": "f9843e52479c8eea7ba8982940385148cc816136",
+            "commitSubject": "fixed contest title"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-09T21-31-55Z-e3531de",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-09T21:31:55Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-09T21-31-55Z-e3531de/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "s52024map",
+            "url": "https://github.com/Spinnernicholas/s52024map",
+            "commit": "e3531de64e444d1c021a70249bb22263fdc52fb8",
+            "commitSubject": "Comparing 2 election updates"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-06T17-00-16Z-4a11236",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-06T17:00:16Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-06T17-00-16Z-4a11236/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "4a1123678a5c6f8408db27cc27ec852edc0b2ad9",
+            "commitSubject": "Election Night Final Update"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-06T07-19-29Z-2bd3d43",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-06T07:19:29Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-06T07-19-29Z-2bd3d43/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "2bd3d430af505fe059c0477a49cb259e7e2716fa",
+            "commitSubject": "election night update 2"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-06T04-24-38Z-9277ad0",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-06T04:24:38Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-06T04-24-38Z-9277ad0/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "9277ad0d561567f3eb6acba2cf2124e98c085e79",
+            "commitSubject": "Update 8:24"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-11-05-general-2024-11-04T16-59-10Z-96ed75a",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-11-04T16:59:10Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-04T16-59-10Z-96ed75a/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "96ed75ab6baf53b77db0b97143d52e8141cab58f",
+            "commitSubject": "General 2024 Basemap"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        }
+      ],
       "source": {
         "name": "CocoaCountyMap",
         "url": "https://github.com/Cocoa-County/CocoaCountyMap",
         "commit": "591b6b706249bde93f43d526cc8aa49f24a05475",
         "commitSubject": "General 2024 Final Results"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
+      }
     },
     {
-      "id": "2024-11-05-general-2024-11-27T19-00-12Z-e8bcfdb",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-27T19:00:12Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-27T19-00-12Z-e8bcfdb/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "e8bcfdb9870c9573645deffe81b067f129195966",
-        "commitSubject": "Update 4"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-11-05-general-2024-11-20T19-55-44Z-802a768",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-20T19:55:44Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-20T19-55-44Z-802a768/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "802a768b0e8ee927722cad8020f7cac5ea0eca33",
-        "commitSubject": "Update 3"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-11-05-general-2024-11-14T16-38-08Z-6dd2a03",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-14T16:38:08Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-14T16-38-08Z-6dd2a03/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "6dd2a031a7db8f13dfd31d7d60c06f9543afc83a",
-        "commitSubject": "11/13/2024 Update 2"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-11-05-general-2024-11-09T21-54-52Z-a930117",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-09T21:54:52Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-09T21-54-52Z-a930117/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "a930117e44ad0682d390a9ac638a4c146017f421",
-        "commitSubject": "11/8/2024 update"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-11-05-general-2024-11-09T21-35-31Z-f9843e5",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-09T21:35:31Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-09T21-35-31Z-f9843e5/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "s52024map",
-        "url": "https://github.com/Spinnernicholas/s52024map",
-        "commit": "f9843e52479c8eea7ba8982940385148cc816136",
-        "commitSubject": "fixed contest title"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-11-05-general-2024-11-09T21-31-55Z-e3531de",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-09T21:31:55Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-09T21-31-55Z-e3531de/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "s52024map",
-        "url": "https://github.com/Spinnernicholas/s52024map",
-        "commit": "e3531de64e444d1c021a70249bb22263fdc52fb8",
-        "commitSubject": "Comparing 2 election updates"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-11-05-general-2024-11-06T17-00-16Z-4a11236",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-06T17:00:16Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-06T17-00-16Z-4a11236/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "4a1123678a5c6f8408db27cc27ec852edc0b2ad9",
-        "commitSubject": "Election Night Final Update"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-11-05-general-2024-11-06T07-19-29Z-2bd3d43",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-06T07:19:29Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-06T07-19-29Z-2bd3d43/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "2bd3d430af505fe059c0477a49cb259e7e2716fa",
-        "commitSubject": "election night update 2"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-11-05-general-2024-11-06T04-24-38Z-9277ad0",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-06T04:24:38Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-06T04-24-38Z-9277ad0/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "9277ad0d561567f3eb6acba2cf2124e98c085e79",
-        "commitSubject": "Update 8:24"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-11-05-general-2024-11-04T16-59-10Z-96ed75a",
-      "electionGroupId": "2024-11-05-general",
-      "resultsTimestamp": "2024-11-04T16:59:10Z",
-      "type": "general",
-      "label": "Contra Costa County 2024 General Election Results",
-      "date": "2024-11-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-04T16-59-10Z-96ed75a/election.json",
-      "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "96ed75ab6baf53b77db0b97143d52e8141cab58f",
-        "commitSubject": "General 2024 Basemap"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-03-05-primary-2024-04-08T21-18-35Z-8fbd911",
+      "id": "2024-03-05-primary",
       "electionGroupId": "2024-03-05-primary",
-      "resultsTimestamp": "2024-04-08T21:18:35Z",
       "type": "primary",
       "label": "Contra Costa County 2024 Primary Election Results",
       "date": "2024-03-05",
@@ -374,248 +402,225 @@
       "precinctIdField": "PrecinctID",
       "precinctLabelField": "PrecinctNM",
       "grouped": false,
+      "tags": [
+        "imported",
+        "snapshot",
+        "history",
+        "contra-costa",
+        "2024"
+      ],
+      "snapshots": [
+        {
+          "id": "2024-03-05-primary",
+          "snapshotType": "final",
+          "resultsTimestamp": null,
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "8fbd911dc9d4cbdb5384af1110ea22bf873df431",
+            "commitSubject": "Added support for Vote For X contests"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-03-05-primary-2024-04-08T21-18-35Z-8fbd911",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-04-08T21:18:35Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "8fbd911dc9d4cbdb5384af1110ea22bf873df431",
+            "commitSubject": "Added support for Vote For X contests"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-03-05-primary-2024-04-05T18-44-09Z-bad7cbc",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-04-05T18:44:09Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-04-05T18-44-09Z-bad7cbc/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "bad7cbcf535bb89b325545fd38b2f7639040d0d3",
+            "commitSubject": "Thursday, March 28, 2024, 1:58:05 PM - Final Results"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-03-05-primary-2024-03-16T03-48-02Z-33c6cb9",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-03-16T03:48:02Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-16T03-48-02Z-33c6cb9/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "33c6cb9ad1c89fc1ad0734d8b8cb95540cdae8d1",
+            "commitSubject": "Friday, March 15, 2024, 3:07:28 PM"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-03-05-primary-2024-03-14T03-57-16Z-88b6aa6",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-03-14T03:57:16Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-14T03-57-16Z-88b6aa6/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "88b6aa6e704eba84a36e55c01f0d3a05c8b12d30",
+            "commitSubject": "Wednesday, March 13, 2024, 2:50:01 PM"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-03-05-primary-2024-03-09T03-08-18Z-43cfd00",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-03-09T03:08:18Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-09T03-08-18Z-43cfd00/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "43cfd003c86e1ab65e7c16e0825bd234dff480e8",
+            "commitSubject": "Friday, March 8, 2024, 4:03:29 PM"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-03-05-primary-2024-03-06T17-49-06Z-f5759e6",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-03-06T17:49:06Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-06T17-49-06Z-f5759e6/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "f5759e6a1641e35f1dd0caaa6c3ecf3b47f4009f",
+            "commitSubject": "Tuesday, March 5, 2024, 11:51:16 PM"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-03-05-primary-2024-03-06T07-16-40Z-65cf73a",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-03-06T07:16:40Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-06T07-16-40Z-65cf73a/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "65cf73ac7dec5495f7bf930ee4ac38f03a700732",
+            "commitSubject": "Tuesday, March 5, 2024, 10:31:53 PM"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-03-05-primary-2024-03-06T04-38-47Z-bf5fb4d",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-03-06T04:38:47Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-06T04-38-47Z-bf5fb4d/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "bf5fb4df3055c85044e5094eb59906387de1d360",
+            "commitSubject": "Update data.json"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        },
+        {
+          "id": "2024-03-05-primary-2024-03-05T05-54-18Z-335d332",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2024-03-05T05:54:18Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-05T05-54-18Z-335d332/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "335d3320943c18bc2ad0385e5e65408c3ab49bbe",
+            "commitSubject": "Init Election Data, change title"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ]
+        }
+      ],
       "source": {
         "name": "CocoaCountyMap",
         "url": "https://github.com/Cocoa-County/CocoaCountyMap",
         "commit": "8fbd911dc9d4cbdb5384af1110ea22bf873df431",
         "commitSubject": "Added support for Vote For X contests"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
+      }
     },
     {
-      "id": "2024-03-05-primary-2024-04-05T18-44-09Z-bad7cbc",
-      "electionGroupId": "2024-03-05-primary",
-      "resultsTimestamp": "2024-04-05T18:44:09Z",
-      "type": "primary",
-      "label": "Contra Costa County 2024 Primary Election Results",
-      "date": "2024-03-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-03-05-primary/snapshots/2024-04-05T18-44-09Z-bad7cbc/election.json",
-      "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "bad7cbcf535bb89b325545fd38b2f7639040d0d3",
-        "commitSubject": "Thursday, March 28, 2024, 1:58:05 PM - Final Results"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-03-05-primary-2024-03-16T03-48-02Z-33c6cb9",
-      "electionGroupId": "2024-03-05-primary",
-      "resultsTimestamp": "2024-03-16T03:48:02Z",
-      "type": "primary",
-      "label": "Contra Costa County 2024 Primary Election Results",
-      "date": "2024-03-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-16T03-48-02Z-33c6cb9/election.json",
-      "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "33c6cb9ad1c89fc1ad0734d8b8cb95540cdae8d1",
-        "commitSubject": "Friday, March 15, 2024, 3:07:28 PM"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-03-05-primary-2024-03-14T03-57-16Z-88b6aa6",
-      "electionGroupId": "2024-03-05-primary",
-      "resultsTimestamp": "2024-03-14T03:57:16Z",
-      "type": "primary",
-      "label": "Contra Costa County 2024 Primary Election Results",
-      "date": "2024-03-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-14T03-57-16Z-88b6aa6/election.json",
-      "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "88b6aa6e704eba84a36e55c01f0d3a05c8b12d30",
-        "commitSubject": "Wednesday, March 13, 2024, 2:50:01 PM"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-03-05-primary-2024-03-09T03-08-18Z-43cfd00",
-      "electionGroupId": "2024-03-05-primary",
-      "resultsTimestamp": "2024-03-09T03:08:18Z",
-      "type": "primary",
-      "label": "Contra Costa County 2024 Primary Election Results",
-      "date": "2024-03-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-09T03-08-18Z-43cfd00/election.json",
-      "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "43cfd003c86e1ab65e7c16e0825bd234dff480e8",
-        "commitSubject": "Friday, March 8, 2024, 4:03:29 PM"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-03-05-primary-2024-03-06T17-49-06Z-f5759e6",
-      "electionGroupId": "2024-03-05-primary",
-      "resultsTimestamp": "2024-03-06T17:49:06Z",
-      "type": "primary",
-      "label": "Contra Costa County 2024 Primary Election Results",
-      "date": "2024-03-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-06T17-49-06Z-f5759e6/election.json",
-      "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "f5759e6a1641e35f1dd0caaa6c3ecf3b47f4009f",
-        "commitSubject": "Tuesday, March 5, 2024, 11:51:16 PM"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-03-05-primary-2024-03-06T07-16-40Z-65cf73a",
-      "electionGroupId": "2024-03-05-primary",
-      "resultsTimestamp": "2024-03-06T07:16:40Z",
-      "type": "primary",
-      "label": "Contra Costa County 2024 Primary Election Results",
-      "date": "2024-03-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-06T07-16-40Z-65cf73a/election.json",
-      "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "65cf73ac7dec5495f7bf930ee4ac38f03a700732",
-        "commitSubject": "Tuesday, March 5, 2024, 10:31:53 PM"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-03-05-primary-2024-03-06T04-38-47Z-bf5fb4d",
-      "electionGroupId": "2024-03-05-primary",
-      "resultsTimestamp": "2024-03-06T04:38:47Z",
-      "type": "primary",
-      "label": "Contra Costa County 2024 Primary Election Results",
-      "date": "2024-03-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-06T04-38-47Z-bf5fb4d/election.json",
-      "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "bf5fb4df3055c85044e5094eb59906387de1d360",
-        "commitSubject": "Update data.json"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2024-03-05-primary-2024-03-05T05-54-18Z-335d332",
-      "electionGroupId": "2024-03-05-primary",
-      "resultsTimestamp": "2024-03-05T05:54:18Z",
-      "type": "primary",
-      "label": "Contra Costa County 2024 Primary Election Results",
-      "date": "2024-03-05",
-      "county": "Contra Costa",
-      "state": "CA",
-      "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-05T05-54-18Z-335d332/election.json",
-      "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "335d3320943c18bc2ad0385e5e65408c3ab49bbe",
-        "commitSubject": "Init Election Data, change title"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "contra-costa",
-        "2024"
-      ]
-    },
-    {
-      "id": "2022-11-08-general-marin-2023-03-20T23-37-09Z-d12a779",
+      "id": "2022-11-08-general-marin",
       "electionGroupId": "2022-11-08-general-marin",
-      "resultsTimestamp": "2023-03-20T23:37:09Z",
       "type": "general",
       "label": "Marin County 2022 General Election Results",
       "date": "2022-11-08",
@@ -626,75 +631,101 @@
       "precinctIdField": "PrecinctID",
       "precinctLabelField": "PrecinctNM",
       "grouped": false,
+      "tags": [
+        "imported",
+        "snapshot",
+        "history",
+        "marin",
+        "2022"
+      ],
+      "snapshots": [
+        {
+          "id": "2022-11-08-general-marin",
+          "snapshotType": "final",
+          "resultsTimestamp": null,
+          "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
+          "precinctsUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "d12a7790bba71c951d21f84216997c47a7944a65",
+            "commitSubject": "Marin County 2022 General Election"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "marin",
+            "2022"
+          ]
+        },
+        {
+          "id": "2022-11-08-general-marin-2023-03-20T23-37-09Z-d12a779",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2023-03-20T23:37:09Z",
+          "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
+          "precinctsUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "d12a7790bba71c951d21f84216997c47a7944a65",
+            "commitSubject": "Marin County 2022 General Election"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "marin",
+            "2022"
+          ]
+        },
+        {
+          "id": "2022-11-08-general-marin-2023-03-14T16-39-33Z-0bee17b",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2023-03-14T16:39:33Z",
+          "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-14T16-39-33Z-0bee17b/election.json",
+          "precinctsUrl": "elections/2022-11-08-general-marin/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "0bee17bd523e782a842469ae5ef0e38bd5f73ec9",
+            "commitSubject": "Refactor, add turnout statistics"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "marin",
+            "2022"
+          ]
+        },
+        {
+          "id": "2022-11-08-general-marin-2023-03-10T01-34-39Z-5a13ec8",
+          "snapshotType": "historical",
+          "resultsTimestamp": "2023-03-10T01:34:39Z",
+          "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-10T01-34-39Z-5a13ec8/election.json",
+          "precinctsUrl": "elections/2022-11-08-general-marin/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "5a13ec819c5dd980bdfb8a260919ca25f5b3eaeb",
+            "commitSubject": "init"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "marin",
+            "2022"
+          ]
+        }
+      ],
       "source": {
         "name": "CocoaCountyMap",
         "url": "https://github.com/Cocoa-County/CocoaCountyMap",
         "commit": "d12a7790bba71c951d21f84216997c47a7944a65",
         "commitSubject": "Marin County 2022 General Election"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "marin",
-        "2022"
-      ]
-    },
-    {
-      "id": "2022-11-08-general-marin-2023-03-14T16-39-33Z-0bee17b",
-      "electionGroupId": "2022-11-08-general-marin",
-      "resultsTimestamp": "2023-03-14T16:39:33Z",
-      "type": "general",
-      "label": "Marin County 2022 General Election Results",
-      "date": "2022-11-08",
-      "county": "Marin",
-      "state": "CA",
-      "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-14T16-39-33Z-0bee17b/election.json",
-      "precinctsUrl": "elections/2022-11-08-general-marin/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "0bee17bd523e782a842469ae5ef0e38bd5f73ec9",
-        "commitSubject": "Refactor, add turnout statistics"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "marin",
-        "2022"
-      ]
-    },
-    {
-      "id": "2022-11-08-general-marin-2023-03-10T01-34-39Z-5a13ec8",
-      "electionGroupId": "2022-11-08-general-marin",
-      "resultsTimestamp": "2023-03-10T01:34:39Z",
-      "type": "general",
-      "label": "Marin County 2022 General Election Results",
-      "date": "2022-11-08",
-      "county": "Marin",
-      "state": "CA",
-      "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-10T01-34-39Z-5a13ec8/election.json",
-      "precinctsUrl": "elections/2022-11-08-general-marin/precincts.gis.json",
-      "precinctIdField": "PrecinctID",
-      "precinctLabelField": "PrecinctNM",
-      "grouped": false,
-      "source": {
-        "name": "CocoaCountyMap",
-        "url": "https://github.com/Cocoa-County/CocoaCountyMap",
-        "commit": "5a13ec819c5dd980bdfb8a260919ca25f5b3eaeb",
-        "commitSubject": "init"
-      },
-      "tags": [
-        "imported",
-        "snapshot",
-        "history",
-        "marin",
-        "2022"
-      ]
+      }
     }
   ]
 }
