@@ -278,7 +278,7 @@
 
     .explorer-controls {
       display: grid;
-      grid-template-columns: 1fr 1fr 2fr;
+      grid-template-columns: 1fr 1fr 1fr 2fr;
       gap: 10px;
     }
 
@@ -427,6 +427,10 @@
             <select id="explorerElectionSelect"><option value="">Select an election</option></select>
           </div>
           <div class="control">
+            <label for="explorerVersionSelect">Version</label>
+            <select id="explorerVersionSelect"><option value="">Latest version</option></select>
+          </div>
+          <div class="control">
             <label for="explorerVoteForFilter">Vote For</label>
             <select id="explorerVoteForFilter"><option value="">All vote-for values</option></select>
           </div>
@@ -460,6 +464,7 @@
       const explorerTitle = document.getElementById("explorerTitle");
       const explorerSummary = document.getElementById("explorerSummary");
       const explorerElectionSelect = document.getElementById("explorerElectionSelect");
+      const explorerVersionSelect = document.getElementById("explorerVersionSelect");
       const explorerVoteForFilter = document.getElementById("explorerVoteForFilter");
       const explorerPartyFilter = document.getElementById("explorerPartyFilter");
       const explorerSearch = document.getElementById("explorerSearch");
@@ -471,8 +476,10 @@
       const electionTabPanel = document.getElementById("electionTabPanel");
 
       let allEntries = [];
+      let allElectionGroups = [];
       let defaultElectionId = "";
-      let activeElectionId = "";
+      let activeGroupId = "";
+      let activeVersionKey = "";
       let activeExplorerRows = [];
       const electionCache = new Map();
 
@@ -520,23 +527,97 @@
         }
       }
 
-      function buildSearchText(entry) {
-        return [
-          entry.id,
-          entry.label,
-          entry.date,
-          entry.type,
-          entry.county,
-          entry.state,
-          (entry.tags || []).join(" "),
-          entry.description,
-          entry.source && entry.source.name,
-          entry.source && entry.source.url
-        ].map(toText).join(" ").toLowerCase();
+      function asTimestamp(value) {
+        const n = Date.parse(value);
+        return Number.isFinite(n) ? n : 0;
       }
 
-      function sortByDateThenLabel(entries) {
-        return entries.slice().sort(function (a, b) {
+      function formatTimestamp(value) {
+        const text = toText(value);
+        if (!text) return "Unspecified";
+        const n = Date.parse(text);
+        if (!Number.isFinite(n)) return text;
+        return new Date(n).toLocaleString(undefined, {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      }
+
+      function getVersionTimestamp(entry) {
+        return toText(
+          entry.resultsTimestamp ||
+          entry.versionDateTime ||
+          entry.snapshotAt ||
+          entry.countedAt ||
+          entry.updatedAt ||
+          entry.updated ||
+          ""
+        );
+      }
+
+      function getGroupId(entry) {
+        return toText(
+          entry.electionGroupId ||
+          entry.electionId ||
+          entry.baseElectionId ||
+          entry.groupId ||
+          entry.id
+        );
+      }
+
+      function buildElectionGroups(entries) {
+        const map = new Map();
+
+        entries.forEach(function (entry, index) {
+          const groupId = getGroupId(entry) || ("group-" + index);
+          const versionKey = toText(entry.id || entry.dataUrl || (groupId + "-v" + index));
+          const versionTimestamp = getVersionTimestamp(entry);
+
+          if (!map.has(groupId)) {
+            map.set(groupId, {
+              groupId: groupId,
+              label: toText(entry.label) || groupId,
+              date: toText(entry.date),
+              type: toText(entry.type),
+              county: toText(entry.county),
+              state: toText(entry.state),
+              grouped: entry.grouped,
+              tags: Array.isArray(entry.tags) ? entry.tags.slice() : [],
+              description: toText(entry.description),
+              source: entry.source || null,
+              versions: []
+            });
+          }
+
+          const group = map.get(groupId);
+          group.versions.push(Object.assign({}, entry, {
+            _versionKey: versionKey,
+            _versionTimestamp: versionTimestamp
+          }));
+        });
+
+        const groups = Array.from(map.values());
+
+        groups.forEach(function (group) {
+          group.versions.sort(function (a, b) {
+            const diff = asTimestamp(b._versionTimestamp) - asTimestamp(a._versionTimestamp);
+            if (diff !== 0) return diff;
+            return toText(b.id).localeCompare(toText(a.id));
+          });
+
+          const latest = group.versions[0] || {};
+          group.latest = latest;
+          if (!group.date) group.date = toText(latest.date);
+          if (!group.label) group.label = toText(latest.label) || group.groupId;
+          if (!group.type) group.type = toText(latest.type);
+          if (!group.county) group.county = toText(latest.county);
+          if (!group.state) group.state = toText(latest.state);
+        });
+
+        return groups.sort(function (a, b) {
           const ad = toText(a.date);
           const bd = toText(b.date);
           if (ad > bd) return -1;
@@ -545,42 +626,70 @@
         });
       }
 
-      function renderDatasets(entries) {
+      function buildDatasetSearchText(group) {
+        const latest = group.latest || {};
+        const versionTimes = group.versions.map(function (item) {
+          return toText(item._versionTimestamp);
+        }).join(" ");
+        return [
+          group.groupId,
+          group.label,
+          group.date,
+          group.type,
+          group.county,
+          group.state,
+          (group.tags || []).join(" "),
+          group.description,
+          latest.id,
+          latest.description,
+          latest.source && latest.source.name,
+          latest.source && latest.source.url,
+          versionTimes
+        ].map(toText).join(" ").toLowerCase();
+      }
+
+      function renderDatasets(groups) {
         datasetList.innerHTML = "";
-        if (!entries.length) {
+        if (!groups.length) {
           datasetList.innerHTML = "<div class=\"empty\">No datasets match your filters. Try a broader search.</div>";
           return;
         }
 
         const fragment = document.createDocumentFragment();
-        entries.forEach(function (entry) {
+        groups.forEach(function (group) {
+          const latest = group.latest || {};
           const chips = [];
-          if (entry.type) chips.push("<span class=\"chip\">" + escapeHtml(entry.type) + "</span>");
-          if (entry.grouped !== undefined) chips.push("<span class=\"chip\">grouped: " + String(Boolean(entry.grouped)) + "</span>");
-          if (entry.id === defaultElectionId) chips.push("<span class=\"chip default\">default</span>");
-          (entry.tags || []).forEach(function (tag) {
+          if (group.type) chips.push("<span class=\"chip\">" + escapeHtml(group.type) + "</span>");
+          chips.push("<span class=\"chip\">versions: " + group.versions.length + "</span>");
+          if (group.grouped !== undefined) chips.push("<span class=\"chip\">grouped: " + String(Boolean(group.grouped)) + "</span>");
+          if (toText(defaultElectionId) && (toText(defaultElectionId) === group.groupId || group.versions.some(function (item) { return toText(item.id) === toText(defaultElectionId); }))) {
+            chips.push("<span class=\"chip default\">default</span>");
+          }
+          (group.tags || []).forEach(function (tag) {
             chips.push("<span class=\"chip\">" + escapeHtml(tag) + "</span>");
           });
 
-          const dataHref = resolveAssetUrl(entry.dataUrl);
-          const precinctsHref = resolveAssetUrl(entry.precinctsUrl);
-          const metadataHref = metadataUrlFromDataUrl(entry.dataUrl);
-          const exploring = activeElectionId && activeElectionId === entry.id;
+          const dataHref = resolveAssetUrl(latest.dataUrl);
+          const precinctsHref = resolveAssetUrl(latest.precinctsUrl);
+          const metadataHref = metadataUrlFromDataUrl(latest.dataUrl);
+          const exploring = activeGroupId && activeGroupId === group.groupId;
+          const latestVersionText = formatTimestamp(latest._versionTimestamp);
 
           const card = document.createElement("article");
           card.className = "card";
           card.innerHTML =
-            "<h2>" + escapeHtml(entry.label || entry.id || "Untitled dataset") + "</h2>" +
+            "<h2>" + escapeHtml(group.label || group.groupId || "Untitled dataset") + "</h2>" +
             "<div class=\"card-meta\">" +
-            "<span><strong>ID:</strong> " + escapeHtml(entry.id || "-") + "</span>" +
-            "<span><strong>Date:</strong> " + escapeHtml(entry.date || "-") + "</span>" +
-            "<span><strong>County:</strong> " + escapeHtml(entry.county || "-") + "</span>" +
-            "<span><strong>State:</strong> " + escapeHtml(entry.state || "-") + "</span>" +
+            "<span><strong>Election:</strong> " + escapeHtml(group.groupId || "-") + "</span>" +
+            "<span><strong>Date:</strong> " + escapeHtml(group.date || "-") + "</span>" +
+            "<span><strong>County:</strong> " + escapeHtml(group.county || "-") + "</span>" +
+            "<span><strong>State:</strong> " + escapeHtml(group.state || "-") + "</span>" +
+            "<span><strong>Latest:</strong> " + escapeHtml(latestVersionText) + "</span>" +
             "</div>" +
             (chips.length ? "<div class=\"chips\">" + chips.join("") + "</div>" : "") +
-            (entry.description ? "<p class=\"desc\">" + escapeHtml(entry.description) + "</p>" : "") +
+            (group.description ? "<p class=\"desc\">" + escapeHtml(group.description) + "</p>" : "") +
             "<div class=\"actions\">" +
-            "<button class=\"explore-btn\" type=\"button\" data-explore-id=\"" + escapeHtml(entry.id || "") + "\">" + (exploring ? "Exploring" : "Explore") + "</button>" +
+            "<button class=\"explore-btn\" type=\"button\" data-explore-id=\"" + escapeHtml(group.groupId || "") + "\">" + (exploring ? "Exploring" : "Explore") + "</button>" +
             "</div>" +
             "<div class=\"links\">" +
             (dataHref ? "<a href=\"" + dataHref + "\" target=\"_blank\" rel=\"noopener\">election.json</a>" : "") +
@@ -597,15 +706,15 @@
         const type = toText(typeFilter.value).toLowerCase();
         const state = toText(stateFilter.value).toLowerCase();
 
-        const filtered = allEntries.filter(function (entry) {
-          if (type && toText(entry.type).toLowerCase() !== type) return false;
-          if (state && toText(entry.state).toLowerCase() !== state) return false;
-          if (query && !buildSearchText(entry).includes(query)) return false;
+        const filtered = allElectionGroups.filter(function (group) {
+          if (type && toText(group.type).toLowerCase() !== type) return false;
+          if (state && toText(group.state).toLowerCase() !== state) return false;
+          if (query && !buildDatasetSearchText(group).includes(query)) return false;
           return true;
         });
 
-        resultCount.textContent = "Showing " + filtered.length + " of " + allEntries.length + " dataset" + (allEntries.length === 1 ? "" : "s") + ".";
-        renderDatasets(sortByDateThenLabel(filtered));
+        resultCount.textContent = "Showing " + filtered.length + " of " + allElectionGroups.length + " election" + (allElectionGroups.length === 1 ? "" : "s") + ".";
+        renderDatasets(filtered);
       }
 
       function fillSelectOptions(selectEl, values, placeholderText) {
@@ -617,19 +726,49 @@
         selectEl.innerHTML = first + options.join("");
       }
 
-      function fillElectionSelect(entries) {
-        const options = entries.map(function (entry) {
-          const id = toText(entry.id);
-          const label = toText(entry.label) || id;
-          const date = toText(entry.date);
-          return "<option value=\"" + escapeHtml(id) + "\">" + escapeHtml(date ? (date + " | " + label) : label) + "</option>";
+      function fillElectionSelect(groups) {
+        const options = groups.map(function (group) {
+          const label = toText(group.label) || group.groupId;
+          const date = toText(group.date);
+          const versionCount = group.versions.length;
+          return "<option value=\"" + escapeHtml(group.groupId) + "\">" + escapeHtml((date ? (date + " | ") : "") + label + " (" + versionCount + " version" + (versionCount === 1 ? "" : "s") + ")") + "</option>";
         });
         explorerElectionSelect.innerHTML = "<option value=\"\">Select an election</option>" + options.join("");
       }
 
-      function findEntryById(entryId) {
-        return allEntries.find(function (entry) {
-          return toText(entry.id) === toText(entryId);
+      function fillVersionSelect(group, selectedVersionKey) {
+        if (!group) {
+          explorerVersionSelect.innerHTML = "<option value=\"\">Latest version</option>";
+          return;
+        }
+
+        const options = group.versions.map(function (version, index) {
+          const ts = formatTimestamp(version._versionTimestamp);
+          const label = toText(version.id) || ("snapshot-" + (index + 1));
+          const value = version._versionKey;
+          return "<option value=\"" + escapeHtml(value) + "\">" + escapeHtml(ts + " | " + label) + "</option>";
+        });
+
+        explorerVersionSelect.innerHTML = options.join("");
+        if (selectedVersionKey) {
+          explorerVersionSelect.value = selectedVersionKey;
+        }
+        if (!explorerVersionSelect.value && group.versions[0]) {
+          explorerVersionSelect.value = group.versions[0]._versionKey;
+        }
+      }
+
+      function findGroupById(groupId) {
+        return allElectionGroups.find(function (group) {
+          return toText(group.groupId) === toText(groupId);
+        }) || null;
+      }
+
+      function findGroupByEntryId(entryId) {
+        return allElectionGroups.find(function (group) {
+          return group.versions.some(function (version) {
+            return toText(version.id) === toText(entryId);
+          });
         }) || null;
       }
 
@@ -716,7 +855,7 @@
       }
 
       function applyExplorerFilters() {
-        if (!activeElectionId) {
+        if (!activeGroupId || !activeVersionKey) {
           explorerCount.textContent = "Choose an election to start browsing.";
           contestList.innerHTML = "<div class=\"empty\">Select an election from the dropdown above.</div>";
           return;
@@ -751,25 +890,37 @@
         renderExplorerRows(filtered);
       }
 
-      async function openElectionExplorer(entry) {
-        if (!entry || !entry.dataUrl) return;
-        activeElectionId = entry.id;
-        explorerElectionSelect.value = toText(entry.id);
-        explorerTitle.textContent = entry.label || entry.id || "Election Explorer";
+      async function loadElectionVersion(group, version, resetFilters) {
+        if (!group || !version || !version.dataUrl) return;
+
+        activeGroupId = group.groupId;
+        activeVersionKey = version._versionKey;
+        explorerElectionSelect.value = group.groupId;
+        explorerVersionSelect.value = version._versionKey;
+        explorerTitle.textContent = group.label || group.groupId || "Election Explorer";
         explorerSummary.textContent = "Loading contest and candidate data...";
         contestList.innerHTML = "<div class=\"empty\">Loading election.json...</div>";
-        explorerSearch.value = "";
-        explorerVoteForFilter.value = "";
-        explorerPartyFilter.value = "";
+
+        const previousQuery = toText(explorerSearch.value);
+        const previousVoteFor = toText(explorerVoteForFilter.value);
+        const previousParty = toText(explorerPartyFilter.value);
+
+        if (resetFilters) {
+          explorerSearch.value = "";
+          explorerVoteForFilter.value = "";
+          explorerPartyFilter.value = "";
+        }
+
         applyDatasetFilters();
 
         try {
-          let electionData = electionCache.get(entry.id);
+          const cacheKey = toText(version._versionKey);
+          let electionData = electionCache.get(cacheKey);
           if (!electionData) {
-            const response = await fetch(resolveAssetUrl(entry.dataUrl), { cache: "no-store" });
+            const response = await fetch(resolveAssetUrl(version.dataUrl), { cache: "no-store" });
             if (!response.ok) throw new Error("Failed to fetch election data (HTTP " + response.status + ")");
             electionData = await response.json();
-            electionCache.set(entry.id, electionData);
+            electionCache.set(cacheKey, electionData);
           }
 
           activeExplorerRows = buildContestRows(electionData);
@@ -784,13 +935,21 @@
           fillSelectOptions(explorerVoteForFilter, voteForOptions, "All vote-for values");
           fillSelectOptions(explorerPartyFilter, partyOptions, "All parties");
 
+          if (!resetFilters) {
+            if (previousVoteFor && voteForOptions.includes(previousVoteFor)) explorerVoteForFilter.value = previousVoteFor;
+            if (previousParty && partyOptions.includes(previousParty)) explorerPartyFilter.value = previousParty;
+            explorerSearch.value = previousQuery;
+          }
+
           const totalCandidates = activeExplorerRows.reduce(function (sum, row) {
             return sum + row.candidates.length;
           }, 0);
 
+          const versionText = formatTimestamp(version._versionTimestamp);
           explorerSummary.textContent =
-            "Election ID " + (entry.id || "-") +
-            " | Date " + (entry.date || "-") +
+            "Election " + (group.groupId || "-") +
+            " | Date " + (group.date || "-") +
+            " | Version " + versionText +
             " | Contests " + activeExplorerRows.length +
             " | Candidates " + totalCandidates;
 
@@ -799,6 +958,18 @@
           explorerSummary.textContent = "Unable to load election details.";
           contestList.innerHTML = "<div class=\"error\">" + escapeHtml(error.message || "Unknown error while loading election details.") + "</div>";
         }
+      }
+
+      async function openElectionGroup(group, preferredVersionKey, resetFilters) {
+        if (!group || !group.versions.length) return;
+        fillVersionSelect(group, preferredVersionKey);
+
+        const selectedVersionKey = toText(explorerVersionSelect.value) || group.versions[0]._versionKey;
+        const selectedVersion = group.versions.find(function (item) {
+          return item._versionKey === selectedVersionKey;
+        }) || group.versions[0];
+
+        await loadElectionVersion(group, selectedVersion, resetFilters !== false);
       }
 
       function renderError(message) {
@@ -813,20 +984,34 @@
 
           const index = await response.json();
           allEntries = Array.isArray(index.elections) ? index.elections : [];
+          allElectionGroups = buildElectionGroups(allEntries);
           defaultElectionId = toText(index.defaultElectionId);
 
-          defaultInfo.textContent = defaultElectionId ? ("Default dataset: " + defaultElectionId) : "";
+          defaultInfo.textContent = defaultElectionId ? ("Default selection: " + defaultElectionId) : "";
 
-          fillSelectOptions(typeFilter, Array.from(new Set(allEntries.map(function (e) { return toText(e.type); }))).sort(), "All types");
-          fillSelectOptions(stateFilter, Array.from(new Set(allEntries.map(function (e) { return toText(e.state); }))).sort(), "All states");
-          fillElectionSelect(sortByDateThenLabel(allEntries));
+          fillSelectOptions(typeFilter, Array.from(new Set(allElectionGroups.map(function (group) { return toText(group.type); }))).sort(), "All types");
+          fillSelectOptions(stateFilter, Array.from(new Set(allElectionGroups.map(function (group) { return toText(group.state); }))).sort(), "All states");
+          fillElectionSelect(allElectionGroups);
 
           applyDatasetFilters();
 
           if (defaultElectionId) {
-            const entry = findEntryById(defaultElectionId);
-            if (entry) openElectionExplorer(entry);
-            else applyExplorerFilters();
+            const defaultGroupById = findGroupById(defaultElectionId);
+            if (defaultGroupById) {
+              openElectionGroup(defaultGroupById, "", true);
+            } else {
+              const defaultGroupByEntry = findGroupByEntryId(defaultElectionId);
+              if (defaultGroupByEntry) {
+                const defaultVersion = defaultGroupByEntry.versions.find(function (item) {
+                  return toText(item.id) === defaultElectionId;
+                });
+                openElectionGroup(defaultGroupByEntry, defaultVersion ? defaultVersion._versionKey : "", true);
+              } else {
+                applyExplorerFilters();
+              }
+            }
+          } else if (allElectionGroups.length) {
+            openElectionGroup(allElectionGroups[0], "", true);
           } else {
             applyExplorerFilters();
           }
@@ -843,18 +1028,33 @@
       explorerPartyFilter.addEventListener("change", applyExplorerFilters);
 
       explorerElectionSelect.addEventListener("change", function () {
-        const entry = findEntryById(explorerElectionSelect.value);
-        if (entry) {
-          openElectionExplorer(entry);
+        const group = findGroupById(explorerElectionSelect.value);
+        if (group) {
+          openElectionGroup(group, "", true);
         } else {
-          activeElectionId = "";
+          activeGroupId = "";
+          activeVersionKey = "";
           activeExplorerRows = [];
+          explorerVersionSelect.innerHTML = "<option value=\"\">Latest version</option>";
           explorerTitle.textContent = "Election Explorer";
           explorerSummary.textContent = "Choose an election to browse contests and candidates.";
           explorerSearch.value = "";
           fillSelectOptions(explorerVoteForFilter, [], "All vote-for values");
           fillSelectOptions(explorerPartyFilter, [], "All parties");
           applyDatasetFilters();
+          applyExplorerFilters();
+        }
+      });
+
+      explorerVersionSelect.addEventListener("change", function () {
+        const group = findGroupById(activeGroupId);
+        if (!group) return;
+        const selectedVersion = group.versions.find(function (item) {
+          return item._versionKey === toText(explorerVersionSelect.value);
+        });
+        if (selectedVersion) {
+          loadElectionVersion(group, selectedVersion, false);
+        } else {
           applyExplorerFilters();
         }
       });
@@ -868,10 +1068,10 @@
       datasetList.addEventListener("click", function (event) {
         const button = event.target.closest("button[data-explore-id]");
         if (!button) return;
-        const entry = findEntryById(button.getAttribute("data-explore-id"));
-        if (!entry) return;
+        const group = findGroupById(button.getAttribute("data-explore-id"));
+        if (!group) return;
         setActiveTab("election");
-        openElectionExplorer(entry);
+        openElectionGroup(group, "", true);
       });
 
       setActiveTab("dataset");
