@@ -24,26 +24,45 @@
         {
           "id": "2026-06-02-primary-final",
           "snapshotType": "final",
-          "resultsTimestamp": null,
+          "snapshotTypes": [
+            "final"
+          ],
           "dataUrl": "elections/2026-06-02-primary/election.json",
           "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
-          "source": null,
           "tags": [
             "contra-costa",
             "2026"
-          ]
+          ],
+          "title": "Final Results"
+        },
+        {
+          "id": "2026-06-02-primary-latest",
+          "snapshotType": "latest",
+          "snapshotTypes": [
+            "latest",
+            "pre-election"
+          ],
+          "dataUrl": "elections/2026-06-02-primary/snapshots/pre-election/election.json",
+          "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
+          "tags": [
+            "contra-costa",
+            "2026"
+          ],
+          "title": "Latest Results"
         },
         {
           "id": "2026-06-02-primary-pre-election",
           "snapshotType": "pre-election",
-          "resultsTimestamp": null,
+          "snapshotTypes": [
+            "pre-election"
+          ],
           "dataUrl": "elections/2026-06-02-primary/snapshots/pre-election/election.json",
           "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
-          "source": null,
           "tags": [
             "contra-costa",
             "2026"
-          ]
+          ],
+          "title": "Pre-Election Baseline"
         }
       ],
       "description": "Election with nested special snapshots for pre-election baseline and final results."
@@ -73,7 +92,9 @@
         {
           "id": "2025-11-04-special-prop50",
           "snapshotType": "final",
-          "resultsTimestamp": null,
+          "snapshotTypes": [
+            "final"
+          ],
           "dataUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
           "precinctsUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
           "source": {
@@ -89,11 +110,41 @@
             "contra-costa",
             "2025",
             "prop50"
-          ]
+          ],
+          "title": "Final Results"
+        },
+        {
+          "id": "2025-11-04-special-prop50-latest",
+          "snapshotType": "latest",
+          "snapshotTypes": [
+            "latest",
+            "historical"
+          ],
+          "resultsTimestamp": "2025-11-06T16:29:07Z",
+          "dataUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
+          "precinctsUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
+          "source": {
+            "name": "electionmap_2025_nov_prop50",
+            "url": "https://github.com/Spinnernicholas/electionmap_2025_nov_prop50",
+            "commit": "467abc3fcf674b99472b11162d8ad3a023cf4e8c",
+            "commitSubject": "Election Data: Tuesday, November 4, 2025, 11:04:34 PM"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2025",
+            "prop50"
+          ],
+          "title": "Latest Results"
         },
         {
           "id": "2025-11-04-special-prop50-2025-11-06T00-29-07Z-467abc3",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2025-11-06T00:29:07Z",
           "dataUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
           "precinctsUrl": "elections/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
@@ -110,7 +161,8 @@
             "contra-costa",
             "2025",
             "prop50"
-          ]
+          ],
+          "title": "Historical Snapshot"
         }
       ],
       "source": {
@@ -144,7 +196,9 @@
         {
           "id": "2024-11-05-general",
           "snapshotType": "final",
-          "resultsTimestamp": null,
+          "snapshotTypes": [
+            "final"
+          ],
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
           "source": {
@@ -159,11 +213,40 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Final Results"
+        },
+        {
+          "id": "2024-11-05-general-latest",
+          "snapshotType": "latest",
+          "snapshotTypes": [
+            "latest",
+            "historical"
+          ],
+          "resultsTimestamp": "2024-12-04T17:31:21Z",
+          "dataUrl": "elections/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
+          "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "591b6b706249bde93f43d526cc8aa49f24a05475",
+            "commitSubject": "General 2024 Final Results"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ],
+          "title": "Latest Results"
         },
         {
           "id": "2024-11-05-general-2024-12-04T01-31-21Z-591b6b7",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-12-04T01:31:21Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -179,11 +262,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-27T19-00-12Z-e8bcfdb",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-27T19:00:12Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-27T19-00-12Z-e8bcfdb/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -199,11 +286,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-20T19-55-44Z-802a768",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-20T19:55:44Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-20T19-55-44Z-802a768/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -219,11 +310,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-14T16-38-08Z-6dd2a03",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-14T16:38:08Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-14T16-38-08Z-6dd2a03/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -239,11 +334,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-09T21-54-52Z-a930117",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-09T21:54:52Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-09T21-54-52Z-a930117/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -259,11 +358,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-09T21-35-31Z-f9843e5",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-09T21:35:31Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-09T21-35-31Z-f9843e5/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -279,11 +382,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-09T21-31-55Z-e3531de",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-09T21:31:55Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-09T21-31-55Z-e3531de/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -299,11 +406,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-06T17-00-16Z-4a11236",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-06T17:00:16Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-06T17-00-16Z-4a11236/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -319,11 +430,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-06T07-19-29Z-2bd3d43",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-06T07:19:29Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-06T07-19-29Z-2bd3d43/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -339,11 +454,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-06T04-24-38Z-9277ad0",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-06T04:24:38Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-06T04-24-38Z-9277ad0/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -359,11 +478,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-11-05-general-2024-11-04T16-59-10Z-96ed75a",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-11-04T16:59:10Z",
           "dataUrl": "elections/2024-11-05-general/snapshots/2024-11-04T16-59-10Z-96ed75a/election.json",
           "precinctsUrl": "elections/2024-11-05-general/precincts.gis.json",
@@ -379,7 +502,8 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         }
       ],
       "source": {
@@ -413,7 +537,9 @@
         {
           "id": "2024-03-05-primary",
           "snapshotType": "final",
-          "resultsTimestamp": null,
+          "snapshotTypes": [
+            "final"
+          ],
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
           "source": {
@@ -428,11 +554,40 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Final Results"
+        },
+        {
+          "id": "2024-03-05-primary-latest",
+          "snapshotType": "latest",
+          "snapshotTypes": [
+            "latest",
+            "historical"
+          ],
+          "resultsTimestamp": "2024-04-09T11:18:35Z",
+          "dataUrl": "elections/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
+          "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "8fbd911dc9d4cbdb5384af1110ea22bf873df431",
+            "commitSubject": "Added support for Vote For X contests"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "contra-costa",
+            "2024"
+          ],
+          "title": "Latest Results"
         },
         {
           "id": "2024-03-05-primary-2024-04-08T21-18-35Z-8fbd911",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-04-08T21:18:35Z",
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
@@ -448,11 +603,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-03-05-primary-2024-04-05T18-44-09Z-bad7cbc",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-04-05T18:44:09Z",
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-04-05T18-44-09Z-bad7cbc/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
@@ -468,11 +627,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-03-05-primary-2024-03-16T03-48-02Z-33c6cb9",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-03-16T03:48:02Z",
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-16T03-48-02Z-33c6cb9/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
@@ -488,11 +651,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-03-05-primary-2024-03-14T03-57-16Z-88b6aa6",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-03-14T03:57:16Z",
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-14T03-57-16Z-88b6aa6/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
@@ -508,11 +675,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-03-05-primary-2024-03-09T03-08-18Z-43cfd00",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-03-09T03:08:18Z",
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-09T03-08-18Z-43cfd00/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
@@ -528,11 +699,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-03-05-primary-2024-03-06T17-49-06Z-f5759e6",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-03-06T17:49:06Z",
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-06T17-49-06Z-f5759e6/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
@@ -548,11 +723,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-03-05-primary-2024-03-06T07-16-40Z-65cf73a",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-03-06T07:16:40Z",
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-06T07-16-40Z-65cf73a/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
@@ -568,11 +747,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-03-05-primary-2024-03-06T04-38-47Z-bf5fb4d",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-03-06T04:38:47Z",
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-06T04-38-47Z-bf5fb4d/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
@@ -588,11 +771,15 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2024-03-05-primary-2024-03-05T05-54-18Z-335d332",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2024-03-05T05:54:18Z",
           "dataUrl": "elections/2024-03-05-primary/snapshots/2024-03-05T05-54-18Z-335d332/election.json",
           "precinctsUrl": "elections/2024-03-05-primary/precincts.gis.json",
@@ -608,7 +795,8 @@
             "history",
             "contra-costa",
             "2024"
-          ]
+          ],
+          "title": "Historical Snapshot"
         }
       ],
       "source": {
@@ -642,7 +830,9 @@
         {
           "id": "2022-11-08-general-marin",
           "snapshotType": "final",
-          "resultsTimestamp": null,
+          "snapshotTypes": [
+            "final"
+          ],
           "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
           "precinctsUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
           "source": {
@@ -657,11 +847,40 @@
             "history",
             "marin",
             "2022"
-          ]
+          ],
+          "title": "Final Results"
+        },
+        {
+          "id": "2022-11-08-general-marin-latest",
+          "snapshotType": "latest",
+          "snapshotTypes": [
+            "latest",
+            "historical"
+          ],
+          "resultsTimestamp": "2023-03-21T13:37:09Z",
+          "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
+          "precinctsUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
+          "source": {
+            "name": "CocoaCountyMap",
+            "url": "https://github.com/Cocoa-County/CocoaCountyMap",
+            "commit": "d12a7790bba71c951d21f84216997c47a7944a65",
+            "commitSubject": "Marin County 2022 General Election"
+          },
+          "tags": [
+            "imported",
+            "snapshot",
+            "history",
+            "marin",
+            "2022"
+          ],
+          "title": "Latest Results"
         },
         {
           "id": "2022-11-08-general-marin-2023-03-20T23-37-09Z-d12a779",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2023-03-20T23:37:09Z",
           "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
           "precinctsUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
@@ -677,11 +896,15 @@
             "history",
             "marin",
             "2022"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2022-11-08-general-marin-2023-03-14T16-39-33Z-0bee17b",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2023-03-14T16:39:33Z",
           "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-14T16-39-33Z-0bee17b/election.json",
           "precinctsUrl": "elections/2022-11-08-general-marin/precincts.gis.json",
@@ -697,11 +920,15 @@
             "history",
             "marin",
             "2022"
-          ]
+          ],
+          "title": "Historical Snapshot"
         },
         {
           "id": "2022-11-08-general-marin-2023-03-10T01-34-39Z-5a13ec8",
           "snapshotType": "historical",
+          "snapshotTypes": [
+            "historical"
+          ],
           "resultsTimestamp": "2023-03-10T01:34:39Z",
           "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-10T01-34-39Z-5a13ec8/election.json",
           "precinctsUrl": "elections/2022-11-08-general-marin/precincts.gis.json",
@@ -717,7 +944,8 @@
             "history",
             "marin",
             "2022"
-          ]
+          ],
+          "title": "Historical Snapshot"
         }
       ],
       "source": {
