@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cocoa County Election Data Repository</title>
+  <style>
+    :root {
+      --bg: #f3f5f7;
+      --panel: #ffffff;
+      --ink: #1d2733;
+      --muted: #4d5b6b;
+      --line: #b5c0cb;
+      --accent: #1e4f7a;
+      --danger: #8f2d2d;
+      --chip-bg: #eef3f8;
+      --chip-ink: #254562;
+      --radius: 3px;
+      --shadow: none;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    .page {
+      width: min(1100px, 92vw);
+      margin: 28px auto 48px;
+    }
+
+    .hero {
+      background: #e3eaf1;
+      color: var(--ink);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 68ch;
+      line-height: 1.45;
+    }
+
+    .meta {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .meta .pill {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 4px 10px;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      background: #f8fafc;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: #1c3245;
+      border-radius: var(--radius);
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tab-btn:hover {
+      background: #f3f7fb;
+    }
+
+    .tab-btn.active {
+      border-color: #375f84;
+      background: #dce8f4;
+      color: #12283b;
+    }
+
+    .tab-panel.hidden { display: none; }
+
+    .controls {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 2fr 1fr 1fr;
+      margin-bottom: 12px;
+    }
+
+    .control {
+      display: grid;
+      gap: 6px;
+    }
+
+    .control label {
+      font-size: 0.86rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    input,
+    select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 8px 10px;
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(30, 79, 122, 0.15);
+    }
+
+    .summary {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin: 12px 0 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .dataset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.04rem;
+      line-height: 1.3;
+    }
+
+    .card-meta {
+      color: var(--muted);
+      font-size: 0.89rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      border-radius: var(--radius);
+      background: var(--chip-bg);
+      color: var(--chip-ink);
+      padding: 3px 8px;
+      font-size: 0.78rem;
+      border: 1px solid #c8d5e3;
+    }
+
+    .chip.default {
+      background: #eceff3;
+      border-color: #c3ccd7;
+      color: #2f4458;
+    }
+
+    .desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .actions,
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .explore-btn {
+      border: 1px solid #2f597c;
+      background: #e2edf8;
+      color: #1a3550;
+      border-radius: var(--radius);
+      padding: 5px 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .explore-btn:hover {
+      background: #d2e3f3;
+    }
+
+    .links a {
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--accent);
+      border: 1px solid #b8c8d8;
+      border-radius: var(--radius);
+      padding: 4px 8px;
+      background: #f5f8fb;
+    }
+
+    .explorer {
+      margin-top: 4px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .explorer-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .explorer-title {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.25;
+    }
+
+    .explorer-summary {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .explorer-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      gap: 10px;
+    }
+
+    .contest-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 10px;
+    }
+
+    .contest-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px;
+      background: #fff;
+      display: grid;
+      gap: 8px;
+    }
+
+    .contest-card h3 {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.3;
+    }
+
+    .contest-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .candidate-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .candidate-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #e4e0d6;
+      border-radius: var(--radius);
+      padding: 6px 8px;
+      background: #fff;
+      font-size: 0.86rem;
+    }
+
+    .candidate-label {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .candidate-meta {
+      color: var(--muted);
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .soft {
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .empty,
+    .error {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: #fff;
+      color: var(--muted);
+    }
+
+    .error {
+      border-color: #e5b1b1;
+      background: #fff7f7;
+      color: var(--danger);
+    }
+
+    .footer {
+      margin-top: 18px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 860px) {
+      .controls,
+      .explorer-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1>Election Open Data Repository</h1>
+      <p>
+        Static browser for machine-readable election datasets. Search by ID, label, county,
+        state, type, tags, or description, then explore contests and candidates.
+      </p>
+      <div class="meta">
+        <span class="pill" id="schemaVersion">Schema v-</span>
+        <span class="pill" id="updatedDate">Updated -</span>
+        <span class="pill">Index elections.index.json</span>
+      </div>
+    </section>
+
+    <div class="tabs" role="tablist" aria-label="Repository explorers">
+      <button class="tab-btn active" id="datasetTabBtn" data-tab="dataset" role="tab" aria-controls="datasetTabPanel" aria-selected="true" type="button">Dataset Explorer</button>
+      <button class="tab-btn" id="electionTabBtn" data-tab="election" role="tab" aria-controls="electionTabPanel" aria-selected="false" type="button">Election Explorer</button>
+    </div>
+
+    <section id="datasetTabPanel" class="tab-panel" role="tabpanel" aria-labelledby="datasetTabBtn">
+      <section class="controls" aria-label="Dataset filters">
+        <div class="control">
+          <label for="searchInput">Search</label>
+          <input id="searchInput" type="search" placeholder="Try: contra costa, 2024, general" />
+        </div>
+        <div class="control">
+          <label for="typeFilter">Type</label>
+          <select id="typeFilter"><option value="">All types</option></select>
+        </div>
+        <div class="control">
+          <label for="stateFilter">State</label>
+          <select id="stateFilter"><option value="">All states</option></select>
+        </div>
+      </section>
+
+      <div class="summary">
+        <div id="resultCount">Loading datasets...</div>
+        <div id="defaultInfo"></div>
+      </div>
+
+      <section id="datasetList" class="dataset-grid" aria-live="polite"></section>
+    </section>
+
+    <section id="electionTabPanel" class="tab-panel hidden" role="tabpanel" aria-labelledby="electionTabBtn">
+      <section class="explorer" aria-live="polite">
+        <div class="explorer-head">
+          <div>
+            <h2 class="explorer-title" id="explorerTitle">Election Explorer</h2>
+            <p class="explorer-summary" id="explorerSummary">Choose an election to browse contests and candidates.</p>
+          </div>
+        </div>
+        <div class="explorer-controls">
+          <div class="control">
+            <label for="explorerElectionSelect">Election</label>
+            <select id="explorerElectionSelect"><option value="">Select an election</option></select>
+          </div>
+          <div class="control">
+            <label for="explorerVoteForFilter">Vote For</label>
+            <select id="explorerVoteForFilter"><option value="">All vote-for values</option></select>
+          </div>
+          <div class="control">
+            <label for="explorerPartyFilter">Candidate Party</label>
+            <select id="explorerPartyFilter"><option value="">All parties</option></select>
+          </div>
+          <div class="control">
+            <label for="explorerSearch">Search contests and candidates</label>
+            <input id="explorerSearch" type="search" placeholder="Try: president, proposition, harris, trump" />
+          </div>
+        </div>
+        <div id="explorerCount" class="soft"></div>
+        <div id="contestList" class="contest-list"></div>
+      </section>
+    </section>
+
+    <p class="footer">Hosted as static files. No backend required.</p>
+  </main>
+
+  <script>
+    (function () {
+      const indexUrl = new URL("elections.index.json", window.location.href).href;
+
+      const searchInput = document.getElementById("searchInput");
+      const typeFilter = document.getElementById("typeFilter");
+      const stateFilter = document.getElementById("stateFilter");
+      const datasetList = document.getElementById("datasetList");
+      const resultCount = document.getElementById("resultCount");
+      const defaultInfo = document.getElementById("defaultInfo");
+      const schemaVersion = document.getElementById("schemaVersion");
+      const updatedDate = document.getElementById("updatedDate");
+
+      const explorerTitle = document.getElementById("explorerTitle");
+      const explorerSummary = document.getElementById("explorerSummary");
+      const explorerElectionSelect = document.getElementById("explorerElectionSelect");
+      const explorerVoteForFilter = document.getElementById("explorerVoteForFilter");
+      const explorerPartyFilter = document.getElementById("explorerPartyFilter");
+      const explorerSearch = document.getElementById("explorerSearch");
+      const explorerCount = document.getElementById("explorerCount");
+      const contestList = document.getElementById("contestList");
+
+      const tabButtons = Array.from(document.querySelectorAll("button[data-tab]"));
+      const datasetTabPanel = document.getElementById("datasetTabPanel");
+      const electionTabPanel = document.getElementById("electionTabPanel");
+
+      let allEntries = [];
+      let defaultElectionId = "";
+      let activeElectionId = "";
+      let activeExplorerRows = [];
+      const electionCache = new Map();
+
+      function toText(value) {
+        return String(value || "").trim();
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/\"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function setActiveTab(tabName) {
+        const isDataset = tabName === "dataset";
+        datasetTabPanel.classList.toggle("hidden", !isDataset);
+        electionTabPanel.classList.toggle("hidden", isDataset);
+        tabButtons.forEach(function (button) {
+          const active = button.getAttribute("data-tab") === tabName;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-selected", active ? "true" : "false");
+        });
+      }
+
+      function resolveAssetUrl(assetPath) {
+        try {
+          return new URL(assetPath, indexUrl).href;
+        } catch (error) {
+          return "";
+        }
+      }
+
+      function metadataUrlFromDataUrl(dataUrl) {
+        if (!dataUrl) return "";
+        try {
+          const resolved = new URL(dataUrl, indexUrl);
+          const basePath = resolved.pathname.substring(0, resolved.pathname.lastIndexOf("/") + 1);
+          resolved.pathname = basePath + "metadata.json";
+          return resolved.href;
+        } catch (error) {
+          return "";
+        }
+      }
+
+      function buildSearchText(entry) {
+        return [
+          entry.id,
+          entry.label,
+          entry.date,
+          entry.type,
+          entry.county,
+          entry.state,
+          (entry.tags || []).join(" "),
+          entry.description,
+          entry.source && entry.source.name,
+          entry.source && entry.source.url
+        ].map(toText).join(" ").toLowerCase();
+      }
+
+      function sortByDateThenLabel(entries) {
+        return entries.slice().sort(function (a, b) {
+          const ad = toText(a.date);
+          const bd = toText(b.date);
+          if (ad > bd) return -1;
+          if (ad < bd) return 1;
+          return toText(a.label).localeCompare(toText(b.label));
+        });
+      }
+
+      function renderDatasets(entries) {
+        datasetList.innerHTML = "";
+        if (!entries.length) {
+          datasetList.innerHTML = "<div class=\"empty\">No datasets match your filters. Try a broader search.</div>";
+          return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        entries.forEach(function (entry) {
+          const chips = [];
+          if (entry.type) chips.push("<span class=\"chip\">" + escapeHtml(entry.type) + "</span>");
+          if (entry.grouped !== undefined) chips.push("<span class=\"chip\">grouped: " + String(Boolean(entry.grouped)) + "</span>");
+          if (entry.id === defaultElectionId) chips.push("<span class=\"chip default\">default</span>");
+          (entry.tags || []).forEach(function (tag) {
+            chips.push("<span class=\"chip\">" + escapeHtml(tag) + "</span>");
+          });
+
+          const dataHref = resolveAssetUrl(entry.dataUrl);
+          const precinctsHref = resolveAssetUrl(entry.precinctsUrl);
+          const metadataHref = metadataUrlFromDataUrl(entry.dataUrl);
+          const exploring = activeElectionId && activeElectionId === entry.id;
+
+          const card = document.createElement("article");
+          card.className = "card";
+          card.innerHTML =
+            "<h2>" + escapeHtml(entry.label || entry.id || "Untitled dataset") + "</h2>" +
+            "<div class=\"card-meta\">" +
+            "<span><strong>ID:</strong> " + escapeHtml(entry.id || "-") + "</span>" +
+            "<span><strong>Date:</strong> " + escapeHtml(entry.date || "-") + "</span>" +
+            "<span><strong>County:</strong> " + escapeHtml(entry.county || "-") + "</span>" +
+            "<span><strong>State:</strong> " + escapeHtml(entry.state || "-") + "</span>" +
+            "</div>" +
+            (chips.length ? "<div class=\"chips\">" + chips.join("") + "</div>" : "") +
+            (entry.description ? "<p class=\"desc\">" + escapeHtml(entry.description) + "</p>" : "") +
+            "<div class=\"actions\">" +
+            "<button class=\"explore-btn\" type=\"button\" data-explore-id=\"" + escapeHtml(entry.id || "") + "\">" + (exploring ? "Exploring" : "Explore") + "</button>" +
+            "</div>" +
+            "<div class=\"links\">" +
+            (dataHref ? "<a href=\"" + dataHref + "\" target=\"_blank\" rel=\"noopener\">election.json</a>" : "") +
+            (precinctsHref ? "<a href=\"" + precinctsHref + "\" target=\"_blank\" rel=\"noopener\">precincts.gis.json</a>" : "") +
+            (metadataHref ? "<a href=\"" + metadataHref + "\" target=\"_blank\" rel=\"noopener\">metadata.json</a>" : "") +
+            "</div>";
+          fragment.appendChild(card);
+        });
+        datasetList.appendChild(fragment);
+      }
+
+      function applyDatasetFilters() {
+        const query = toText(searchInput.value).toLowerCase();
+        const type = toText(typeFilter.value).toLowerCase();
+        const state = toText(stateFilter.value).toLowerCase();
+
+        const filtered = allEntries.filter(function (entry) {
+          if (type && toText(entry.type).toLowerCase() !== type) return false;
+          if (state && toText(entry.state).toLowerCase() !== state) return false;
+          if (query && !buildSearchText(entry).includes(query)) return false;
+          return true;
+        });
+
+        resultCount.textContent = "Showing " + filtered.length + " of " + allEntries.length + " dataset" + (allEntries.length === 1 ? "" : "s") + ".";
+        renderDatasets(sortByDateThenLabel(filtered));
+      }
+
+      function fillSelectOptions(selectEl, values, placeholderText) {
+        const first = "<option value=\"\">" + placeholderText + "</option>";
+        const options = values.filter(Boolean).map(function (value) {
+          const safe = escapeHtml(value);
+          return "<option value=\"" + safe + "\">" + safe + "</option>";
+        });
+        selectEl.innerHTML = first + options.join("");
+      }
+
+      function fillElectionSelect(entries) {
+        const options = entries.map(function (entry) {
+          const id = toText(entry.id);
+          const label = toText(entry.label) || id;
+          const date = toText(entry.date);
+          return "<option value=\"" + escapeHtml(id) + "\">" + escapeHtml(date ? (date + " | " + label) : label) + "</option>";
+        });
+        explorerElectionSelect.innerHTML = "<option value=\"\">Select an election</option>" + options.join("");
+      }
+
+      function findEntryById(entryId) {
+        return allEntries.find(function (entry) {
+          return toText(entry.id) === toText(entryId);
+        }) || null;
+      }
+
+      function buildContestRows(data) {
+        const contests = Array.isArray(data && data.contests) ? data.contests : [];
+        return contests.map(function (contest, index) {
+          const choices = Array.isArray(contest.choices) ? contest.choices : [];
+          const candidates = choices.map(function (choice) {
+            return {
+              id: toText(choice.id),
+              label: toText(choice.label),
+              party: toText(choice.party),
+              votes: choice.votes
+            };
+          });
+
+          candidates.sort(function (a, b) {
+            const av = Number.isFinite(Number(a.votes)) ? Number(a.votes) : -1;
+            const bv = Number.isFinite(Number(b.votes)) ? Number(b.votes) : -1;
+            return bv - av;
+          });
+
+          const precinctCount = contest.precincts && typeof contest.precincts === "object"
+            ? Object.keys(contest.precincts).length
+            : 0;
+
+          return {
+            id: toText(contest.id),
+            label: toText(contest.label) || ("Contest " + (index + 1)),
+            voteFor: toText(contest.voteFor),
+            precinctCount: precinctCount,
+            candidates: candidates,
+            searchText: [
+              toText(contest.id),
+              toText(contest.label),
+              toText(contest.voteFor),
+              candidates.map(function (candidate) {
+                return [candidate.id, candidate.label, candidate.party].join(" ");
+              }).join(" ")
+            ].join(" ").toLowerCase()
+          };
+        });
+      }
+
+      function candidateMetaText(candidate) {
+        const parts = [];
+        if (candidate.party) parts.push(candidate.party);
+        if (Number.isFinite(Number(candidate.votes))) parts.push("votes " + Number(candidate.votes).toLocaleString());
+        return parts.join(" | ");
+      }
+
+      function renderExplorerRows(rows) {
+        contestList.innerHTML = "";
+        if (!rows.length) {
+          contestList.innerHTML = "<div class=\"empty\">No contests matched this search.</div>";
+          return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        rows.forEach(function (row) {
+          const candidateItems = row.candidates.length
+            ? row.candidates.map(function (candidate) {
+              const meta = candidateMetaText(candidate);
+              return "<li class=\"candidate-item\">" +
+                "<span class=\"candidate-label\">" + escapeHtml(candidate.label || candidate.id || "Unnamed candidate") + "</span>" +
+                "<span class=\"candidate-meta\">" + escapeHtml(meta || "No summary") + "</span>" +
+              "</li>";
+            }).join("")
+            : "<li class=\"soft\">No candidates listed in this contest.</li>";
+
+          const card = document.createElement("article");
+          card.className = "contest-card";
+          card.innerHTML =
+            "<h3>" + escapeHtml(row.label) + "</h3>" +
+            "<div class=\"contest-meta\">" +
+            "<span><strong>ID:</strong> " + escapeHtml(row.id || "-") + "</span>" +
+            "<span><strong>Vote for:</strong> " + escapeHtml(row.voteFor || "-") + "</span>" +
+            "<span><strong>Precincts:</strong> " + String(row.precinctCount) + "</span>" +
+            "</div>" +
+            "<ul class=\"candidate-list\">" + candidateItems + "</ul>";
+          fragment.appendChild(card);
+        });
+        contestList.appendChild(fragment);
+      }
+
+      function applyExplorerFilters() {
+        if (!activeElectionId) {
+          explorerCount.textContent = "Choose an election to start browsing.";
+          contestList.innerHTML = "<div class=\"empty\">Select an election from the dropdown above.</div>";
+          return;
+        }
+
+        if (!activeExplorerRows.length) {
+          explorerCount.textContent = "No contest data found in this election file.";
+          contestList.innerHTML = "<div class=\"empty\">No contest data found in election.json.</div>";
+          return;
+        }
+
+        const query = toText(explorerSearch.value).toLowerCase();
+        const voteFor = toText(explorerVoteForFilter.value).toLowerCase();
+        const party = toText(explorerPartyFilter.value).toLowerCase();
+        const filtered = activeExplorerRows.filter(function (row) {
+          if (voteFor && toText(row.voteFor).toLowerCase() !== voteFor) return false;
+          if (party) {
+            const hasParty = row.candidates.some(function (candidate) {
+              return toText(candidate.party).toLowerCase() === party;
+            });
+            if (!hasParty) return false;
+          }
+          if (query && !row.searchText.includes(query)) return false;
+          return true;
+        });
+
+        const totalCandidates = filtered.reduce(function (sum, row) {
+          return sum + row.candidates.length;
+        }, 0);
+
+        explorerCount.textContent = "Showing " + filtered.length + " of " + activeExplorerRows.length + " contests and " + totalCandidates + " candidate records.";
+        renderExplorerRows(filtered);
+      }
+
+      async function openElectionExplorer(entry) {
+        if (!entry || !entry.dataUrl) return;
+        activeElectionId = entry.id;
+        explorerElectionSelect.value = toText(entry.id);
+        explorerTitle.textContent = entry.label || entry.id || "Election Explorer";
+        explorerSummary.textContent = "Loading contest and candidate data...";
+        contestList.innerHTML = "<div class=\"empty\">Loading election.json...</div>";
+        explorerSearch.value = "";
+        explorerVoteForFilter.value = "";
+        explorerPartyFilter.value = "";
+        applyDatasetFilters();
+
+        try {
+          let electionData = electionCache.get(entry.id);
+          if (!electionData) {
+            const response = await fetch(resolveAssetUrl(entry.dataUrl), { cache: "no-store" });
+            if (!response.ok) throw new Error("Failed to fetch election data (HTTP " + response.status + ")");
+            electionData = await response.json();
+            electionCache.set(entry.id, electionData);
+          }
+
+          activeExplorerRows = buildContestRows(electionData);
+          const voteForOptions = Array.from(new Set(activeExplorerRows.map(function (row) {
+            return toText(row.voteFor);
+          }).filter(Boolean))).sort();
+          const partyOptions = Array.from(new Set(activeExplorerRows.flatMap(function (row) {
+            return row.candidates.map(function (candidate) {
+              return toText(candidate.party);
+            });
+          }).filter(Boolean))).sort();
+          fillSelectOptions(explorerVoteForFilter, voteForOptions, "All vote-for values");
+          fillSelectOptions(explorerPartyFilter, partyOptions, "All parties");
+
+          const totalCandidates = activeExplorerRows.reduce(function (sum, row) {
+            return sum + row.candidates.length;
+          }, 0);
+
+          explorerSummary.textContent =
+            "Election ID " + (entry.id || "-") +
+            " | Date " + (entry.date || "-") +
+            " | Contests " + activeExplorerRows.length +
+            " | Candidates " + totalCandidates;
+
+          applyExplorerFilters();
+        } catch (error) {
+          explorerSummary.textContent = "Unable to load election details.";
+          contestList.innerHTML = "<div class=\"error\">" + escapeHtml(error.message || "Unknown error while loading election details.") + "</div>";
+        }
+      }
+
+      function renderError(message) {
+        datasetList.innerHTML = "<div class=\"error\">" + escapeHtml(message) + "</div>";
+        resultCount.textContent = "Unable to load datasets.";
+      }
+
+      async function loadIndex() {
+        try {
+          const response = await fetch(indexUrl, { cache: "no-store" });
+          if (!response.ok) throw new Error("Failed to fetch elections.index.json (HTTP " + response.status + ")");
+
+          const index = await response.json();
+          allEntries = Array.isArray(index.elections) ? index.elections : [];
+          defaultElectionId = toText(index.defaultElectionId);
+
+          schemaVersion.textContent = "Schema v" + toText(index.version || "-");
+          updatedDate.textContent = "Updated " + toText(index.updated || "-");
+          defaultInfo.textContent = defaultElectionId ? ("Default dataset: " + defaultElectionId) : "";
+
+          fillSelectOptions(typeFilter, Array.from(new Set(allEntries.map(function (e) { return toText(e.type); }))).sort(), "All types");
+          fillSelectOptions(stateFilter, Array.from(new Set(allEntries.map(function (e) { return toText(e.state); }))).sort(), "All states");
+          fillElectionSelect(sortByDateThenLabel(allEntries));
+
+          applyDatasetFilters();
+
+          if (defaultElectionId) {
+            const entry = findEntryById(defaultElectionId);
+            if (entry) openElectionExplorer(entry);
+            else applyExplorerFilters();
+          } else {
+            applyExplorerFilters();
+          }
+        } catch (error) {
+          renderError(error.message || "Unknown error while loading index.");
+        }
+      }
+
+      searchInput.addEventListener("input", applyDatasetFilters);
+      typeFilter.addEventListener("change", applyDatasetFilters);
+      stateFilter.addEventListener("change", applyDatasetFilters);
+      explorerSearch.addEventListener("input", applyExplorerFilters);
+      explorerVoteForFilter.addEventListener("change", applyExplorerFilters);
+      explorerPartyFilter.addEventListener("change", applyExplorerFilters);
+
+      explorerElectionSelect.addEventListener("change", function () {
+        const entry = findEntryById(explorerElectionSelect.value);
+        if (entry) {
+          openElectionExplorer(entry);
+        } else {
+          activeElectionId = "";
+          activeExplorerRows = [];
+          explorerTitle.textContent = "Election Explorer";
+          explorerSummary.textContent = "Choose an election to browse contests and candidates.";
+          explorerSearch.value = "";
+          fillSelectOptions(explorerVoteForFilter, [], "All vote-for values");
+          fillSelectOptions(explorerPartyFilter, [], "All parties");
+          applyDatasetFilters();
+          applyExplorerFilters();
+        }
+      });
+
+      tabButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          setActiveTab(button.getAttribute("data-tab"));
+        });
+      });
+
+      datasetList.addEventListener("click", function (event) {
+        const button = event.target.closest("button[data-explore-id]");
+        if (!button) return;
+        const entry = findEntryById(button.getAttribute("data-explore-id"));
+        if (!entry) return;
+        setActiveTab("election");
+        openElectionExplorer(entry);
+      });
+
+      setActiveTab("dataset");
+      loadIndex();
+    })();
+  </script>
+</body>
+</html>
