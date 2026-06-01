@@ -382,15 +382,6 @@
   <main class="page">
     <section class="hero">
       <h1>Election Open Data Repository</h1>
-      <p>
-        Static browser for machine-readable election datasets. Search by ID, label, county,
-        state, type, tags, or description, then explore contests and candidates.
-      </p>
-      <div class="meta">
-        <span class="pill" id="schemaVersion">Schema v-</span>
-        <span class="pill" id="updatedDate">Updated -</span>
-        <span class="pill">Index elections.index.json</span>
-      </div>
     </section>
 
     <div class="tabs" role="tablist" aria-label="Repository explorers">
@@ -453,7 +444,6 @@
       </section>
     </section>
 
-    <p class="footer">Hosted as static files. No backend required.</p>
   </main>
 
   <script>
@@ -466,8 +456,6 @@
       const datasetList = document.getElementById("datasetList");
       const resultCount = document.getElementById("resultCount");
       const defaultInfo = document.getElementById("defaultInfo");
-      const schemaVersion = document.getElementById("schemaVersion");
-      const updatedDate = document.getElementById("updatedDate");
 
       const explorerTitle = document.getElementById("explorerTitle");
       const explorerSummary = document.getElementById("explorerSummary");
@@ -827,8 +815,6 @@
           allEntries = Array.isArray(index.elections) ? index.elections : [];
           defaultElectionId = toText(index.defaultElectionId);
 
-          schemaVersion.textContent = "Schema v" + toText(index.version || "-");
-          updatedDate.textContent = "Updated " + toText(index.updated || "-");
           defaultInfo.textContent = defaultElectionId ? ("Default dataset: " + defaultElectionId) : "";
 
           fillSelectOptions(typeFilter, Array.from(new Set(allEntries.map(function (e) { return toText(e.type); }))).sort(), "All types");
