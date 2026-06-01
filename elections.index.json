@@ -22,20 +22,6 @@
       ],
       "snapshots": [
         {
-          "id": "2026-06-02-primary-final",
-          "snapshotType": "final",
-          "snapshotTypes": [
-            "final"
-          ],
-          "dataUrl": "elections/2026-06-02-primary/election.json",
-          "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
-          "tags": [
-            "contra-costa",
-            "2026"
-          ],
-          "title": "Final Results"
-        },
-        {
           "id": "2026-06-02-primary-latest",
           "snapshotType": "latest",
           "snapshotTypes": [
@@ -49,23 +35,9 @@
             "2026"
           ],
           "title": "Latest Results"
-        },
-        {
-          "id": "2026-06-02-primary-pre-election",
-          "snapshotType": "pre-election",
-          "snapshotTypes": [
-            "pre-election"
-          ],
-          "dataUrl": "elections/2026-06-02-primary/snapshots/pre-election/election.json",
-          "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
-          "tags": [
-            "contra-costa",
-            "2026"
-          ],
-          "title": "Pre-Election Baseline"
         }
       ],
-      "description": "Election with nested special snapshots for pre-election baseline and final results."
+      "description": "Election with a single pre-election snapshot that is also labeled latest."
     },
     {
       "id": "2025-11-04-special-prop50",
