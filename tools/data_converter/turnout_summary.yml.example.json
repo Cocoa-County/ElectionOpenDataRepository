@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "page": 1,
+    "total_pages": 42,
+    "report_timestamp": "2026-06-25T14:56:35",
+    "county": "Contra Costa County",
+    "election_date": "2026-06-02",
+    "election_name": "Statewide Direct Primary Election",
+    "report_title": "Official Results - Final"
+  },
+  "precincts": [
+    {
+      "precinct": "WLKN101",
+      "results": {
+        "Vote By Mail": {
+          "registered_voters": 2856,
+          "cards_cast": 3132,
+          "voters_cast": 1567,
+          "turnout": 0.548669467787115
+        },
+        "Election Day": {
+          "registered_voters": 2856,
+          "cards_cast": 232,
+          "voters_cast": 116,
+          "turnout": 0.0406162464985994
+        },
+        "Total": {
+          "registered_voters": 2856,
+          "cards_cast": 3364,
+          "voters_cast": 1683,
+          "turnout": 0.589285714285714
+        }
+      }
+    }
+  ],
+  "summaries": {
+    "rows": [
+      {
+        "label": "Contra Costa County - Total",
+        "registered_voters": 731497,
+        "cards_cast": 654168,
+        "voters_cast": 327699,
+        "turnout": 0.447984065553242
+      },
+      {
+        "label": "Cumulative - Total",
+        "registered_voters": 0,
+        "cards_cast": 0,
+        "voters_cast": 0,
+        "turnout": null
+      }
+    ],
+    "groups": [
+      {
+        "label": "Cumulative",
+        "results": {
+          "Vote By Mail": {
+            "registered_voters": 0,
+            "cards_cast": 0,
+            "voters_cast": 0,
+            "turnout": null
+          },
+          "Election Day": {
+            "registered_voters": 0,
+            "cards_cast": 0,
+            "voters_cast": 0,
+            "turnout": null
+          },
+          "Total": {
+            "registered_voters": 0,
+            "cards_cast": 0,
+            "voters_cast": 0,
+            "turnout": null
+          }
+        }
+      },
+      {
+        "label": "County - Total",
+        "results": {
+          "Vote By Mail": {
+            "registered_voters": 731497,
+            "cards_cast": 604486,
+            "voters_cast": 302849,
+            "turnout": 0.414012634364871
+          },
+          "Election Day": {
+            "registered_voters": 731497,
+            "cards_cast": 49682,
+            "voters_cast": 24850,
+            "turnout": 0.0339714311883712
+          }
+        }
+      }
+    ]
+  }
+}

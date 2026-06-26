@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "page": 21,
+    "total_pages": 42,
+    "report_timestamp": "2026-06-25T14:56:34.985000"
+  },
+  "contest": {
+    "contest_name": "ASSESSOR",
+    "vote_for": 1,
+    "privacy_note": "**** - Insufficient Turnout to Protect Voter Privacy"
+  },
+  "options": [
+    "VINCE ROBB",
+    "NICK SPINNER",
+    "KISMAT KATHRANI"
+  ],
+  "precincts": [
+    {
+      "precinct": "ALHA101",
+      "results": {
+        "Vote By Mail": {
+          "times_cast": 40,
+          "registered_voters": 75,
+          "options": {
+            "VINCE ROBB": {
+              "votes": 24,
+              "percent": 75.0
+            },
+            "NICK SPINNER": {
+              "votes": 4,
+              "percent": 12.5
+            },
+            "KISMAT KATHRANI": {
+              "votes": 4,
+              "percent": 12.5
+            }
+          },
+          "total_votes": 32,
+          "unresolved_write_in": 0
+        },
+        "Election Day": {
+          "times_cast": 3,
+          "registered_voters": 75,
+          "options": {
+            "VINCE ROBB": {
+              "votes": null,
+              "percent": null
+            },
+            "NICK SPINNER": {
+              "votes": null,
+              "percent": null
+            },
+            "KISMAT KATHRANI": {
+              "votes": null,
+              "percent": null
+            }
+          },
+          "total_votes": null,
+          "unresolved_write_in": null
+        },
+        "Total": {
+          "times_cast": 43,
+          "registered_voters": 75,
+          "options": {
+            "VINCE ROBB": {
+              "votes": 27,
+              "percent": 77.14
+            },
+            "NICK SPINNER": {
+              "votes": 4,
+              "percent": 11.43
+            },
+            "KISMAT KATHRANI": {
+              "votes": 4,
+              "percent": 11.43
+            }
+          },
+          "total_votes": 35,
+          "unresolved_write_in": 0
+        }
+      }
+    }
+  ],
+  "summaries": {
+    "rows": [
+      {
+        "label": "Contra Costa County - Total",
+        "times_cast": 326469,
+        "registered_voters": 731497,
+        "options": {
+          "VINCE ROBB": {
+            "votes": 181262,
+            "percent": 67.07
+          },
+          "NICK SPINNER": {
+            "votes": 63177,
+            "percent": 23.38
+          },
+          "KISMAT KATHRANI": {
+            "votes": 25806,
+            "percent": 9.55
+          }
+        },
+        "total_votes": 270245,
+        "unresolved_write_in": 0
+      },
+      {
+        "label": "Cumulative - Total",
+        "times_cast": 0,
+        "registered_voters": 0,
+        "options": {
+          "VINCE ROBB": {
+            "votes": 0,
+            "percent": null
+          },
+          "NICK SPINNER": {
+            "votes": 0,
+            "percent": null
+          },
+          "KISMAT KATHRANI": {
+            "votes": 0,
+            "percent": null
+          }
+        },
+        "total_votes": 0,
+        "unresolved_write_in": 0
+      }
+    ],
+    "groups": [
+      {
+        "label": "Cumulative",
+        "results": {
+          "Vote By Mail": {
+            "times_cast": 0,
+            "registered_voters": 0,
+            "options": {
+              "VINCE ROBB": {
+                "votes": 0,
+                "percent": null
+              },
+              "NICK SPINNER": {
+                "votes": 0,
+                "percent": null
+              },
+              "KISMAT KATHRANI": {
+                "votes": 0,
+                "percent": null
+              }
+            },
+            "total_votes": 0,
+            "unresolved_write_in": 0
+          },
+          "Election Day": {
+            "times_cast": 0,
+            "registered_voters": 0,
+            "options": {
+              "VINCE ROBB": {
+                "votes": 0,
+                "percent": null
+              },
+              "NICK SPINNER": {
+                "votes": 0,
+                "percent": null
+              },
+              "KISMAT KATHRANI": {
+                "votes": 0,
+                "percent": null
+              }
+            },
+            "total_votes": 0,
+            "unresolved_write_in": 0
+          },
+          "Total": {
+            "times_cast": 0,
+            "registered_voters": 0,
+            "options": {
+              "VINCE ROBB": {
+                "votes": 0,
+                "percent": null
+              },
+              "NICK SPINNER": {
+                "votes": 0,
+                "percent": null
+              },
+              "KISMAT KATHRANI": {
+                "votes": 0,
+                "percent": null
+              }
+            },
+            "total_votes": 0,
+            "unresolved_write_in": 0
+          }
+        }
+      },
+      {
+        "label": "County - Total",
+        "results": {
+          "Vote By Mail": {
+            "times_cast": 326469,
+            "registered_voters": 731497,
+            "options": {
+              "VINCE ROBB": {
+                "votes": 181262,
+                "percent": 67.07
+              },
+              "NICK SPINNER": {
+                "votes": 63177,
+                "percent": 23.38
+              },
+              "KISMAT KATHRANI": {
+                "votes": 25806,
+                "percent": 9.55
+              }
+            },
+            "total_votes": 270245,
+            "unresolved_write_in": 0
+          }
+        }
+      }
+    ]
+  }
+}

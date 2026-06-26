@@ -1,0 +1,85 @@
+document:
+  type: turnout_summary
+  format: csv
+
+normalization:
+  newline_replacement: " "
+  collapse_whitespace: true
+  trim: true
+  strip_wrapping_quotes: true
+
+header:
+  page:
+    row: 0
+    col: 0
+    regex: "^Page: (?P<page>\\d+) of (?P<total_pages>\\d+)$"
+
+  report_timestamp:
+    row: 0
+    scan_row_for_datetime:
+      formats:
+        - "%Y-%m-%d %I:%M:%S %p"
+        - "%m/%d/%Y %I:%M:%S %p"
+        - "%Y-%m-%d %H:%M:%S.%f"
+
+title_block:
+  start_row: 2
+  col: 2
+  lines:
+    - county
+    - election_date
+    - election_name
+    - report_title
+
+table:
+  header_row_search:
+    max_scan_rows: 10
+    required_cells:
+      - col: 0
+        equals: "Precinct"
+      - col: 1
+        equals: "Registered Voters"
+      - col: 3
+        equals: "Cards Cast"
+      - col: 5
+        equals: "Voters Cast"
+
+  columns:
+    label: 0
+    registered_voters: 1
+    cards_cast: 3
+    voters_cast: 5
+    turnout: 6
+
+precinct_group:
+  parent_regex: "^[A-Z]{4}\\d{3}$"
+  child_rows:
+    - "Vote By Mail"
+    - "Election Day"
+    - "Total"
+
+footer:
+  summary_rows:
+    regex_labels:
+      - "^[A-Za-z ].* - Total$"
+
+  summary_groups:
+    parent_labels:
+      - "Cumulative"
+      - "County - Total"
+    child_rows:
+      - "Vote By Mail"
+      - "Election Day"
+      - "Total"
+
+values:
+  integer:
+    strip_commas: true
+    empty_as_null: true
+
+  float:
+    empty_as_null: true
+
+  percent:
+    strip_suffix: "%"
+    empty_as_null: true
