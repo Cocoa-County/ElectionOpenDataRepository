@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated": "2026-06-01",
-  "defaultElectionId": "2025-11-04-special-prop50",
+  "updated": "2026-06-27",
+  "defaultElectionId": "2026-06-02-primary",
   "elections": [
     {
       "id": "2026-06-02-primary",
@@ -25,14 +25,24 @@
       "description": "This interactive map displays precinct-level voting results for the Contra Costa County 2026 Primary Election.",
       "snapshots": [
         {
-          "id": "2026-06-02-primary-latest",
+          "id": "2026-06-02-primary-final",
           "snapshotTypes": [
             "latest",
+            "final-results"
+          ],
+          "dataUrl": "elections/2026-06-02-primary/election.json",
+          "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
+          "title": "Final Results",
+          "resultsTimestamp": "2026-06-27T01:01:58Z"
+        },
+        {
+          "id": "2026-06-02-primary-pre-election",
+          "snapshotTypes": [
             "pre-election"
           ],
           "dataUrl": "elections/2026-06-02-primary/snapshots/pre-election/election.json",
           "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
-          "title": "Latest Results"
+          "title": "Pre-Election Snapshot"
         }
       ]
     },
