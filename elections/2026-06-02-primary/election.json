@@ -391598,13 +391598,15 @@
         {
           "index": 0,
           "id": 0,
-          "label": "BONDS YES",
+          "label": "YES",
+          "color": "green1",
           "votes": 149087
         },
         {
           "index": 1,
           "id": 1,
-          "label": "BONDS NO",
+          "label": "NO",
+          "color": "red1",
           "votes": 148275
         }
       ],
@@ -406063,13 +406065,15 @@
         {
           "index": 0,
           "id": 0,
-          "label": "BONDS NO",
+          "label": "NO",
+          "color": "red1",
           "votes": 5319
         },
         {
           "index": 1,
           "id": 1,
-          "label": "BONDS YES",
+          "label": "YES",
+          "color": "green1",
           "votes": 4102
         }
       ],
