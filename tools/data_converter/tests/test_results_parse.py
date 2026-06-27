@@ -107,3 +107,36 @@ def test_json_omit_nulls_keeps_dict_complete(tmp_path: Path) -> None:
     json_without_nulls = parsed_obj.to_json(include_nulls=False)
     no_null_payload = json.loads(json_without_nulls)
     assert "votes" not in no_null_payload["precincts"][0]["results"]["Election Day"]["options"]["VINCE ROBB"]
+
+
+def test_results_parse_handles_shifted_final_candidate_header(tmp_path: Path) -> None:
+    csv_path = tmp_path / "results_shifted_header.csv"
+    csv_path.write_text(
+        "\n".join(
+            [
+                "Page: 10 of 42,,,,,,,,,,,2026-06-25 14:56:34.985000",
+                '"UNITED STATES REPRESENTATIVE, DISTRICT 8 (Vote for  1)"',
+                ",,,,,,,,,,,,,,,",
+                "Precinct,Times Cast,Registered Voters,,Precinct,RUDY RECILE (REP),,AARON ROWDEN (DEM),,NICOLAS CARJUZAA (DEM),,,JOHN GARAMENDI (DEM),,Total Votes,Unresolved Write-In",
+                "TEST101,,,,TEST101,,,,,,,,,,",
+                "Vote By Mail,10,20,,Vote By Mail,1,10.00,2,20.00,3,30.00,,4,40.00,10,0",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    config_path = (
+        Path(__file__).parents[1]
+        / "profiles"
+        / "contra_costa"
+        / "election_results_xlsx"
+        / "results.yml"
+    )
+    parsed = parse_file(str(csv_path), str(config_path))
+
+    assert parsed["options"] == [
+        "RUDY RECILE (REP)",
+        "AARON ROWDEN (DEM)",
+        "NICOLAS CARJUZAA (DEM)",
+        "JOHN GARAMENDI (DEM)",
+    ]

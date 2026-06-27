@@ -162,7 +162,9 @@ def _extract_options(header_row: list[str], right_block: dict[str, Any]) -> list
     while col < len(header_row):
         name = safe_get(header_row, col)
         if not name:
-            col += pair_width
+            # Some exports can insert a blank spacer before a candidate header.
+            # Advance one column when blank so shifted headers are still discovered.
+            col += 1
             continue
         if name in stop_headers:
             break
