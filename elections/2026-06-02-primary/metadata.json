@@ -1,4 +1,13 @@
 {
   "schemaVersion": 1,
-  "generated": "2026-06-01"
+  "generated": "2026-06-27",
+  "electionId": "2026-06-02-primary",
+  "source": {
+    "kind": "url",
+    "value": "https://www.contracostavote.gov/wp-content/uploads/20260602_ContraCostaSOV_ByPCT_LVTP.xlsx"
+  },
+  "run": {
+    "startedAt": "2026-06-27T01:01:33.099859+00:00",
+    "generatedAt": "2026-06-27T01:01:58.704789+00:00"
+  }
 }
