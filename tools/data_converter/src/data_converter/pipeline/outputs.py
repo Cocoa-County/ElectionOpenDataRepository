@@ -80,6 +80,10 @@ def build_manifest(
     keep_split_csv: bool,
     delete_split_csv: bool,
     omit_nulls: bool,
+    transform_enabled: bool,
+    transform_output_path: str | None,
+    transform_metadata_path: str | None,
+    transform_index_updated: bool,
 ) -> dict[str, Any]:
     succeeded = sum(1 for item in results if item["ok"])
     failed = len(results) - succeeded
@@ -107,6 +111,10 @@ def build_manifest(
             "output_versioning_enabled": output_versioning_enabled,
             "output_version_template": output_version_template,
             "output_version": output_version,
+            "transform_enabled": transform_enabled,
+            "transform_output_path": transform_output_path,
+            "transform_metadata_path": transform_metadata_path,
+            "transform_index_updated": transform_index_updated,
         },
         "base_output_dir": str(base_output_dir),
         "output_dir": str(output_dir),

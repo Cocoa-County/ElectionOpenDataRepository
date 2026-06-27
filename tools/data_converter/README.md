@@ -38,6 +38,7 @@ Use `profiles/contra_costa/election_results_xlsx/pipeline.yml.example` as a temp
 - JSON formatting and null handling
 - output behaviors (per-sheet JSON, manifest, summary-only)
 - optional combined JSON output (single file containing all sheet payloads)
+- optional transform stage to write map-ready `election.json` and `metadata.json`
 - optional output versioning with template-based subdirectories
 - in-memory table mode by default (no split CSV files written)
 - split CSV cleanup behavior
@@ -139,6 +140,12 @@ python .\data_converter.py pipeline --config .\profiles\contra_costa\election_re
 python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --write-combined-json --combined-name output.json --no-write-sheet-json --no-write-manifest
 ```
 
+8. Run pipeline with transform stage enabled
+
+```powershell
+python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --transform
+```
+
 Current profile default outputs:
 
 - `output.json` (combined per-sheet payloads)
@@ -159,6 +166,10 @@ Current profile default outputs:
 - `--write-sheet-json` / `--no-write-sheet-json`
 - `--write-combined-json` / `--no-write-combined-json`
 - `--combined-name`: filename for combined JSON output
+- `--transform` / `--no-transform`
+- `--transform-output`: path for transformed election JSON
+- `--transform-metadata`: path for transformed metadata JSON
+- `--update-index` / `--no-update-index`
 - `--write-manifest` / `--no-write-manifest`
 - `--in-memory-tables` / `--no-in-memory-tables`
 - `--table-representation`: `rows` or `dataframe`
@@ -177,3 +188,4 @@ Current profile default outputs:
 - Manifest settings include whether in-memory table mode was used and which table representation was selected.
 - In-memory table processing is enabled by default unless disabled with `--no-in-memory-tables` or `io.tables.in_memory: false`.
 - Combined JSON output writes a top-level `sheets` object keyed by sheet name.
+- Transform output follows CocoaCountyMap `data.json` contract shape with top-level `contests`.

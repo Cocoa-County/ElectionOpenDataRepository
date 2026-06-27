@@ -6,7 +6,7 @@ from typing import Any
 
 import yaml
 
-from data_converter.defaults import DEFAULT_OUTPUT_DIR
+from data_converter.defaults import DEFAULT_OUTPUT_DIR, PROJECT_ROOT
 
 
 @dataclass
@@ -27,6 +27,22 @@ class RuntimeOptions:
     indent: int
     include_warnings: bool
     manifest_name: str
+    transform_enabled: bool
+    transform_output_path: Path | None
+    transform_write_metadata: bool
+    transform_metadata_path: Path | None
+    transform_election_id: str | None
+    transform_precinct_result_scope: str
+    transform_update_index: bool
+    transform_index_path: Path | None
+    transform_index_label: str | None
+    transform_index_date: str | None
+    transform_index_type: str | None
+    transform_index_county: str | None
+    transform_index_state: str | None
+    transform_precincts_url: str | None
+    transform_precinct_id_field: str | None
+    transform_precinct_label_field: str | None
     effective_url: str | None
     effective_xlsx_path: str | None
     timeout_seconds: int
@@ -63,6 +79,10 @@ def build_runtime_options(
     write_combined_json_override: bool | None = None,
     write_manifest_override: bool | None = None,
     combined_name_override: str | None = None,
+    transform_override: bool | None = None,
+    transform_output_path_override: str | None = None,
+    transform_metadata_path_override: str | None = None,
+    transform_update_index_override: bool | None = None,
     in_memory_tables_override: bool | None = None,
     table_representation_override: str | None = None,
     keep_split_csv_override: bool | None = None,
@@ -75,6 +95,7 @@ def build_runtime_options(
     io_cfg = cfg.get("io", {})
     versioning_cfg = io_cfg.get("versioning", {})
     tables_cfg = io_cfg.get("tables", {})
+    transform_cfg = cfg.get("transform", {})
     include_warnings = bool(cfg.get("warnings", {}).get("include", True))
     json_cfg = cfg.get("json", {})
     input_cfg = cfg.get("input", {})
@@ -111,6 +132,20 @@ def build_runtime_options(
         or versioning_cfg.get("template", "{run_utc:%Y%m%dT%H%M%SZ}")
     )
 
+    transform_enabled = _pick_bool(transform_override, transform_cfg.get("enabled", False))
+    transform_write_metadata = bool(transform_cfg.get("write_metadata", True))
+    transform_update_index = _pick_bool(transform_update_index_override, transform_cfg.get("update_index", False))
+
+    transform_output_path = _resolve_optional_path(
+        transform_output_path_override or transform_cfg.get("output_path"),
+        PROJECT_ROOT,
+    )
+    transform_metadata_path = _resolve_optional_path(
+        transform_metadata_path_override or transform_cfg.get("metadata_path"),
+        PROJECT_ROOT,
+    )
+    transform_index_path = _resolve_optional_path(transform_cfg.get("index_path"), PROJECT_ROOT)
+
     return RuntimeOptions(
         output_dir=output_dir,
         output_versioning_enabled=output_versioning_enabled,
@@ -128,6 +163,22 @@ def build_runtime_options(
         indent=int(json_cfg.get("indent", 2)),
         include_warnings=include_warnings,
         manifest_name=str(io_cfg.get("manifest_name", "manifest.json")),
+        transform_enabled=transform_enabled,
+        transform_output_path=transform_output_path,
+        transform_write_metadata=transform_write_metadata,
+        transform_metadata_path=transform_metadata_path,
+        transform_election_id=transform_cfg.get("election_id"),
+        transform_precinct_result_scope=str(transform_cfg.get("precinct_result_scope", "Total")),
+        transform_update_index=transform_update_index,
+        transform_index_path=transform_index_path,
+        transform_index_label=transform_cfg.get("index_label"),
+        transform_index_date=transform_cfg.get("index_date"),
+        transform_index_type=transform_cfg.get("index_type"),
+        transform_index_county=transform_cfg.get("index_county"),
+        transform_index_state=transform_cfg.get("index_state"),
+        transform_precincts_url=transform_cfg.get("precincts_url"),
+        transform_precinct_id_field=transform_cfg.get("precinct_id_field"),
+        transform_precinct_label_field=transform_cfg.get("precinct_label_field"),
         effective_url=effective_url,
         effective_xlsx_path=effective_xlsx_path,
         timeout_seconds=timeout_seconds,
@@ -138,3 +189,12 @@ def _pick_bool(cli_value: bool | None, config_value: Any) -> bool:
     if cli_value is None:
         return bool(config_value)
     return cli_value
+
+
+def _resolve_optional_path(raw_path: Any, base_dir: Path) -> Path | None:
+    if not raw_path:
+        return None
+    path = Path(str(raw_path))
+    if path.is_absolute():
+        return path
+    return (base_dir / path).resolve()

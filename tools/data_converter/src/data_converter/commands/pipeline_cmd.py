@@ -24,6 +24,14 @@ def register(subparsers: _SubParsersAction[ArgumentParser]) -> None:
     parser.add_argument("--no-write-combined-json", dest="write_combined_json", action="store_false")
     parser.set_defaults(write_combined_json=None)
     parser.add_argument("--combined-name", help="Filename for combined JSON output")
+    parser.add_argument("--transform", dest="transform", action="store_true")
+    parser.add_argument("--no-transform", dest="transform", action="store_false")
+    parser.set_defaults(transform=None)
+    parser.add_argument("--transform-output", help="Output path for transformed election JSON")
+    parser.add_argument("--transform-metadata", help="Output path for transformed metadata JSON")
+    parser.add_argument("--update-index", dest="update_index", action="store_true")
+    parser.add_argument("--no-update-index", dest="update_index", action="store_false")
+    parser.set_defaults(update_index=None)
     parser.add_argument("--write-manifest", dest="write_manifest", action="store_true")
     parser.add_argument("--no-write-manifest", dest="write_manifest", action="store_false")
     parser.set_defaults(write_manifest=None)
@@ -65,6 +73,10 @@ def run(args: Namespace) -> int:
         write_combined_json_override=args.write_combined_json,
         write_manifest_override=args.write_manifest,
         combined_name_override=args.combined_name,
+        transform_override=args.transform,
+        transform_output_path_override=args.transform_output,
+        transform_metadata_path_override=args.transform_metadata,
+        transform_update_index_override=args.update_index,
         in_memory_tables_override=args.in_memory_tables,
         table_representation_override=args.table_representation,
         keep_split_csv_override=args.keep_split_csv,

@@ -37,3 +37,21 @@ io:
   summary_only: false
   keep_split_csv: false
   delete_split_csv: true
+
+transform:
+  enabled: false
+  election_id: "2026-06-02-primary"
+  precinct_result_scope: "Total"
+  output_path: "elections/2026-06-02-primary/election.json"
+  write_metadata: true
+  metadata_path: "elections/2026-06-02-primary/metadata.json"
+  update_index: false
+  index_path: "elections.index.json"
+  index_label: "Contra Costa County 2026 Primary Election Results"
+  index_date: "2026-06-02"
+  index_type: "primary"
+  index_county: "Contra Costa"
+  index_state: "CA"
+  precincts_url: "elections/2026-06-02-primary/precincts.gis.json"
+  precinct_id_field: "sPrecinctID"
+  precinct_label_field: "szPrecinctName"

@@ -304,3 +304,101 @@ def test_pipeline_writes_combined_json_only(
     assert "sheets" in combined_payload
     assert "Sheet1" in combined_payload["sheets"]
     assert "optional" not in combined_payload["sheets"]["Sheet1"]
+
+
+def test_pipeline_transform_writes_election_and_metadata(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    output_dir = tmp_path / "pipeline_output"
+    config_path = tmp_path / "pipeline.yml"
+    xlsx_path = tmp_path / "input.xlsx"
+    xlsx_path.write_bytes(b"fake")
+    _write_pipeline_config(config_path, output_dir, xlsx_path)
+
+    cfg = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    cfg["io"]["tables"] = {"in_memory": True, "representation": "rows"}
+    cfg["io"]["write_sheet_json"] = False
+    cfg["io"]["write_combined_json"] = False
+    cfg["io"]["write_manifest"] = False
+    cfg["transform"] = {
+        "enabled": True,
+        "election_id": "2026-06-02-primary",
+        "output_path": str(tmp_path / "elections" / "2026-06-02-primary" / "election.json"),
+        "write_metadata": True,
+        "metadata_path": str(tmp_path / "elections" / "2026-06-02-primary" / "metadata.json"),
+        "update_index": False,
+    }
+    config_path.write_text(yaml.safe_dump(cfg), encoding="utf-8")
+
+    def fake_split_rows(_xlsx: str) -> dict[str, list[list[str]]]:
+        return {
+            "Sheet1": [["Header"], ["Value"]],
+            "Sheet2": [["Header"], ["Value"]],
+        }
+
+    def fake_parse_rows(_rows: list[list[str]], cfg_obj: dict, **_kwargs: object) -> dict:
+        if cfg_obj.get("document", {}).get("type") == "turnout_summary":
+            return {
+                "precincts": [
+                    {
+                        "precinct": "P1",
+                        "results": {
+                            "Total": {
+                                "registered_voters": 100,
+                                "voters_cast": 60,
+                            }
+                        },
+                    }
+                ]
+            }
+        return {
+            "contest": {"contest_name": "ASSESSOR", "vote_for": 1},
+            "options": ["A", "B"],
+            "precincts": [
+                {
+                    "precinct": "P1",
+                    "results": {
+                        "Total": {
+                            "registered_voters": 90,
+                            "times_cast": 50,
+                            "options": {
+                                "A": {"votes": 30, "percent": 60.0},
+                                "B": {"votes": 20, "percent": 40.0},
+                            },
+                            "total_votes": 50,
+                        }
+                    },
+                }
+            ],
+        }
+
+    def fake_load_config(path: Path) -> dict:
+        if str(path).endswith("turnout_summary.yml"):
+            return {
+                "document": {"type": "turnout_summary"},
+                "normalization": {},
+                "header": {"page": {"row": 0, "col": 0, "regex": ".*"}, "report_timestamp": {"row": 0}},
+                "values": {},
+            }
+        return {
+            "document": {"type": "election_results"},
+            "normalization": {},
+            "header": {"page": {"row": 0, "col": 0, "regex": ".*"}, "report_timestamp": {"row": 0}},
+            "values": {},
+        }
+
+    monkeypatch.setattr(runner, "split_xlsx_to_row_matrices", fake_split_rows)
+    monkeypatch.setattr(runner, "load_config", fake_load_config)
+    monkeypatch.setattr(runner, "parse_rows_with_config", fake_parse_rows)
+
+    manifest = pipeline.run_pipeline(str(config_path))
+
+    election_path = tmp_path / "elections" / "2026-06-02-primary" / "election.json"
+    metadata_path = tmp_path / "elections" / "2026-06-02-primary" / "metadata.json"
+    assert election_path.exists()
+    assert metadata_path.exists()
+    election_payload = json.loads(election_path.read_text(encoding="utf-8"))
+    assert "contests" in election_payload
+    assert election_payload["contests"][0]["precincts"]["P1"]["registeredVoters"] == 100
+    assert manifest["settings"]["transform_enabled"] is True

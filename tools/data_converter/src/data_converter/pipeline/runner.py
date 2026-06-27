@@ -7,6 +7,7 @@ import shutil
 from tempfile import TemporaryDirectory
 from typing import Any
 
+from data_converter.defaults import PROJECT_ROOT
 from data_converter.parser.config_loader import load_config
 from data_converter.parser.main import (
     parse_dataframe_with_config,
@@ -14,8 +15,10 @@ from data_converter.parser.main import (
     parse_rows_with_config,
 )
 from data_converter.split import split_xlsx_to_csv, split_xlsx_to_dataframes, split_xlsx_to_row_matrices
+from data_converter.transform.builder import build_election_data, build_metadata_payload
+from data_converter.transform.io import update_elections_index, write_json_file
 
-from .config import build_runtime_options, load_pipeline_config
+from .config import RuntimeOptions, build_runtime_options, load_pipeline_config
 from .download import download_xlsx
 from .outputs import build_manifest, write_combined_output, write_manifest_file, write_per_sheet_outputs
 from .routing import pick_parser_config, resolve_config_refs
@@ -32,6 +35,10 @@ def run_pipeline(
     write_combined_json_override: bool | None = None,
     write_manifest_override: bool | None = None,
     combined_name_override: str | None = None,
+    transform_override: bool | None = None,
+    transform_output_path_override: str | None = None,
+    transform_metadata_path_override: str | None = None,
+    transform_update_index_override: bool | None = None,
     in_memory_tables_override: bool | None = None,
     table_representation_override: str | None = None,
     keep_split_csv_override: bool | None = None,
@@ -52,6 +59,10 @@ def run_pipeline(
         write_combined_json_override=write_combined_json_override,
         write_manifest_override=write_manifest_override,
         combined_name_override=combined_name_override,
+        transform_override=transform_override,
+        transform_output_path_override=transform_output_path_override,
+        transform_metadata_path_override=transform_metadata_path_override,
+        transform_update_index_override=transform_update_index_override,
         in_memory_tables_override=in_memory_tables_override,
         table_representation_override=table_representation_override,
         keep_split_csv_override=keep_split_csv_override,
@@ -129,6 +140,61 @@ def run_pipeline(
                 include_nulls=not opts.omit_nulls,
             )
 
+        transform_output_path: Path | None = None
+        transform_metadata_path: Path | None = None
+        transform_index_updated = False
+
+        if opts.transform_enabled:
+            transform_output_path = _resolve_transform_output_path(opts, output_dir)
+            transformed = build_election_data(
+                results,
+                precinct_result_scope=opts.transform_precinct_result_scope,
+            )
+            write_json_file(
+                transform_output_path,
+                transformed,
+                indent=opts.indent,
+                include_nulls=not opts.omit_nulls,
+            )
+
+            if opts.transform_write_metadata:
+                transform_metadata_path = _resolve_transform_metadata_path(opts, transform_output_path)
+                metadata_payload = build_metadata_payload(
+                    source_kind=source_kind,
+                    source_value=source_value,
+                    election_id=opts.transform_election_id or "unknown-election",
+                    run_started=run_started,
+                )
+                write_json_file(
+                    transform_metadata_path,
+                    metadata_payload,
+                    indent=opts.indent,
+                    include_nulls=not opts.omit_nulls,
+                )
+
+            if opts.transform_update_index:
+                election_id = opts.transform_election_id
+                if not election_id:
+                    raise ValueError("transform.election_id is required when transform.update_index is true")
+
+                index_path = opts.transform_index_path or (PROJECT_ROOT / "elections.index.json")
+                data_url = _to_repo_relative_path(transform_output_path)
+                precincts_url = opts.transform_precincts_url
+                update_elections_index(
+                    index_path=index_path,
+                    election_id=election_id,
+                    data_url=data_url,
+                    precincts_url=precincts_url,
+                    precinct_id_field=opts.transform_precinct_id_field,
+                    precinct_label_field=opts.transform_precinct_label_field,
+                    label=opts.transform_index_label,
+                    date=opts.transform_index_date,
+                    election_type=opts.transform_index_type,
+                    county=opts.transform_index_county,
+                    state=opts.transform_index_state,
+                )
+                transform_index_updated = True
+
         manifest = build_manifest(
             source_kind=source_kind,
             source_value=source_value,
@@ -150,6 +216,10 @@ def run_pipeline(
             keep_split_csv=opts.keep_split_csv,
             delete_split_csv=opts.delete_split_csv,
             omit_nulls=opts.omit_nulls,
+            transform_enabled=opts.transform_enabled,
+            transform_output_path=str(transform_output_path) if transform_output_path else None,
+            transform_metadata_path=str(transform_metadata_path) if transform_metadata_path else None,
+            transform_index_updated=transform_index_updated,
         )
 
         if not opts.summary_only and opts.write_manifest:
@@ -304,3 +374,24 @@ def _render_output_version(
     if not rendered:
         raise ValueError("Output version template resolved to an empty string")
     return re.sub(r'[<>:"/\\|?*\s]+', "_", rendered)
+
+
+def _resolve_transform_output_path(opts: RuntimeOptions, output_dir: Path) -> Path:
+    if opts.transform_output_path:
+        return opts.transform_output_path
+    if opts.transform_election_id:
+        return PROJECT_ROOT / "elections" / opts.transform_election_id / "election.json"
+    return output_dir / "election.json"
+
+
+def _resolve_transform_metadata_path(opts: RuntimeOptions, transform_output_path: Path) -> Path:
+    if opts.transform_metadata_path:
+        return opts.transform_metadata_path
+    return transform_output_path.with_name("metadata.json")
+
+
+def _to_repo_relative_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(PROJECT_ROOT)).replace("\\", "/")
+    except ValueError:
+        return str(path.resolve()).replace("\\", "/")
