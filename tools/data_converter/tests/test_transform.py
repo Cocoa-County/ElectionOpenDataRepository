@@ -90,3 +90,41 @@ def test_build_election_data_turnout_merge() -> None:
     precinct = out["contests"][0]["precincts"]["P1"]
     assert precinct["registeredVoters"] == 120
     assert precinct["totalVoters"] == 77
+
+
+def test_build_election_data_sorts_choices_by_votes_desc() -> None:
+    parsed_results = [
+        {
+            "ok": True,
+            "sheet": "Sheet2",
+            "data": {
+                "contest": {"contest_name": "TREASURER", "vote_for": 1},
+                "options": ["A", "B", "C"],
+                "precincts": [
+                    {
+                        "precinct": "P1",
+                        "results": {
+                            "Total": {
+                                "registered_voters": 100,
+                                "times_cast": 70,
+                                "options": {
+                                    "A": {"votes": 10, "percent": 14.29},
+                                    "B": {"votes": 50, "percent": 71.43},
+                                    "C": {"votes": 10, "percent": 14.29},
+                                },
+                                "total_votes": 70,
+                            }
+                        },
+                    }
+                ],
+            },
+        }
+    ]
+
+    out = build_election_data(parsed_results)
+    contest = out["contests"][0]
+
+    assert [choice["label"] for choice in contest["choices"]] == ["B", "A", "C"]
+    assert [choice["votes"] for choice in contest["choices"]] == [50, 10, 10]
+    assert contest["precincts"]["P1"]["results"] == [50, 10, 10]
+    assert contest["precincts"]["P1"]["winner"] == 0

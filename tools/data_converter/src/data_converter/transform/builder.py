@@ -78,14 +78,33 @@ def build_election_data(
 
             precincts_map[precinct_id] = precinct_entry
 
+        choice_order = sorted(
+            range(len(option_labels)),
+            key=lambda idx: (-choice_totals[idx], option_labels[idx]),
+        )
+
+        for precinct_entry in precincts_map.values():
+            old_results = precinct_entry.get("results", [])
+            precinct_entry["results"] = [old_results[idx] for idx in choice_order]
+
+            if "percentage" in precinct_entry:
+                old_percentages = precinct_entry.get("percentage", [])
+                precinct_entry["percentage"] = [old_percentages[idx] for idx in choice_order]
+
+            winner = _winner_index(precinct_entry["results"])
+            if winner is None:
+                precinct_entry.pop("winner", None)
+            else:
+                precinct_entry["winner"] = winner
+
         choices = [
             {
                 "index": idx,
                 "id": idx,
-                "label": label,
-                "votes": choice_totals[idx],
+                "label": option_labels[source_idx],
+                "votes": choice_totals[source_idx],
             }
-            for idx, label in enumerate(option_labels)
+            for idx, source_idx in enumerate(choice_order)
         ]
 
         contests.append(
