@@ -28,7 +28,7 @@
           "id": "2026-06-02-primary-final",
           "snapshotTypes": [
             "latest",
-            "final-results"
+            "final"
           ],
           "dataUrl": "elections/2026-06-02-primary/election.json",
           "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
