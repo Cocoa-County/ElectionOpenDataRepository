@@ -1,5 +1,3 @@
-"""Compatibility shim that forwards to unified CLI parse subcommand."""
-
 from __future__ import annotations
 
 from pathlib import Path
@@ -17,7 +15,7 @@ def main() -> int:
     _ensure_src_path()
     from data_converter.cli import main as cli_main
 
-    return cli_main(["parse", *sys.argv[1:]])
+    return cli_main(sys.argv[1:])
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-from parser.value_parser import parse_integer, parse_percent
+from data_converter.parser.value_parser import parse_integer, parse_percent
 
 
 def test_parse_integer_with_commas() -> None:

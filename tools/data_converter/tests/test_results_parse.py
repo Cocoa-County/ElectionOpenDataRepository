@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 
-from parser.main import parse_file
+from data_converter.parser.main import parse_file
 
 
 def test_results_parse_file_smoke(tmp_path: Path) -> None:
@@ -24,7 +24,13 @@ def test_results_parse_file_smoke(tmp_path: Path) -> None:
     csv_path = tmp_path / "results.csv"
     csv_path.write_text(csv_content, encoding="utf-8")
 
-    config_path = Path(__file__).parents[1] / "results.yml"
+    config_path = (
+        Path(__file__).parents[1]
+        / "profiles"
+        / "contra_costa"
+        / "election_results_xlsx"
+        / "results.yml"
+    )
     parsed = parse_file(str(csv_path), str(config_path))
 
     assert parsed["meta"]["page"] == 21
@@ -51,7 +57,13 @@ def test_parse_file_as_object(tmp_path: Path) -> None:
         ),
         encoding="utf-8",
     )
-    config_path = Path(__file__).parents[1] / "results.yml"
+    config_path = (
+        Path(__file__).parents[1]
+        / "profiles"
+        / "contra_costa"
+        / "election_results_xlsx"
+        / "results.yml"
+    )
     parsed_obj = parse_file(str(csv_path), str(config_path), as_object=True)
 
     assert parsed_obj.to_dict()["meta"]["page"] == 1
@@ -75,7 +87,13 @@ def test_json_omit_nulls_keeps_dict_complete(tmp_path: Path) -> None:
         encoding="utf-8",
     )
 
-    config_path = Path(__file__).parents[1] / "results.yml"
+    config_path = (
+        Path(__file__).parents[1]
+        / "profiles"
+        / "contra_costa"
+        / "election_results_xlsx"
+        / "results.yml"
+    )
     parsed_obj = parse_file(str(csv_path), str(config_path), as_object=True)
 
     # In-memory dict remains complete and still contains null fields.

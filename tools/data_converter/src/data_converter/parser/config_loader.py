@@ -23,6 +23,11 @@ def load_config(path: str | Path) -> dict[str, Any]:
     return config
 
 
+def validate_config(config: dict[str, Any]) -> dict[str, Any]:
+    _validate_config(config)
+    return config
+
+
 def _validate_config(config: dict[str, Any]) -> None:
     for key in REQUIRED_ROOT_KEYS:
         if key not in config:

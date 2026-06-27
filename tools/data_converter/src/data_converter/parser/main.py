@@ -4,7 +4,9 @@ import argparse
 from pathlib import Path
 from typing import Any
 
-from .config_loader import load_config
+import pandas as pd
+
+from .config_loader import load_config, validate_config
 from .csv_reader import read_csv_rows
 from .models import ParseWarning, ParsedDocument, to_json_string
 from .normalizer import normalize_rows
@@ -20,14 +22,59 @@ def parse_file(
 ) -> dict[str, Any] | ParsedDocument:
     cfg = load_config(yaml_path)
     rows = read_csv_rows(csv_path)
-    normalized = normalize_rows(rows, cfg.get("normalization", {}))
+    return parse_rows_with_config(
+        rows,
+        cfg,
+        as_object=as_object,
+        include_warnings=include_warnings,
+    )
+
+
+def parse_rows(
+    rows: list[list[str]],
+    yaml_path: str,
+    as_object: bool = False,
+    include_warnings: bool = True,
+) -> dict[str, Any] | ParsedDocument:
+    cfg = load_config(yaml_path)
+    return parse_rows_with_config(
+        rows,
+        cfg,
+        as_object=as_object,
+        include_warnings=include_warnings,
+    )
+
+
+def parse_dataframe(
+    dataframe: pd.DataFrame,
+    yaml_path: str,
+    as_object: bool = False,
+    include_warnings: bool = True,
+) -> dict[str, Any] | ParsedDocument:
+    cfg = load_config(yaml_path)
+    return parse_dataframe_with_config(
+        dataframe,
+        cfg,
+        as_object=as_object,
+        include_warnings=include_warnings,
+    )
+
+
+def parse_rows_with_config(
+    rows: list[list[str]],
+    config: dict[str, Any],
+    as_object: bool = False,
+    include_warnings: bool = True,
+) -> dict[str, Any] | ParsedDocument:
+    validate_config(config)
+    normalized = normalize_rows(rows, config.get("normalization", {}))
 
     warnings: list[ParseWarning] = []
-    document_type = cfg["document"]["type"]
+    document_type = config["document"]["type"]
     if document_type == "turnout_summary":
-        parsed = parse_turnout_summary(normalized, cfg, warnings)
+        parsed = parse_turnout_summary(normalized, config, warnings)
     elif document_type == "election_results":
-        parsed = parse_results(normalized, cfg, warnings)
+        parsed = parse_results(normalized, config, warnings)
     else:
         raise ValueError(f"Unsupported document type: {document_type}")
 
@@ -37,6 +84,24 @@ def parse_file(
     if as_object:
         return ParsedDocument(parsed)
     return parsed
+
+
+def parse_dataframe_with_config(
+    dataframe: pd.DataFrame,
+    config: dict[str, Any],
+    as_object: bool = False,
+    include_warnings: bool = True,
+) -> dict[str, Any] | ParsedDocument:
+    rows = [[_to_cell_string(col) for col in dataframe.columns.tolist()]]
+    for values in dataframe.values.tolist():
+        rows.append([_to_cell_string(value) for value in values])
+
+    return parse_rows_with_config(
+        rows,
+        config,
+        as_object=as_object,
+        include_warnings=include_warnings,
+    )
 
 
 def parse_directory(
@@ -155,3 +220,11 @@ def cli_main() -> None:
                 )
 
     print(to_json_string(results, indent=args.indent, include_nulls=include_nulls))
+
+
+def _to_cell_string(value: Any) -> str:
+    if value is None:
+        return ""
+    if pd.isna(value):
+        return ""
+    return str(value)

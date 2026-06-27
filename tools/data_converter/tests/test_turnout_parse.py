@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from parser.main import parse_file
+from data_converter.parser.main import parse_file
 
 
 def test_turnout_parse_file_smoke(tmp_path: Path) -> None:
@@ -27,7 +27,13 @@ def test_turnout_parse_file_smoke(tmp_path: Path) -> None:
     csv_path = tmp_path / "turnout.csv"
     csv_path.write_text(csv_content, encoding="utf-8")
 
-    config_path = Path(__file__).parents[1] / "turnout_summary.yml"
+    config_path = (
+        Path(__file__).parents[1]
+        / "profiles"
+        / "contra_costa"
+        / "election_results_xlsx"
+        / "turnout_summary.yml"
+    )
     parsed = parse_file(str(csv_path), str(config_path))
 
     assert parsed["meta"]["page"] == 1

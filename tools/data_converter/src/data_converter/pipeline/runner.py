@@ -1,0 +1,306 @@
+from __future__ import annotations
+
+from datetime import datetime, timezone
+from pathlib import Path
+import re
+import shutil
+from tempfile import TemporaryDirectory
+from typing import Any
+
+from data_converter.parser.config_loader import load_config
+from data_converter.parser.main import (
+    parse_dataframe_with_config,
+    parse_file as parse_csv_file,
+    parse_rows_with_config,
+)
+from data_converter.split import split_xlsx_to_csv, split_xlsx_to_dataframes, split_xlsx_to_row_matrices
+
+from .config import build_runtime_options, load_pipeline_config
+from .download import download_xlsx
+from .outputs import build_manifest, write_combined_output, write_manifest_file, write_per_sheet_outputs
+from .routing import pick_parser_config, resolve_config_refs
+
+
+def run_pipeline(
+    pipeline_config_path: str,
+    *,
+    xlsx_path: str | None = None,
+    url: str | None = None,
+    output_dir_override: str | None = None,
+    summary_only_override: bool | None = None,
+    write_sheet_json_override: bool | None = None,
+    write_combined_json_override: bool | None = None,
+    write_manifest_override: bool | None = None,
+    combined_name_override: str | None = None,
+    in_memory_tables_override: bool | None = None,
+    table_representation_override: str | None = None,
+    keep_split_csv_override: bool | None = None,
+    delete_split_csv_override: bool | None = None,
+    output_versioning_override: bool | None = None,
+    output_version_template_override: str | None = None,
+    omit_nulls_override: bool | None = None,
+    timeout_override: int | None = None,
+) -> dict[str, Any]:
+    cfg = load_pipeline_config(pipeline_config_path)
+    opts = build_runtime_options(
+        cfg,
+        xlsx_path=xlsx_path,
+        url=url,
+        output_dir_override=output_dir_override,
+        summary_only_override=summary_only_override,
+        write_sheet_json_override=write_sheet_json_override,
+        write_combined_json_override=write_combined_json_override,
+        write_manifest_override=write_manifest_override,
+        combined_name_override=combined_name_override,
+        in_memory_tables_override=in_memory_tables_override,
+        table_representation_override=table_representation_override,
+        keep_split_csv_override=keep_split_csv_override,
+        delete_split_csv_override=delete_split_csv_override,
+        output_versioning_override=output_versioning_override,
+        output_version_template_override=output_version_template_override,
+        omit_nulls_override=omit_nulls_override,
+        timeout_override=timeout_override,
+    )
+
+    run_started = datetime.now(timezone.utc)
+
+    with TemporaryDirectory(prefix="election_pipeline_") as temp_root:
+        temp_root_path = Path(temp_root)
+        split_dir = temp_root_path / "split_csv"
+        split_dir.mkdir(parents=True, exist_ok=True)
+
+        if opts.effective_url:
+            xlsx_source = download_xlsx(opts.effective_url, temp_root_path, opts.timeout_seconds)
+            source_kind = "url"
+            source_value = opts.effective_url
+        else:
+            xlsx_source = Path(opts.effective_xlsx_path or "").resolve()
+            source_kind = "path"
+            source_value = str(xlsx_source)
+
+        output_version: str | None = None
+        output_dir = opts.output_dir
+        if opts.output_versioning_enabled:
+            output_version = _render_output_version(
+                opts.output_version_template,
+                run_utc=run_started,
+                source_kind=source_kind,
+                source_value=source_value,
+            )
+            output_dir = output_dir / output_version
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        parse_cfg = cfg.get("parse", {})
+        config_refs = resolve_config_refs(parse_cfg.get("config_refs", {}), Path(pipeline_config_path).parent)
+        if opts.in_memory_tables:
+            loaded_configs = {key: load_config(path) for key, path in config_refs.items()}
+            results = _parse_split_tables_in_memory(
+                str(xlsx_source),
+                loaded_configs,
+                parse_cfg,
+                opts.include_warnings,
+                opts.table_representation,
+            )
+        else:
+            split_xlsx_to_csv(
+                str(xlsx_source),
+                output_dir=str(split_dir),
+                create_dirs=True,
+            )
+            results = _parse_split_csvs(split_dir, config_refs, parse_cfg, opts.include_warnings)
+
+        if opts.delete_split_csv and split_dir.exists():
+            shutil.rmtree(split_dir)
+
+        if not opts.summary_only and opts.write_sheet_json:
+            write_per_sheet_outputs(
+                results,
+                output_dir,
+                opts.indent,
+                include_nulls=not opts.omit_nulls,
+            )
+
+        if not opts.summary_only and opts.write_combined_json:
+            write_combined_output(
+                results,
+                output_dir,
+                combined_name=opts.combined_name,
+                indent=opts.indent,
+                include_nulls=not opts.omit_nulls,
+            )
+
+        manifest = build_manifest(
+            source_kind=source_kind,
+            source_value=source_value,
+            started_at=run_started,
+            finished_at=datetime.now(timezone.utc),
+            output_dir=output_dir,
+            base_output_dir=opts.output_dir,
+            output_version=output_version,
+            output_version_template=opts.output_version_template,
+            output_versioning_enabled=opts.output_versioning_enabled,
+            results=results,
+            summary_only=opts.summary_only,
+            write_sheet_json=opts.write_sheet_json,
+            write_combined_json=opts.write_combined_json,
+            write_manifest=opts.write_manifest,
+            combined_name=opts.combined_name,
+            in_memory_tables=opts.in_memory_tables,
+            table_representation=opts.table_representation,
+            keep_split_csv=opts.keep_split_csv,
+            delete_split_csv=opts.delete_split_csv,
+            omit_nulls=opts.omit_nulls,
+        )
+
+        if not opts.summary_only and opts.write_manifest:
+            write_manifest_file(
+                manifest,
+                output_dir,
+                manifest_name=opts.manifest_name,
+                indent=opts.indent,
+                include_nulls=not opts.omit_nulls,
+            )
+
+    return manifest
+
+
+def _parse_split_csvs(
+    split_dir: Path,
+    config_refs: dict[str, Path],
+    parse_cfg: dict[str, Any],
+    include_warnings: bool,
+) -> list[dict[str, Any]]:
+    results: list[dict[str, Any]] = []
+    csv_files = sorted(split_dir.glob("*.csv"))
+    for csv_file in csv_files:
+        parser_config = pick_parser_config(csv_file, config_refs, parse_cfg)
+        result_record: dict[str, Any] = {
+            "sheet": csv_file.stem,
+            "csv_file": str(csv_file),
+            "parser_config": str(parser_config),
+        }
+        try:
+            parsed = parse_csv_file(
+                str(csv_file),
+                str(parser_config),
+                as_object=False,
+                include_warnings=include_warnings,
+            )
+            result_record["ok"] = True
+            result_record["data"] = parsed
+        except Exception as exc:  # noqa: BLE001
+            result_record["ok"] = False
+            result_record["error"] = str(exc)
+        results.append(result_record)
+    return results
+
+
+def _parse_split_tables_in_memory(
+    xlsx_path: str,
+    loaded_configs: dict[str, dict[str, Any]],
+    parse_cfg: dict[str, Any],
+    include_warnings: bool,
+    table_representation: str,
+) -> list[dict[str, Any]]:
+    results: list[dict[str, Any]] = []
+
+    if table_representation == "dataframe":
+        tables = split_xlsx_to_dataframes(xlsx_path)
+    else:
+        tables = split_xlsx_to_row_matrices(xlsx_path)
+
+    for sheet_name, table in tables.items():
+        parser_key = _pick_parser_key_for_sheet(sheet_name, parse_cfg, table)
+        result_record: dict[str, Any] = {
+            "sheet": sheet_name,
+            "csv_file": None,
+            "parser_config": parser_key,
+        }
+
+        if parser_key not in loaded_configs:
+            result_record["ok"] = False
+            result_record["error"] = f"Unknown parser config key: {parser_key}"
+            results.append(result_record)
+            continue
+
+        try:
+            if table_representation == "dataframe":
+                parsed = parse_dataframe_with_config(
+                    table,
+                    loaded_configs[parser_key],
+                    as_object=False,
+                    include_warnings=include_warnings,
+                )
+            else:
+                parsed = parse_rows_with_config(
+                    table,
+                    loaded_configs[parser_key],
+                    as_object=False,
+                    include_warnings=include_warnings,
+                )
+            result_record["ok"] = True
+            result_record["data"] = parsed
+        except Exception as exc:  # noqa: BLE001
+            result_record["ok"] = False
+            result_record["error"] = str(exc)
+        results.append(result_record)
+
+    return results
+
+
+def _pick_parser_key_for_sheet(
+    sheet_name: str,
+    parse_cfg: dict[str, Any],
+    table: Any,
+) -> str:
+    pseudo_name = f"{sheet_name}.csv"
+    sheet_rules = parse_cfg.get("sheet_rules", [])
+    for rule in sheet_rules:
+        pattern = rule.get("pattern")
+        config_ref = rule.get("config_ref")
+        if not pattern or not config_ref:
+            continue
+        if re.search(pattern, pseudo_name):
+            return str(config_ref)
+
+    if parse_cfg.get("detect_turnout_header", True) and _looks_like_turnout_table(table):
+        return "turnout"
+
+    return str(parse_cfg.get("default_config_ref", "results"))
+
+
+def _looks_like_turnout_table(table: Any) -> bool:
+    if hasattr(table, "to_string"):
+        text = table.to_string()
+    else:
+        text = "\n".join(
+            ",".join(str(cell) for cell in row)
+            for row in table
+        )
+
+    return (
+        "Registered" in text
+        and "Cards Cast" in text
+        and "Voters Cast" in text
+        and "% Turnout" in text
+    )
+
+
+def _render_output_version(
+    template: str,
+    *,
+    run_utc: datetime,
+    source_kind: str,
+    source_value: str,
+) -> str:
+    source_name = Path(source_value).stem if source_kind == "path" else Path(source_value).name
+    rendered = template.format(
+        run_utc=run_utc,
+        source_kind=source_kind,
+        source_value=source_value,
+        source_name=source_name,
+    )
+    rendered = rendered.strip()
+    if not rendered:
+        raise ValueError("Output version template resolved to an empty string")
+    return re.sub(r'[<>:"/\\|?*\s]+', "_", rendered)
