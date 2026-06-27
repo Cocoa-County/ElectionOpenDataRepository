@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import logging
 from datetime import datetime, timezone
 from pathlib import Path
 import re
 import shutil
 from tempfile import TemporaryDirectory
+from time import perf_counter
 from typing import Any
 
 from data_converter.defaults import PROJECT_ROOT
@@ -22,6 +24,9 @@ from .config import RuntimeOptions, build_runtime_options, load_pipeline_config
 from .download import download_xlsx
 from .outputs import build_manifest, write_combined_output, write_manifest_file, write_per_sheet_outputs
 from .routing import pick_parser_config, resolve_config_refs
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 def run_pipeline(
@@ -47,6 +52,7 @@ def run_pipeline(
     output_version_template_override: str | None = None,
     omit_nulls_override: bool | None = None,
     timeout_override: int | None = None,
+    verbose: bool = False,
 ) -> dict[str, Any]:
     cfg = load_pipeline_config(pipeline_config_path)
     opts = build_runtime_options(
@@ -74,12 +80,24 @@ def run_pipeline(
     )
 
     run_started = datetime.now(timezone.utc)
+    total_started = perf_counter()
+
+    def log_timing(stage: str, started_at: float, **fields: Any) -> None:
+        if not verbose:
+            return
+        elapsed = perf_counter() - started_at
+        if fields:
+            field_text = " ".join(f"{k}={v}" for k, v in fields.items())
+            LOGGER.debug("pipeline timing stage=%s elapsed=%.3fs %s", stage, elapsed, field_text)
+        else:
+            LOGGER.debug("pipeline timing stage=%s elapsed=%.3fs", stage, elapsed)
 
     with TemporaryDirectory(prefix="election_pipeline_") as temp_root:
         temp_root_path = Path(temp_root)
         split_dir = temp_root_path / "split_csv"
         split_dir.mkdir(parents=True, exist_ok=True)
 
+        started = perf_counter()
         if opts.effective_url:
             xlsx_source = download_xlsx(opts.effective_url, temp_root_path, opts.timeout_seconds)
             source_kind = "url"
@@ -88,9 +106,11 @@ def run_pipeline(
             xlsx_source = Path(opts.effective_xlsx_path or "").resolve()
             source_kind = "path"
             source_value = str(xlsx_source)
+        log_timing("source", started, source_kind=source_kind)
 
         output_version: str | None = None
         output_dir = opts.output_dir
+        started = perf_counter()
         if opts.output_versioning_enabled:
             output_version = _render_output_version(
                 opts.output_version_template,
@@ -100,9 +120,11 @@ def run_pipeline(
             )
             output_dir = output_dir / output_version
         output_dir.mkdir(parents=True, exist_ok=True)
+        log_timing("output_dir", started, versioning=opts.output_versioning_enabled)
 
         parse_cfg = cfg.get("parse", {})
         config_refs = resolve_config_refs(parse_cfg.get("config_refs", {}), Path(pipeline_config_path).parent)
+        started = perf_counter()
         if opts.in_memory_tables:
             loaded_configs = {key: load_config(path) for key, path in config_refs.items()}
             results = _parse_split_tables_in_memory(
@@ -119,10 +141,20 @@ def run_pipeline(
                 create_dirs=True,
             )
             results = _parse_split_csvs(split_dir, config_refs, parse_cfg, opts.include_warnings)
+        log_timing(
+            "split_parse",
+            started,
+            mode="memory" if opts.in_memory_tables else "disk",
+            sheets=len(results),
+            failed=sum(1 for row in results if not row.get("ok")),
+        )
 
+        started = perf_counter()
         if opts.delete_split_csv and split_dir.exists():
             shutil.rmtree(split_dir)
+        log_timing("cleanup", started, delete_split_csv=opts.delete_split_csv)
 
+        started = perf_counter()
         if not opts.summary_only and opts.write_sheet_json:
             write_per_sheet_outputs(
                 results,
@@ -130,7 +162,9 @@ def run_pipeline(
                 opts.indent,
                 include_nulls=not opts.omit_nulls,
             )
+        log_timing("write_sheet_json", started, enabled=bool(not opts.summary_only and opts.write_sheet_json))
 
+        started = perf_counter()
         if not opts.summary_only and opts.write_combined_json:
             write_combined_output(
                 results,
@@ -139,11 +173,13 @@ def run_pipeline(
                 indent=opts.indent,
                 include_nulls=not opts.omit_nulls,
             )
+        log_timing("write_combined_json", started, enabled=bool(not opts.summary_only and opts.write_combined_json))
 
         transform_output_path: Path | None = None
         transform_metadata_path: Path | None = None
         transform_index_updated = False
 
+        started = perf_counter()
         if opts.transform_enabled:
             transform_output_path = _resolve_transform_output_path(opts, output_dir)
             transformed = build_election_data(
@@ -194,7 +230,14 @@ def run_pipeline(
                     state=opts.transform_index_state,
                 )
                 transform_index_updated = True
+        log_timing(
+            "transform",
+            started,
+            enabled=opts.transform_enabled,
+            updated_index=transform_index_updated,
+        )
 
+        started = perf_counter()
         manifest = build_manifest(
             source_kind=source_kind,
             source_value=source_value,
@@ -221,7 +264,9 @@ def run_pipeline(
             transform_metadata_path=str(transform_metadata_path) if transform_metadata_path else None,
             transform_index_updated=transform_index_updated,
         )
+        log_timing("build_manifest", started)
 
+        started = perf_counter()
         if not opts.summary_only and opts.write_manifest:
             write_manifest_file(
                 manifest,
@@ -230,6 +275,10 @@ def run_pipeline(
                 indent=opts.indent,
                 include_nulls=not opts.omit_nulls,
             )
+        log_timing("write_manifest", started, enabled=bool(not opts.summary_only and opts.write_manifest))
+
+    if verbose:
+        LOGGER.debug("pipeline timing stage=total elapsed=%.3fs", perf_counter() - total_started)
 
     return manifest
 

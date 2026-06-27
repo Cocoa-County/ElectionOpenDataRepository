@@ -3,7 +3,6 @@ from __future__ import annotations
 from argparse import ArgumentParser, Namespace, _SubParsersAction
 from pathlib import Path
 
-from data_converter.parser.main import parse_directory, parse_file
 from data_converter.parser.models import to_json_string
 
 from data_converter.defaults import DEFAULT_CSV_GLOB, DEFAULT_JSON_INDENT
@@ -29,6 +28,8 @@ def register(subparsers: _SubParsersAction[ArgumentParser]) -> None:
 
 
 def run(args: Namespace) -> int:
+    from data_converter.parser.main import parse_directory, parse_file
+
     include_warnings = not args.hide_warnings
     include_nulls = not args.omit_nulls
 

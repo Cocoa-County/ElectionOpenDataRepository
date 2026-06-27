@@ -3,7 +3,6 @@ from __future__ import annotations
 from argparse import ArgumentParser, Namespace, _SubParsersAction
 
 from data_converter.defaults import DEFAULT_OUTPUT_DIR
-from data_converter.split import split_xlsx_to_csv
 
 
 def register(subparsers: _SubParsersAction[ArgumentParser]) -> None:
@@ -21,6 +20,8 @@ def register(subparsers: _SubParsersAction[ArgumentParser]) -> None:
 
 
 def run(args: Namespace) -> int:
+    from data_converter.split import split_xlsx_to_csv
+
     split_xlsx_to_csv(
         args.xlsx,
         output_dir=args.output_dir,

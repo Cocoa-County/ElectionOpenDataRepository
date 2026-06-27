@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import logging
 from argparse import ArgumentParser, Namespace, _SubParsersAction
 
 from data_converter.parser.models import to_json_string
-from data_converter.pipeline.runner import run_pipeline
 
 from data_converter.defaults import DEFAULT_PIPELINE_TIMEOUT_SECONDS
 
@@ -52,6 +52,11 @@ def register(subparsers: _SubParsersAction[ArgumentParser]) -> None:
         "--output-version-template",
         help="Template for version subdirectory, for example {run_utc:%%Y%%m%%dT%%H%%M%%SZ}",
     )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Enable verbose debug logging with stage timing",
+    )
     parser.add_argument("--omit-nulls", action="store_true")
     parser.add_argument(
         "--timeout",
@@ -63,6 +68,14 @@ def register(subparsers: _SubParsersAction[ArgumentParser]) -> None:
 
 
 def run(args: Namespace) -> int:
+    from data_converter.pipeline.runner import run_pipeline
+
+    if args.verbose:
+        logging.basicConfig(
+            level=logging.DEBUG,
+            format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+        )
+
     manifest = run_pipeline(
         args.config,
         xlsx_path=args.xlsx,
@@ -85,6 +98,7 @@ def run(args: Namespace) -> int:
         output_version_template_override=args.output_version_template,
         omit_nulls_override=args.omit_nulls,
         timeout_override=args.timeout,
+        verbose=args.verbose,
     )
 
     print(
