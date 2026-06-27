@@ -52,7 +52,7 @@ def build_election_data(
                     percent_results.append(_normalize_percent(pct_raw))
 
             total_votes = _to_int(results_block.get("total_votes"), default=sum(vote_results))
-            winner = _winner_index(vote_results)
+            winner_indexes = _winner_indexes(vote_results)
 
             turnout_row = turnout_by_precinct.get(precinct_id, {})
             registered_voters = _to_int(
@@ -71,8 +71,8 @@ def build_election_data(
                 "total": total_votes,
                 "results": vote_results,
             }
-            if winner is not None:
-                precinct_entry["winner"] = winner
+            if winner_indexes:
+                precinct_entry["winner"] = winner_indexes
             if has_percent:
                 precinct_entry["percentage"] = percent_results
 
@@ -91,11 +91,11 @@ def build_election_data(
                 old_percentages = precinct_entry.get("percentage", [])
                 precinct_entry["percentage"] = [old_percentages[idx] for idx in choice_order]
 
-            winner = _winner_index(precinct_entry["results"])
-            if winner is None:
+            winner_indexes = _winner_indexes(precinct_entry["results"])
+            if not winner_indexes:
                 precinct_entry.pop("winner", None)
             else:
-                precinct_entry["winner"] = winner
+                precinct_entry["winner"] = winner_indexes
 
         choices = [
             {
@@ -172,15 +172,13 @@ def _contest_id(label: str, index: int) -> str:
     return slug
 
 
-def _winner_index(results: list[int]) -> int | None:
+def _winner_indexes(results: list[int]) -> list[int]:
     if not results:
-        return None
+        return []
     high = max(results)
     if high <= 0:
-        return None
-    if results.count(high) > 1:
-        return None
-    return results.index(high)
+        return []
+    return [idx for idx, value in enumerate(results) if value == high]
 
 
 def _normalize_percent(value: Any) -> float:

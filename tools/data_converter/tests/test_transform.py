@@ -38,7 +38,7 @@ def test_build_election_data_basic_shape() -> None:
     assert contest["label"] == "ASSESSOR"
     assert contest["choices"][0]["votes"] == 40
     assert contest["precincts"]["P1"]["results"] == [40, 20]
-    assert contest["precincts"]["P1"]["winner"] == 0
+    assert contest["precincts"]["P1"]["winner"] == [0]
 
 
 def test_build_election_data_turnout_merge() -> None:
@@ -127,4 +127,38 @@ def test_build_election_data_sorts_choices_by_votes_desc() -> None:
     assert [choice["label"] for choice in contest["choices"]] == ["B", "A", "C"]
     assert [choice["votes"] for choice in contest["choices"]] == [50, 10, 10]
     assert contest["precincts"]["P1"]["results"] == [50, 10, 10]
-    assert contest["precincts"]["P1"]["winner"] == 0
+    assert contest["precincts"]["P1"]["winner"] == [0]
+
+
+def test_build_election_data_tie_still_sets_winner_index() -> None:
+    parsed_results = [
+        {
+            "ok": True,
+            "sheet": "Sheet2",
+            "data": {
+                "contest": {"contest_name": "GOVERNOR", "vote_for": 1},
+                "options": ["A", "B", "C"],
+                "precincts": [
+                    {
+                        "precinct": "P1",
+                        "results": {
+                            "Total": {
+                                "registered_voters": 100,
+                                "times_cast": 80,
+                                "options": {
+                                    "A": {"votes": 30, "percent": 37.5},
+                                    "B": {"votes": 30, "percent": 37.5},
+                                    "C": {"votes": 20, "percent": 25.0},
+                                },
+                                "total_votes": 80,
+                            }
+                        },
+                    }
+                ],
+            },
+        }
+    ]
+
+    out = build_election_data(parsed_results)
+    contest = out["contests"][0]
+    assert contest["precincts"]["P1"]["winner"] == [0, 1]
