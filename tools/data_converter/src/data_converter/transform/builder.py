@@ -5,6 +5,25 @@ import re
 from typing import Any
 
 
+_MAX_PALETTE_SHADES = 4
+_YES_NO_COLORS = {
+    "yes": "green1",
+    "no": "red1",
+}
+_PARTY_PALETTES = {
+    "dem": "blue",
+    "rep": "red",
+}
+_PARTY_ALIASES = {
+    "dem": "dem",
+    "democrat": "dem",
+    "democratic": "dem",
+    "rep": "rep",
+    "republican": "rep",
+    "gop": "rep",
+}
+
+
 def build_election_data(
     parsed_results: list[dict[str, Any]],
     *,
@@ -83,6 +102,8 @@ def build_election_data(
             key=lambda idx: (-choice_totals[idx], option_labels[idx]),
         )
 
+        color_counts: dict[str, int] = {"dem": 0, "rep": 0}
+
         for precinct_entry in precincts_map.values():
             old_results = precinct_entry.get("results", [])
             precinct_entry["results"] = [old_results[idx] for idx in choice_order]
@@ -97,15 +118,19 @@ def build_election_data(
             else:
                 precinct_entry["winner"] = winner_indexes
 
-        choices = [
-            {
+        choices = []
+        for idx, source_idx in enumerate(choice_order):
+            label = option_labels[source_idx]
+            choice = {
                 "index": idx,
                 "id": idx,
-                "label": option_labels[source_idx],
+                "label": label,
                 "votes": choice_totals[source_idx],
             }
-            for idx, source_idx in enumerate(choice_order)
-        ]
+            color = _choice_color(label, color_counts)
+            if color is not None:
+                choice["color"] = color
+            choices.append(choice)
 
         contests.append(
             {
@@ -170,6 +195,45 @@ def _contest_id(label: str, index: int) -> str:
     if not slug:
         slug = f"contest-{index + 1}"
     return slug
+
+
+def _choice_color(label: str, color_counts: dict[str, int]) -> str | None:
+    normalized = _normalize_choice_label(label)
+    if normalized in _YES_NO_COLORS:
+        return _YES_NO_COLORS[normalized]
+
+    party = _choice_party_family(normalized)
+    if party is None:
+        return None
+
+    next_shade = color_counts.get(party, 0) + 1
+    if next_shade > _MAX_PALETTE_SHADES:
+        return None
+
+    color_counts[party] = next_shade
+    shade = next_shade
+    return f"{_PARTY_PALETTES[party]}{shade}"
+
+
+def _normalize_choice_label(label: str) -> str:
+    return label.strip().lower()
+
+
+def _choice_party_family(normalized_label: str) -> str | None:
+    if normalized_label in _PARTY_ALIASES:
+        return _PARTY_ALIASES[normalized_label]
+
+    if not normalized_label.endswith(")"):
+        return None
+
+    open_paren = normalized_label.rfind("(")
+    if open_paren == -1:
+        return None
+
+    party_label = normalized_label[open_paren + 1 : -1].strip()
+    if not party_label:
+        return None
+    return _PARTY_ALIASES.get(party_label)
 
 
 def _winner_indexes(results: list[int]) -> list[int]:
