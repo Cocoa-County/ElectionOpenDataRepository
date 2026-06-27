@@ -10,37 +10,43 @@
           "index": 0,
           "id": 0,
           "label": "XAVIER BECERRA (DEM)",
-          "votes": 103483
+          "votes": 103483,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "TOM STEYER (DEM)",
-          "votes": 82779
+          "votes": 82779,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "STEVE HILTON (REP)",
-          "votes": 69716
+          "votes": 69716,
+          "color": "red1"
         },
         {
           "index": 3,
           "id": 3,
           "label": "CHAD BIANCO (REP)",
-          "votes": 17635
+          "votes": 17635,
+          "color": "red2"
         },
         {
           "index": 4,
           "id": 4,
           "label": "MATT MAHAN (DEM)",
-          "votes": 14458
+          "votes": 14458,
+          "color": "blue3"
         },
         {
           "index": 5,
           "id": 5,
           "label": "TONY K. THURMOND (DEM)",
-          "votes": 2857
+          "votes": 2857,
+          "color": "blue4"
         },
         {
           "index": 6,
@@ -76,13 +82,15 @@
           "index": 11,
           "id": 11,
           "label": "RANDEEP S. DHILLON (REP)",
-          "votes": 756
+          "votes": 756,
+          "color": "red3"
         },
         {
           "index": 12,
           "id": 12,
           "label": "TIM NELSON (REP)",
-          "votes": 689
+          "votes": 689,
+          "color": "red4"
         },
         {
           "index": 13,
@@ -105227,49 +105235,57 @@
           "index": 0,
           "id": 0,
           "label": "FIONA MA (DEM)",
-          "votes": 75759
+          "votes": 75759,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "JOSH FRYDAY (DEM)",
-          "votes": 57722
+          "votes": 57722,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "MICHAEL TUBBS (DEM)",
-          "votes": 44678
+          "votes": 44678,
+          "color": "blue3"
         },
         {
           "index": 3,
           "id": 3,
           "label": "GLORIA ROMERO (REP)",
-          "votes": 37016
+          "votes": 37016,
+          "color": "red1"
         },
         {
           "index": 4,
           "id": 4,
           "label": "DAVID COLLENBERG (REP)",
-          "votes": 16226
+          "votes": 16226,
+          "color": "red2"
         },
         {
           "index": 5,
           "id": 5,
           "label": "DAVID FENNELL (REP)",
-          "votes": 15965
+          "votes": 15965,
+          "color": "red3"
         },
         {
           "index": 6,
           "id": 6,
           "label": "JANELLE KELLMAN (DEM)",
-          "votes": 11674
+          "votes": 11674,
+          "color": "blue4"
         },
         {
           "index": 7,
           "id": 7,
           "label": "SKIP SHELTON (REP)",
-          "votes": 10470
+          "votes": 10470,
+          "color": "red4"
         },
         {
           "index": 8,
@@ -138453,13 +138469,15 @@
           "index": 0,
           "id": 0,
           "label": "SHIRLEY N. WEBER (DEM)",
-          "votes": 196855
+          "votes": 196855,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "DONALD P. (DON) WAGNER (REP)",
-          "votes": 85178
+          "votes": 85178,
+          "color": "red1"
         },
         {
           "index": 2,
@@ -154052,13 +154070,15 @@
           "index": 0,
           "id": 0,
           "label": "MALIA M. COHEN (DEM)",
-          "votes": 192786
+          "votes": 192786,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "HERB W MORGAN (REP)",
-          "votes": 87335
+          "votes": 87335,
+          "color": "red1"
         },
         {
           "index": 2,
@@ -169651,19 +169671,22 @@
           "index": 0,
           "id": 0,
           "label": "JENNIFER HAWKS (REP)",
-          "votes": 49742
+          "votes": 49742,
+          "color": "red1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "ANNA M. CABALLERO (DEM)",
-          "votes": 44642
+          "votes": 44642,
+          "color": "blue1"
         },
         {
           "index": 2,
           "id": 2,
           "label": "TONY VAZQUEZ (DEM)",
-          "votes": 16068
+          "votes": 16068,
+          "color": "blue2"
         },
         {
           "index": 3,
@@ -186863,13 +186886,15 @@
           "index": 0,
           "id": 0,
           "label": "ROB BONTA (DEM)",
-          "votes": 196307
+          "votes": 196307,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "MICHAEL E. GATES (REP)",
-          "votes": 91563
+          "votes": 91563,
+          "color": "red1"
         },
         {
           "index": 2,
@@ -202461,37 +202486,43 @@
           "index": 0,
           "id": 0,
           "label": "BEN ALLEN (DEM)",
-          "votes": 80905
+          "votes": 80905,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "JANE KIM (DEM)",
-          "votes": 76506
+          "votes": 76506,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "STACY A. KORSGADEN (REP)",
-          "votes": 30935
+          "votes": 30935,
+          "color": "red1"
         },
         {
           "index": 3,
           "id": 3,
           "label": "PATRICK WOLFF (DEM)",
-          "votes": 22296
+          "votes": 22296,
+          "color": "blue3"
         },
         {
           "index": 4,
           "id": 4,
           "label": "MERRITT FARREN (REP)",
-          "votes": 17734
+          "votes": 17734,
+          "color": "red2"
         },
         {
           "index": 5,
           "id": 5,
           "label": "SEAN LEE (REP)",
-          "votes": 11457
+          "votes": 11457,
+          "color": "red3"
         },
         {
           "index": 6,
@@ -202503,7 +202534,8 @@
           "index": 7,
           "id": 7,
           "label": "ERIC THOR AARNIO (REP)",
-          "votes": 4323
+          "votes": 4323,
+          "color": "red4"
         },
         {
           "index": 8,
@@ -227686,25 +227718,29 @@
           "index": 0,
           "id": 0,
           "label": "JOHN PIMENTEL (DEM)",
-          "votes": 48277
+          "votes": 48277,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "BILL SHIREMAN (REP)",
-          "votes": 38328
+          "votes": 38328,
+          "color": "red1"
         },
         {
           "index": 2,
           "id": 2,
           "label": "MARK MCCOMAS (REP)",
-          "votes": 12721
+          "votes": 12721,
+          "color": "red2"
         },
         {
           "index": 3,
           "id": 3,
           "label": "JOHN W. ZARUKA (REP)",
-          "votes": 7294
+          "votes": 7294,
+          "color": "red3"
         }
       ],
       "precincts": {
@@ -244913,19 +244949,22 @@
           "index": 0,
           "id": 0,
           "label": "NICOLAS CARJUZAA (DEM)",
-          "votes": 9651
+          "votes": 9651,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "RUDY RECILE (REP)",
-          "votes": 8342
+          "votes": 8342,
+          "color": "red1"
         },
         {
           "index": 2,
           "id": 2,
           "label": "AARON ROWDEN (DEM)",
-          "votes": 4800
+          "votes": 4800,
+          "color": "blue2"
         }
       ],
       "precincts": {
@@ -247679,19 +247718,22 @@
           "index": 0,
           "id": 0,
           "label": "JOSH HARDER (DEM)",
-          "votes": 26017
+          "votes": 26017,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "JOHN MCBRIDE (REP)",
-          "votes": 5659
+          "votes": 5659,
+          "color": "red1"
         },
         {
           "index": 2,
           "id": 2,
           "label": "KHALID JEFFREY JAFRI (REP)",
-          "votes": 2067
+          "votes": 2067,
+          "color": "red2"
         }
       ],
       "precincts": {
@@ -249830,31 +249872,36 @@
           "index": 0,
           "id": 0,
           "label": "MARK DESAULNIER (DEM)",
-          "votes": 122273
+          "votes": 122273,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "JEFF FRESE (REP)",
-          "votes": 26513
+          "votes": 26513,
+          "color": "red1"
         },
         {
           "index": 2,
           "id": 2,
           "label": "KATHERINE PICCININI (REP)",
-          "votes": 23739
+          "votes": 23739,
+          "color": "red2"
         },
         {
           "index": 3,
           "id": 3,
           "label": "ANGELA GRIFFITHS (REP)",
-          "votes": 13423
+          "votes": 13423,
+          "color": "red3"
         },
         {
           "index": 4,
           "id": 4,
           "label": "MITCHELL MAISLER (DEM)",
-          "votes": 6333
+          "votes": 6333,
+          "color": "blue2"
         }
       ],
       "precincts": {
@@ -262772,7 +262819,8 @@
           "index": 0,
           "id": 0,
           "label": "LORI D WILSON (DEM)",
-          "votes": 8067
+          "votes": 8067,
+          "color": "blue1"
         },
         {
           "index": 1,
@@ -264830,13 +264878,15 @@
           "index": 0,
           "id": 0,
           "label": "BUFFY WICKS (DEM)",
-          "votes": 48046
+          "votes": 48046,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "BORGAR SOLNORDAL (REP)",
-          "votes": 7930
+          "votes": 7930,
+          "color": "red1"
         },
         {
           "index": 2,
@@ -267596,7 +267646,8 @@
           "index": 0,
           "id": 0,
           "label": "ANAMARIE AVILA FARIAS (DEM)",
-          "votes": 78611
+          "votes": 78611,
+          "color": "blue1"
         },
         {
           "index": 1,
@@ -273773,13 +273824,15 @@
           "index": 0,
           "id": 0,
           "label": "REBECCA BAUER-KAHAN (DEM)",
-          "votes": 69998
+          "votes": 69998,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "JOSEPH A. RUBAY (REP)",
-          "votes": 31490
+          "votes": 31490,
+          "color": "red1"
         },
         {
           "index": 2,
@@ -405374,13 +405427,15 @@
           "index": 0,
           "id": 0,
           "label": "YES",
-          "votes": 9773
+          "votes": 9773,
+          "color": "green1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "NO",
-          "votes": 3247
+          "votes": 3247,
+          "color": "red1"
         }
       ],
       "precincts": {
@@ -405738,13 +405793,15 @@
           "index": 0,
           "id": 0,
           "label": "YES",
-          "votes": 4928
+          "votes": 4928,
+          "color": "green1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "NO",
-          "votes": 2059
+          "votes": 2059,
+          "color": "red1"
         }
       ],
       "precincts": {
@@ -407816,13 +407873,15 @@
           "index": 0,
           "id": 0,
           "label": "YES",
-          "votes": 12512
+          "votes": 12512,
+          "color": "green1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "NO",
-          "votes": 6816
+          "votes": 6816,
+          "color": "red1"
         }
       ],
       "precincts": {
@@ -408313,13 +408372,15 @@
           "index": 0,
           "id": 0,
           "label": "YES",
-          "votes": 205276
+          "votes": 205276,
+          "color": "green1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "NO",
-          "votes": 86995
+          "votes": 86995,
+          "color": "red1"
         }
       ],
       "precincts": {
@@ -422313,13 +422374,15 @@
           "index": 0,
           "id": 0,
           "label": "NO",
-          "votes": 170391
+          "votes": 170391,
+          "color": "red1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "YES",
-          "votes": 129289
+          "votes": 129289,
+          "color": "green1"
         }
       ],
       "precincts": {
@@ -436309,13 +436372,15 @@
           "index": 0,
           "id": 0,
           "label": "NO",
-          "votes": 7475
+          "votes": 7475,
+          "color": "red1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "YES",
-          "votes": 3264
+          "votes": 3264,
+          "color": "green1"
         }
       ],
       "precincts": {
@@ -436504,13 +436569,15 @@
           "index": 0,
           "id": 0,
           "label": "NO",
-          "votes": 3514
+          "votes": 3514,
+          "color": "red1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "YES",
-          "votes": 1967
+          "votes": 1967,
+          "color": "green1"
         }
       ],
       "precincts": {
@@ -436709,13 +436776,15 @@
           "index": 0,
           "id": 0,
           "label": "YES",
-          "votes": 2822
+          "votes": 2822,
+          "color": "green1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "NO",
-          "votes": 2375
+          "votes": 2375,
+          "color": "red1"
         }
       ],
       "precincts": {
@@ -436914,13 +436983,15 @@
           "index": 0,
           "id": 0,
           "label": "NO",
-          "votes": 3697
+          "votes": 3697,
+          "color": "red1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "YES",
-          "votes": 1491
+          "votes": 1491,
+          "color": "green1"
         }
       ],
       "precincts": {
