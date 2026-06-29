@@ -36,52 +36,128 @@ def build_election_data(
         item for item in parsed_results if item.get("ok") and isinstance(item.get("data"), dict) and "contest" in item["data"]
     ]
 
-    for contest_index, record in enumerate(contest_records):
+    grouped_contests: list[dict[str, Any]] = []
+    grouped_lookup: dict[tuple[str, int], dict[str, Any]] = {}
+
+    for record in contest_records:
         payload = record["data"]
         contest = payload.get("contest", {})
-        contest_name = str(contest.get("contest_name", f"Contest {contest_index + 1}")).strip()
-        option_labels = [str(opt) for opt in payload.get("options", [])]
+        contest_name = str(contest.get("contest_name", "")).strip()
+        if not contest_name:
+            continue
+        vote_for = _to_int(contest.get("vote_for"), default=1)
+        key = (contest_name, vote_for)
+        if key not in grouped_lookup:
+            grouped_lookup[key] = {
+                "contest_name": contest_name,
+                "vote_for": vote_for,
+                "records": [],
+            }
+            grouped_contests.append(grouped_lookup[key])
+        grouped_lookup[key]["records"].append(payload)
+
+    for contest_index, group in enumerate(grouped_contests):
+        contest_name = str(group["contest_name"])
+        vote_for = int(group["vote_for"])
+
+        option_labels: list[str] = []
+        seen_options: set[str] = set()
+        for payload in group["records"]:
+            for opt in payload.get("options", []):
+                label = str(opt)
+                if label and label not in seen_options:
+                    option_labels.append(label)
+                    seen_options.add(label)
 
         precincts_map: dict[str, dict[str, Any]] = {}
+        precinct_votes: dict[str, dict[str, int]] = {}
+        precinct_percentages: dict[str, dict[str, float]] = {}
+        precinct_registered: dict[str, int] = {}
+        precinct_total_voters: dict[str, int] = {}
+        precinct_total_votes: dict[str, int] = {}
+
+        for payload in group["records"]:
+            for precinct in payload.get("precincts", []):
+                precinct_id = str(precinct.get("precinct", "")).strip()
+                if not precinct_id:
+                    continue
+
+                results_block = precinct.get("results", {}).get(precinct_result_scope, {})
+                if not isinstance(results_block, dict):
+                    continue
+                option_block = results_block.get("options", {})
+                if not isinstance(option_block, dict):
+                    option_block = {}
+
+                vote_bucket = precinct_votes.setdefault(precinct_id, {})
+                percent_bucket = precinct_percentages.setdefault(precinct_id, {})
+
+                for option_label in option_labels:
+                    opt_data = option_block.get(option_label, {})
+                    if not isinstance(opt_data, dict):
+                        continue
+                    votes = _to_int(opt_data.get("votes"), default=0)
+                    if option_label in vote_bucket:
+                        vote_bucket[option_label] = max(vote_bucket[option_label], votes)
+                    else:
+                        vote_bucket[option_label] = votes
+
+                    pct_raw = opt_data.get("percent")
+                    if pct_raw is None:
+                        continue
+                    pct = _normalize_percent(pct_raw)
+                    if option_label in percent_bucket:
+                        percent_bucket[option_label] = max(percent_bucket[option_label], pct)
+                    else:
+                        percent_bucket[option_label] = pct
+
+                parsed_total_votes = _to_int(results_block.get("total_votes"), default=0)
+                precinct_total_votes[precinct_id] = max(
+                    precinct_total_votes.get(precinct_id, 0),
+                    parsed_total_votes,
+                )
+
+                parsed_registered = _to_int(results_block.get("registered_voters"), default=0)
+                precinct_registered[precinct_id] = max(
+                    precinct_registered.get(precinct_id, 0),
+                    parsed_registered,
+                )
+
+                parsed_total_voters = _to_int(
+                    results_block.get("times_cast", parsed_total_votes),
+                    default=0,
+                )
+                precinct_total_voters[precinct_id] = max(
+                    precinct_total_voters.get(precinct_id, 0),
+                    parsed_total_voters,
+                )
+
         choice_totals = [0 for _ in option_labels]
 
-        for precinct in payload.get("precincts", []):
-            precinct_id = str(precinct.get("precinct", "")).strip()
-            if not precinct_id:
-                continue
-
-            results_block = precinct.get("results", {}).get(precinct_result_scope, {})
-            option_block = results_block.get("options", {}) if isinstance(results_block, dict) else {}
-
-            vote_results: list[int] = []
-            percent_results: list[float] = []
-            has_percent = False
-
-            for idx, option_label in enumerate(option_labels):
-                opt_data = option_block.get(option_label, {}) if isinstance(option_block, dict) else {}
-                votes = _to_int(opt_data.get("votes"), default=0)
-                vote_results.append(votes)
+        for precinct_id, vote_bucket in precinct_votes.items():
+            vote_results = [vote_bucket.get(option_label, 0) for option_label in option_labels]
+            for idx, votes in enumerate(vote_results):
                 choice_totals[idx] += votes
 
-                pct_raw = opt_data.get("percent")
-                if pct_raw is None:
-                    percent_results.append(0.0)
-                else:
-                    has_percent = True
-                    percent_results.append(_normalize_percent(pct_raw))
+            percent_bucket = precinct_percentages.get(precinct_id, {})
+            has_percent = bool(percent_bucket)
+            percent_results = [percent_bucket.get(option_label, 0.0) for option_label in option_labels]
 
-            total_votes = _to_int(results_block.get("total_votes"), default=sum(vote_results))
-            winner_indexes = _winner_indexes(vote_results)
+            total_votes = precinct_total_votes.get(precinct_id, 0)
+            if total_votes <= 0:
+                total_votes = sum(vote_results)
 
             turnout_row = turnout_by_precinct.get(precinct_id, {})
             registered_voters = _to_int(
-                turnout_row.get("registeredVoters", results_block.get("registered_voters")),
+                turnout_row.get("registeredVoters", precinct_registered.get(precinct_id, 0)),
                 default=0,
             )
             total_voters = _to_int(
-                turnout_row.get("totalVoters", results_block.get("times_cast", total_votes)),
+                turnout_row.get("totalVoters", precinct_total_voters.get(precinct_id, total_votes)),
                 default=0,
             )
+
+            winner_indexes = _winner_indexes(vote_results)
 
             precinct_entry: dict[str, Any] = {
                 "label": precinct_id,
@@ -137,7 +213,7 @@ def build_election_data(
                 "index": contest_index,
                 "id": _contest_id(contest_name, contest_index),
                 "label": contest_name,
-                "voteFor": _to_int(contest.get("vote_for"), default=1),
+                "voteFor": vote_for,
                 "choices": choices,
                 "precincts": precincts_map,
             }

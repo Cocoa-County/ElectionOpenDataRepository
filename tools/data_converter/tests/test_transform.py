@@ -162,3 +162,70 @@ def test_build_election_data_tie_still_sets_winner_index() -> None:
     out = build_election_data(parsed_results)
     contest = out["contests"][0]
     assert contest["precincts"]["P1"]["winner"] == [0, 1]
+
+
+def test_build_election_data_merges_duplicate_contest_sheets() -> None:
+    parsed_results = [
+        {
+            "ok": True,
+            "sheet": "Sheet2",
+            "data": {
+                "contest": {"contest_name": "GOVERNOR", "vote_for": 1},
+                "options": ["A", "B"],
+                "precincts": [
+                    {
+                        "precinct": "P1",
+                        "results": {
+                            "Total": {
+                                "registered_voters": 100,
+                                "times_cast": 60,
+                                "options": {
+                                    "A": {"votes": 40, "percent": 66.67},
+                                    "B": {"votes": 20, "percent": 33.33},
+                                },
+                                "total_votes": 60,
+                            }
+                        },
+                    }
+                ],
+            },
+        },
+        {
+            "ok": True,
+            "sheet": "Sheet3",
+            "data": {
+                "contest": {"contest_name": "GOVERNOR", "vote_for": 1},
+                "options": ["C"],
+                "precincts": [
+                    {
+                        "precinct": "P1",
+                        "results": {
+                            "Total": {
+                                "registered_voters": 100,
+                                "times_cast": 60,
+                                "options": {
+                                    "C": {"votes": 5, "percent": 8.33},
+                                },
+                                "total_votes": 65,
+                            }
+                        },
+                    }
+                ],
+            },
+        },
+    ]
+
+    out = build_election_data(parsed_results)
+
+    assert len(out["contests"]) == 1
+    contest = out["contests"][0]
+    assert contest["label"] == "GOVERNOR"
+    assert sorted(choice["label"] for choice in contest["choices"]) == ["A", "B", "C"]
+
+    precinct = contest["precincts"]["P1"]
+    labels_by_index = {choice["index"]: choice["label"] for choice in contest["choices"]}
+    votes_by_label = {
+        labels_by_index[idx]: value
+        for idx, value in enumerate(precinct["results"])
+    }
+    assert votes_by_label == {"A": 40, "B": 20, "C": 5}
