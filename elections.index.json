@@ -400,15 +400,15 @@
       ]
     },
     {
-      "id": "2022-11-08-general-marin",
-      "electionGroupId": "2022-11-08-general-marin",
+      "id": "marin-2022-11-08-general",
+      "electionGroupId": "marin-2022-11-08-general",
       "type": "general",
       "label": "Marin County 2022 General Election Results",
       "date": "2022-11-08",
       "county": "Marin",
       "state": "CA",
-      "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
-      "precinctsUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
+      "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
+      "precinctsUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
       "precinctIdField": "PrecinctID",
       "precinctLabelField": "PrecinctNM",
       "grouped": false,
@@ -424,43 +424,43 @@
       "description": "This interactive map displays precinct-level voting results for the Marin County 2022 General Election.",
       "snapshots": [
         {
-          "id": "2022-11-08-general-marin",
+          "id": "marin-2022-11-08-general",
           "snapshotTypes": [
             "final"
           ],
-          "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
-          "precinctsUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
+          "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
+          "precinctsUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
           "title": "Final Results",
           "resultsTimestamp": "2023-03-21T13:37:09Z"
         },
         {
-          "id": "2022-11-08-general-marin-2023-03-20T23-37-09Z-d12a779",
+          "id": "marin-2022-11-08-general-2023-03-20T23-37-09Z-d12a779",
           "snapshotTypes": [
             "historical"
           ],
           "resultsTimestamp": "2023-03-20T23:37:09Z",
-          "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
-          "precinctsUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
+          "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
+          "precinctsUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
           "title": "Historical Snapshot"
         },
         {
-          "id": "2022-11-08-general-marin-2023-03-14T16-39-33Z-0bee17b",
+          "id": "marin-2022-11-08-general-2023-03-14T16-39-33Z-0bee17b",
           "snapshotTypes": [
             "historical"
           ],
           "resultsTimestamp": "2023-03-14T16:39:33Z",
-          "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-14T16-39-33Z-0bee17b/election.json",
-          "precinctsUrl": "elections/2022-11-08-general-marin/precincts.gis.json",
+          "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-14T16-39-33Z-0bee17b/election.json",
+          "precinctsUrl": "elections/ca/marin/2022-11-08-general/precincts.gis.json",
           "title": "Historical Snapshot"
         },
         {
-          "id": "2022-11-08-general-marin-2023-03-10T01-34-39Z-5a13ec8",
+          "id": "marin-2022-11-08-general-2023-03-10T01-34-39Z-5a13ec8",
           "snapshotTypes": [
             "historical"
           ],
           "resultsTimestamp": "2023-03-10T01:34:39Z",
-          "dataUrl": "elections/2022-11-08-general-marin/snapshots/2023-03-10T01-34-39Z-5a13ec8/election.json",
-          "precinctsUrl": "elections/2022-11-08-general-marin/precincts.gis.json",
+          "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-10T01-34-39Z-5a13ec8/election.json",
+          "precinctsUrl": "elections/ca/marin/2022-11-08-general/precincts.gis.json",
           "title": "Historical Snapshot"
         }
       ]
