@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "generated": "2026-06-29",
+  "electionId": "2026-06-02-primary",
+  "source": {
+    "kind": "url",
+    "value": "https://acvote.alamedacountyca.gov/acvote-assets/02_election_information/PDFs/20260602/Results/PrecinctCanvassJun02.xlsx"
+  },
+  "run": {
+    "startedAt": "2026-06-29T02:58:12.077069+00:00",
+    "generatedAt": "2026-06-29T02:58:26.115480+00:00"
+  }
+}
