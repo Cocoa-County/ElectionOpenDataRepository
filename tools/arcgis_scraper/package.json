@@ -1,5 +1,5 @@
 {
-  "name": "arcgismapserverripper",
+  "name": "arcgis_scraper",
   "version": "1.0.0",
   "description": "",
   "main": "rip.js",

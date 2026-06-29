@@ -17,8 +17,8 @@ const getObjectCount = async () => {
     const requesturl = `${argv.url}/query?where=1=1&returnCountOnly=true&f=geojson`
     if(argv.debug) console.log(`Fetching object count from ${requesturl}`);
     const response = await axios.get(requesturl);
-    if(argv.debug) console.log(`Object count: ${response.data.count}`);
-    return response.data.count;
+    if(argv.debug) console.log(`Object count: ${response.data.properties.count}`);
+    return response.data.properties.count;
 }
 
 const fetch_data_from_endpoint = async (start, end) => {
