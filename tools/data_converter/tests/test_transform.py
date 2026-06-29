@@ -229,3 +229,44 @@ def test_build_election_data_merges_duplicate_contest_sheets() -> None:
         for idx, value in enumerate(precinct["results"])
     }
     assert votes_by_label == {"A": 40, "B": 20, "C": 5}
+
+
+def test_build_election_data_assigns_party_colors_for_prefix_labels() -> None:
+    parsed_results = [
+        {
+            "ok": True,
+            "sheet": "Sheet2",
+            "data": {
+                "contest": {"contest_name": "GOVERNOR", "vote_for": 1},
+                "options": ["DEM - A", "REP - B", "NPP - C"],
+                "precincts": [
+                    {
+                        "precinct": "P1",
+                        "results": {
+                            "Total": {
+                                "registered_voters": 100,
+                                "times_cast": 60,
+                                "options": {
+                                    "DEM - A": {"votes": 30, "percent": 50.0},
+                                    "REP - B": {"votes": 20, "percent": 33.33},
+                                    "NPP - C": {"votes": 10, "percent": 16.67},
+                                },
+                                "total_votes": 60,
+                            }
+                        },
+                    }
+                ],
+            },
+        }
+    ]
+
+    out = build_election_data(parsed_results)
+    contest = out["contests"][0]
+    color_by_label = {
+        choice["label"]: choice.get("color")
+        for choice in contest["choices"]
+    }
+
+    assert color_by_label["DEM - A"] == "blue1"
+    assert color_by_label["REP - B"] == "red1"
+    assert color_by_label["NPP - C"] is None

@@ -299,6 +299,15 @@ def _choice_party_family(normalized_label: str) -> str | None:
     if normalized_label in _PARTY_ALIASES:
         return _PARTY_ALIASES[normalized_label]
 
+    # Alameda-style labels use a leading party token, e.g. "DEM - Name".
+    prefix_match = re.match(r"^([a-z]+)\s*-\s+", normalized_label)
+    if prefix_match:
+        party_prefix = prefix_match.group(1).strip()
+        if party_prefix:
+            mapped = _PARTY_ALIASES.get(party_prefix)
+            if mapped is not None:
+                return mapped
+
     if not normalized_label.endswith(")"):
         return None
 

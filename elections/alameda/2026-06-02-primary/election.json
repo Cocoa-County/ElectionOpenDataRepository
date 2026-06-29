@@ -10,37 +10,43 @@
           "index": 0,
           "id": 0,
           "label": "DEM - TOM STEYER",
-          "votes": 137301
+          "votes": 137301,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "DEM - XAVIER BECERRA",
-          "votes": 131114
+          "votes": 131114,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "REP - STEVE HILTON",
-          "votes": 54669
+          "votes": 54669,
+          "color": "red1"
         },
         {
           "index": 3,
           "id": 3,
           "label": "DEM - KATIE PORTER",
-          "votes": 27412
+          "votes": 27412,
+          "color": "blue3"
         },
         {
           "index": 4,
           "id": 4,
           "label": "DEM - MATT MAHAN",
-          "votes": 18252
+          "votes": 18252,
+          "color": "blue4"
         },
         {
           "index": 5,
           "id": 5,
           "label": "REP - CHAD BIANCO",
-          "votes": 13531
+          "votes": 13531,
+          "color": "red2"
         },
         {
           "index": 6,
@@ -76,7 +82,8 @@
           "index": 11,
           "id": 11,
           "label": "REP - RANDEEP S. DHILLON",
-          "votes": 1134
+          "votes": 1134,
+          "color": "red3"
         },
         {
           "index": 12,
@@ -94,7 +101,8 @@
           "index": 14,
           "id": 14,
           "label": "REP - PATRICIA DE LUCA BASUALDO",
-          "votes": 887
+          "votes": 887,
+          "color": "red4"
         },
         {
           "index": 15,
@@ -39357,31 +39365,36 @@
           "index": 0,
           "id": 0,
           "label": "DEM - FIONA MA",
-          "votes": 98364
+          "votes": 98364,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "DEM - MICHAEL TUBBS",
-          "votes": 83012
+          "votes": 83012,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "DEM - JOSH FRYDAY",
-          "votes": 70961
+          "votes": 70961,
+          "color": "blue3"
         },
         {
           "index": 3,
           "id": 3,
           "label": "DEM - OLIVER MA",
-          "votes": 31155
+          "votes": 31155,
+          "color": "blue4"
         },
         {
           "index": 4,
           "id": 4,
           "label": "REP - GLORIA ROMERO",
-          "votes": 29906
+          "votes": 29906,
+          "color": "red1"
         },
         {
           "index": 5,
@@ -39393,19 +39406,22 @@
           "index": 6,
           "id": 6,
           "label": "REP - DAVID FENNELL",
-          "votes": 12390
+          "votes": 12390,
+          "color": "red2"
         },
         {
           "index": 7,
           "id": 7,
           "label": "REP - DAVID COLLENBERG",
-          "votes": 11811
+          "votes": 11811,
+          "color": "red3"
         },
         {
           "index": 8,
           "id": 8,
           "label": "REP - SKIP SHELTON",
-          "votes": 8179
+          "votes": 8179,
+          "color": "red4"
         },
         {
           "index": 9,
@@ -53875,13 +53891,15 @@
           "index": 0,
           "id": 0,
           "label": "DEM - SHIRLEY N. WEBER",
-          "votes": 284811
+          "votes": 284811,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "REP - DONALD P. (DON) WAGNER",
-          "votes": 69641
+          "votes": 69641,
+          "color": "red1"
         },
         {
           "index": 2,
@@ -61757,13 +61775,15 @@
           "index": 0,
           "id": 0,
           "label": "DEM - MALIA M. COHEN",
-          "votes": 272798
+          "votes": 272798,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "REP - HERB W MORGAN",
-          "votes": 71929
+          "votes": 71929,
+          "color": "red1"
         },
         {
           "index": 2,
@@ -69089,31 +69109,36 @@
           "index": 0,
           "id": 0,
           "label": "DEM - ELENI KOUNALAKIS",
-          "votes": 194804
+          "votes": 194804,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "DEM - ANNA M. CABALLERO",
-          "votes": 67233
+          "votes": 67233,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "REP - JENNIFER HAWKS",
-          "votes": 45230
+          "votes": 45230,
+          "color": "red1"
         },
         {
           "index": 3,
           "id": 3,
           "label": "DEM - TONY VAZQUEZ",
-          "votes": 27395
+          "votes": 27395,
+          "color": "blue3"
         },
         {
           "index": 4,
           "id": 4,
           "label": "REP - DAVID SERPA",
-          "votes": 24029
+          "votes": 24029,
+          "color": "red2"
         },
         {
           "index": 5,
@@ -78078,13 +78103,15 @@
           "index": 0,
           "id": 0,
           "label": "DEM - ROB BONTA",
-          "votes": 282709
+          "votes": 282709,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "REP - MICHAEL E. GATES",
-          "votes": 74575
+          "votes": 74575,
+          "color": "red1"
         },
         {
           "index": 2,
@@ -85409,49 +85436,57 @@
           "index": 0,
           "id": 0,
           "label": "DEM - JANE KIM",
-          "votes": 135083
+          "votes": 135083,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "DEM - BEN ALLEN",
-          "votes": 97417
+          "votes": 97417,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "DEM - PATRICK WOLFF",
-          "votes": 32398
+          "votes": 32398,
+          "color": "blue3"
         },
         {
           "index": 3,
           "id": 3,
           "label": "REP - STACY A. KORSGADEN",
-          "votes": 25835
+          "votes": 25835,
+          "color": "red1"
         },
         {
           "index": 4,
           "id": 4,
           "label": "DEM - STEVEN CRAIG BRADFORD",
-          "votes": 18941
+          "votes": 18941,
+          "color": "blue4"
         },
         {
           "index": 5,
           "id": 5,
           "label": "REP - ROBERT P HOWELL",
-          "votes": 14471
+          "votes": 14471,
+          "color": "red2"
         },
         {
           "index": 6,
           "id": 6,
           "label": "REP - SEAN LEE",
-          "votes": 14408
+          "votes": 14408,
+          "color": "red3"
         },
         {
           "index": 7,
           "id": 7,
           "label": "REP - MERRITT FARREN",
-          "votes": 12053
+          "votes": 12053,
+          "color": "red4"
         },
         {
           "index": 8,
@@ -97168,37 +97203,43 @@
           "index": 0,
           "id": 0,
           "label": "DEM - SALLY J. LIEBER",
-          "votes": 230895
+          "votes": 230895,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "DEM - JOHN PIMENTEL",
-          "votes": 61367
+          "votes": 61367,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "REP - BILL SHIREMAN",
-          "votes": 30788
+          "votes": 30788,
+          "color": "red1"
         },
         {
           "index": 3,
           "id": 3,
           "label": "REP - J BRETT MARYMEE",
-          "votes": 19715
+          "votes": 19715,
+          "color": "red2"
         },
         {
           "index": 4,
           "id": 4,
           "label": "REP - MARK MCCOMAS",
-          "votes": 10929
+          "votes": 10929,
+          "color": "red3"
         },
         {
           "index": 5,
           "id": 5,
           "label": "REP - JOHN W. ZARUKA",
-          "votes": 8228
+          "votes": 8228,
+          "color": "red4"
         }
       ],
       "precincts": {
@@ -106158,43 +106199,50 @@
           "index": 0,
           "id": 0,
           "label": "DEM - MARK DESAULNIER",
-          "votes": 9818
+          "votes": 9818,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "REP - JEFF FRESE",
-          "votes": 2096
+          "votes": 2096,
+          "color": "red1"
         },
         {
           "index": 2,
           "id": 2,
           "label": "REP - KATHERINE PICCININI",
-          "votes": 1662
+          "votes": 1662,
+          "color": "red2"
         },
         {
           "index": 3,
           "id": 3,
           "label": "DEM - JOSHUA HAMILTON",
-          "votes": 1406
+          "votes": 1406,
+          "color": "blue2"
         },
         {
           "index": 4,
           "id": 4,
           "label": "DEM - MITCHELL MAISLER",
-          "votes": 1402
+          "votes": 1402,
+          "color": "blue3"
         },
         {
           "index": 5,
           "id": 5,
           "label": "REP - ANGELA GRIFFITHS",
-          "votes": 1301
+          "votes": 1301,
+          "color": "red3"
         },
         {
           "index": 6,
           "id": 6,
           "label": "DEM - BOB ROWLAND",
-          "votes": 337
+          "votes": 337,
+          "color": "blue4"
         }
       ],
       "precincts": {
@@ -107008,13 +107056,15 @@
           "index": 0,
           "id": 0,
           "label": "DEM - LATEEFAH SIMON",
-          "votes": 153174
+          "votes": 153174,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "DEM - JAMIE JOYCE",
-          "votes": 28367
+          "votes": 28367,
+          "color": "blue2"
         }
       ],
       "precincts": {
@@ -109504,37 +109554,43 @@
           "index": 0,
           "id": 0,
           "label": "DEM - AISHA WAHAB",
-          "votes": 59215
+          "votes": 59215,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "DEM - MELISSA HERNANDEZ",
-          "votes": 26561
+          "votes": 26561,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "REP - WENDY HUANG",
-          "votes": 20347
+          "votes": 20347,
+          "color": "red1"
         },
         {
           "index": 3,
           "id": 3,
           "label": "DEM - RAKHI ISRANI SINGH",
-          "votes": 20035
+          "votes": 20035,
+          "color": "blue3"
         },
         {
           "index": 4,
           "id": 4,
           "label": "REP - DENA MALDONADO",
-          "votes": 18765
+          "votes": 18765,
+          "color": "red2"
         },
         {
           "index": 5,
           "id": 5,
           "label": "DEM - VICTOR AGUILAR, JR.",
-          "votes": 3276
+          "votes": 3276,
+          "color": "blue4"
         },
         {
           "index": 6,
@@ -115110,31 +115166,36 @@
           "index": 0,
           "id": 0,
           "label": "DEM - RO KHANNA",
-          "votes": 10423
+          "votes": 10423,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "REP - RITESH TANDON",
-          "votes": 2383
+          "votes": 2383,
+          "color": "red1"
         },
         {
           "index": 2,
           "id": 2,
           "label": "REP - JENNIE HA PHAN",
-          "votes": 2220
+          "votes": 2220,
+          "color": "red2"
         },
         {
           "index": 3,
           "id": 3,
           "label": "DEM - ETHAN AGARWAL",
-          "votes": 947
+          "votes": 947,
+          "color": "blue2"
         },
         {
           "index": 4,
           "id": 4,
           "label": "DEM - MIKE KATZ",
-          "votes": 732
+          "votes": 732,
+          "color": "blue3"
         },
         {
           "index": 5,
@@ -115425,31 +115486,36 @@
           "index": 0,
           "id": 0,
           "label": "DEM - SCOTT SAKAKIHARA",
-          "votes": 32526
+          "votes": 32526,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "REP - LINDA R. PRICE",
-          "votes": 21306
+          "votes": 21306,
+          "color": "red1"
         },
         {
           "index": 2,
           "id": 2,
           "label": "DEM - ANNE KEPNER",
-          "votes": 14653
+          "votes": 14653,
+          "color": "blue2"
         },
         {
           "index": 3,
           "id": 3,
           "label": "DEM - RAYMOND LIU",
-          "votes": 9765
+          "votes": 9765,
+          "color": "blue3"
         },
         {
           "index": 4,
           "id": 4,
           "label": "DEM - DAVID COHEN",
-          "votes": 9247
+          "votes": 9247,
+          "color": "blue4"
         },
         {
           "index": 5,
@@ -118083,7 +118149,8 @@
           "index": 0,
           "id": 0,
           "label": "DEM - BUFFY WICKS",
-          "votes": 57219
+          "votes": 57219,
+          "color": "blue1"
         },
         {
           "index": 1,
@@ -118095,7 +118162,8 @@
           "index": 2,
           "id": 2,
           "label": "REP - BORGAR SOLNORDAL",
-          "votes": 3434
+          "votes": 3434,
+          "color": "red1"
         }
       ],
       "precincts": {
@@ -118811,13 +118879,15 @@
           "index": 0,
           "id": 0,
           "label": "DEM - REBECCA BAUER-KAHAN",
-          "votes": 30957
+          "votes": 30957,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "REP - JOSEPH A. RUBAY",
-          "votes": 15570
+          "votes": 15570,
+          "color": "red1"
         },
         {
           "index": 2,
@@ -119962,19 +120032,22 @@
           "index": 0,
           "id": 0,
           "label": "DEM - MIA BONTA",
-          "votes": 84213
+          "votes": 84213,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "DEM - ANDRE SANDFORD",
-          "votes": 11915
+          "votes": 11915,
+          "color": "blue2"
         },
         {
           "index": 2,
           "id": 2,
           "label": "REP - NED NUERGE",
-          "votes": 7861
+          "votes": 7861,
+          "color": "red1"
         },
         {
           "index": 3,
@@ -121673,13 +121746,15 @@
           "index": 0,
           "id": 0,
           "label": "DEM - LIZ ORTEGA",
-          "votes": 76261
+          "votes": 76261,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "REP - PATRICIA MUGA",
-          "votes": 25241
+          "votes": 25241,
+          "color": "red1"
         }
       ],
       "precincts": {
@@ -124443,13 +124518,15 @@
           "index": 0,
           "id": 0,
           "label": "DEM - ALEX LEE",
-          "votes": 34595
+          "votes": 34595,
+          "color": "blue1"
         },
         {
           "index": 1,
           "id": 1,
           "label": "REP - MAX HSIA",
-          "votes": 11718
+          "votes": 11718,
+          "color": "red1"
         },
         {
           "index": 2,
