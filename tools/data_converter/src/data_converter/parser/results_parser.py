@@ -53,6 +53,10 @@ def parse_results(
 
     left_block = table_cfg["left_block"]
     right_label_col = right_block["label_col"]
+    inline_cfg = records_cfg.get("inline_rows", {})
+    inline_enabled = bool(inline_cfg.get("enabled", False))
+    inline_precinct_col = int(inline_cfg.get("precinct_col", left_block["label_col"]))
+    inline_child_col = int(inline_cfg.get("child_label_col", right_label_col))
 
     precincts: list[dict[str, Any]] = []
     summaries = {"rows": [], "groups": []}
@@ -71,6 +75,32 @@ def parse_results(
             continue
         if label in skip_labels:
             continue
+
+        if inline_enabled:
+            inline_precinct = safe_get(row, inline_precinct_col)
+            inline_child = safe_get(row, inline_child_col)
+            if (
+                is_precinct_label(inline_precinct, precinct_cfg["parent_regex"])
+                and is_child_row(inline_child, precinct_cfg["child_rows"])
+            ):
+                if (
+                    state["current_precinct"] is None
+                    or state["current_precinct"].get("precinct") != inline_precinct
+                ):
+                    entry = {"precinct": inline_precinct, "results": {}}
+                    precincts.append(entry)
+                    state["current_precinct"] = entry
+                parsed = _parse_result_metrics(
+                    row,
+                    options,
+                    left_block,
+                    trailing_columns,
+                    values_cfg,
+                    masked_tokens,
+                )
+                state["current_precinct"]["results"][inline_child] = parsed
+                state["current_summary_group"] = None
+                continue
 
         if is_precinct_label(left_label, precinct_cfg["parent_regex"]):
             entry = {"precinct": left_label, "results": {}}
@@ -139,9 +169,10 @@ def _parse_contest_title(rows: list[list[str]], contest_cfg: dict[str, Any]) -> 
         text = safe_get(row, col)
         groups = extract_regex_groups(text, regex)
         if groups:
+            vote_for_value = groups.get("vote_for")
             out = {
                 "contest_name": groups["contest_name"],
-                "vote_for": int(groups["vote_for"]),
+                "vote_for": int(vote_for_value) if vote_for_value else None,
                 "privacy_note": groups.get("privacy_note"),
             }
             return out, row_idx
@@ -154,7 +185,7 @@ def _extract_options(header_row: list[str], right_block: dict[str, Any]) -> list
     start_col = options_cfg["start_col"]
     pair_width = options_cfg["pair_width"]
     value_col_offset = options_cfg["value_col_offset"]
-    percent_col_offset = options_cfg["percent_col_offset"]
+    percent_col_offset = options_cfg.get("percent_col_offset")
     stop_headers = set(options_cfg["stop_headers"])
 
     options: list[dict[str, Any]] = []
@@ -173,7 +204,11 @@ def _extract_options(header_row: list[str], right_block: dict[str, Any]) -> list
             {
                 "name": name,
                 "votes_col": col + value_col_offset,
-                "percent_col": col + percent_col_offset,
+                "percent_col": (
+                    col + int(percent_col_offset)
+                    if percent_col_offset is not None
+                    else None
+                ),
             }
         )
         col += pair_width
@@ -212,10 +247,14 @@ def _parse_result_metrics(
                 values_cfg.get("integer", {}),
                 masked_tokens,
             ),
-            "percent": parse_percent(
-                safe_get(row, option["percent_col"]),
-                values_cfg.get("percent", {}),
-                masked_tokens,
+            "percent": (
+                parse_percent(
+                    safe_get(row, option["percent_col"]),
+                    values_cfg.get("percent", {}),
+                    masked_tokens,
+                )
+                if option.get("percent_col") is not None
+                else None
             ),
         }
 

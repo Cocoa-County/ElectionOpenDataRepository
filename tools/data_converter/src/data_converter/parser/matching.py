@@ -63,7 +63,7 @@ def parse_common_header(rows: list[list[str]], cfg: dict[str, Any]) -> dict[str,
     page_row = rows[page_cfg["row"]]
     page_text = safe_get(page_row, page_cfg["col"])
     page_match = extract_regex_groups(page_text, page_cfg["regex"])
-    if not page_match:
+    if not page_match and not bool(page_cfg.get("optional", False)):
         raise ValueError(f"Could not parse page metadata from text: {page_text}")
 
     ts_cfg = header_cfg["report_timestamp"]
@@ -71,9 +71,16 @@ def parse_common_header(rows: list[list[str]], cfg: dict[str, Any]) -> dict[str,
     ts_formats = ts_cfg.get("scan_row_for_datetime", {}).get("formats", [])
     parsed_ts = find_datetime_in_row(ts_row, ts_formats)
 
+    page_value = int(page_match["page"]) if page_match and page_match.get("page") else None
+    total_pages_value = (
+        int(page_match["total_pages"])
+        if page_match and page_match.get("total_pages")
+        else None
+    )
+
     out: dict[str, Any] = {
-        "page": int(page_match["page"]),
-        "total_pages": int(page_match["total_pages"]),
+        "page": page_value,
+        "total_pages": total_pages_value,
         "report_timestamp": parsed_ts.isoformat() if parsed_ts else None,
     }
     return out
@@ -84,7 +91,8 @@ def is_precinct_label(label: str, pattern: str) -> bool:
 
 
 def is_child_row(label: str, child_rows: list[str]) -> bool:
-    return label in child_rows
+    normalized = label.strip().casefold()
+    return any(normalized == row.strip().casefold() for row in child_rows)
 
 
 def is_summary_group_parent(label: str, parent_labels: list[str]) -> bool:

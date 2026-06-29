@@ -15,14 +15,22 @@ def resolve_config_refs(refs: dict[str, str], base_dir: Path) -> dict[str, Path]
     return out
 
 
-def pick_parser_config(csv_file: Path, config_refs: dict[str, Path], parse_cfg: dict[str, Any]) -> Path:
+def pick_parser_config(
+    csv_file: Path,
+    config_refs: dict[str, Path],
+    parse_cfg: dict[str, Any],
+) -> Path | None:
     sheet_rules = parse_cfg.get("sheet_rules", [])
     for rule in sheet_rules:
         pattern = rule.get("pattern")
-        config_ref = rule.get("config_ref")
-        if not pattern or not config_ref:
+        if not pattern:
             continue
         if re.search(pattern, csv_file.name):
+            if bool(rule.get("skip", False)):
+                return None
+            config_ref = rule.get("config_ref")
+            if not config_ref:
+                continue
             if config_ref not in config_refs:
                 raise ValueError(f"Unknown config_ref in sheet rule: {config_ref}")
             return config_refs[config_ref]

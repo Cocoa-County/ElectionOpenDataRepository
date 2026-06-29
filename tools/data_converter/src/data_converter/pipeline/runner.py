@@ -293,6 +293,18 @@ def _parse_split_csvs(
     csv_files = sorted(split_dir.glob("*.csv"))
     for csv_file in csv_files:
         parser_config = pick_parser_config(csv_file, config_refs, parse_cfg)
+        if parser_config is None:
+            results.append(
+                {
+                    "sheet": csv_file.stem,
+                    "csv_file": str(csv_file),
+                    "parser_config": "<skipped>",
+                    "ok": True,
+                    "skipped": True,
+                    "data": {"ok": True, "skipped": True},
+                }
+            )
+            continue
         result_record: dict[str, Any] = {
             "sheet": csv_file.stem,
             "csv_file": str(csv_file),
@@ -330,6 +342,18 @@ def _parse_split_tables_in_memory(
 
     for sheet_name, table in tables.items():
         parser_key = _pick_parser_key_for_sheet(sheet_name, parse_cfg, table)
+        if parser_key is None:
+            results.append(
+                {
+                    "sheet": sheet_name,
+                    "csv_file": None,
+                    "parser_config": "<skipped>",
+                    "ok": True,
+                    "skipped": True,
+                    "data": {"ok": True, "skipped": True},
+                }
+            )
+            continue
         result_record: dict[str, Any] = {
             "sheet": sheet_name,
             "csv_file": None,
@@ -371,15 +395,19 @@ def _pick_parser_key_for_sheet(
     sheet_name: str,
     parse_cfg: dict[str, Any],
     table: Any,
-) -> str:
+) -> str | None:
     pseudo_name = f"{sheet_name}.csv"
     sheet_rules = parse_cfg.get("sheet_rules", [])
     for rule in sheet_rules:
         pattern = rule.get("pattern")
-        config_ref = rule.get("config_ref")
-        if not pattern or not config_ref:
+        if not pattern:
             continue
         if re.search(pattern, pseudo_name):
+            if bool(rule.get("skip", False)):
+                return None
+            config_ref = rule.get("config_ref")
+            if not config_ref:
+                continue
             return str(config_ref)
 
     if parse_cfg.get("detect_turnout_header", True) and _looks_like_turnout_table(table):
