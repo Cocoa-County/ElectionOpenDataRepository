@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-06-27",
+  "updated": "2026-06-28",
   "defaultElectionId": "2026-06-02-primary",
   "elections": [
     {
@@ -43,6 +43,40 @@
           "dataUrl": "elections/2026-06-02-primary/snapshots/pre-election/election.json",
           "precinctsUrl": "elections/2026-06-02-primary/precincts.gis.json",
           "title": "Pre-Election Snapshot"
+        }
+      ]
+    },
+    {
+      "id": "alameda-2026-06-02-primary",
+      "electionGroupId": "2026-06-02-primary",
+      "type": "primary",
+      "label": "Alameda County 2026 Primary Election Results",
+      "date": "2026-06-02",
+      "county": "Alameda",
+      "state": "CA",
+      "dataUrl": "elections/alameda/2026-06-02-primary/election.json",
+      "precinctsUrl": "elections/alameda/2026-06-02-primary/precincts.gis.json",
+      "precinctIdField": "Precinct_ID",
+      "precinctLabelField": "Precinct_ID",
+      "grouped": false,
+      "tags": [
+        "alameda",
+        "2026"
+      ],
+      "title": "2026 Primary",
+      "subtitle": "Alameda County 2026 Primary Election Results",
+      "description": "This interactive map displays precinct-level voting results for the Alameda County 2026 Primary Election.",
+      "snapshots": [
+        {
+          "id": "alameda-2026-06-02-primary-final",
+          "snapshotTypes": [
+            "latest",
+            "final"
+          ],
+          "dataUrl": "elections/alameda/2026-06-02-primary/election.json",
+          "precinctsUrl": "elections/alameda/2026-06-02-primary/precincts.gis.json",
+          "title": "Final Results",
+          "resultsTimestamp": "2026-06-29T02:58:26Z"
         }
       ]
     },
@@ -433,3 +467,4 @@
     }
   ]
 }
+
