@@ -140,12 +140,23 @@ def build_election_data(
                 choice_totals[idx] += votes
 
             percent_bucket = precinct_percentages.get(precinct_id, {})
-            has_percent = bool(percent_bucket)
-            percent_results = [percent_bucket.get(option_label, 0.0) for option_label in option_labels]
 
             total_votes = precinct_total_votes.get(precinct_id, 0)
             if total_votes <= 0:
                 total_votes = sum(vote_results)
+
+            # Some exports omit per-candidate percent columns. In that case,
+            # derive percentages from vote totals so downstream maps can render
+            # normalized shares consistently.
+            percent_results: list[float] = []
+            for option_label, votes in zip(option_labels, vote_results, strict=False):
+                if option_label in percent_bucket:
+                    percent_results.append(percent_bucket[option_label])
+                elif total_votes > 0:
+                    percent_results.append(votes / total_votes)
+                else:
+                    percent_results.append(0.0)
+            has_percent = bool(percent_bucket) or total_votes > 0
 
             turnout_row = turnout_by_precinct.get(precinct_id, {})
             registered_voters = _to_int(

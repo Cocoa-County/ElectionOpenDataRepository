@@ -270,3 +270,37 @@ def test_build_election_data_assigns_party_colors_for_prefix_labels() -> None:
     assert color_by_label["DEM - A"] == "blue1"
     assert color_by_label["REP - B"] == "red1"
     assert color_by_label["NPP - C"] is None
+
+
+def test_build_election_data_derives_percentages_when_missing() -> None:
+    parsed_results = [
+        {
+            "ok": True,
+            "sheet": "Sheet2",
+            "data": {
+                "contest": {"contest_name": "ASSESSOR", "vote_for": 1},
+                "options": ["A", "B"],
+                "precincts": [
+                    {
+                        "precinct": "P1",
+                        "results": {
+                            "Total": {
+                                "registered_voters": 100,
+                                "times_cast": 60,
+                                "options": {
+                                    "A": {"votes": 45, "percent": None},
+                                    "B": {"votes": 15, "percent": None},
+                                },
+                                "total_votes": 60,
+                            }
+                        },
+                    }
+                ],
+            },
+        }
+    ]
+
+    out = build_election_data(parsed_results)
+    precinct = out["contests"][0]["precincts"]["P1"]
+
+    assert precinct["percentage"] == [0.75, 0.25]
