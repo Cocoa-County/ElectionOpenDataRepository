@@ -1,0 +1,122 @@
+document:
+  type: election_results
+  format: csv
+
+normalization:
+  newline_replacement: " "
+  collapse_whitespace: true
+  trim: true
+  strip_wrapping_quotes: true
+
+header:
+  page:
+    row: 0
+    col: 0
+    regex: "^Page: (?P<page>\\d+) of (?P<total_pages>\\d+)$"
+    optional: true
+
+  report_timestamp:
+    row: 1
+    scan_row_for_datetime:
+      formats:
+        - "%B %d, %Y"
+        - "%m/%d/%Y %I:%M:%S %p"
+        - "%Y-%m-%d %H:%M:%S.%f"
+
+contest:
+  title_row:
+    col: 2
+    regex: "^(?P<vote_for>\\d+)\\s+(?P<contest_name>.+)$"
+
+  table:
+    header_row_search:
+      start_row_offset: 1
+      max_scan_rows: 5
+      required_cells:
+        - col: 2
+          equals: "Registered Voters"
+        - col: 3
+          equals: "Voters Cast"
+        - col: 4
+          equals: "Turnout (%)"
+
+    left_block:
+      label_col: 0
+      times_cast_col: 3
+      registered_voters_col: 2
+
+    right_block:
+      label_col: 1
+
+      options:
+        dynamic: true
+        start_col: 5
+        pair_width: 1
+        value_col_offset: 0
+        percent_col_offset: null
+        stop_headers:
+          - "Over Votes"
+          - "Under Votes"
+          - "Total Votes"
+          - "Unresolved Write-In"
+
+      trailing_columns:
+        total_votes:
+          header_equals: "Total Votes"
+        unresolved_write_in:
+          header_equals: "Unresolved Write-In"
+
+records:
+  inline_rows:
+    enabled: true
+    precinct_col: 0
+    child_label_col: 1
+
+  precinct_group:
+    parent_regex: "^\\d+$"
+    child_rows:
+      - "Vote by Mail"
+      - "Vote By Mail"
+      - "Election Day"
+      - "Total"
+
+  skip_rows:
+    - "County"
+    - "Alameda County"
+
+footer:
+  summary_rows:
+    regex_labels:
+      - "^[A-Za-z ].* - Total$"
+
+  summary_groups:
+    parent_labels:
+      - "Cumulative"
+      - "County - Total"
+    child_rows:
+      - "Vote By Mail"
+      - "Election Day"
+      - "Total"
+
+section_end:
+  next_contest_regex: "^.+\\(Vote for\\s+\\d+\\)"
+  blank_row_run: 3
+
+values:
+  masked_tokens:
+    - "***"
+    - "****"
+
+  integer:
+    strip_commas: true
+    empty_as_null: true
+    masked_as_null: true
+
+  float:
+    empty_as_null: true
+    masked_as_null: true
+
+  percent:
+    strip_suffix: "%"
+    empty_as_null: true
+    masked_as_null: true

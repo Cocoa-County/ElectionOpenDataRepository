@@ -1,0 +1,58 @@
+input:
+  url: "https://acvote.alamedacountyca.gov/acvote-assets/02_election_information/PDFs/20260602/Results/PrecinctCanvassJun02.xlsx"
+  # xlsx_path: "../../raw/PrecinctCanvassJun02.xlsx"
+  timeout_seconds: 120
+
+parse:
+  config_refs:
+    results: "results.yml"
+    turnout: "turnout_summary.yml"
+  sheet_rules:
+    - pattern: "^Document map\\.csv$"
+      skip: true
+    - pattern: ".*"
+      config_ref: results
+  default_config_ref: results
+  detect_turnout_header: false
+
+warnings:
+  include: true
+
+json:
+  indent: 2
+  omit_nulls: false
+
+io:
+  output_dir: "output"
+  tables:
+    in_memory: true
+    representation: "rows"  # rows | dataframe
+  versioning:
+    enabled: true
+    template: "{run_utc:%Y%m%dT%H%M%SZ}_{source_kind}"
+  write_sheet_json: false
+  write_combined_json: true
+  combined_name: "output.json"
+  write_manifest: true
+  manifest_name: "manifest.json"
+  summary_only: false
+  keep_split_csv: false
+  delete_split_csv: true
+
+transform:
+  enabled: false
+  election_id: "2026-06-02-primary"
+  precinct_result_scope: "Total"
+  output_path: "elections/alameda/2026-06-02-primary/election.json"
+  write_metadata: true
+  metadata_path: "elections/alameda/2026-06-02-primary/metadata.json"
+  update_index: false
+  index_path: "elections.index.json"
+  index_label: "Alameda County 2026 Primary Election Results"
+  index_date: "2026-06-02"
+  index_type: "primary"
+  index_county: "Alameda"
+  index_state: "CA"
+  precincts_url: "elections/alameda/2026-06-02-primary/precincts.gis.json"
+  precinct_id_field: "Precinct_ID"
+  precinct_label_field: "Precinct_ID"
