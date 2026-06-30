@@ -223,6 +223,40 @@ const normalizeParty = (party) => {
   return p || undefined;
 };
 
+const toPartyBucket = (party) => {
+  const p = String(party || '').toUpperCase();
+  if (p === 'DEM') return 'blue';
+  if (p === 'REP') return 'red';
+  return null;
+};
+
+const withPartyColors = (sortedChoices) => {
+  let blueCount = 0;
+  let redCount = 0;
+
+  return sortedChoices.map((choice, index) => {
+    const out = {
+      index,
+      id: index,
+      label: choice.label,
+      party: choice.party,
+      votes: choice.votes,
+      sourceIndex: choice.sourceIndex
+    };
+
+    const bucket = toPartyBucket(choice.party);
+    if (bucket === 'blue') {
+      blueCount += 1;
+      if (blueCount <= 4) out.color = `blue${blueCount}`;
+    } else if (bucket === 'red') {
+      redCount += 1;
+      if (redCount <= 4) out.color = `red${redCount}`;
+    }
+
+    return out;
+  });
+};
+
 const buildContestLookup = (sumData) => {
   const contests = Array.isArray(sumData?.Contests) ? sumData.Contests : Array.isArray(sumData) ? sumData : [];
   const lookup = new Map();
@@ -248,14 +282,7 @@ const buildContestLookup = (sumData) => {
       return a.label.localeCompare(b.label);
     });
 
-    const sortedChoiceOutput = sortedChoices.map((choice, index) => ({
-      index,
-      id: index,
-      label: choice.label,
-      party: choice.party,
-      votes: choice.votes,
-      sourceIndex: choice.sourceIndex
-    }));
+    const sortedChoiceOutput = withPartyColors(sortedChoices);
 
     lookup.set(contestId, {
       id: contestId,
@@ -308,6 +335,7 @@ const transformToRepositoryElection = (allData, sumData) => {
           };
 
           if (choice.party) out.party = choice.party;
+          if (choice.color) out.color = choice.color;
           return out;
         });
 
