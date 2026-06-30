@@ -1,0 +1,16 @@
+{
+  "name": "clarity_scraper",
+  "version": "1.0.0",
+  "description": "Download Clarity Election all.json payloads",
+  "main": "scrape.js",
+  "scripts": {
+    "scrape": "node scrape.js"
+  },
+  "keywords": [
+    "clarity",
+    "elections",
+    "scraper"
+  ],
+  "author": "",
+  "license": "ISC"
+}
