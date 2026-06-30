@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-06-28",
+  "updated": "2026-06-29",
   "defaultElectionId": "2026-06-02-primary",
   "elections": [
     {
@@ -77,6 +77,40 @@
           "precinctsUrl": "elections/alameda/2026-06-02-primary/precincts.gis.json",
           "title": "Final Results",
           "resultsTimestamp": "2026-06-29T02:58:26Z"
+        }
+      ]
+    },
+    {
+      "id": "marin-2026-06-02-primary",
+      "electionGroupId": "2026-06-02-primary",
+      "type": "primary",
+      "label": "Marin County 2026 Primary Election Results",
+      "date": "2026-06-02",
+      "county": "Marin",
+      "state": "CA",
+      "dataUrl": "elections/ca/marin/2026-06-02-primary/election.json",
+      "precinctsUrl": "elections/ca/marin/2026-06-02-primary/precincts.gis.json",
+      "precinctIdField": "ConsolidatedPrecinct",
+      "precinctLabelField": "ConsolidatedPrecinct",
+      "grouped": false,
+      "tags": [
+        "marin",
+        "2026"
+      ],
+      "title": "2026 Primary",
+      "subtitle": "Marin County 2026 Primary Election Results",
+      "description": "This interactive map displays precinct-level voting results for the Marin County 2026 Primary Election.",
+      "snapshots": [
+        {
+          "id": "marin-2026-06-02-primary-final",
+          "snapshotTypes": [
+            "latest",
+            "final"
+          ],
+          "dataUrl": "elections/ca/marin/2026-06-02-primary/election.json",
+          "precinctsUrl": "elections/ca/marin/2026-06-02-primary/precincts.gis.json",
+          "title": "Final Results",
+          "resultsTimestamp": "2026-06-26T22:20:47Z"
         }
       ]
     },
