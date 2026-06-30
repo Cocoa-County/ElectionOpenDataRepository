@@ -230,6 +230,13 @@ const toPartyBucket = (party) => {
   return null;
 };
 
+const toYesNoColor = (label) => {
+  const normalized = String(label || '').trim().toUpperCase();
+  if (normalized === 'YES') return 'green1';
+  if (normalized === 'NO') return 'red1';
+  return null;
+};
+
 const withPartyColors = (sortedChoices) => {
   let blueCount = 0;
   let redCount = 0;
@@ -243,6 +250,12 @@ const withPartyColors = (sortedChoices) => {
       votes: choice.votes,
       sourceIndex: choice.sourceIndex
     };
+
+    const yesNoColor = toYesNoColor(choice.label);
+    if (yesNoColor) {
+      out.color = yesNoColor;
+      return out;
+    }
 
     const bucket = toPartyBucket(choice.party);
     if (bucket === 'blue') {
