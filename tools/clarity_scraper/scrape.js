@@ -218,6 +218,16 @@ const toNumber = (value) => {
   return Number.isFinite(n) ? n : 0;
 };
 
+const normalizeChoiceLabel = (label, sourceIndex) => {
+  const raw = String(label || '').trim();
+  const upper = raw.toUpperCase();
+
+  if (upper === 'BONDS-YES') return 'Yes';
+  if (upper === 'BONDS-NO') return 'No';
+
+  return raw || `Choice ${sourceIndex + 1}`;
+};
+
 const normalizeParty = (party) => {
   const p = String(party || '').trim();
   return p || undefined;
@@ -285,7 +295,7 @@ const buildContestLookup = (sumData) => {
 
     const sourceChoices = names.map((name, sourceIndex) => ({
       sourceIndex,
-      label: String(name || '').trim() || `Choice ${sourceIndex + 1}`,
+      label: normalizeChoiceLabel(name, sourceIndex),
       party: normalizeParty(parties[sourceIndex]),
       votes: toNumber(votes[sourceIndex])
     }));
