@@ -100,6 +100,64 @@ const writeJson = (filePath, data) => {
   fs.writeFileSync(filePath, JSON.stringify(data));
 };
 
+const getContestPrecinctIds = (electionData) => {
+  const firstContest = electionData?.contests?.[0];
+  return Object.keys(firstContest?.precincts || {});
+};
+
+const loadSiblingGisPrecinctIds = (repoOutputPath) => {
+  const dir = path.dirname(repoOutputPath);
+  const gisPath = path.join(dir, 'precincts.gis.json');
+  if (!fs.existsSync(gisPath)) return null;
+
+  try {
+    const gis = JSON.parse(fs.readFileSync(gisPath, 'utf8'));
+    const ids = new Set(
+      (gis.features || [])
+        .map((feature) => String(feature?.properties?.ConsolidatedPrecinct || '').trim())
+        .filter(Boolean)
+    );
+    return ids.size > 0 ? ids : null;
+  } catch (_error) {
+    return null;
+  }
+};
+
+const applyPrecinctPrefix = (electionData, prefix) => {
+  for (const contest of electionData?.contests || []) {
+    const oldMap = contest.precincts || {};
+    const newMap = {};
+
+    for (const [id, entry] of Object.entries(oldMap)) {
+      const key = String(id);
+      const mappedId = key.startsWith(prefix) ? key : `${prefix}${key}`;
+      const labelRaw = entry?.label === undefined || entry?.label === null ? '' : String(entry.label);
+      const mappedLabel = labelRaw ? (labelRaw.startsWith(prefix) ? labelRaw : `${prefix}${labelRaw}`) : mappedId;
+      newMap[mappedId] = { ...entry, label: mappedLabel };
+    }
+
+    contest.precincts = newMap;
+  }
+};
+
+const maybeAlignPrecinctIdsWithGis = (electionData, repoOutputPath, debug) => {
+  const gisIds = loadSiblingGisPrecinctIds(repoOutputPath);
+  if (!gisIds) return;
+
+  const ids = getContestPrecinctIds(electionData);
+  if (ids.length === 0) return;
+
+  const scoreIdentity = ids.filter((id) => gisIds.has(id)).length;
+  const scoreCPrefix = ids.filter((id) => gisIds.has(id.startsWith('C') ? id : `C${id}`)).length;
+
+  if (scoreCPrefix > scoreIdentity) {
+    applyPrecinctPrefix(electionData, 'C');
+    if (debug) {
+      console.log(`Applied precinct prefix 'C' based on GIS overlap (${scoreIdentity} -> ${scoreCPrefix}).`);
+    }
+  }
+};
+
 const discoverVersion = async (baseUrl, debug) => {
   const versionUrl = `${baseUrl}/current_ver.txt`;
   const versionText = await fetchText(versionUrl);
@@ -305,6 +363,7 @@ const main = async () => {
   writeJson(path.join(rawBaseDir, 'electionsettings.json'), settingsResult.data);
 
   const electionData = transformToRepositoryElection(allResult.data, sumResult.data);
+  maybeAlignPrecinctIdsWithGis(electionData, opts.repoOutput, opts.debug);
   writeJson(opts.repoOutput, electionData);
 
   console.log(`Downloaded ${allResult.sourceUrl}`);
