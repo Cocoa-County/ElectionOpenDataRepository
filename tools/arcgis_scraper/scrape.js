@@ -1,16 +1,107 @@
+const https = require('https');
 const axios = require('axios').create({
-    httpsAgent: new (require('https').Agent)({ rejectUnauthorized: false })
-  });
+  httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+  headers: {
+    // Some ArcGIS endpoints sit behind WAF rules that reject non-browser clients.
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+    Accept: 'application/json, text/plain, */*',
+    Referer: 'https://www.arcgis.com/',
+    Origin: 'https://www.arcgis.com'
+  }
+});
 const fs = require('fs');
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 
 const getBaseUrl = () => argv.url.replace(/\/+$/, '');
 
+const parseHeaderEntries = (headerEntries) => {
+  const parsed = {};
+
+  for (const entry of headerEntries || []) {
+    const separatorIndex = entry.indexOf(':');
+    if (separatorIndex <= 0) {
+      if (argv.debug) console.warn(`Skipping invalid --header value: ${entry}`);
+      continue;
+    }
+
+    const key = entry.slice(0, separatorIndex).trim();
+    const value = entry.slice(separatorIndex + 1).trim();
+    if (!key || !value) {
+      if (argv.debug) console.warn(`Skipping invalid --header value: ${entry}`);
+      continue;
+    }
+
+    parsed[key] = value;
+  }
+
+  return parsed;
+};
+
+const configureRequestHeaders = () => {
+  const extraHeaders = parseHeaderEntries(argv.header);
+  if (argv.cookie) {
+    extraHeaders.Cookie = argv.cookie;
+  }
+
+  Object.assign(axios.defaults.headers.common, extraHeaders);
+
+  if (argv.debug && Object.keys(extraHeaders).length > 0) {
+    console.log(`Applied ${Object.keys(extraHeaders).length} custom request header(s).`);
+  }
+};
+
+const summarizeResponseBody = (data) => {
+  if (data === undefined || data === null) return '(empty)';
+  if (typeof data === 'string') return data.slice(0, 400);
+
+  try {
+    return JSON.stringify(data).slice(0, 400);
+  } catch (_error) {
+    return '(unserializable response body)';
+  }
+};
+
+const isCloudflareChallenge = (status, contentType, bodyPreview) => {
+  if (status !== 403) return false;
+  if (!String(contentType).toLowerCase().includes('text/html')) return false;
+
+  const haystack = String(bodyPreview).toLowerCase();
+  return haystack.includes('cloudflare') || haystack.includes('attention required');
+};
+
+const logHttpError = (error, label) => {
+  if (!argv.debug) return;
+
+  const status = error?.response?.status;
+  const statusText = error?.response?.statusText || '';
+  const contentType = error?.response?.headers?.['content-type'] || '(unknown)';
+  const bodyPreview = summarizeResponseBody(error?.response?.data);
+
+  if (status) {
+    console.error(`${label} failed: HTTP ${status} ${statusText}`.trim());
+    console.error(`content-type: ${contentType}`);
+    console.error(`response preview: ${bodyPreview}`);
+
+    if (isCloudflareChallenge(status, contentType, bodyPreview)) {
+      console.error('Detected Cloudflare challenge. This endpoint is blocking non-browser HTTP clients.');
+      console.error('Try a fresh browser session cookie with --cookie, or fetch the data from an interactive browser workflow.');
+    }
+  } else {
+    console.error(`${label} failed: ${error.message}`);
+  }
+};
+
 const getServiceMetadata = async () => {
   const requesturl = `${getBaseUrl()}?f=json`;
   if (argv.debug) console.log(`Fetching service metadata from ${requesturl}`);
-  const response = await axios.get(requesturl);
+  let response;
+  try {
+    response = await axios.get(requesturl);
+  } catch (error) {
+    logHttpError(error, 'Service metadata request');
+    throw error;
+  }
   const maxRecordCount = response.data?.maxRecordCount || 1000;
   const objectIdField = response.data?.objectIdField || 'OBJECTID';
   if (argv.debug) {
@@ -23,7 +114,13 @@ const getServiceMetadata = async () => {
 const getObjectCount = async () => {
   const requesturl = `${getBaseUrl()}/query?where=1=1&returnCountOnly=true&f=json`;
   if (argv.debug) console.log(`Fetching object count from ${requesturl}`);
-    const response = await axios.get(requesturl);
+  let response;
+  try {
+    response = await axios.get(requesturl);
+  } catch (error) {
+    logHttpError(error, 'Object count request');
+    throw error;
+  }
   const count = response.data?.count ?? response.data?.properties?.count ?? 0;
   if (argv.debug) console.log(`Object count: ${count}`);
   return count;
@@ -39,7 +136,13 @@ const fetchDataByOffset = async (offset, pageSize, idField) => {
     f: 'geojson'
   };
   if (argv.debug) console.log(`Fetching data by offset=${offset} pageSize=${pageSize}`);
-  const response = await axios.get(`${getBaseUrl()}/query`, { params: queryParams });
+  let response;
+  try {
+    response = await axios.get(`${getBaseUrl()}/query`, { params: queryParams });
+  } catch (error) {
+    logHttpError(error, `Offset query request (offset=${offset})`);
+    throw error;
+  }
     return response.data;
 };
 
@@ -50,7 +153,13 @@ const getObjectIds = async () => {
     f: 'json'
   };
   if (argv.debug) console.log('Fetching object IDs for fallback pagination');
-  const response = await axios.get(`${getBaseUrl()}/query`, { params: queryParams });
+  let response;
+  try {
+    response = await axios.get(`${getBaseUrl()}/query`, { params: queryParams });
+  } catch (error) {
+    logHttpError(error, 'Object ID request');
+    throw error;
+  }
   const objectIds = response.data?.objectIds || [];
   const objectIdFieldName = response.data?.objectIdFieldName || 'OBJECTID';
   return { objectIds, objectIdFieldName };
@@ -66,13 +175,25 @@ const fetchDataByIds = async (idField, ids) => {
 
   // Use POST for larger batches to avoid URL length issues.
   if (whereClause.length > 1500) {
-    const response = await axios.post(`${getBaseUrl()}/query`, new URLSearchParams(queryParams).toString(), {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    });
+    let response;
+    try {
+      response = await axios.post(`${getBaseUrl()}/query`, new URLSearchParams(queryParams).toString(), {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      });
+    } catch (error) {
+      logHttpError(error, 'Fallback POST chunk request');
+      throw error;
+    }
     return response.data;
   }
 
-  const response = await axios.get(`${getBaseUrl()}/query`, { params: queryParams });
+  let response;
+  try {
+    response = await axios.get(`${getBaseUrl()}/query`, { params: queryParams });
+  } catch (error) {
+    logHttpError(error, 'Fallback GET chunk request');
+    throw error;
+  }
   return response.data;
 };
 
@@ -124,7 +245,17 @@ const argv = yargs(hideBin(process.argv))
     type: 'string',
     description: 'Output file name'
   })
+  .option('header', {
+    type: 'array',
+    description: 'Additional request header in "Name: Value" format (repeatable)'
+  })
+  .option('cookie', {
+    type: 'string',
+    description: 'Cookie header value to include in requests'
+  })
   .argv;
+
+configureRequestHeaders();
 
 const main = async () => {
     let combinedData = { type: "FeatureCollection", features: [] };
@@ -209,4 +340,8 @@ const main = async () => {
   if (argv.debug) console.log(`Data written to ${outputFileName}`);
 };
 
-main();
+main().catch((error) => {
+  logHttpError(error, 'Scrape');
+  console.error(`Fatal error: ${error.message}`);
+  process.exitCode = 1;
+});
