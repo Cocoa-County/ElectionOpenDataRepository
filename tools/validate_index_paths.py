@@ -16,17 +16,17 @@ def _check_url(repo_root: Path, file_checks: list[tuple[str, str, str, bool]], o
     return exists
 
 
-def _validate_geographies(repo_root: Path, owner_id: str, geographies: list[dict], file_checks: list[tuple[str, str, str, bool]]) -> bool:
+def _validate_layers(repo_root: Path, owner_id: str, layers: list[dict], file_checks: list[tuple[str, str, str, bool]]) -> bool:
     all_valid = True
-    for geography in geographies:
-        geography_id = geography.get("id", "unknown")
-        prefix = f"{owner_id}/geographies/{geography_id}"
+    for layer in layers:
+        layer_id = layer.get("id", "unknown")
+        prefix = f"{owner_id}/layers/{layer_id}"
         for key in ["dataUrl", "gisUrl", "metadataUrl"]:
-            url = geography.get(key)
+            url = layer.get(key)
             if not url:
                 continue
             if not _check_url(repo_root, file_checks, prefix, key, url):
-                print(f"ERROR: Missing geography file for {prefix}: {url}")
+                print(f"ERROR: Missing layer file for {prefix}: {url}")
                 all_valid = False
     return all_valid
 
@@ -64,9 +64,9 @@ def validate_index():
                     print(f"ERROR: Missing file for {election_id} ({county}): {url}")
                     all_valid = False
 
-        geographies = election.get("geographies", [])
-        if geographies:
-            if not _validate_geographies(repo_root, election_id, geographies, file_checks):
+        layers = election.get("layers", [])
+        if layers:
+            if not _validate_layers(repo_root, election_id, layers, file_checks):
                 all_valid = False
         
         # Check metadata file
@@ -91,9 +91,9 @@ def validate_index():
                     if not exists:
                         print(f"ERROR: Missing snapshot file: {url}")
                         all_valid = False
-            snapshot_geographies = snapshot.get("geographies", [])
-            if snapshot_geographies:
-                if not _validate_geographies(repo_root, f"{election_id}/{snapshot_id}", snapshot_geographies, file_checks):
+            snapshot_layers = snapshot.get("layers", [])
+            if snapshot_layers:
+                if not _validate_layers(repo_root, f"{election_id}/{snapshot_id}", snapshot_layers, file_checks):
                     all_valid = False
     
     # Summary

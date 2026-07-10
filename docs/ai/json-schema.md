@@ -14,19 +14,19 @@ Core rules:
 
 - Consumers read `elections.index.json` as the entry point.
 - Legacy entries use `dataUrl` and `precinctsUrl` to identify election data and precinct GeoJSON resources.
-- Geography-aware entries use `geographies[*].dataUrl` and `geographies[*].gisUrl` to identify one switchable map view at a time.
+- Layer-aware entries use `layers[*].dataUrl` and `layers[*].gisUrl` to identify one switchable map view at a time.
 - Consumers must ignore unknown fields.
 
-## Geography-Aware Additions
+## Layer-Aware Additions
 
-The schemas now support an additive generalized geography model.
+The schemas now support an additive generalized layer model.
 
-- `schemas/elections.index.schema.json` accepts a `geographies` array on election entries and snapshots.
-- Each geography item declares a `joinField` so joins are data-driven rather than precinct-specific.
+- `schemas/elections.index.schema.json` accepts a `layers` array on election entries and snapshots.
+- Each layer item declares a `joinField` so joins are data-driven rather than precinct-specific.
 - `schemas/election.schema.json` accepts legacy `contest.precincts` and generalized `contest.areas`.
 - A results file may include a top-level `geography` object so it remains self-describing even when opened without the index.
 
-Recommended producer layout for new geography views:
+Recommended producer layout for new map layers:
 
 - `results.precincts.json` with `precincts.gis.json`
 - `results.places.json` with `places.gis.json`
@@ -55,6 +55,6 @@ For easiest interoperability, implementers can use this rule:
 Examples of commonly ignorable fields for core consumers:
 
 - `metadataUrl` in index entries
-- `geographies` in legacy precinct-only consumers that intentionally support one view only
+- `layers` in legacy precinct-only consumers that intentionally support one view only
 - `source` and `run` objects in metadata
 - snapshot-specific descriptive tags that are not required by schema

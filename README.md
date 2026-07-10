@@ -45,7 +45,7 @@ Consumer quick start:
 
 1. Fetch `elections.index.json`.
 2. Pick an election entry by `id`.
-3. Select a geography view from `geographies` when present, otherwise use the legacy precinct fields.
+3. Select a layer from `layers` when present, otherwise use the legacy precinct fields.
 4. Load the selected results file and GIS file.
 5. Join GIS feature identifiers to `contest.areas` or `contest.precincts` keys.
 6. Optionally load `metadataUrl`.
@@ -69,7 +69,7 @@ The repository now includes JSON Schema definitions under `schemas/`:
 - `schemas/precincts.gis.schema.json`
 - `schemas/metadata.schema.json`
 
-The index and election schemas now support additive multi-geography publication. New producers should prefer `geographies` plus `results.<geography>.json` and `<geography>.gis.json`, while existing precinct-only artifacts remain valid.
+The index and election schemas now support additive multi-layer publication. New producers should prefer `layers` plus `results.<geography>.json` and `<geography>.gis.json`, while existing precinct-only artifacts remain valid.
 
 For implementation details, use:
 

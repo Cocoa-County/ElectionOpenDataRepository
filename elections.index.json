@@ -58,7 +58,7 @@
       "precinctsUrl": "elections/ca/contra_costa/2026-06-02-primary/precincts.gis.json",
       "precinctIdField": "sPrecinctID",
       "precinctLabelField": "szPrecinctName",
-      "geographies": [
+      "layers": [
         {
           "id": "precincts",
           "type": "precinct",

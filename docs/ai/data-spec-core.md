@@ -20,8 +20,8 @@ Optional artifact:
 2. Each election entry must include:
    1. `id`
    2. `label`
-   3. Either the legacy precinct fields `dataUrl`, `precinctsUrl`, `precinctIdField`, and `precinctLabelField`, or a `geographies` array
-3. Each `geographies` item must include:
+   3. Either the legacy precinct fields `dataUrl`, `precinctsUrl`, `precinctIdField`, and `precinctLabelField`, or a `layers` array
+3. Each `layers` item must include:
    1. `id`
    2. `type`
    3. `label`
@@ -75,7 +75,7 @@ Any additional metadata fields are optional extensions and may be ignored by con
          "metadataUrl": "elections/ca/example/2026-06-02-primary/metadata.json",
          "precinctIdField": "precinct_id",
          "precinctLabelField": "precinct_name",
-         "geographies": [
+         "layers": [
             {
                "id": "precincts",
                "type": "precinct",
@@ -234,7 +234,7 @@ Any additional metadata fields are optional extensions and may be ignored by con
 2. Ensure every index election entry has required core fields.
 3. Ensure declared join field values in GeoJSON match keys used by results.
 4. Validate files against schemas.
-5. If using `geographies`, ensure each geography `joinField` matches both GIS properties and results keys.
+5. If using `layers`, ensure each layer `joinField` matches both GIS properties and results keys.
 6. Confirm your consumer ignores unknown fields.
 
 ## Core Consumer Flow
@@ -243,7 +243,7 @@ Use this minimal flow in any language:
 
 1. Fetch and parse `elections.index.json`.
 2. Select an election entry by `defaultElectionId` or a caller-provided `id`.
-3. If `geographies` is present, select a geography view by `id` or `type`; otherwise use the legacy precinct fields.
+3. If `layers` is present, select a layer by `id` or `type`; otherwise use the legacy precinct fields.
 4. Resolve `dataUrl` and `precinctsUrl` or the selected geography `dataUrl` and `gisUrl` relative to the index location when needed.
 5. Fetch and parse election results and the selected GIS GeoJSON file.
 6. Read feature identifier values from GeoJSON using `joinField` or `precinctIdField`.

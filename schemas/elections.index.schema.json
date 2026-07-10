@@ -40,7 +40,7 @@
       "minLength": 1,
       "description": "Absolute URL or relative path resolved from elections.index.json."
     },
-    "geographyView": {
+    "layerView": {
       "type": "object",
       "required": [
         "id",
@@ -50,12 +50,12 @@
         "gisUrl",
         "joinField"
       ],
-      "description": "A geography-specific map view with one results artifact and one GIS artifact joined by a declared field.",
+      "description": "A layer-specific map view with one results artifact and one GIS artifact joined by a declared field.",
       "properties": {
         "id": {
           "type": "string",
           "minLength": 1,
-          "description": "Stable machine-readable geography view identifier such as precincts, places, or supervisor_districts."
+          "description": "Stable machine-readable layer identifier such as precincts, places, or supervisor_districts."
         },
         "type": {
           "type": "string",
@@ -65,7 +65,7 @@
         "label": {
           "type": "string",
           "minLength": 1,
-          "description": "Human-readable geography view label."
+          "description": "Human-readable layer label."
         },
         "description": {
           "type": "string"
@@ -164,12 +164,12 @@
           "type": "string",
           "minLength": 1
         },
-        "geographies": {
+        "layers": {
           "type": "array",
           "minItems": 1,
-          "description": "Optional geography-specific artifacts for clients that support switching between map view types.",
+          "description": "Optional layer-specific artifacts for clients that support switching between map view types.",
           "items": {
-            "$ref": "#/$defs/geographyView"
+            "$ref": "#/$defs/layerView"
           }
         }
       },
@@ -182,7 +182,7 @@
         },
         {
           "required": [
-            "geographies"
+            "layers"
           ]
         }
       ],
@@ -258,12 +258,12 @@
           "minLength": 1,
           "description": "GeoJSON property name used as human-readable precinct label."
         },
-        "geographies": {
+        "layers": {
           "type": "array",
           "minItems": 1,
-          "description": "Optional geography-specific artifacts for clients that support switching between map view types.",
+          "description": "Optional layer-specific artifacts for clients that support switching between map view types.",
           "items": {
-            "$ref": "#/$defs/geographyView"
+            "$ref": "#/$defs/layerView"
           }
         },
         "tags": {
@@ -303,7 +303,7 @@
         },
         {
           "required": [
-            "geographies"
+            "layers"
           ]
         }
       ],
