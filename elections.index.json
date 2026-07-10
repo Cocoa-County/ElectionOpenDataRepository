@@ -47,6 +47,52 @@
       ]
     },
     {
+      "id": "2026-06-02-primary-test",
+      "electionGroupId": "2026-06-02-primary",
+      "type": "primary",
+      "label": "Contra Costa County 2026 Primary Election Results (Test)",
+      "date": "2026-06-02",
+      "county": "Contra Costa",
+      "state": "CA",
+      "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/election.json",
+      "precinctsUrl": "elections/ca/contra_costa/2026-06-02-primary/precincts.gis.json",
+      "precinctIdField": "sPrecinctID",
+      "precinctLabelField": "szPrecinctName",
+      "geographies": [
+        {
+          "id": "precincts",
+          "type": "precinct",
+          "label": "Precincts (Test)",
+          "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/election.json",
+          "gisUrl": "elections/ca/contra_costa/2026-06-02-primary/precincts.gis.json",
+          "joinField": "sPrecinctID",
+          "labelField": "szPrecinctName",
+          "resultsVersion": "current"
+        },
+        {
+          "id": "cities",
+          "type": "city",
+          "label": "Cities + Unincorporated (Test)",
+          "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/results.cities.json",
+          "gisUrl": "elections/ca/contra_costa/2026-06-02-primary/cities.gis.json",
+          "joinField": "NAME",
+          "labelField": "NAME",
+          "metadataUrl": "elections/ca/contra_costa/2026-06-02-primary/metadata.cities.json",
+          "resultsVersion": "current"
+        }
+      ],
+      "grouped": false,
+      "tags": [
+        "contra-costa",
+        "2026",
+        "test",
+        "do-not-default"
+      ],
+      "title": "2026 Primary Test",
+      "subtitle": "Contra Costa County 2026 Primary Election Results (Test)",
+      "description": "Test-only duplicate entry for validating city and unincorporated results updates without changing the live default record."
+    },
+    {
       "id": "alameda-2026-06-02-primary",
       "electionGroupId": "2026-06-02-primary",
       "type": "primary",
