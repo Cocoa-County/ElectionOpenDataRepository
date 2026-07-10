@@ -23,8 +23,6 @@ This repository is structured for static hosting on GitHub Pages and consumption
 1. In repository settings, enable GitHub Pages from the `main` branch root.
 2. Your index URL will be:
    `https://<org>.github.io/<repo>/elections.index.json`
-3. Explore data at:
-   `https://cocoa-county.github.io/ElectionOpenDataRepository/`
 
 ## Data Contract Notes
 
@@ -42,4 +40,3 @@ This repository now supports multiple timestamped versions of the same election 
 - Use a per-snapshot timestamp field: `resultsTimestamp` (ISO datetime).
 - Add multiple election entries in `elections.index.json` that share the same `electionGroupId` but have different `id`, `dataUrl`, and `resultsTimestamp` values.
 - If multiple snapshots use the same precinct GeoJSON, store one shared `precincts.gis.json` at the election root and point snapshot metadata or index entries at that shared file.
-- In the static explorer, select an election, then switch versions from the `Version` dropdown to compare counts over time.

@@ -124,7 +124,7 @@ elections/ca/
    - `transform.output_path: elections/ca/{county}/{election-id}/election.json`
    - `transform.precincts_url: elections/ca/{county}/{election-id}/precincts.gis.json`
 
-3. **Backward Compatibility**: Static explorer (index.html) maintains full compatibility with new canonical paths via relative URL resolution.
+3. **Backward Compatibility**: `elections.index.json` remains compatible with consumers that resolve relative paths from the index location.
 
 4. **Validation**: Run `python tools/validate_index_paths.py` to verify path integrity after future updates.
 
