@@ -7,6 +7,7 @@ from .matching import (
     find_header_row,
     is_child_row,
     is_precinct_label,
+    match_derived_child_row,
     is_summary_group_parent,
     is_summary_row,
     parse_common_header,
@@ -40,6 +41,7 @@ def parse_turnout_summary(
     precinct_cfg = cfg["precinct_group"]
     footer_cfg = cfg["footer"]
     values_cfg = cfg.get("values", {})
+    derived_child_rows = precinct_cfg.get("derived_child_rows", [])
 
     precincts: list[dict[str, Any]] = []
     summaries = {"rows": [], "groups": []}
@@ -53,6 +55,26 @@ def parse_turnout_summary(
         label = safe_get(row, columns["label"])
 
         if is_blank_row(row):
+            continue
+
+        derived_child_label = match_derived_child_row(
+            label,
+            state["current_precinct"].get("precinct") if state["current_precinct"] is not None else None,
+            derived_child_rows,
+        )
+        if derived_child_label is not None:
+            metrics = _parse_turnout_metrics(row, columns, values_cfg)
+            state["current_precinct"]["results"][derived_child_label] = metrics
+            continue
+
+        derived_summary_label = match_derived_child_row(
+            label,
+            state["current_summary_group"].get("label") if state["current_summary_group"] is not None else None,
+            derived_child_rows,
+        )
+        if derived_summary_label is not None:
+            metrics = _parse_turnout_metrics(row, columns, values_cfg)
+            state["current_summary_group"]["results"][derived_summary_label] = metrics
             continue
 
         if is_precinct_label(label, precinct_cfg["parent_regex"]):

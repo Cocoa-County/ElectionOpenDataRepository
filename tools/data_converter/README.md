@@ -24,6 +24,9 @@ Profiles package parser YAML and examples by county and source format.
 - `profiles/contra_costa/election_results_xlsx/results.yml`
 - `profiles/contra_costa/election_results_xlsx/turnout_summary.yml`
 - `profiles/contra_costa/election_results_xlsx/pipeline.yml.example`
+- `profiles/contra_costa/election_results_by_city_xlsx/results.yml`
+- `profiles/contra_costa/election_results_by_city_xlsx/turnout_summary.yml`
+- `profiles/contra_costa/election_results_by_city_xlsx/pipeline.yml.example`
 - `profiles/contra_costa/election_results_xlsx/results.yml.example.json`
 - `profiles/contra_costa/election_results_xlsx/turnout_summary.yml.example.json`
 

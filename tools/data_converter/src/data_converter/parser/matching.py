@@ -104,3 +104,22 @@ def is_summary_row(label: str, regex_labels: list[str]) -> bool:
         if re.match(pattern, label):
             return True
     return False
+
+
+def match_derived_child_row(
+    label: str,
+    parent_label: str | None,
+    derived_child_rows: list[dict[str, Any]],
+) -> str | None:
+    if not parent_label:
+        return None
+
+    for row_cfg in derived_child_rows:
+        suffix = str(row_cfg.get("suffix", ""))
+        child_label = str(row_cfg.get("child_label", "")).strip()
+        if not suffix or not child_label:
+            continue
+        if label == f"{parent_label}{suffix}":
+            return child_label
+
+    return None

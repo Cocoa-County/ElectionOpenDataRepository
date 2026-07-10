@@ -1,0 +1,57 @@
+input:
+  url: "https://www.contracostavote.gov/wp-content/uploads/20260602_ContraCostaSOV_ByDistrict.xlsx"
+  timeout_seconds: 120
+
+parse:
+  config_refs:
+    results: "results.yml"
+    turnout: "turnout_summary.yml"
+  sheet_rules:
+    - pattern: "^Sheet1\\.csv$"
+      config_ref: turnout
+    - pattern: ".*"
+      config_ref: results
+  default_config_ref: results
+  detect_turnout_header: true
+
+warnings:
+  include: true
+
+json:
+  indent: 2
+  omit_nulls: false
+
+io:
+  output_dir: "output"
+  tables:
+    in_memory: true
+    representation: "rows"
+  versioning:
+    enabled: true
+    template: "{run_utc:%Y%m%dT%H%M%SZ}_{source_kind}"
+  write_sheet_json: false
+  write_combined_json: true
+  combined_name: "city-output.json"
+  write_manifest: true
+  manifest_name: "city-manifest.json"
+  summary_only: false
+  keep_split_csv: false
+  delete_split_csv: true
+
+transform:
+  enabled: true
+  election_id: "2026-06-02-primary-cities"
+  precinct_result_scope: "Total"
+  output_path: "elections/ca/contra_costa/2026-06-02-primary/results.cities.json"
+  write_metadata: true
+  metadata_path: "elections/ca/contra_costa/2026-06-02-primary/metadata.cities.json"
+  update_index: false
+  index_path: "elections.index.json"
+  index_label: "Contra Costa County 2026 Primary Election Results by City"
+  index_date: "2026-06-02"
+  index_type: "primary"
+  index_county: "Contra Costa"
+  index_state: "CA"
+  precincts_url: "elections/ca/contra_costa/2026-06-02-primary/cities.gis.json"
+  precinct_id_field: "NAME"
+  precinct_label_field: "NAME"

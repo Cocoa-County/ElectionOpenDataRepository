@@ -8,6 +8,7 @@ from .matching import (
     is_blank_row,
     is_child_row,
     is_precinct_label,
+    match_derived_child_row,
     is_summary_group_parent,
     is_summary_row,
     parse_common_header,
@@ -50,6 +51,7 @@ def parse_results(
     values_cfg = cfg.get("values", {})
     masked_tokens = set(values_cfg.get("masked_tokens", []))
     skip_labels = set(records_cfg.get("skip_rows", []))
+    derived_child_rows = records_cfg.get("derived_child_rows", [])
 
     left_block = table_cfg["left_block"]
     right_label_col = right_block["label_col"]
@@ -101,6 +103,40 @@ def parse_results(
                 state["current_precinct"]["results"][inline_child] = parsed
                 state["current_summary_group"] = None
                 continue
+
+        derived_child_label = match_derived_child_row(
+            label,
+            state["current_precinct"].get("precinct") if state["current_precinct"] is not None else None,
+            derived_child_rows,
+        )
+        if derived_child_label is not None:
+            parsed = _parse_result_metrics(
+                row,
+                options,
+                left_block,
+                trailing_columns,
+                values_cfg,
+                masked_tokens,
+            )
+            state["current_precinct"]["results"][derived_child_label] = parsed
+            continue
+
+        derived_summary_label = match_derived_child_row(
+            label,
+            state["current_summary_group"].get("label") if state["current_summary_group"] is not None else None,
+            derived_child_rows,
+        )
+        if derived_summary_label is not None:
+            parsed = _parse_result_metrics(
+                row,
+                options,
+                left_block,
+                trailing_columns,
+                values_cfg,
+                masked_tokens,
+            )
+            state["current_summary_group"]["results"][derived_summary_label] = parsed
+            continue
 
         if is_precinct_label(left_label, precinct_cfg["parent_regex"]):
             entry = {"precinct": left_label, "results": {}}

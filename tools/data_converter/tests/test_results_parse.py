@@ -140,3 +140,119 @@ def test_results_parse_handles_shifted_final_candidate_header(tmp_path: Path) ->
         "NICOLAS CARJUZAA (DEM)",
         "JOHN GARAMENDI (DEM)",
     ]
+
+
+def test_results_parse_supports_parent_named_total_rows(tmp_path: Path) -> None:
+    csv_path = tmp_path / "results_city.csv"
+    csv_path.write_text(
+        "\n".join(
+            [
+                "Page: 2 of 42,,,,,,,,,,,2026-06-25 15:58:53.362000",
+                "GOVERNOR (Vote for  1)",
+                ",,,,,,,,,,,,,",
+                "District,Times Cast,Registered Voters,,District,CANDIDATE A,,CANDIDATE B,,Total Votes,Unresolved Write-In",
+                "City,,,,City,,,,,,",
+                "City of Antioch,,,,City of Antioch,,,,,,",
+                "Vote By Mail,20366,67596,,Vote By Mail,100,40.0,150,60.0,250,0",
+                "Election Day,2059,67596,,Election Day,10,33.33,20,66.67,30,0",
+                "City of Antioch - Total,22425,67596,,City of Antioch - Total,110,39.29,170,60.71,280,0",
+                "Cumulative,,,,Cumulative,,,,,,",
+                "Cumulative - Total,0,0,,Cumulative - Total,0,,0,,0,0",
+                "City - Total,22425,67596,,City - Total,110,39.29,170,60.71,280,0",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    config_path = tmp_path / "results_city.yml"
+    config_path.write_text(
+        "\n".join(
+            [
+                "document:",
+                "  type: election_results",
+                "  format: csv",
+                "normalization:",
+                "  newline_replacement: ' '",
+                "  collapse_whitespace: true",
+                "  trim: true",
+                "  strip_wrapping_quotes: true",
+                "header:",
+                "  page:",
+                "    row: 0",
+                "    col: 0",
+                "    regex: '^Page: (?P<page>\\d+) of (?P<total_pages>\\d+)$'",
+                "  report_timestamp:",
+                "    row: 0",
+                "    scan_row_for_datetime:",
+                "      formats:",
+                "        - '%Y-%m-%d %H:%M:%S.%f'",
+                "contest:",
+                "  title_row:",
+                "    col: 0",
+                "    regex: '^(?P<contest_name>.+?)\\s*\\(Vote for\\s+(?P<vote_for>\\d+)\\)'",
+                "  table:",
+                "    header_row_search:",
+                "      start_row_offset: 1",
+                "      max_scan_rows: 5",
+                "      required_cells:",
+                "        - col: 0",
+                "          equals: \"District\"",
+                "        - col: 4",
+                "          equals: \"District\"",
+                "    left_block:",
+                "      label_col: 0",
+                "      times_cast_col: 1",
+                "      registered_voters_col: 2",
+                "    right_block:",
+                "      label_col: 4",
+                "      options:",
+                "        dynamic: true",
+                "        start_col: 5",
+                "        pair_width: 2",
+                "        value_col_offset: 0",
+                "        percent_col_offset: 1",
+                "        stop_headers:",
+                "          - \"Total Votes\"",
+                "          - \"Unresolved Write-In\"",
+                "      trailing_columns:",
+                "        total_votes:",
+                "          header_equals: \"Total Votes\"",
+                "records:",
+                "  precinct_group:",
+                "    parent_regex: \"^(?:City|Town) of .+|^Unincorporated Contra Costa County$\"",
+                "    child_rows:",
+                "      - \"Vote By Mail\"",
+                "      - \"Election Day\"",
+                "  derived_child_rows:",
+                "    - suffix: \" - Total\"",
+                "      child_label: \"Total\"",
+                "  skip_rows:",
+                "    - \"City\"",
+                "footer:",
+                "  summary_rows:",
+                "    regex_labels:",
+                "      - \"^City - Total$\"",
+                "  summary_groups:",
+                "    parent_labels:",
+                "      - \"Cumulative\"",
+                "values:",
+                "  masked_tokens:",
+                "    - \"****\"",
+                "  integer:",
+                "    strip_commas: true",
+                "    empty_as_null: true",
+                "    masked_as_null: true",
+                "  percent:",
+                "    strip_suffix: \"%\"",
+                "    empty_as_null: true",
+                "    masked_as_null: true",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    parsed = parse_file(str(csv_path), str(config_path))
+
+    assert parsed["precincts"][0]["precinct"] == "City of Antioch"
+    assert parsed["precincts"][0]["results"]["Total"]["total_votes"] == 280
+    assert parsed["summaries"]["groups"][0]["results"]["Total"]["total_votes"] == 0

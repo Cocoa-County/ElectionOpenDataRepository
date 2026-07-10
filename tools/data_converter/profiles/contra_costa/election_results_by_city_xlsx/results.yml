@@ -1,0 +1,112 @@
+document:
+  type: election_results
+  format: csv
+
+normalization:
+  newline_replacement: " "
+  collapse_whitespace: true
+  trim: true
+  strip_wrapping_quotes: true
+
+header:
+  page:
+    row: 0
+    col: 0
+    regex: "^Page: (?P<page>\\d+) of (?P<total_pages>\\d+)$"
+
+  report_timestamp:
+    row: 0
+    scan_row_for_datetime:
+      formats:
+        - "%Y-%m-%d %H:%M:%S.%f"
+        - "%m/%d/%Y %I:%M:%S %p"
+
+contest:
+  title_row:
+    col: 0
+    regex: "^(?P<contest_name>.+?)\\s*\\(Vote for\\s+(?P<vote_for>\\d+)\\)(?:\\s+(?P<privacy_note>\\*\\*\\*\\*.*))?$"
+
+  table:
+    header_row_search:
+      start_row_offset: 1
+      max_scan_rows: 5
+      required_cells:
+        - col: 0
+          equals: "District"
+        - col: 4
+          equals: "District"
+
+    left_block:
+      label_col: 0
+      times_cast_col: 1
+      registered_voters_col: 2
+
+    right_block:
+      label_col: 4
+
+      options:
+        dynamic: true
+        start_col: 5
+        pair_width: 2
+        value_col_offset: 0
+        percent_col_offset: 1
+        stop_headers:
+          - "Total Votes"
+          - "Unresolved Write-In"
+
+      trailing_columns:
+        total_votes:
+          header_equals: "Total Votes"
+        unresolved_write_in:
+          header_equals: "Unresolved Write-In"
+
+records:
+  precinct_group:
+    parent_regex: "^(?:(?:City|Town) of .+|Unincorporated Contra Costa County)$"
+    child_rows:
+      - "Vote By Mail"
+      - "Election Day"
+
+  derived_child_rows:
+    - suffix: " - Total"
+      child_label: "Total"
+
+  skip_rows:
+    - "City"
+    - "Contra Costa County"
+
+footer:
+  summary_rows:
+    regex_labels:
+      - "^City - Total$"
+
+  summary_groups:
+    parent_labels:
+      - "Cumulative"
+      - "County - Total"
+    child_rows:
+      - "Vote By Mail"
+      - "Election Day"
+      - "Total"
+
+section_end:
+  next_contest_regex: "^.+\\(Vote for\\s+\\d+\\)"
+  blank_row_run: 3
+
+values:
+  masked_tokens:
+    - "****"
+
+  integer:
+    strip_commas: true
+    empty_as_null: true
+    masked_as_null: true
+
+  float:
+    empty_as_null: true
+    masked_as_null: true
+
+  percent:
+    strip_suffix: "%"
+    empty_as_null: true
+    masked_as_null: true
