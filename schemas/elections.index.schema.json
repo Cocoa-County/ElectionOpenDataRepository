@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/elections.index.schema.json",
+  "title": "Election Index",
+  "description": "Schema for elections.index.json based on CocoaCountyMap index contract.",
+  "type": "object",
+  "required": [
+    "version",
+    "updated",
+    "elections"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "defaultElectionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "elections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/electionEntry"
+      }
+    }
+  },
+  "$defs": {
+    "urlOrPath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "snapshot": {
+      "type": "object",
+      "required": [
+        "id",
+        "dataUrl",
+        "precinctsUrl"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snapshotId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snapshotTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "title": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "resultsTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "type": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "grouped": {
+          "type": "boolean"
+        },
+        "dataUrl": {
+          "$ref": "#/$defs/urlOrPath"
+        },
+        "precinctsUrl": {
+          "$ref": "#/$defs/urlOrPath"
+        },
+        "metadataUrl": {
+          "$ref": "#/$defs/urlOrPath"
+        },
+        "precinctIdField": {
+          "type": "string",
+          "minLength": 1
+        },
+        "precinctLabelField": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "electionEntry": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "dataUrl",
+        "precinctsUrl",
+        "precinctIdField",
+        "precinctLabelField"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "electionGroupId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "electionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "type": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "grouped": {
+          "type": "boolean"
+        },
+        "dataUrl": {
+          "$ref": "#/$defs/urlOrPath"
+        },
+        "precinctsUrl": {
+          "$ref": "#/$defs/urlOrPath"
+        },
+        "metadataUrl": {
+          "$ref": "#/$defs/urlOrPath"
+        },
+        "precinctIdField": {
+          "type": "string",
+          "minLength": 1
+        },
+        "precinctLabelField": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        },
+        "snapshots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/snapshot"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

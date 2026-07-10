@@ -42,6 +42,17 @@ Consumers should read index entries and resolve any relative `dataUrl`, `precinc
 - Every `election.id` should be unique.
 - GeoJSON properties should include `precinctIdField` values that match keys in `election.json`.
 
+## JSON Schemas
+
+The repository now includes JSON Schema definitions under `schemas/`:
+
+- `schemas/elections.index.schema.json`
+- `schemas/election.schema.json`
+- `schemas/precincts.gis.schema.json`
+- `schemas/metadata.schema.json`
+
+These schemas are based on the CocoaCountyMap data specification and index contract documents referenced in this repository source notes. See `docs/ai/json-schema.md` for details.
+
 ## Snapshot Versioning
 
 This repository now supports multiple timestamped versions of the same election to track results over time.

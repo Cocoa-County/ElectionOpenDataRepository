@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/election.schema.json",
+  "title": "Election Results Data",
+  "description": "Schema for election.json (data.json contract in CocoaCountyMap).",
+  "type": "object",
+  "required": [
+    "contests"
+  ],
+  "properties": {
+    "contests": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/contest"
+      }
+    }
+  },
+  "$defs": {
+    "choice": {
+      "type": "object",
+      "required": [
+        "index",
+        "id",
+        "label",
+        "votes"
+      ],
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "id": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "party": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "votes": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "winner": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ]
+    },
+    "precinctResult": {
+      "type": "object",
+      "required": [
+        "label",
+        "registeredVoters",
+        "totalVoters"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "winner": {
+          "$ref": "#/$defs/winner"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "percentage": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "registeredVoters": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "totalVoters": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
+    },
+    "contest": {
+      "type": "object",
+      "required": [
+        "index",
+        "id",
+        "label",
+        "choices",
+        "precincts"
+      ],
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "voteFor": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "choices": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/choice"
+          }
+        },
+        "precincts": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/precinctResult"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

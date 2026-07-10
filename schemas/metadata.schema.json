@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/metadata.schema.json",
+  "title": "Election Metadata",
+  "description": "Schema for optional metadata.json files. Supports historical minimal metadata and richer run/source metadata.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "generated"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "generated": {
+      "type": "string",
+      "format": "date"
+    },
+    "electionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "kind",
+        "value"
+      ],
+      "additionalProperties": true
+    },
+    "run": {
+      "type": "object",
+      "properties": {
+        "startedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

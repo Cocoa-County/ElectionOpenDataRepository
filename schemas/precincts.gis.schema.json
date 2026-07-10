@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/precincts.gis.schema.json",
+  "title": "Precinct GeoJSON",
+  "description": "Schema for precincts.gis.json based on GeoJSON FeatureCollection requirements used by CocoaCountyMap.",
+  "type": "object",
+  "required": [
+    "type",
+    "features"
+  ],
+  "properties": {
+    "type": {
+      "const": "FeatureCollection"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/feature"
+      }
+    }
+  },
+  "$defs": {
+    "position": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 3,
+      "items": {
+        "type": "number"
+      }
+    },
+    "point": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "const": "Point"
+        },
+        "coordinates": {
+          "$ref": "#/$defs/position"
+        }
+      },
+      "additionalProperties": false
+    },
+    "multiPoint": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "const": "MultiPoint"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/position"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "lineString": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "const": "LineString"
+        },
+        "coordinates": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/position"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "multiLineString": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "const": "MultiLineString"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/$defs/position"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "polygon": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "const": "Polygon"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "minItems": 4,
+            "items": {
+              "$ref": "#/$defs/position"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "multiPolygon": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "const": "MultiPolygon"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "minItems": 4,
+              "items": {
+                "$ref": "#/$defs/position"
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "geometry": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/point"
+        },
+        {
+          "$ref": "#/$defs/multiPoint"
+        },
+        {
+          "$ref": "#/$defs/lineString"
+        },
+        {
+          "$ref": "#/$defs/multiLineString"
+        },
+        {
+          "$ref": "#/$defs/polygon"
+        },
+        {
+          "$ref": "#/$defs/multiPolygon"
+        }
+      ]
+    },
+    "feature": {
+      "type": "object",
+      "required": [
+        "type",
+        "properties",
+        "geometry"
+      ],
+      "properties": {
+        "type": {
+          "const": "Feature"
+        },
+        "id": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "geometry": {
+          "$ref": "#/$defs/geometry"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
