@@ -5,8 +5,10 @@ This repository is structured for static hosting on GitHub Pages and consumption
 ## Structure
 
 - `elections.index.json`: Machine-readable index of all elections.
-- `elections/ca/<county>/<election-id>/election.json`: Election results and contest data.
-- `elections/ca/<county>/<election-id>/precincts.gis.json`: Precinct boundary GeoJSON.
+- `elections/ca/<county>/<election-id>/election.json`: Legacy election results and contest data.
+- `elections/ca/<county>/<election-id>/results.<geography>.json`: Geography-specific results and contest data.
+- `elections/ca/<county>/<election-id>/precincts.gis.json`: Legacy or precinct geography GeoJSON.
+- `elections/ca/<county>/<election-id>/<geography>.gis.json`: Geography-specific boundary GeoJSON.
 - `elections/ca/<county>/<election-id>/metadata.json`: Optional metadata extensions.
 - `elections/ca/<county>/<election-id>/snapshots/<timestamp-id>/`: Timestamped election data snapshots.
 
@@ -37,15 +39,16 @@ Quick implementer path:
 - Example for this repository: `https://cocoa-county.github.io/ElectionOpenDataRepository/elections.index.json`
 - Example election data URL: `https://cocoa-county.github.io/ElectionOpenDataRepository/elections/ca/contra_costa/2024-11-05-general/election.json`
 
-Consumers should read index entries and resolve any relative `dataUrl`, `precinctsUrl`, or `metadataUrl` values from the index location.
+Consumers should read index entries and resolve any relative `dataUrl`, `precinctsUrl`, `gisUrl`, or `metadataUrl` values from the index location.
 
 Consumer quick start:
 
 1. Fetch `elections.index.json`.
 2. Pick an election entry by `id`.
-3. Load `dataUrl` and `precinctsUrl`.
-4. Join GeoJSON precinct IDs to `contest.precincts` keys.
-5. Optionally load `metadataUrl`.
+3. Select a geography view from `geographies` when present, otherwise use the legacy precinct fields.
+4. Load the selected results file and GIS file.
+5. Join GIS feature identifiers to `contest.areas` or `contest.precincts` keys.
+6. Optionally load `metadataUrl`.
 
 ## Data Contract Notes
 
@@ -55,7 +58,7 @@ Specification scope is limited to published data artifacts and schema contracts.
 - Relative paths resolve from the index file location.
 - `defaultElectionId` should match an election `id` in the `elections` array.
 - Every `election.id` should be unique.
-- GeoJSON properties should include `precinctIdField` values that match keys in `election.json`.
+- GeoJSON properties should include the declared join field values that match keys in the paired results file.
 
 ## JSON Schemas
 
@@ -65,6 +68,8 @@ The repository now includes JSON Schema definitions under `schemas/`:
 - `schemas/election.schema.json`
 - `schemas/precincts.gis.schema.json`
 - `schemas/metadata.schema.json`
+
+The index and election schemas now support additive multi-geography publication. New producers should prefer `geographies` plus `results.<geography>.json` and `<geography>.gis.json`, while existing precinct-only artifacts remain valid.
 
 For implementation details, use:
 
@@ -79,7 +84,7 @@ This repository now supports multiple timestamped versions of the same election 
 - Use a stable election group field: `electionGroupId`.
 - Use a per-snapshot timestamp field: `resultsTimestamp` (ISO datetime).
 - Add multiple election entries in `elections.index.json` that share the same `electionGroupId` but have different `id`, `dataUrl`, and `resultsTimestamp` values.
-- If multiple snapshots use the same precinct GeoJSON, store one shared `precincts.gis.json` at the election root and point snapshot metadata or index entries at that shared file.
+- If multiple snapshots use the same GIS file for a geography view, store one shared `<geography>.gis.json` at the election root and point snapshot metadata or index entries at that shared file.
 
 ## Troubleshooting
 
