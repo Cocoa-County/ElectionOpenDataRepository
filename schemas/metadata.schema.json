@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/metadata.schema.json",
   "title": "Election Metadata",
-  "description": "Schema for optional metadata.json files. Supports historical minimal metadata and richer run/source metadata.",
+  "description": "Schema for optional metadata.json files. Core fields are implementation-neutral. Additional producer-specific fields are optional extensions that consumers can ignore.",
   "type": "object",
   "required": [
     "schemaVersion",
@@ -11,25 +11,31 @@
   "properties": {
     "schemaVersion": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 1,
+      "description": "Metadata schema version number."
     },
     "generated": {
       "type": "string",
-      "format": "date"
+      "format": "date",
+      "description": "Date this metadata document was generated."
     },
     "electionId": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "Optional election identifier for linking metadata to a specific election payload."
     },
     "source": {
       "type": "object",
+      "description": "Optional source provenance supplied by the publisher.",
       "properties": {
         "kind": {
-          "type": "string"
+          "type": "string",
+          "description": "Optional source type label, such as url or file."
         },
         "value": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "description": "Optional source reference value."
         }
       },
       "required": [
@@ -40,14 +46,17 @@
     },
     "run": {
       "type": "object",
+      "description": "Optional producer/runtime details. Not required for data consumers.",
       "properties": {
         "startedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Optional process start timestamp."
         },
         "generatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Optional process completion timestamp."
         }
       },
       "additionalProperties": true
