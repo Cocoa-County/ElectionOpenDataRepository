@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "generated": "2026-07-10",
+  "electionId": "2026-06-02-primary-cities",
+  "source": {
+    "kind": "path",
+    "value": "D:\\repos\\github\\cocoa-county\\ElectionOpenDataRepository\\raw\\20260602_ContraCostaSOV_ByDistrict.xlsx"
+  },
+  "run": {
+    "startedAt": "2026-07-10T06:40:54.094929+00:00",
+    "generatedAt": "2026-07-10T06:40:56.135997+00:00"
+  }
+}
