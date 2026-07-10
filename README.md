@@ -24,6 +24,16 @@ This repository is structured for static hosting on GitHub Pages and consumption
 2. Your index URL will be:
    `https://<org>.github.io/<repo>/elections.index.json`
 
+## Data Access
+
+Use `elections.index.json` as the canonical entry point for all consumers.
+
+- Canonical index URL pattern: `https://<org>.github.io/<repo>/elections.index.json`
+- Example for this repository: `https://cocoa-county.github.io/ElectionOpenDataRepository/elections.index.json`
+- Example election data URL: `https://cocoa-county.github.io/ElectionOpenDataRepository/elections/ca/contra_costa/2024-11-05-general/election.json`
+
+Consumers should read index entries and resolve any relative `dataUrl`, `precinctsUrl`, or `metadataUrl` values from the index location.
+
 ## Data Contract Notes
 
 - `elections.index.json` supports both relative and absolute URLs.
@@ -40,3 +50,10 @@ This repository now supports multiple timestamped versions of the same election 
 - Use a per-snapshot timestamp field: `resultsTimestamp` (ISO datetime).
 - Add multiple election entries in `elections.index.json` that share the same `electionGroupId` but have different `id`, `dataUrl`, and `resultsTimestamp` values.
 - If multiple snapshots use the same precinct GeoJSON, store one shared `precincts.gis.json` at the election root and point snapshot metadata or index entries at that shared file.
+
+## Troubleshooting
+
+- **Index loads, but election file URLs fail**: Confirm your consumer resolves relative URLs from the index file location, not from another base path.
+- **Missing metadata warning**: Some `metadata.json` files are optional and may be absent by design.
+- **Unexpected 404 on GitHub Pages**: Verify GitHub Pages is enabled for the `main` branch root and that the latest workflow run completed successfully.
+- **Path consistency checks**: Run `python tools/validate_index_paths.py` to verify that index references resolve to files in the repository.
