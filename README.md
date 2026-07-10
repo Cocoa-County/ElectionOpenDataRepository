@@ -5,15 +5,17 @@ This repository is structured for static hosting on GitHub Pages and consumption
 ## Structure
 
 - `elections.index.json`: Machine-readable index of all elections.
-- `elections/<election-id>/election.json`: Election results and contest data.
-- `elections/<election-id>/precincts.gis.json`: Precinct boundary GeoJSON.
-- `elections/<election-id>/metadata.json`: Optional metadata and source details.
+- `elections/ca/<county>/<election-id>/election.json`: Election results and contest data.
+- `elections/ca/<county>/<election-id>/precincts.gis.json`: Precinct boundary GeoJSON.
+- `elections/ca/<county>/<election-id>/metadata.json`: Optional metadata and source details.
+- `elections/ca/<county>/<election-id>/snapshots/<timestamp-id>/`: Timestamped election data snapshots.
 
-## Current Imported Dataset
+## Current Imported Datasets
 
 - Election ID: `2024-11-05-general`
-- Data file: `elections/2024-11-05-general/election.json`
-- Precinct file: `elections/2024-11-05-general/precincts.gis.json`
+- County: Contra Costa
+- Data file: `elections/ca/contra_costa/2024-11-05-general/election.json`
+- Precinct file: `elections/ca/contra_costa/2024-11-05-general/precincts.gis.json`
 - Source: `https://github.com/Cocoa-County/CocoaCountyMap` (`public/data`)
 
 ## GitHub Pages Hosting
