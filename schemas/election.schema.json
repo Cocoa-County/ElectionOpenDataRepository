@@ -2,12 +2,15 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/election.schema.json",
   "title": "Election Results Data",
-  "description": "Schema for election.json (data.json contract in CocoaCountyMap).",
+  "description": "Schema for election results files. Supports legacy precinct-keyed results and generalized geography-keyed results.",
   "type": "object",
   "required": [
     "contests"
   ],
   "properties": {
+    "geography": {
+      "$ref": "#/$defs/geographyDescriptor"
+    },
     "contests": {
       "type": "array",
       "items": {
@@ -73,7 +76,42 @@
         }
       ]
     },
-    "precinctResult": {
+    "geographyDescriptor": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "label",
+        "joinField"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "joinField": {
+          "type": "string",
+          "minLength": 1
+        },
+        "labelField": {
+          "type": "string"
+        },
+        "gisUrl": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "areaResult": {
       "type": "object",
       "required": [
         "label",
@@ -117,14 +155,16 @@
       },
       "additionalProperties": true
     },
+    "precinctResult": {
+      "$ref": "#/$defs/areaResult"
+    },
     "contest": {
       "type": "object",
       "required": [
         "index",
         "id",
         "label",
-        "choices",
-        "precincts"
+        "choices"
       ],
       "properties": {
         "index": {
@@ -155,8 +195,26 @@
           "additionalProperties": {
             "$ref": "#/$defs/precinctResult"
           }
+        },
+        "areas": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/areaResult"
+          }
         }
       },
+      "anyOf": [
+        {
+          "required": [
+            "precincts"
+          ]
+        },
+        {
+          "required": [
+            "areas"
+          ]
+        }
+      ],
       "additionalProperties": true
     }
   },

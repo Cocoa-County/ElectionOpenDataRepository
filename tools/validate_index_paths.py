@@ -9,6 +9,28 @@ from pathlib import Path
 import sys
 
 
+def _check_url(repo_root: Path, file_checks: list[tuple[str, str, str, bool]], owner_id: str, key: str, url: str) -> bool:
+    file_path = repo_root / url
+    exists = file_path.exists()
+    file_checks.append((owner_id, key, url, exists))
+    return exists
+
+
+def _validate_geographies(repo_root: Path, owner_id: str, geographies: list[dict], file_checks: list[tuple[str, str, str, bool]]) -> bool:
+    all_valid = True
+    for geography in geographies:
+        geography_id = geography.get("id", "unknown")
+        prefix = f"{owner_id}/geographies/{geography_id}"
+        for key in ["dataUrl", "gisUrl", "metadataUrl"]:
+            url = geography.get(key)
+            if not url:
+                continue
+            if not _check_url(repo_root, file_checks, prefix, key, url):
+                print(f"ERROR: Missing geography file for {prefix}: {url}")
+                all_valid = False
+    return all_valid
+
+
 def validate_index():
     """Check all index entries and paths."""
     repo_root = Path(__file__).parent.parent
@@ -33,16 +55,19 @@ def validate_index():
         election_id = election.get("id", "unknown")
         county = election.get("county", "unknown")
         
-        # Check main dataUrl and precinctsUrl
+        # Check legacy main dataUrl and precinctsUrl
         for key in ["dataUrl", "precinctsUrl"]:
             if key in election:
                 url = election[key]
-                file_path = repo_root / url
-                exists = file_path.exists()
-                file_checks.append((election_id, key, url, exists))
+                exists = _check_url(repo_root, file_checks, election_id, key, url)
                 if not exists:
                     print(f"ERROR: Missing file for {election_id} ({county}): {url}")
                     all_valid = False
+
+        geographies = election.get("geographies", [])
+        if geographies:
+            if not _validate_geographies(repo_root, election_id, geographies, file_checks):
+                all_valid = False
         
         # Check metadata file
         if "dataUrl" in election:
@@ -62,12 +87,14 @@ def validate_index():
             for key in ["dataUrl", "precinctsUrl"]:
                 if key in snapshot:
                     url = snapshot[key]
-                    file_path = repo_root / url
-                    exists = file_path.exists()
-                    file_checks.append((f"{election_id}/{snapshot_id}", key, url, exists))
+                    exists = _check_url(repo_root, file_checks, f"{election_id}/{snapshot_id}", key, url)
                     if not exists:
                         print(f"ERROR: Missing snapshot file: {url}")
                         all_valid = False
+            snapshot_geographies = snapshot.get("geographies", [])
+            if snapshot_geographies:
+                if not _validate_geographies(repo_root, f"{election_id}/{snapshot_id}", snapshot_geographies, file_checks):
+                    all_valid = False
     
     # Summary
     total_files = len(file_checks)
@@ -75,10 +102,10 @@ def validate_index():
     print(f"\nValidation Summary: {valid_files}/{total_files} files found")
     
     if all_valid:
-        print("✓ All index paths are valid!")
+        print("All index paths are valid.")
         return True
     else:
-        print("✗ Some paths are missing or invalid")
+        print("Some paths are missing or invalid")
         return False
 
 
