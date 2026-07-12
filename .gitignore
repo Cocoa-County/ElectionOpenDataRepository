@@ -2,6 +2,4 @@
 .DS_Store
 Thumbs.db
 
-raw/
-output/
-tmp_scripts/
+tmp/
