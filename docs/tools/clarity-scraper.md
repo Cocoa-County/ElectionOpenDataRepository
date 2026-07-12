@@ -3,6 +3,14 @@
 Downloads raw Clarity JSON files into this subproject and transforms them into
 repository `election.json` format.
 
+Run commands in this guide from `tools/clarity_scraper` unless stated otherwise.
+
+Validate transformed output against repository schemas:
+
+```bash
+../../.venv/Scripts/python ../validate_schemas.py
+```
+
 ## Usage
 
 ```bash

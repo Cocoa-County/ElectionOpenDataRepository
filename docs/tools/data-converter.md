@@ -99,54 +99,58 @@ Split internals live under `src/data_converter/split/` and expose:
 
 ## Usage
 
+Run the commands in this guide from `tools/data_converter` unless stated otherwise.
+
+All Python commands below assume a repository-level virtual environment. If missing, create it from the repository root with `python -m venv .venv`.
+
 ### Unified CLI
 
 1. Split XLSX to CSV
 
 ```powershell
-python .\data_converter.py split --xlsx ..\..\raw\20260602_ContraCostaSOV_ByPCT_LVTP.xlsx --output-dir output\ --create-dirs
+..\..\.venv\Scripts\python .\data_converter.py split --xlsx ..\..\raw\20260602_ContraCostaSOV_ByPCT_LVTP.xlsx --output-dir output\ --create-dirs
 ```
 
 2. Parse one CSV
 
 ```powershell
-python .\data_converter.py parse --config .\profiles\contra_costa\election_results_xlsx\results.yml --csv .\output\Sheet2.csv --output .\output\Sheet2.parsed.json
+..\..\.venv\Scripts\python .\data_converter.py parse --config .\profiles\contra_costa\election_results_xlsx\results.yml --csv .\output\Sheet2.csv --output .\output\Sheet2.parsed.json
 ```
 
 3. Run full pipeline from URL
 
 ```powershell
-python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --summary-only
+..\..\.venv\Scripts\python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --summary-only
 ```
 
 4. Run full pipeline with the profile defaults (combined JSON + manifest)
 
 ```powershell
-python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example
+..\..\.venv\Scripts\python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example
 ```
 
 5. Run pipeline with versioned output subdirectory
 
 ```powershell
-python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --output-versioning --output-version-template "run_{run_utc:%Y%m%dT%H%M%SZ}"
+..\..\.venv\Scripts\python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --output-versioning --output-version-template "run_{run_utc:%Y%m%dT%H%M%SZ}"
 ```
 
 6. Run pipeline fully in memory (default behavior)
 
 ```powershell
-python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --in-memory-tables --table-representation rows
+..\..\.venv\Scripts\python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --in-memory-tables --table-representation rows
 ```
 
 7. Run pipeline with only one combined JSON output file
 
 ```powershell
-python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --write-combined-json --combined-name output.json --no-write-sheet-json --no-write-manifest
+..\..\.venv\Scripts\python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --write-combined-json --combined-name output.json --no-write-sheet-json --no-write-manifest
 ```
 
 8. Run pipeline with transform stage enabled
 
 ```powershell
-python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --transform
+..\..\.venv\Scripts\python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --transform
 ```
 
 Current profile default outputs:
@@ -191,4 +195,5 @@ Current profile default outputs:
 - Manifest settings include whether in-memory table mode was used and which table representation was selected.
 - In-memory table processing is enabled by default unless disabled with `--no-in-memory-tables` or `io.tables.in_memory: false`.
 - Combined JSON output writes a top-level `sheets` object keyed by sheet name.
-- Transform output follows CocoaCountyMap `data.json` contract shape with top-level `contests`.
+- Transform output follows repository `election.json` contract shape with top-level `contests`.
+- Validate transformed output with `..\..\.venv\Scripts\python ..\validate_schemas.py` from `tools/data_converter`.

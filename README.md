@@ -32,8 +32,9 @@ Use `elections.index.json` as the canonical entry point for all consumers.
 
 Quick implementer path:
 
-- Core public spec: `docs/ai/data-spec-core.md`
-- Schema profile summary: `docs/ai/json-schema.md`
+- Core public spec: `docs/data-spec-core.md`
+- Schema profile summary: `docs/json-schema.md`
+- Repository operations and validation commands: `docs/repo-operations.md`
 
 - Canonical index URL pattern: `https://<org>.github.io/<repo>/elections.index.json`
 - Example for this repository: `https://cocoa-county.github.io/ElectionOpenDataRepository/elections.index.json`
@@ -41,16 +42,10 @@ Quick implementer path:
 
 Consumers should read index entries and resolve any relative `dataUrl`, `areasUrl`, `gisUrl`, or `metadataUrl` values from the index location.
 
-Consumer quick start:
+Consumer flow is maintained in one place to avoid doc drift:
 
-1. Fetch `elections.index.json`.
-2. Pick an election entry by `id`.
-3. Select one snapshot by snapshot-local `id`, `snapshotTypes`, or `resultsTimestamp`.
-4. If that snapshot has `layers`, select a layer from snapshot-local `layers[*].id`.
-5. If that snapshot has no `layers`, use snapshot legacy area fields.
-6. Load the selected results file and GIS file.
-7. Join GIS feature identifiers to `contest.areas` keys.
-8. Optionally load `metadataUrl`.
+- Core consumer flow: `docs/data-spec-core.md` (`Core Consumer Flow` section)
+- Legacy snapshot area fields are supported for compatibility but are transitional. New producers should publish snapshot `layers`.
 
 ## Data Contract Notes
 
@@ -77,11 +72,18 @@ The repository now includes JSON Schema definitions under `schemas/`:
 
 The index and election schemas support snapshot-first multi-layer publication where layers are defined per snapshot and can vary by timestamp.
 
+Validation entry points:
+
+- Create local virtual environment once: `python -m venv .venv`
+- Install validator dependency: `.venv\Scripts\python -m pip install -r tools/requirements.txt`
+- `.venv\Scripts\python tools/validate_index_paths.py`
+- `.venv\Scripts\python tools/validate_schemas.py`
+
 For implementation details, use:
 
-- Core public data contract: `docs/ai/data-spec-core.md`
-- Schema profile notes: `docs/ai/json-schema.md`
-- Repository-only operations: `docs/ai/repo-operations.md`
+- Core public data contract: `docs/data-spec-core.md`
+- Schema profile notes: `docs/json-schema.md`
+- Repository-only operations: `docs/repo-operations.md`
 
 ## Snapshot Versioning
 
@@ -98,5 +100,5 @@ This repository now supports multiple timestamped versions of the same election 
 - **Index loads, but election file URLs fail**: Confirm your consumer resolves relative URLs from the index file location, not from another base path.
 - **Missing metadata warning**: Some `metadata.json` files are optional and may be absent by design.
 - **Unexpected 404 on GitHub Pages**: Verify GitHub Pages is enabled for the `main` branch root and that the latest workflow run completed successfully.
-- **Path consistency checks**: Repository-specific checks are documented in `docs/ai/repo-operations.md`.
+- **Path consistency checks**: Repository-specific checks are documented in `docs/repo-operations.md`.
 

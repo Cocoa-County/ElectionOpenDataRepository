@@ -3,8 +3,11 @@
 ## Purpose
 This repository stores and documents election-related open data. Used by https://github.com/Cocoa-County/CocoaCountyMap.
 
-## Data Specifications
-https://raw.githubusercontent.com/Cocoa-County/CocoaCountyMap/refs/heads/main/dataSpecification.md
+## Canonical AI Agent Docs
+- docs/ai/agent-instructions.md
 
-## Repository Structure
-https://raw.githubusercontent.com/Cocoa-County/CocoaCountyMap/refs/heads/main/election-data-repository-design.md
+## Canonical User Docs
+- README.md
+- docs/data-spec-core.md
+- docs/json-schema.md
+- docs/repo-operations.md

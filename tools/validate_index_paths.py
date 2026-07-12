@@ -9,23 +9,8 @@ from pathlib import Path
 import sys
 
 
-REQUIRED_LAYER_FIELDS = ["id", "type", "label", "dataUrl", "gisUrl", "joinField"]
-
-
 def _has_legacy_area_fields(node: dict) -> bool:
     return all(key in node for key in ["dataUrl", "areasUrl", "areaIdField", "areaLabelField"])
-
-
-def _layer_errors(owner_id: str, layer: dict) -> list[str]:
-    missing = [key for key in REQUIRED_LAYER_FIELDS if key not in layer or layer.get(key) in (None, "")]
-    layer_id = str(layer.get("id", "unknown"))
-    errors = []
-    if "/" in layer_id:
-        errors.append(f"ERROR: Layer {owner_id}/layers/{layer_id} must not contain '/'. Use scoped IDs as electionId/snapshotId/layerId outside the layer id field")
-    if not missing:
-        return errors
-    errors.append(f"ERROR: Layer {owner_id}/layers/{layer_id} is missing required fields: {', '.join(missing)}")
-    return errors
 
 
 def _check_url(repo_root: Path, file_checks: list[tuple[str, str, str, bool]], owner_id: str, key: str, url: str) -> bool:
@@ -38,9 +23,6 @@ def _check_url(repo_root: Path, file_checks: list[tuple[str, str, str, bool]], o
 def _validate_layers(repo_root: Path, owner_id: str, layers: list[dict], file_checks: list[tuple[str, str, str, bool]]) -> bool:
     all_valid = True
     for layer in layers:
-        for error in _layer_errors(owner_id, layer):
-            print(error)
-            all_valid = False
         layer_id = layer.get("id", "unknown")
         prefix = f"{owner_id}/layers/{layer_id}"
         for key in ["dataUrl", "gisUrl", "metadataUrl"]:
@@ -53,9 +35,10 @@ def _validate_layers(repo_root: Path, owner_id: str, layers: list[dict], file_ch
     return all_valid
 
 
-def validate_index():
+def validate_index(repo_root: Path | None = None):
     """Check all index entries and paths."""
-    repo_root = Path(__file__).parent.parent
+    if repo_root is None:
+        repo_root = Path(__file__).parent.parent
     index_path = repo_root / "elections.index.json"
     
     if not index_path.exists():
@@ -96,10 +79,8 @@ def validate_index():
                     all_valid = False
 
         layers = election.get("layers", [])
-        if layers:
-            if not _validate_layers(repo_root, election_id, layers, file_checks):
-                all_valid = False
-        has_parent_layers = bool(layers)
+        if layers and not _validate_layers(repo_root, election_id, layers, file_checks):
+            all_valid = False
         
         # Check metadata file
         if "dataUrl" in election:
@@ -137,9 +118,6 @@ def validate_index():
             elif not has_snapshot_layers and not has_snapshot_legacy:
                 print(f"ERROR: Snapshot {election_id}/{snapshot_id} defines neither complete legacy area fields nor layers")
                 all_valid = False
-
-            if has_parent_layers and has_snapshot_layers:
-                print(f"WARNING: Snapshot {election_id}/{snapshot_id} has layers while parent election also has layers; snapshot layers should be treated as authoritative")
 
             for key in ["dataUrl", "areasUrl"]:
                 if key in snapshot:

@@ -34,6 +34,7 @@ Optional artifact:
 7. A snapshot must be self-contained. It publishes exactly one mode:
    1. Legacy area fields: `dataUrl`, `areasUrl`, `areaIdField`, `areaLabelField`
    2. A `layers` array
+   3. Legacy area fields are transitional compatibility mode. New producers should publish snapshot `layers`.
 8. If a snapshot has `layers`, consumers must use snapshot layers only and must not inherit parent election layers.
 9. Snapshot `id` is local to an election, and layer `id` is local to a snapshot.
 10. Use composite addressing outside the data fields as `electionId/snapshotId/layerId`.

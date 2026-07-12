@@ -2,6 +2,14 @@
 
 This tool scrapes ArcGIS FeatureServer layer data and outputs a GeoJSON FeatureCollection.
 
+Run commands in this guide from `tools/arcgis_scraper` unless stated otherwise.
+
+Validate scraper output against the repository GIS schema:
+
+```bash
+../../.venv/Scripts/python ../validate_schemas.py
+```
+
 ## Usage
 
 ```bash

@@ -17,6 +17,7 @@ Core rules:
 - Legacy entries use `dataUrl` and `areasUrl` to identify election data and area GeoJSON resources.
 - Layer-aware snapshots use `layers[*].dataUrl` and `layers[*].gisUrl` to identify one switchable map view at a time.
 - Consumers must ignore unknown fields.
+- Legacy snapshot area fields remain supported for compatibility, but are transitional. New producers should prefer snapshot `layers`.
 
 ## Layer-Aware Additions
 
