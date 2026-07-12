@@ -100,8 +100,89 @@ def test_validate_index_paths_duplicate_snapshot_id(tmp_path: Path):
       "id": "ca-test-2026-06-02-primary",
       "label": "Test Election",
       "snapshots": [
-        {"id": "dup", "dataUrl": "elections/ca/test/2026-06-02-primary/election.json", "areasUrl": "elections/ca/test/2026-06-02-primary/precincts.gis.json", "areaIdField": "precinct_id", "areaLabelField": "precinct"},
-        {"id": "dup", "dataUrl": "elections/ca/test/2026-06-02-primary/election.json", "areasUrl": "elections/ca/test/2026-06-02-primary/precincts.gis.json", "areaIdField": "precinct_id", "areaLabelField": "precinct"}
+        {
+          "id": "dup",
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/test/2026-06-02-primary/election.json",
+              "gisUrl": "elections/ca/test/2026-06-02-primary/precincts.gis.json",
+              "joinField": "precinct_id"
+            }
+          ]
+        },
+        {
+          "id": "dup",
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/test/2026-06-02-primary/election.json",
+              "gisUrl": "elections/ca/test/2026-06-02-primary/precincts.gis.json",
+              "joinField": "precinct_id"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+""",
+    )
+    _write_json(tmp_path / "elections/ca/test/2026-06-02-primary/election.json", "{\"contests\": []}")
+    _write_json(
+        tmp_path / "elections/ca/test/2026-06-02-primary/precincts.gis.json",
+        """{"type":"FeatureCollection","features":[]}""",
+    )
+
+    module = _load_module("validate_index_paths", Path(__file__).parents[1] / "validate_index_paths.py")
+    assert not module.validate_index(repo_root=tmp_path)
+
+
+def test_validate_index_paths_snapshot_without_layers(tmp_path: Path):
+    _write_json(
+        tmp_path / "elections.index.json",
+        """{
+  "version": 1,
+  "updated": "2026-07-12",
+  "elections": [
+    {
+      "id": "ca-test-2026-06-02-primary",
+      "label": "Test Election",
+      "snapshots": [
+        {"id": "final"}
+      ]
+    }
+  ]
+}
+""",
+    )
+
+    module = _load_module("validate_index_paths", Path(__file__).parents[1] / "validate_index_paths.py")
+    assert not module.validate_index(repo_root=tmp_path)
+
+
+def test_validate_index_paths_rejects_legacy_snapshot_fields(tmp_path: Path):
+    _write_json(
+        tmp_path / "elections.index.json",
+        """{
+  "version": 1,
+  "updated": "2026-07-12",
+  "elections": [
+    {
+      "id": "ca-test-2026-06-02-primary",
+      "label": "Test Election",
+      "snapshots": [
+        {
+          "id": "final",
+          "dataUrl": "elections/ca/test/2026-06-02-primary/election.json",
+          "areasUrl": "elections/ca/test/2026-06-02-primary/precincts.gis.json",
+          "areaIdField": "precinct_id",
+          "areaLabelField": "precinct"
+        }
       ]
     }
   ]

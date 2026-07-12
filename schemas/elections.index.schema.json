@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/elections.index.schema.json",
   "title": "Election Index",
+  "x-schema-version": "2026-07-12",
   "description": "Schema for elections.index.json. Defines a tool-agnostic entry point for election result and geography GIS artifacts.",
   "type": "object",
   "required": [
@@ -102,9 +103,10 @@
     "snapshot": {
       "type": "object",
       "required": [
-        "id"
+        "id",
+        "layers"
       ],
-      "description": "Optional historical or alternate version entry for a specific election payload. A snapshot must publish exactly one mode: either legacy area fields (dataUrl, areasUrl, areaIdField, areaLabelField) or a complete layers array. Snapshot layers do not inherit from parent election layers.",
+      "description": "Optional historical or alternate version entry for a specific election payload. Snapshots are layers-only. Legacy area fields are unsupported. Snapshot layers do not inherit from parent election layers.",
       "properties": {
         "id": {
           "type": "string",
@@ -150,47 +152,18 @@
         "grouped": {
           "type": "boolean"
         },
-        "dataUrl": {
-          "$ref": "#/$defs/urlOrPath"
-        },
-        "areasUrl": {
-          "$ref": "#/$defs/urlOrPath"
-        },
         "metadataUrl": {
           "$ref": "#/$defs/urlOrPath"
-        },
-        "areaIdField": {
-          "type": "string",
-          "minLength": 1
-        },
-        "areaLabelField": {
-          "type": "string",
-          "minLength": 1
         },
         "layers": {
           "type": "array",
           "minItems": 1,
-          "description": "Optional layer-specific artifacts for this snapshot. When present, these layers fully define snapshot map views and replace parent election layers for this snapshot.",
+          "description": "Layer-specific artifacts for this snapshot. These layers fully define snapshot map views and replace parent election layers for this snapshot.",
           "items": {
             "$ref": "#/$defs/layerView"
           }
         }
       },
-      "oneOf": [
-        {
-          "required": [
-            "dataUrl",
-            "areasUrl",
-            "areaIdField",
-            "areaLabelField"
-          ]
-        },
-        {
-          "required": [
-            "layers"
-          ]
-        }
-      ],
       "additionalProperties": true
     },
     "electionEntry": {
@@ -241,24 +214,8 @@
         "grouped": {
           "type": "boolean"
         },
-        "dataUrl": {
-          "$ref": "#/$defs/urlOrPath"
-        },
-        "areasUrl": {
-          "$ref": "#/$defs/urlOrPath"
-        },
         "metadataUrl": {
           "$ref": "#/$defs/urlOrPath"
-        },
-        "areaIdField": {
-          "type": "string",
-          "minLength": 1,
-          "description": "GeoJSON property name that identifies areas and maps to results keys."
-        },
-        "areaLabelField": {
-          "type": "string",
-          "minLength": 1,
-          "description": "GeoJSON property name used as human-readable area label."
         },
         "tags": {
           "type": "array",

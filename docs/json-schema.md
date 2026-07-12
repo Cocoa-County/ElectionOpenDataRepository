@@ -8,16 +8,14 @@ The Core Profile is the minimum needed for interoperability. A publisher can be 
 
 - `schemas/elections.index.schema.json`
 - `schemas/election.schema.json`
-- `schemas/precincts.gis.schema.json`
+- `schemas/gis.schema.json`
 
 Core rules:
 
 - Consumers read `elections.index.json` as the entry point.
 - Recommended election `id` format is `{state-abbr}-{county-or-jurisdiction}-{yyyy-mm-dd}-{election-type}`.
-- Legacy entries use `dataUrl` and `areasUrl` to identify election data and area GeoJSON resources.
 - Layer-aware snapshots use `layers[*].dataUrl` and `layers[*].gisUrl` to identify one switchable map view at a time.
 - Consumers must ignore unknown fields.
-- Legacy snapshot area fields remain supported for compatibility, but are transitional. New producers should prefer snapshot `layers`.
 
 ## Layer-Aware Additions
 
@@ -28,7 +26,7 @@ The schemas now support an additive generalized layer model.
 - `schemas/election.schema.json` uses `contest.areas` for area-keyed results.
 - A results file may include a top-level `geography` object so it remains self-describing even when opened without the index.
 - Snapshot layer sets may differ across timestamps of the same election group.
-- A snapshot publishes exactly one mode: legacy area fields or snapshot `layers`.
+- A snapshot publishes one or more `layers`.
 - Snapshot `layers` are self-contained and do not inherit parent election layers.
 - Snapshot ids are election-local and layer ids are snapshot-local; compose full references as `electionId/snapshotId/layerId`.
 
@@ -47,7 +45,7 @@ Recommended producer layout for new map layers:
 ## Notes
 
 - Schemas are additive-friendly and allow unknown properties for compatibility.
-- GeoJSON validation in `precincts.gis.schema.json` focuses on structural conformance and can be reused across area geometry views.
+- GeoJSON validation in `gis.schema.json` focuses on structural conformance and can be reused across area geometry views.
 - Cross-file integrity behavior is implementation-specific and intentionally outside the core data contract.
 
 ## Required vs Ignorable
@@ -61,6 +59,5 @@ For easiest interoperability, implementers can use this rule:
 Examples of commonly ignorable fields for core consumers:
 
 - `metadataUrl` in index entries
-- `layers` in legacy single-view consumers that intentionally support one view only
 - `source` and `run` objects in metadata
 - snapshot-specific descriptive tags that are not required by schema

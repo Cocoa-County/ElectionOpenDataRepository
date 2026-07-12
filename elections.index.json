@@ -10,10 +10,6 @@
       "date": "2026-06-02",
       "county": "Contra Costa",
       "state": "CA",
-      "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/election.json",
-      "areasUrl": "elections/ca/contra_costa/2026-06-02-primary/precincts.gis.json",
-      "areaIdField": "sPrecinctID",
-      "areaLabelField": "szPrecinctName",
       "grouped": false,
       "tags": [
         "contra-costa",
@@ -29,23 +25,37 @@
             "latest",
             "final"
           ],
-          "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/election.json",
-          "areasUrl": "elections/ca/contra_costa/2026-06-02-primary/precincts.gis.json",
           "title": "Final Results",
           "resultsTimestamp": "2026-06-27T01:01:58Z",
-          "areaIdField": "sPrecinctID",
-          "areaLabelField": "szPrecinctName"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/election.json",
+              "gisUrl": "elections/ca/contra_costa/2026-06-02-primary/precincts.gis.json",
+              "joinField": "sPrecinctID",
+              "labelField": "szPrecinctName"
+            }
+          ]
         },
         {
           "id": "pre-election",
           "snapshotTypes": [
             "pre-election"
           ],
-          "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/snapshots/pre-election/election.json",
-          "areasUrl": "elections/ca/contra_costa/2026-06-02-primary/precincts.gis.json",
           "title": "Pre-Election Snapshot",
-          "areaIdField": "sPrecinctID",
-          "areaLabelField": "szPrecinctName"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/snapshots/pre-election/election.json",
+              "gisUrl": "elections/ca/contra_costa/2026-06-02-primary/precincts.gis.json",
+              "joinField": "sPrecinctID",
+              "labelField": "szPrecinctName"
+            }
+          ]
         }
       ]
     },
@@ -56,10 +66,6 @@
       "date": "2026-06-02",
       "county": "Contra Costa",
       "state": "CA",
-      "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/election.json",
-      "areasUrl": "elections/ca/contra_costa/2026-06-02-primary/precincts.gis.json",
-      "areaIdField": "sPrecinctID",
-      "areaLabelField": "szPrecinctName",
       "snapshots": [
         {
           "id": "current",
@@ -111,10 +117,6 @@
       "date": "2026-06-02",
       "county": "Alameda",
       "state": "CA",
-      "dataUrl": "elections/ca/alameda/2026-06-02-primary/election.json",
-      "areasUrl": "elections/ca/alameda/2026-06-02-primary/precincts.gis.json",
-      "areaIdField": "Precinct_ID",
-      "areaLabelField": "Precinct_ID",
       "grouped": false,
       "tags": [
         "alameda",
@@ -130,12 +132,19 @@
             "latest",
             "final"
           ],
-          "dataUrl": "elections/ca/alameda/2026-06-02-primary/election.json",
-          "areasUrl": "elections/ca/alameda/2026-06-02-primary/precincts.gis.json",
           "title": "Final Results",
           "resultsTimestamp": "2026-06-29T02:58:26Z",
-          "areaIdField": "Precinct_ID",
-          "areaLabelField": "Precinct_ID"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/alameda/2026-06-02-primary/election.json",
+              "gisUrl": "elections/ca/alameda/2026-06-02-primary/precincts.gis.json",
+              "joinField": "Precinct_ID",
+              "labelField": "Precinct_ID"
+            }
+          ]
         }
       ]
     },
@@ -146,10 +155,6 @@
       "date": "2026-06-02",
       "county": "Marin",
       "state": "CA",
-      "dataUrl": "elections/ca/marin/2026-06-02-primary/election.json",
-      "areasUrl": "elections/ca/marin/2026-06-02-primary/precincts.gis.json",
-      "areaIdField": "ConsolidatedPrecinct",
-      "areaLabelField": "ConsolidatedPrecinct",
       "grouped": false,
       "tags": [
         "marin",
@@ -165,12 +170,19 @@
             "latest",
             "final"
           ],
-          "dataUrl": "elections/ca/marin/2026-06-02-primary/election.json",
-          "areasUrl": "elections/ca/marin/2026-06-02-primary/precincts.gis.json",
           "title": "Final Results",
           "resultsTimestamp": "2026-06-26T22:20:47Z",
-          "areaIdField": "ConsolidatedPrecinct",
-          "areaLabelField": "ConsolidatedPrecinct"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/marin/2026-06-02-primary/election.json",
+              "gisUrl": "elections/ca/marin/2026-06-02-primary/precincts.gis.json",
+              "joinField": "ConsolidatedPrecinct",
+              "labelField": "ConsolidatedPrecinct"
+            }
+          ]
         }
       ]
     },
@@ -181,10 +193,6 @@
       "date": "2025-11-04",
       "county": "Contra Costa",
       "state": "CA",
-      "dataUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
-      "areasUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
-      "areaIdField": "PrecinctID",
-      "areaLabelField": "PrecinctNM",
       "grouped": false,
       "tags": [
         "imported",
@@ -203,12 +211,19 @@
           "snapshotTypes": [
             "final"
           ],
-          "dataUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
-          "areasUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
           "title": "Final Results",
           "resultsTimestamp": "2025-11-06T16:29:07Z",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
+              "gisUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2025-11-06T00-29-07Z-467abc3",
@@ -216,11 +231,18 @@
             "historical"
           ],
           "resultsTimestamp": "2025-11-06T00:29:07Z",
-          "dataUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
-          "areasUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/election.json",
+              "gisUrl": "elections/ca/contra_costa/2025-11-04-special-prop50/snapshots/2025-11-06T00-29-07Z-467abc3/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         }
       ]
     },
@@ -231,10 +253,6 @@
       "date": "2024-11-05",
       "county": "Contra Costa",
       "state": "CA",
-      "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
-      "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
-      "areaIdField": "PrecinctID",
-      "areaLabelField": "PrecinctNM",
       "grouped": false,
       "tags": [
         "imported",
@@ -252,12 +270,19 @@
           "snapshotTypes": [
             "final"
           ],
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Final Results",
           "resultsTimestamp": "2024-12-04T17:31:21Z",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-12-04T01-31-21Z-591b6b7",
@@ -265,11 +290,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-12-04T01:31:21Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-12-04T01-31-21Z-591b6b7/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-27T19-00-12Z-e8bcfdb",
@@ -277,11 +309,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-27T19:00:12Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-27T19-00-12Z-e8bcfdb/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-27T19-00-12Z-e8bcfdb/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-20T19-55-44Z-802a768",
@@ -289,11 +328,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-20T19:55:44Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-20T19-55-44Z-802a768/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-20T19-55-44Z-802a768/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-14T16-38-08Z-6dd2a03",
@@ -301,11 +347,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-14T16:38:08Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-14T16-38-08Z-6dd2a03/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-14T16-38-08Z-6dd2a03/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-09T21-54-52Z-a930117",
@@ -313,11 +366,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-09T21:54:52Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-09T21-54-52Z-a930117/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-09T21-54-52Z-a930117/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-09T21-35-31Z-f9843e5",
@@ -325,11 +385,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-09T21:35:31Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-09T21-35-31Z-f9843e5/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-09T21-35-31Z-f9843e5/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-09T21-31-55Z-e3531de",
@@ -337,11 +404,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-09T21:31:55Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-09T21-31-55Z-e3531de/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-09T21-31-55Z-e3531de/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-06T17-00-16Z-4a11236",
@@ -349,11 +423,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-06T17:00:16Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-06T17-00-16Z-4a11236/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-06T17-00-16Z-4a11236/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-06T07-19-29Z-2bd3d43",
@@ -361,11 +442,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-06T07:19:29Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-06T07-19-29Z-2bd3d43/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-06T07-19-29Z-2bd3d43/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-06T04-24-38Z-9277ad0",
@@ -373,11 +461,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-06T04:24:38Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-06T04-24-38Z-9277ad0/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-06T04-24-38Z-9277ad0/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-11-04T16-59-10Z-96ed75a",
@@ -385,11 +480,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-11-04T16:59:10Z",
-          "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-04T16-59-10Z-96ed75a/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-11-05-general/snapshots/2024-11-04T16-59-10Z-96ed75a/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-11-05-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         }
       ]
     },
@@ -400,10 +502,6 @@
       "date": "2024-03-05",
       "county": "Contra Costa",
       "state": "CA",
-      "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
-      "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
-      "areaIdField": "PrecinctID",
-      "areaLabelField": "PrecinctNM",
       "grouped": false,
       "tags": [
         "imported",
@@ -421,12 +519,19 @@
           "snapshotTypes": [
             "final"
           ],
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Final Results",
           "resultsTimestamp": "2024-04-09T11:18:35Z",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-04-08T21-18-35Z-8fbd911",
@@ -434,11 +539,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-04-08T21:18:35Z",
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-04-08T21-18-35Z-8fbd911/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-04-05T18-44-09Z-bad7cbc",
@@ -446,11 +558,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-04-05T18:44:09Z",
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-04-05T18-44-09Z-bad7cbc/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-04-05T18-44-09Z-bad7cbc/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-03-16T03-48-02Z-33c6cb9",
@@ -458,11 +577,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-03-16T03:48:02Z",
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-16T03-48-02Z-33c6cb9/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-16T03-48-02Z-33c6cb9/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-03-14T03-57-16Z-88b6aa6",
@@ -470,11 +596,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-03-14T03:57:16Z",
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-14T03-57-16Z-88b6aa6/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-14T03-57-16Z-88b6aa6/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-03-09T03-08-18Z-43cfd00",
@@ -482,11 +615,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-03-09T03:08:18Z",
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-09T03-08-18Z-43cfd00/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-09T03-08-18Z-43cfd00/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-03-06T17-49-06Z-f5759e6",
@@ -494,11 +634,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-03-06T17:49:06Z",
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-06T17-49-06Z-f5759e6/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-06T17-49-06Z-f5759e6/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-03-06T07-16-40Z-65cf73a",
@@ -506,11 +653,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-03-06T07:16:40Z",
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-06T07-16-40Z-65cf73a/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-06T07-16-40Z-65cf73a/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-03-06T04-38-47Z-bf5fb4d",
@@ -518,11 +672,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-03-06T04:38:47Z",
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-06T04-38-47Z-bf5fb4d/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-06T04-38-47Z-bf5fb4d/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2024-03-05T05-54-18Z-335d332",
@@ -530,11 +691,18 @@
             "historical"
           ],
           "resultsTimestamp": "2024-03-05T05:54:18Z",
-          "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-05T05-54-18Z-335d332/election.json",
-          "areasUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/contra_costa/2024-03-05-primary/snapshots/2024-03-05T05-54-18Z-335d332/election.json",
+              "gisUrl": "elections/ca/contra_costa/2024-03-05-primary/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         }
       ]
     },
@@ -545,10 +713,6 @@
       "date": "2022-11-08",
       "county": "Marin",
       "state": "CA",
-      "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
-      "areasUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
-      "areaIdField": "PrecinctID",
-      "areaLabelField": "PrecinctNM",
       "grouped": false,
       "tags": [
         "imported",
@@ -566,12 +730,19 @@
           "snapshotTypes": [
             "final"
           ],
-          "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
-          "areasUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
           "title": "Final Results",
           "resultsTimestamp": "2023-03-21T13:37:09Z",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
+              "gisUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2023-03-20T23-37-09Z-d12a779",
@@ -579,11 +750,18 @@
             "historical"
           ],
           "resultsTimestamp": "2023-03-20T23:37:09Z",
-          "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
-          "areasUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/election.json",
+              "gisUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-20T23-37-09Z-d12a779/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2023-03-14T16-39-33Z-0bee17b",
@@ -591,11 +769,18 @@
             "historical"
           ],
           "resultsTimestamp": "2023-03-14T16:39:33Z",
-          "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-14T16-39-33Z-0bee17b/election.json",
-          "areasUrl": "elections/ca/marin/2022-11-08-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-14T16-39-33Z-0bee17b/election.json",
+              "gisUrl": "elections/ca/marin/2022-11-08-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         },
         {
           "id": "2023-03-10T01-34-39Z-5a13ec8",
@@ -603,11 +788,18 @@
             "historical"
           ],
           "resultsTimestamp": "2023-03-10T01:34:39Z",
-          "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-10T01-34-39Z-5a13ec8/election.json",
-          "areasUrl": "elections/ca/marin/2022-11-08-general/precincts.gis.json",
           "title": "Historical Snapshot",
-          "areaIdField": "PrecinctID",
-          "areaLabelField": "PrecinctNM"
+          "layers": [
+            {
+              "id": "precincts",
+              "type": "precinct",
+              "label": "Precincts",
+              "dataUrl": "elections/ca/marin/2022-11-08-general/snapshots/2023-03-10T01-34-39Z-5a13ec8/election.json",
+              "gisUrl": "elections/ca/marin/2022-11-08-general/precincts.gis.json",
+              "joinField": "PrecinctID",
+              "labelField": "PrecinctNM"
+            }
+          ]
         }
       ]
     }

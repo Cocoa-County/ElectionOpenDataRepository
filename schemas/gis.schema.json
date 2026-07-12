@@ -1,8 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/precincts.gis.schema.json",
+  "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/gis.schema.json",
   "title": "Area GeoJSON",
-  "description": "Schema for area boundary GeoJSON FeatureCollection documents, including precincts.gis.json.",
+  "description": "Schema for area boundary GeoJSON FeatureCollection documents, including arbitrary *.gis.json files.",
+  "x-schema-version": "2026-07-12",
   "type": "object",
   "required": [
     "type",

@@ -45,13 +45,31 @@ def update_elections_index(
         matched = {"id": election_id}
         elections.append(matched)
 
-    matched["dataUrl"] = data_url
-    if precincts_url:
-        matched["precinctsUrl"] = precincts_url
-    if precinct_id_field:
-        matched["precinctIdField"] = precinct_id_field
+    if not precincts_url:
+        raise ValueError("precincts_url is required to update elections index in layers-only mode")
+    if not precinct_id_field:
+        raise ValueError("precinct_id_field is required to update elections index in layers-only mode")
+
+    snapshot_layers = [
+        {
+            "id": "precincts",
+            "type": "precinct",
+            "label": "Precincts",
+            "dataUrl": data_url,
+            "gisUrl": precincts_url,
+            "joinField": precinct_id_field,
+        }
+    ]
     if precinct_label_field:
-        matched["precinctLabelField"] = precinct_label_field
+        snapshot_layers[0]["labelField"] = precinct_label_field
+
+    matched["snapshots"] = [
+        {
+            "id": "latest",
+            "snapshotTypes": ["latest"],
+            "layers": snapshot_layers,
+        }
+    ]
     if label:
         matched["label"] = label
     if date:
@@ -62,6 +80,10 @@ def update_elections_index(
         matched["county"] = county
     if state:
         matched["state"] = state
+
+    for legacy_key in ["dataUrl", "areasUrl", "areaIdField", "areaLabelField", "precinctsUrl", "precinctIdField", "precinctLabelField"]:
+        if legacy_key in matched:
+            del matched[legacy_key]
 
     index_path.write_text(json.dumps(index_obj, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 

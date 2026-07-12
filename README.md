@@ -40,12 +40,12 @@ Quick implementer path:
 - Example for this repository: `https://cocoa-county.github.io/ElectionOpenDataRepository/elections.index.json`
 - Example election data URL: `https://cocoa-county.github.io/ElectionOpenDataRepository/elections/ca/contra_costa/2024-11-05-general/election.json`
 
-Consumers should read index entries and resolve any relative `dataUrl`, `areasUrl`, `gisUrl`, or `metadataUrl` values from the index location.
+Consumers should read index entries and resolve relative layer URLs (`dataUrl`, `gisUrl`, and optional `metadataUrl`) from the index location.
 
 Consumer flow is maintained in one place to avoid doc drift:
 
 - Core consumer flow: `docs/data-spec-core.md` (`Core Consumer Flow` section)
-- Legacy snapshot area fields are supported for compatibility but are transitional. New producers should publish snapshot `layers`.
+- Snapshots are layers-only.
 
 ## Data Contract Notes
 
@@ -67,7 +67,7 @@ The repository now includes JSON Schema definitions under `schemas/`:
 
 - `schemas/elections.index.schema.json`
 - `schemas/election.schema.json`
-- `schemas/precincts.gis.schema.json`
+- `schemas/gis.schema.json`
 - `schemas/metadata.schema.json`
 
 The index and election schemas support snapshot-first multi-layer publication where layers are defined per snapshot and can vary by timestamp.
@@ -78,6 +78,9 @@ Validation entry points:
 - Install validator dependency: `.venv\Scripts\python -m pip install -r tools/requirements.txt`
 - `.venv\Scripts\python tools/validate_index_paths.py`
 - `.venv\Scripts\python tools/validate_schemas.py`
+- Validate specific files only: `.venv\Scripts\python tools/validate_schemas.py --file elections/ca/contra_costa/2026-06-02-primary/election.json`
+- Enable progress logging: `.venv\Scripts\python tools/validate_schemas.py --verbose`
+- Limit error volume during large runs: `.venv\Scripts\python tools/validate_schemas.py --max-errors-per-file 10 --max-total-errors 100`
 
 For implementation details, use:
 

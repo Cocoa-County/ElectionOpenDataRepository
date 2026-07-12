@@ -32,7 +32,7 @@ What it verifies:
 - All local relative artifact paths referenced from `elections.index.json` resolve to existing files.
 - Snapshot ids are unique per election.
 - Snapshot ids do not include election id prefixes.
-- Snapshots publish exactly one mode (`layers` or complete legacy area fields).
+- Snapshots publish one or more `layers`.
 - Election-level `layers` are flagged as repository-invalid.
 
 2. Schema checks:
@@ -41,11 +41,24 @@ What it verifies:
 .venv\Scripts\python tools/validate_schemas.py
 ```
 
+Useful options for large repositories or targeted debugging:
+
+```powershell
+# Validate one or more specific files (repeat --file)
+.venv\Scripts\python tools/validate_schemas.py --file elections/ca/marin/2026-06-02-primary/election.json --file elections/ca/marin/2026-06-02-primary/precincts.gis.json
+
+# Show per-file progress and timing details
+.venv\Scripts\python tools/validate_schemas.py --verbose
+
+# Cap error volume so runs fail fast with actionable output
+.venv\Scripts\python tools/validate_schemas.py --max-errors-per-file 10 --max-total-errors 100
+```
+
 What it verifies:
 
 - `elections.index.json` validates against `schemas/elections.index.schema.json`.
 - Local referenced JSON artifacts validate against matching schemas:
-	- `*.gis.json` -> `schemas/precincts.gis.schema.json`
+	- `*.gis.json` -> `schemas/gis.schema.json`
 	- `metadata.json` -> `schemas/metadata.schema.json`
 	- other referenced `*.json` results files -> `schemas/election.schema.json`
 

@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/metadata.schema.json",
   "title": "Election Metadata",
+  "x-schema-version": "2026-07-12",
   "description": "Schema for optional metadata.json files. Core fields are implementation-neutral. Additional producer-specific fields are optional extensions that consumers can ignore.",
   "type": "object",
   "required": [

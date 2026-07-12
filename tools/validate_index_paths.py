@@ -9,8 +9,7 @@ from pathlib import Path
 import sys
 
 
-def _has_legacy_area_fields(node: dict) -> bool:
-    return all(key in node for key in ["dataUrl", "areasUrl", "areaIdField", "areaLabelField"])
+LEGACY_FIELDS = ["dataUrl", "areasUrl", "areaIdField", "areaLabelField"]
 
 
 def _check_url(repo_root: Path, file_checks: list[tuple[str, str, str, bool]], owner_id: str, key: str, url: str) -> bool:
@@ -58,10 +57,14 @@ def validate_index(repo_root: Path | None = None):
     
     for election in elections:
         election_id = election.get("id", "unknown")
-        county = election.get("county", "unknown")
 
         if "layers" in election:
             print(f"ERROR: Election {election_id} defines election-level layers. Use snapshot layers instead.")
+            all_valid = False
+
+        legacy_on_election = [key for key in LEGACY_FIELDS if key in election]
+        if legacy_on_election:
+            print(f"ERROR: Election {election_id} uses unsupported legacy fields: {', '.join(legacy_on_election)}")
             all_valid = False
 
         snapshots = election.get("snapshots", [])
@@ -69,29 +72,9 @@ def validate_index(repo_root: Path | None = None):
             print(f"ERROR: Election {election_id} has no snapshots. At least one snapshot is required.")
             all_valid = False
         
-        # Check legacy main dataUrl and areasUrl
-        for key in ["dataUrl", "areasUrl"]:
-            if key in election:
-                url = election[key]
-                exists = _check_url(repo_root, file_checks, election_id, key, url)
-                if not exists:
-                    print(f"ERROR: Missing file for {election_id} ({county}): {url}")
-                    all_valid = False
-
         layers = election.get("layers", [])
         if layers and not _validate_layers(repo_root, election_id, layers, file_checks):
             all_valid = False
-        
-        # Check metadata file
-        if "dataUrl" in election:
-            data_url = election["dataUrl"]
-            # Infer metadata URL by replacing filename
-            metadata_url = data_url.rsplit('/', 1)[0] + "/metadata.json"
-            metadata_path = repo_root / metadata_url
-            exists = metadata_path.exists()
-            file_checks.append((election_id, "metadata.json", metadata_url, exists))
-            if not exists:
-                print(f"WARNING: Metadata not found for {election_id}: {metadata_url}")
         
         # Check snapshots
         seen_snapshot_ids = set()
@@ -109,27 +92,19 @@ def validate_index(repo_root: Path | None = None):
                 print(f"ERROR: Snapshot {election_id}/{snapshot_id} includes the election id prefix. Snapshot ids must be concise and local to the election")
                 all_valid = False
 
-            has_snapshot_layers = bool(snapshot.get("layers"))
-            has_snapshot_legacy = _has_legacy_area_fields(snapshot)
-
-            if has_snapshot_layers and has_snapshot_legacy:
-                print(f"ERROR: Snapshot {election_id}/{snapshot_id} defines both layers and legacy area fields; choose exactly one mode")
-                all_valid = False
-            elif not has_snapshot_layers and not has_snapshot_legacy:
-                print(f"ERROR: Snapshot {election_id}/{snapshot_id} defines neither complete legacy area fields nor layers")
+            legacy_on_snapshot = [key for key in LEGACY_FIELDS if key in snapshot]
+            if legacy_on_snapshot:
+                print(f"ERROR: Snapshot {election_id}/{snapshot_id} uses unsupported legacy fields: {', '.join(legacy_on_snapshot)}")
                 all_valid = False
 
-            for key in ["dataUrl", "areasUrl"]:
-                if key in snapshot:
-                    url = snapshot[key]
-                    exists = _check_url(repo_root, file_checks, f"{election_id}/{snapshot_id}", key, url)
-                    if not exists:
-                        print(f"ERROR: Missing snapshot file: {url}")
-                        all_valid = False
             snapshot_layers = snapshot.get("layers", [])
-            if snapshot_layers:
-                if not _validate_layers(repo_root, f"{election_id}/{snapshot_id}", snapshot_layers, file_checks):
-                    all_valid = False
+            if not snapshot_layers:
+                print(f"ERROR: Snapshot {election_id}/{snapshot_id} must define at least one layer")
+                all_valid = False
+                continue
+
+            if not _validate_layers(repo_root, f"{election_id}/{snapshot_id}", snapshot_layers, file_checks):
+                all_valid = False
     
     # Summary
     total_files = len(file_checks)
