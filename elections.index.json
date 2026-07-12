@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-07-10",
+  "updated": "2026-07-12",
   "defaultElectionId": "ca-contracosta-2026-06-02-primary",
   "elections": [
     {
@@ -46,6 +46,15 @@
               "joinField": "NAME",
               "labelField": "NAME",
               "metadataUrl": "elections/ca/contra_costa/2026-06-02-primary/metadata.cities.json"
+            },
+            {
+              "id": "supervisors",
+              "type": "supervisor_district",
+              "label": "Supervisor Districts",
+              "dataUrl": "elections/ca/contra_costa/2026-06-02-primary/results.supervisors.json",
+              "gisUrl": "elections/ca/contra_costa/2026-06-02-primary/supervisors.gis.json",
+              "joinField": "SUP_DIST",
+              "labelField": "SUP_NAME"
             }
           ]
         },
