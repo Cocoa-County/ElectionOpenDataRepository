@@ -381,7 +381,7 @@
           "votes": 11
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -108537,7 +108537,7 @@
           "votes": 508
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -144893,7 +144893,7 @@
           "votes": 6487
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -162088,7 +162088,7 @@
           "votes": 13580
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -177710,7 +177710,7 @@
           "votes": 6490
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -198103,7 +198103,7 @@
           "votes": 16101
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -213757,7 +213757,7 @@
           "votes": 3429
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -242160,7 +242160,7 @@
           "color": "red4"
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -262558,7 +262558,7 @@
           "color": "blue3"
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA808": {
           "label": "ALHA808",
           "registeredVoters": 6,
@@ -265618,7 +265618,7 @@
           "color": "red4"
         }
       ],
-      "precincts": {
+      "areas": {
         "ANTI101": {
           "label": "ANTI101",
           "registeredVoters": 1277,
@@ -268240,7 +268240,7 @@
           "color": "blue4"
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -283359,7 +283359,7 @@
           "votes": 2026
         }
       ],
-      "precincts": {
+      "areas": {
         "BETH101": {
           "label": "BETH101",
           "registeredVoters": 196,
@@ -285419,7 +285419,7 @@
           "votes": 4860
         }
       ],
-      "precincts": {
+      "areas": {
         "CALD801": {
           "label": "CALD801",
           "registeredVoters": 7,
@@ -288180,7 +288180,7 @@
           "votes": 34288
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -294365,7 +294365,7 @@
           "votes": 3876
         }
       ],
-      "precincts": {
+      "areas": {
         "ALMO101": {
           "label": "ALMO101",
           "registeredVoters": 75,
@@ -298335,7 +298335,7 @@
           "votes": 73846
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -312385,7 +312385,7 @@
           "votes": 6364
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -339170,7 +339170,7 @@
           "votes": 72235
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -353168,7 +353168,7 @@
           "votes": 23
         }
       ],
-      "precincts": {
+      "areas": {
         "TASJ101": {
           "label": "TASJ101",
           "registeredVoters": 141,
@@ -353290,7 +353290,7 @@
           "votes": 25764
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -368880,7 +368880,7 @@
           "votes": 53944
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -382876,7 +382876,7 @@
           "votes": 35197
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -396866,7 +396866,7 @@
           "votes": 232981
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -409260,7 +409260,7 @@
           "votes": 42380
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA107": {
           "label": "ALHA107",
           "registeredVoters": 35,
@@ -411220,7 +411220,7 @@
           "votes": 52070
         }
       ],
-      "precincts": {
+      "areas": {
         "AYER101": {
           "label": "AYER101",
           "registeredVoters": 628,
@@ -413438,7 +413438,7 @@
           "votes": 909
         }
       ],
-      "precincts": {
+      "areas": {
         "RICH101": {
           "label": "RICH101",
           "registeredVoters": 2096,
@@ -414862,7 +414862,7 @@
           "votes": 2578
         }
       ],
-      "precincts": {
+      "areas": {
         "RICH101": {
           "label": "RICH101",
           "registeredVoters": 2096,
@@ -415061,7 +415061,7 @@
           "votes": 734
         }
       ],
-      "precincts": {
+      "areas": {
         "RICH125": {
           "label": "RICH125",
           "registeredVoters": 2586,
@@ -415184,7 +415184,7 @@
           "votes": 472
         }
       ],
-      "precincts": {
+      "areas": {
         "RICH107": {
           "label": "RICH107",
           "registeredVoters": 27,
@@ -415587,7 +415587,7 @@
           "votes": 148275
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -429417,7 +429417,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA804": {
           "label": "ALHA804",
           "registeredVoters": 3,
@@ -429783,7 +429783,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "MORG101": {
           "label": "MORG101",
           "registeredVoters": 3048,
@@ -430052,7 +430052,7 @@
           "votes": 4102
         }
       ],
-      "precincts": {
+      "areas": {
         "BETH101": {
           "label": "BETH101",
           "registeredVoters": 196,
@@ -430957,7 +430957,7 @@
           "votes": 4155
         }
       ],
-      "precincts": {
+      "areas": {
         "BETH101": {
           "label": "BETH101",
           "registeredVoters": 196,
@@ -431863,7 +431863,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "ALMO107": {
           "label": "ALMO107",
           "registeredVoters": 928,
@@ -432362,7 +432362,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -446364,7 +446364,7 @@
           "color": "green1"
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "registeredVoters": 75,
@@ -460362,7 +460362,7 @@
           "color": "green1"
         }
       ],
-      "precincts": {
+      "areas": {
         "ELCR101": {
           "label": "ELCR101",
           "registeredVoters": 2268,
@@ -460559,7 +460559,7 @@
           "color": "green1"
         }
       ],
-      "precincts": {
+      "areas": {
         "PINL101": {
           "label": "PINL101",
           "registeredVoters": 12,
@@ -460766,7 +460766,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "PINL101": {
           "label": "PINL101",
           "registeredVoters": 12,
@@ -460973,7 +460973,7 @@
           "color": "green1"
         }
       ],
-      "precincts": {
+      "areas": {
         "PINL101": {
           "label": "PINL101",
           "registeredVoters": 12,
@@ -461161,3 +461161,4 @@
     }
   ]
 }
+

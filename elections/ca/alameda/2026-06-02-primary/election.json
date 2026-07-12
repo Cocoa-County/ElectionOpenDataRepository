@@ -381,7 +381,7 @@
           "votes": 14
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -66682,7 +66682,7 @@
           "votes": 761
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -88906,7 +88906,7 @@
           "votes": 9841
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -99376,7 +99376,7 @@
           "votes": 29273
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -108891,7 +108891,7 @@
           "votes": 13791
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -121320,7 +121320,7 @@
           "votes": 23751
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -130867,7 +130867,7 @@
           "votes": 2926
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -148218,7 +148218,7 @@
           "color": "red4"
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -160677,7 +160677,7 @@
           "color": "blue4"
         }
       ],
-      "precincts": {
+      "areas": {
         "443000": {
           "label": "443000",
           "registeredVoters": 1612,
@@ -161778,7 +161778,7 @@
           "color": "blue2"
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -165034,7 +165034,7 @@
           "votes": 1697
         }
       ],
-      "precincts": {
+      "areas": {
         "420010": {
           "label": "420010",
           "registeredVoters": 0,
@@ -172915,7 +172915,7 @@
           "votes": 127
         }
       ],
-      "precincts": {
+      "areas": {
         "830400": {
           "label": "830400",
           "registeredVoters": 2,
@@ -173355,7 +173355,7 @@
           "votes": 8437
         }
       ],
-      "precincts": {
+      "areas": {
         "420010": {
           "label": "420010",
           "registeredVoters": 0,
@@ -176949,7 +176949,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -177929,7 +177929,7 @@
           "votes": 1914
         }
       ],
-      "precincts": {
+      "areas": {
         "464310": {
           "label": "464310",
           "registeredVoters": 0,
@@ -179384,7 +179384,7 @@
           "votes": 5524
         }
       ],
-      "precincts": {
+      "areas": {
         "215700": {
           "label": "215700",
           "registeredVoters": 3132,
@@ -181703,7 +181703,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "420010": {
           "label": "420010",
           "registeredVoters": 0,
@@ -185145,7 +185145,7 @@
           "votes": 6285
         }
       ],
-      "precincts": {
+      "areas": {
         "498320": {
           "label": "498320",
           "registeredVoters": 0,
@@ -186380,7 +186380,7 @@
           "votes": 164164
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -194889,7 +194889,7 @@
           "votes": 140726
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -203450,7 +203450,7 @@
           "votes": 5426
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -219786,7 +219786,7 @@
           "votes": 270469
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -227326,7 +227326,7 @@
           "votes": 2893
         }
       ],
-      "precincts": {
+      "areas": {
         "420010": {
           "label": "420010",
           "registeredVoters": 0,
@@ -229697,7 +229697,7 @@
           "votes": 11097
         }
       ],
-      "precincts": {
+      "areas": {
         "438500": {
           "label": "438500",
           "registeredVoters": 6,
@@ -231450,7 +231450,7 @@
           "votes": 7449
         }
       ],
-      "precincts": {
+      "areas": {
         "420010": {
           "label": "420010",
           "registeredVoters": 0,
@@ -233210,7 +233210,7 @@
           "votes": 50269
         }
       ],
-      "precincts": {
+      "areas": {
         "300110": {
           "label": "300110",
           "registeredVoters": 2483,
@@ -234648,7 +234648,7 @@
           "votes": 36473
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -244170,7 +244170,7 @@
           "votes": 3482
         }
       ],
-      "precincts": {
+      "areas": {
         "438500": {
           "label": "438500",
           "registeredVoters": 6,
@@ -247083,7 +247083,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "200100": {
           "label": "200100",
           "registeredVoters": 3471,
@@ -249719,7 +249719,7 @@
           "votes": 7455
         }
       ],
-      "precincts": {
+      "areas": {
         "364020": {
           "label": "364020",
           "registeredVoters": 12,
@@ -250559,7 +250559,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "420010": {
           "label": "420010",
           "registeredVoters": 0,
@@ -251514,7 +251514,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "280100": {
           "label": "280100",
           "registeredVoters": 4640,
@@ -251572,7 +251572,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "213100": {
           "label": "213100",
           "registeredVoters": 1148,
@@ -253390,7 +253390,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "213100": {
           "label": "213100",
           "registeredVoters": 1148,
@@ -255208,7 +255208,7 @@
           "color": "green1"
         }
       ],
-      "precincts": {
+      "areas": {
         "213100": {
           "label": "213100",
           "registeredVoters": 1148,
@@ -257026,7 +257026,7 @@
           "color": "red1"
         }
       ],
-      "precincts": {
+      "areas": {
         "450200": {
           "label": "450200",
           "registeredVoters": 1727,
@@ -257770,3 +257770,4 @@
     }
   ]
 }
+

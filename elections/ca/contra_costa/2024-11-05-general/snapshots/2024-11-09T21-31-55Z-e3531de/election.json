@@ -19,7 +19,7 @@
           "votes": 25049
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "total": 24,
@@ -2510,7 +2510,7 @@
           "votes": 31767
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "total": 41,
@@ -4983,7 +4983,7 @@
           "votes": 31767
         }
       ],
-      "precincts": {
+      "areas": {
         "ALHA101": {
           "label": "ALHA101",
           "total": 17,
