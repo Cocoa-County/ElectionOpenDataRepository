@@ -1,5 +1,5 @@
 input:
-  url: "https://www.contracostavote.gov/wp-content/uploads/20260602_ContraCostaSOV_ByPCT_LVTP.xlsx"
+  url: "https://www.contracostavote.gov/wp-content/uploads/20260602_ContraCostaSOV_ByDistrict.xlsx"
   timeout_seconds: 120
 
 parse:
@@ -25,33 +25,32 @@ io:
   output_dir: "tmp/output"
   tables:
     in_memory: true
-    representation: "rows"  # rows | dataframe
+    representation: "rows"
   versioning:
     enabled: true
     template: "{run_utc:%Y%m%dT%H%M%SZ}_{source_kind}"
   write_sheet_json: false
   write_combined_json: true
-  combined_name: "output.json"
+  combined_name: "supervisor-district-output.json"
   write_manifest: true
-  manifest_name: "manifest.json"
+  manifest_name: "supervisor-district-manifest.json"
   summary_only: false
   keep_split_csv: false
   delete_split_csv: true
 
 transform:
-  enabled: false
-  election_id: "2026-06-02-primary"
+  enabled: true
+  election_id: "2026-06-02-primary-supervisor-districts"
   precinct_result_scope: "Total"
-  output_path: "elections/2026-06-02-primary/election.json"
-  write_metadata: true
-  metadata_path: "elections/2026-06-02-primary/metadata.json"
+  output_path: "elections/ca/contra_costa/2026-06-02-primary/results.supervisors.json"
+  write_metadata: false
   update_index: false
   index_path: "elections.index.json"
-  index_label: "Contra Costa County 2026 Primary Election Results"
+  index_label: "Contra Costa County 2026 Primary Election Results by Supervisor District"
   index_date: "2026-06-02"
   index_type: "primary"
   index_county: "Contra Costa"
   index_state: "CA"
-  precincts_url: "elections/2026-06-02-primary/precincts.gis.json"
-  precinct_id_field: "sPrecinctID"
-  precinct_label_field: "szPrecinctName"
+  precincts_url: "elections/ca/contra_costa/2026-06-02-primary/supervisor_districts.gis.json"
+  precinct_id_field: "district_id"
+  precinct_label_field: "district_name"

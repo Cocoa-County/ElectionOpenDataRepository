@@ -92,7 +92,7 @@ def run_pipeline(
         else:
             LOGGER.debug("pipeline timing stage=%s elapsed=%.3fs", stage, elapsed)
 
-    with TemporaryDirectory(prefix="election_pipeline_") as temp_root:
+    with TemporaryDirectory(prefix="election_pipeline_", ignore_cleanup_errors=True) as temp_root:
         temp_root_path = Path(temp_root)
         split_dir = temp_root_path / "split_csv"
         split_dir.mkdir(parents=True, exist_ok=True)

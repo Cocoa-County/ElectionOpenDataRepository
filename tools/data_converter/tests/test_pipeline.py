@@ -400,5 +400,5 @@ def test_pipeline_transform_writes_election_and_metadata(
     assert metadata_path.exists()
     election_payload = json.loads(election_path.read_text(encoding="utf-8"))
     assert "contests" in election_payload
-    assert election_payload["contests"][0]["precincts"]["P1"]["registeredVoters"] == 100
+    assert election_payload["contests"][0]["areas"]["P1"]["registeredVoters"] == 100
     assert manifest["settings"]["transform_enabled"] is True

@@ -27,6 +27,9 @@ Profiles package parser YAML and examples by county and source format.
 - `profiles/contra_costa/election_results_by_city_xlsx/results.yml`
 - `profiles/contra_costa/election_results_by_city_xlsx/turnout_summary.yml`
 - `profiles/contra_costa/election_results_by_city_xlsx/pipeline.yml.example`
+- `profiles/contra_costa/election_results_by_supervisor_district_xlsx/results.yml`
+- `profiles/contra_costa/election_results_by_supervisor_district_xlsx/turnout_summary.yml`
+- `profiles/contra_costa/election_results_by_supervisor_district_xlsx/pipeline.yml.example`
 - `profiles/contra_costa/election_results_xlsx/results.yml.example.json`
 - `profiles/contra_costa/election_results_xlsx/turnout_summary.yml.example.json`
 
@@ -153,6 +156,12 @@ All Python commands below assume a repository-level virtual environment. If miss
 ..\..\.venv\Scripts\python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_xlsx\pipeline.yml.example --transform
 ```
 
+9. Run supervisor-district pipeline from URL source
+
+```powershell
+..\..\.venv\Scripts\python .\data_converter.py pipeline --config .\profiles\contra_costa\election_results_by_supervisor_district_xlsx\pipeline.yml.example
+```
+
 Current profile default outputs:
 
 - `output.json` (combined per-sheet payloads)
@@ -190,7 +199,7 @@ Current profile default outputs:
 
 - Parser dict outputs always keep full schema; null omission only affects JSON serialization output.
 - Pipeline handles per-sheet parse failures and reports them in the manifest instead of aborting the entire run.
-- Default output location for generated files is the repository root `output/` directory unless overridden.
+- Default output location for generated files is the repository `tmp/output/` directory unless overridden.
 - Manifest includes run details such as duration, base output dir, resolved output dir, and versioning settings.
 - Manifest settings include whether in-memory table mode was used and which table representation was selected.
 - In-memory table processing is enabled by default unless disabled with `--no-in-memory-tables` or `io.tables.in_memory: false`.

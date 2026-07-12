@@ -226,7 +226,7 @@ def build_election_data(
                 "label": contest_name,
                 "voteFor": vote_for,
                 "choices": choices,
-                "precincts": precincts_map,
+                "areas": precincts_map,
             }
         )
 

@@ -4,7 +4,7 @@ import sys
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "output"
+DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "tmp" / "output"
 
 
 def _ensure_src_path() -> None:

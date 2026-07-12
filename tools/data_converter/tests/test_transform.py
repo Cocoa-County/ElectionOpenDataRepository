@@ -37,8 +37,8 @@ def test_build_election_data_basic_shape() -> None:
     contest = out["contests"][0]
     assert contest["label"] == "ASSESSOR"
     assert contest["choices"][0]["votes"] == 40
-    assert contest["precincts"]["P1"]["results"] == [40, 20]
-    assert contest["precincts"]["P1"]["winner"] == [0]
+    assert contest["areas"]["P1"]["results"] == [40, 20]
+    assert contest["areas"]["P1"]["winner"] == [0]
 
 
 def test_build_election_data_turnout_merge() -> None:
@@ -87,7 +87,7 @@ def test_build_election_data_turnout_merge() -> None:
     ]
 
     out = build_election_data(parsed_results)
-    precinct = out["contests"][0]["precincts"]["P1"]
+    precinct = out["contests"][0]["areas"]["P1"]
     assert precinct["registeredVoters"] == 120
     assert precinct["totalVoters"] == 77
 
@@ -126,8 +126,8 @@ def test_build_election_data_sorts_choices_by_votes_desc() -> None:
 
     assert [choice["label"] for choice in contest["choices"]] == ["B", "A", "C"]
     assert [choice["votes"] for choice in contest["choices"]] == [50, 10, 10]
-    assert contest["precincts"]["P1"]["results"] == [50, 10, 10]
-    assert contest["precincts"]["P1"]["winner"] == [0]
+    assert contest["areas"]["P1"]["results"] == [50, 10, 10]
+    assert contest["areas"]["P1"]["winner"] == [0]
 
 
 def test_build_election_data_tie_still_sets_winner_index() -> None:
@@ -161,7 +161,7 @@ def test_build_election_data_tie_still_sets_winner_index() -> None:
 
     out = build_election_data(parsed_results)
     contest = out["contests"][0]
-    assert contest["precincts"]["P1"]["winner"] == [0, 1]
+    assert contest["areas"]["P1"]["winner"] == [0, 1]
 
 
 def test_build_election_data_merges_duplicate_contest_sheets() -> None:
@@ -222,7 +222,7 @@ def test_build_election_data_merges_duplicate_contest_sheets() -> None:
     assert contest["label"] == "GOVERNOR"
     assert sorted(choice["label"] for choice in contest["choices"]) == ["A", "B", "C"]
 
-    precinct = contest["precincts"]["P1"]
+    precinct = contest["areas"]["P1"]
     labels_by_index = {choice["index"]: choice["label"] for choice in contest["choices"]}
     votes_by_label = {
         labels_by_index[idx]: value
@@ -301,6 +301,6 @@ def test_build_election_data_derives_percentages_when_missing() -> None:
     ]
 
     out = build_election_data(parsed_results)
-    precinct = out["contests"][0]["precincts"]["P1"]
+    precinct = out["contests"][0]["areas"]["P1"]
 
     assert precinct["percentage"] == [0.75, 0.25]

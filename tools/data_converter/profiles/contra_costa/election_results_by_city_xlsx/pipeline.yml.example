@@ -22,7 +22,7 @@ json:
   omit_nulls: false
 
 io:
-  output_dir: "output"
+  output_dir: "tmp/output"
   tables:
     in_memory: true
     representation: "rows"
