@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/precincts.gis.schema.json",
-  "title": "Precinct GeoJSON",
-  "description": "Schema for precincts.gis.json based on GeoJSON FeatureCollection requirements used by CocoaCountyMap.",
+  "title": "Area GeoJSON",
+  "description": "Schema for area boundary GeoJSON FeatureCollection documents, including precincts.gis.json.",
   "type": "object",
   "required": [
     "type",

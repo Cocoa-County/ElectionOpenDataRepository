@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://cocoa-county.github.io/ElectionOpenDataRepository/schemas/election.schema.json",
   "title": "Election Results Data",
-  "description": "Schema for election results files. Supports legacy precinct-keyed results and generalized geography-keyed results.",
+  "description": "Schema for election results files. Uses generalized area-keyed results.",
   "type": "object",
   "required": [
     "contests"
@@ -155,16 +155,14 @@
       },
       "additionalProperties": true
     },
-    "precinctResult": {
-      "$ref": "#/$defs/areaResult"
-    },
     "contest": {
       "type": "object",
       "required": [
         "index",
         "id",
         "label",
-        "choices"
+        "choices",
+        "areas"
       ],
       "properties": {
         "index": {
@@ -190,12 +188,6 @@
             "$ref": "#/$defs/choice"
           }
         },
-        "precincts": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/$defs/precinctResult"
-          }
-        },
         "areas": {
           "type": "object",
           "additionalProperties": {
@@ -203,18 +195,6 @@
           }
         }
       },
-      "anyOf": [
-        {
-          "required": [
-            "precincts"
-          ]
-        },
-        {
-          "required": [
-            "areas"
-          ]
-        }
-      ],
       "additionalProperties": true
     }
   },

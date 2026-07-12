@@ -5,16 +5,16 @@ This repository is structured for static hosting on GitHub Pages and consumption
 ## Structure
 
 - `elections.index.json`: Machine-readable index of all elections.
-- `elections/ca/<county>/<election-id>/election.json`: Legacy election results and contest data.
+- `elections/ca/<county>/<election-id>/election.json`: Election results and contest data.
 - `elections/ca/<county>/<election-id>/results.<geography>.json`: Geography-specific results and contest data.
-- `elections/ca/<county>/<election-id>/precincts.gis.json`: Legacy or precinct geography GeoJSON.
+- `elections/ca/<county>/<election-id>/precincts.gis.json`: Area geography GeoJSON, including precinct boundaries.
 - `elections/ca/<county>/<election-id>/<geography>.gis.json`: Geography-specific boundary GeoJSON.
 - `elections/ca/<county>/<election-id>/metadata.json`: Optional metadata extensions.
 - `elections/ca/<county>/<election-id>/snapshots/<timestamp-id>/`: Timestamped election data snapshots.
 
 ## Current Imported Datasets
 
-- Election ID: `2024-11-05-general`
+- Election ID: `ca-contracosta-2024-11-05-general`
 - County: Contra Costa
 - Data file: `elections/ca/contra_costa/2024-11-05-general/election.json`
 - Precinct file: `elections/ca/contra_costa/2024-11-05-general/precincts.gis.json`
@@ -39,16 +39,18 @@ Quick implementer path:
 - Example for this repository: `https://cocoa-county.github.io/ElectionOpenDataRepository/elections.index.json`
 - Example election data URL: `https://cocoa-county.github.io/ElectionOpenDataRepository/elections/ca/contra_costa/2024-11-05-general/election.json`
 
-Consumers should read index entries and resolve any relative `dataUrl`, `precinctsUrl`, `gisUrl`, or `metadataUrl` values from the index location.
+Consumers should read index entries and resolve any relative `dataUrl`, `areasUrl`, `gisUrl`, or `metadataUrl` values from the index location.
 
 Consumer quick start:
 
 1. Fetch `elections.index.json`.
 2. Pick an election entry by `id`.
-3. Select a layer from `layers` when present, otherwise use the legacy precinct fields.
-4. Load the selected results file and GIS file.
-5. Join GIS feature identifiers to `contest.areas` or `contest.precincts` keys.
-6. Optionally load `metadataUrl`.
+3. Select one snapshot by snapshot-local `id`, `snapshotTypes`, or `resultsTimestamp`.
+4. If that snapshot has `layers`, select a layer from snapshot-local `layers[*].id`.
+5. If that snapshot has no `layers`, use snapshot legacy area fields.
+6. Load the selected results file and GIS file.
+7. Join GIS feature identifiers to `contest.areas` keys.
+8. Optionally load `metadataUrl`.
 
 ## Data Contract Notes
 
@@ -58,6 +60,10 @@ Specification scope is limited to published data artifacts and schema contracts.
 - Relative paths resolve from the index file location.
 - `defaultElectionId` should match an election `id` in the `elections` array.
 - Every `election.id` should be unique.
+- Recommended election `id` format: `{state-abbr}-{county-or-jurisdiction}-{yyyy-mm-dd}-{election-type}`.
+- Snapshot `id` values are scoped to a single election and should not include election id prefixes.
+- Layer `id` values are scoped to a single snapshot.
+- Use a composite identifier outside fields as `electionId/snapshotId/layerId`.
 - GeoJSON properties should include the declared join field values that match keys in the paired results file.
 
 ## JSON Schemas
@@ -69,7 +75,7 @@ The repository now includes JSON Schema definitions under `schemas/`:
 - `schemas/precincts.gis.schema.json`
 - `schemas/metadata.schema.json`
 
-The index and election schemas now support additive multi-layer publication. New producers should prefer `layers` plus `results.<geography>.json` and `<geography>.gis.json`, while existing precinct-only artifacts remain valid.
+The index and election schemas support snapshot-first multi-layer publication where layers are defined per snapshot and can vary by timestamp.
 
 For implementation details, use:
 
@@ -81,10 +87,11 @@ For implementation details, use:
 
 This repository now supports multiple timestamped versions of the same election to track results over time.
 
-- Use a stable election group field: `electionGroupId`.
 - Use a per-snapshot timestamp field: `resultsTimestamp` (ISO datetime).
-- Add multiple election entries in `elections.index.json` that share the same `electionGroupId` but have different `id`, `dataUrl`, and `resultsTimestamp` values.
+- Add multiple snapshots under one election entry using unique `id` values and distinct `resultsTimestamp` values.
 - If multiple snapshots use the same GIS file for a geography view, store one shared `<geography>.gis.json` at the election root and point snapshot metadata or index entries at that shared file.
+- Snapshot layer sets are allowed to differ across timestamps.
+- Snapshot `layers` are self-contained and replace parent election layers for snapshot rendering.
 
 ## Troubleshooting
 
@@ -92,3 +99,4 @@ This repository now supports multiple timestamped versions of the same election 
 - **Missing metadata warning**: Some `metadata.json` files are optional and may be absent by design.
 - **Unexpected 404 on GitHub Pages**: Verify GitHub Pages is enabled for the `main` branch root and that the latest workflow run completed successfully.
 - **Path consistency checks**: Repository-specific checks are documented in `docs/ai/repo-operations.md`.
+

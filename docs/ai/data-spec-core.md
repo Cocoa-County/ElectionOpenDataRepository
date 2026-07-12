@@ -8,7 +8,7 @@ The specification is data-shape oriented and implementation-neutral.
 
 1. `elections.index.json`
 2. At least one election results document referenced by `dataUrl` or by a geography view `dataUrl`
-3. At least one GIS GeoJSON document referenced by `precinctsUrl` or by a geography view `gisUrl`
+3. At least one GIS GeoJSON document referenced by `areasUrl` or by a geography view `gisUrl`
 
 Optional artifact:
 
@@ -20,17 +20,24 @@ Optional artifact:
 2. Each election entry must include:
    1. `id`
    2. `label`
-   3. Either the legacy precinct fields `dataUrl`, `precinctsUrl`, `precinctIdField`, and `precinctLabelField`, or a `layers` array
-3. Each `layers` item must include:
+   3. `snapshots` with at least one snapshot
+3. Each snapshot `layers` item must include:
    1. `id`
    2. `type`
    3. `label`
    4. `dataUrl`
    5. `gisUrl`
    6. `joinField`
-4. `dataUrl`, `precinctsUrl`, `gisUrl`, and `metadataUrl` may be absolute URLs or relative paths.
+4. `dataUrl`, `areasUrl`, `gisUrl`, and `metadataUrl` may be absolute URLs or relative paths.
 5. Consumers resolve relative paths from the location of `elections.index.json`.
 6. Consumers must ignore unknown fields.
+7. A snapshot must be self-contained. It publishes exactly one mode:
+   1. Legacy area fields: `dataUrl`, `areasUrl`, `areaIdField`, `areaLabelField`
+   2. A `layers` array
+8. If a snapshot has `layers`, consumers must use snapshot layers only and must not inherit parent election layers.
+9. Snapshot `id` is local to an election, and layer `id` is local to a snapshot.
+10. Use composite addressing outside the data fields as `electionId/snapshotId/layerId`.
+11. Recommended election `id` format: `{state-abbr}-{county-or-jurisdiction}-{yyyy-mm-dd}-{election-type}`.
 
 ## File Contracts
 
@@ -53,7 +60,7 @@ Any additional metadata fields are optional extensions and may be ignored by con
 ## Minimal Conformance Targets
 
 1. Core Producer:
-   Publishes index, election results, and precinct GIS documents that validate against core schemas.
+   Publishes index, election results, and area GIS documents that validate against core schemas.
 2. Core Consumer:
    Reads required core fields and safely ignores unknown fields.
 
@@ -65,16 +72,16 @@ Any additional metadata fields are optional extensions and may be ignored by con
 {
    "version": 1,
    "updated": "2026-07-09",
-   "defaultElectionId": "2026-06-02-primary",
+   "defaultElectionId": "ca-example-2026-06-02-primary",
    "elections": [
       {
-         "id": "2026-06-02-primary",
+         "id": "ca-example-2026-06-02-primary",
          "label": "June 2, 2026 Primary",
          "dataUrl": "elections/ca/example/2026-06-02-primary/election.json",
-         "precinctsUrl": "elections/ca/example/2026-06-02-primary/precincts.gis.json",
+         "areasUrl": "elections/ca/example/2026-06-02-primary/precincts.gis.json",
          "metadataUrl": "elections/ca/example/2026-06-02-primary/metadata.json",
-         "precinctIdField": "precinct_id",
-         "precinctLabelField": "precinct_name",
+         "areaIdField": "precinct_id",
+         "areaLabelField": "precinct_name",
          "layers": [
             {
                "id": "precincts",
@@ -176,9 +183,9 @@ Any additional metadata fields are optional extensions and may be ignored by con
                "votes": 95
             }
          ],
-         "precincts": {
+         "areas": {
             "p-001": {
-               "label": "Precinct 001",
+               "label": "Area 001",
                "registeredVoters": 400,
                "totalVoters": 225,
                "results": [120, 95]
@@ -243,10 +250,13 @@ Use this minimal flow in any language:
 
 1. Fetch and parse `elections.index.json`.
 2. Select an election entry by `defaultElectionId` or a caller-provided `id`.
-3. If `layers` is present, select a layer by `id` or `type`; otherwise use the legacy precinct fields.
-4. Resolve `dataUrl` and `precinctsUrl` or the selected geography `dataUrl` and `gisUrl` relative to the index location when needed.
-5. Fetch and parse election results and the selected GIS GeoJSON file.
-6. Read feature identifier values from GeoJSON using `joinField` or `precinctIdField`.
-7. Join GeoJSON identifiers to `contest.areas` or `contest.precincts` keys from results data.
-8. If `metadataUrl` exists, fetch it as optional context only.
-9. Ignore unknown fields in all documents.
+3. Select one snapshot by snapshot-local `id`, `snapshotTypes`, or `resultsTimestamp`.
+4. If the selected snapshot has `layers`, select a layer by snapshot-local layer `id` or `type`.
+5. If the selected snapshot does not have `layers`, use that snapshot's legacy area fields.
+6. Resolve selected `dataUrl`, `areasUrl`, `gisUrl`, and `metadataUrl` relative to the index location when needed.
+7. Fetch and parse election results and the selected GIS GeoJSON file.
+8. Read feature identifier values from GeoJSON using `joinField` or `areaIdField`.
+9. Join GeoJSON identifiers to `contest.areas` keys from results data.
+10. If `metadataUrl` exists, fetch it as optional context only.
+11. Ignore unknown fields in all documents.
+
